@@ -8,13 +8,17 @@
     "start": "next start"
   },
   "dependencies": {
+    "@fluentui/react-icons": "^1.1.135",
+    "@svgr/webpack": "^5.5.0",
     "next": "11.0.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "sass": "^1.35.2"
   },
   "devDependencies": {
     "@types/next": "^9.0.0",
     "@types/react": "17.0.13",
-    "typescript": "4.3.5"
+    "typescript": "4.3.5",
+    "typescript-plugin-css-modules": "^3.4.0"
   }
 }
