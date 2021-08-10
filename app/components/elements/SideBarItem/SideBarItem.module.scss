@@ -1,0 +1,22 @@
+@import 'variables';
+
+.sidebarItem {
+  width: 100%;
+  padding: 10px 20px;
+  color: $color-text;
+
+  &.active {
+    color: $color-text-active;
+    svg * {
+      fill: $color-text-active;
+    }
+  }
+
+  svg {
+    * {
+      fill: $color-text;
+    }
+    width: 24px;
+    height: 24px;
+  }
+}

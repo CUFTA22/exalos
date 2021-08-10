@@ -5,7 +5,7 @@ import Cursor from '@element/Cursor/Cursor';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Cursor />
+      {/* <Cursor /> */}
       <Component {...pageProps} />
     </>
   );

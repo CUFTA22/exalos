@@ -1,6 +1,6 @@
 import classes from './Cursor.module.scss';
 import useMousePosition from '@hooks/useMousePosition';
-import Logo from '@assets/logos/exalosLogo.svg';
+import Logo from '@assets/logos/exalos.svg';
 
 const Cursor = () => {
   const { clientX, clientY } = useMousePosition();

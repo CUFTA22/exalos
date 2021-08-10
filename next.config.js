@@ -11,7 +11,10 @@ module.exports = {
     return config;
   },
   sassOptions: {
-    includePaths: [path.join(__dirname, 'app/styles')],
+    includePaths: [
+      path.join(__dirname, 'app/styles/abstracts'),
+      path.join(__dirname, 'app/styles/base'),
+    ],
   },
   i18n: {
     locales: ['en-US'],

@@ -1,0 +1,15 @@
+@import 'mixins';
+
+.sidebar {
+  width: 60px;
+  height: 100%;
+  border-radius: 10px;
+  @include flex-column();
+
+  .sidebarTop {
+    svg {
+      width: 45px;
+      height: 47px;
+    }
+  }
+}
