@@ -6,22 +6,25 @@
   height: 95vh;
   border-radius: 10px;
   background: $color-sidebar;
+  position: relative;
+  box-shadow: #00000026 1px 1px 2px;
 
   @include flex-col-space;
 
-  .sidebarTop {
+  .sidebar_top {
     margin: 20px 0;
     svg {
       width: 40px;
       height: 40px;
+      cursor: pointer;
     }
   }
 
-  .sidebarMid {
+  .sidebar_mid {
     width: 50px;
   }
 
-  .sidebarBot {
+  .sidebar_bot {
     margin: 20px 0;
     svg {
       width: 40px;

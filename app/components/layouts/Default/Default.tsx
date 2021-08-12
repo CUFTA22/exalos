@@ -15,8 +15,8 @@ const Default: React.FC<Props> = ({ children }) => (
           parent: '#np-container',
         }}
       />
-      <PageTransition>{children}</PageTransition>
-      {/* {children} */}
+      {/* <PageTransition>{children}</PageTransition> */}
+      {children}
     </div>
   </div>
 );

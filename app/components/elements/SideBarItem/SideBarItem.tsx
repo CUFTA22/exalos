@@ -11,7 +11,7 @@ const SideBarItem: React.FC<Props> = ({ Icon, route, text }) => {
 
   return (
     <Link href={route}>
-      <div className={clsx(styles.sidebarItem, { [styles.active]: isActive })}>
+      <div className={clsx(styles.sidebar_item, { [styles.active]: isActive })}>
         <Icon />
         <div className="txt">{text}</div>
       </div>
