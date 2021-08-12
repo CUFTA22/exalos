@@ -11,14 +11,20 @@ const SideBar: React.FC = () => {
         <Logo />
       </div>
 
-      {sideBarItems.map((item) => (
-        <SideBarItem
-          key={item.route}
-          Icon={item.Svg}
-          route={item.route}
-          text={item.text}
-        />
-      ))}
+      <div className={styles.sidebarMid}>
+        {sideBarItems.map((item) => (
+          <SideBarItem
+            key={item.route}
+            Icon={item.Svg}
+            route={item.route}
+            text={item.text}
+          />
+        ))}
+      </div>
+
+      <div className={styles.sidebarBot}>
+        <Logo />
+      </div>
     </div>
   );
 };

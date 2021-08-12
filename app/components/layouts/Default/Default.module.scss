@@ -14,4 +14,11 @@
   height: 95vh;
   background: $color-background;
   border-radius: 10px;
+
+  // Dotted background
+  background-image: radial-gradient(
+    #{$color-sidebar-active} 1.4px,
+    transparent 0
+  );
+  background-size: 20px 20px;
 }

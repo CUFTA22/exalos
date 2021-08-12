@@ -5,18 +5,27 @@
   width: $width-sidebar;
   height: 95vh;
   border-radius: 10px;
-  padding: 0 5px;
-  position: relative;
-  z-index: 3;
   background-color: $color-sidebar;
 
-  @include flex-col-start;
+  @include flex-col-space;
 
   .sidebarTop {
-    margin: 20px 0 50px 0;
+    margin: 20px 0;
     svg {
-      width: 45px;
-      height: 45px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  .sidebarMid {
+    width: 50px;
+  }
+
+  .sidebarBot {
+    margin: 20px 0;
+    svg {
+      width: 40px;
+      height: 40px;
     }
   }
 }
