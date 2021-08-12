@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNonInitialEffect } from '@hooks/useNonInitialEffect';
 import { Animations, animations } from './theme';
 
@@ -25,7 +25,7 @@ const PageTransition: React.FC<Props> = ({
   const [displayContent, setDisplayContent] =
     useState<React.ReactNode>(children);
 
-  useNonInitialEffect(() => {
+  useEffect(() => {
     setAnimation('out');
   }, [children]);
 
@@ -40,10 +40,6 @@ const PageTransition: React.FC<Props> = ({
     transition: !className && `opacity ${durationOut}ms ease-out`,
     opacity: !className && animation === 'out' ? 0 : 1,
     animationDuration: durationOut + 'ms',
-    position: 'absolute',
-    width: '100%',
-    height: '100vh',
-    zIndex: '2',
     ...style,
   };
 

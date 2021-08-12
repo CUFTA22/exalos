@@ -7,7 +7,12 @@ $color-text-secondary: #8a8abd;
 
 $color-body: #0f0f16;
 $color-background: #2a2a42;
-$color-sidebar: #2e2e48;
+$color-sidebar: linear-gradient(
+  0deg,
+  rgba(46, 46, 72, 1) 0%,
+  rgba(48, 48, 72, 1) 50%,
+  rgba(46, 46, 72, 1) 100%
+);
 $color-sidebar-active: #353452;
 
 $width-sidebar: 60px;

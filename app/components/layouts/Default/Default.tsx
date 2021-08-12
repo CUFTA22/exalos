@@ -1,4 +1,5 @@
-import NextNProgress from '@module/PageTransition/NextNProgress';
+import NextNProgress from 'app/modules/PageTransition/NextNProgress';
+import PageTransition from 'app/modules/PageTransition/PageTransition';
 import SideBar from '@shared/SideBar/SideBar';
 import styles from './Default.module.scss';
 import { Props } from './types';
@@ -14,8 +15,8 @@ const Default: React.FC<Props> = ({ children }) => (
           parent: '#np-container',
         }}
       />
-      {/* <PageTransition>{children}</PageTransition> */}
-      {children}
+      <PageTransition>{children}</PageTransition>
+      {/* {children} */}
     </div>
   </div>
 );

@@ -6,7 +6,7 @@
       "@element/*": ["app/components/elements/*"],
       "@layout/*": ["app/components/layouts/*"],
       "@shared/*": ["app/components/shared/*"],
-      "@module/*": ["app/components/modules/*"],
+      "@module/*": ["app/modules/*"],
       "@template/*": ["app/components/templates/*"],
       "@constant/*": ["app/constants/*"],
       "@assets/*": ["public/assets/*"],
