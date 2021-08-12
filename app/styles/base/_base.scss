@@ -1,3 +1,5 @@
+@import 'variables';
+
 *,
 *:after,
 *:before {
@@ -16,8 +18,15 @@ body {
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
   font-size: 1.6rem;
+  background-color: $color-body;
 }
 
 a {
   text-decoration: none;
+}
+
+.root-span {
+  display: flex;
+  align-items: center;
+  height: fit-content;
 }

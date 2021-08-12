@@ -1,6 +1,7 @@
 import {
   CalendarLtr24Regular,
   Cube24Regular,
+  DataPie24Regular,
   Earth24Regular,
   MusicNote124Regular,
   Options24Regular,
@@ -10,29 +11,34 @@ import Collections from '@assets/icons/collections.svg';
 
 export const sideBarItems = [
   {
+    text: 'Statistics',
+    Svg: DataPie24Regular,
+    route: '/',
+  },
+  {
     text: 'Planner',
     Svg: CalendarLtr24Regular,
-    route: '/',
+    route: '/planner',
   },
   {
     text: 'Tasks',
     Svg: Collections,
-    route: '/',
+    route: '/tasks',
   },
   {
     text: 'Music',
     Svg: MusicNote124Regular,
-    route: '/',
+    route: '/music',
   },
   {
     text: 'Demos',
     Svg: Cube24Regular,
-    route: '/',
+    route: '/demos',
   },
   {
     text: 'Options',
     Svg: Options24Regular,
-    route: '/',
+    route: '/options',
   },
 ];
 

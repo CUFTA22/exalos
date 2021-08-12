@@ -1,0 +1,22 @@
+@import 'mixins';
+@import 'variables';
+
+.sidebar {
+  width: $width-sidebar;
+  height: 95vh;
+  border-radius: 10px;
+  padding: 0 5px;
+  position: relative;
+  z-index: 3;
+  background-color: $color-sidebar;
+
+  @include flex-col-start;
+
+  .sidebarTop {
+    margin: 20px 0 50px 0;
+    svg {
+      width: 45px;
+      height: 45px;
+    }
+  }
+}

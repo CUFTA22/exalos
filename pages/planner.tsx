@@ -1,17 +1,16 @@
 import Default from '@layout/Default/Default';
-import Page from '@template/Index/Index';
+import Page from '@template/Planner/Planner';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 
-// export const getServerSideProps: GetServerSideProps = async (context) => {
-//   // context.query -> params
-//   // api -> getHomePageData()
-//   return {
-//     props: {},
-//   };
-// };
-
-const Home = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  // context.query -> params
+  // service -> getHomePageData()
+  return {
+    props: {},
+  };
+};
+const Planner = () => {
   return (
     <Default>
       <Head>
@@ -24,4 +23,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Planner;

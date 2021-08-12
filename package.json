@@ -10,7 +10,9 @@
   "dependencies": {
     "@fluentui/react-icons": "^1.1.135",
     "@svgr/webpack": "^5.5.0",
+    "clsx": "^1.1.1",
     "next": "11.0.1",
+    "nprogress": "^0.2.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "sass": "^1.35.2"

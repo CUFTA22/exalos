@@ -10,17 +10,15 @@ const SideBar: React.FC = () => {
       <div className={styles.sidebarTop}>
         <Logo />
       </div>
-      <div className={styles.sidebarMiddle}>
-        {sideBarItems.map((item) => (
-          <SideBarItem
-            key={item.route}
-            Icon={item.Svg}
-            route={item.route}
-            text={item.text}
-          />
-        ))}
-      </div>
-      <div className={styles.sidebarBottom}></div>
+
+      {sideBarItems.map((item) => (
+        <SideBarItem
+          key={item.route}
+          Icon={item.Svg}
+          route={item.route}
+          text={item.text}
+        />
+      ))}
     </div>
   );
 };

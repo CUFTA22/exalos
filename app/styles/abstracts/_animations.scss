@@ -1,0 +1,13 @@
+@keyframes sideBar-grow {
+  from {
+    width: 60px;
+  }
+  to {
+    width: 140px;
+  }
+}
+
+$ease-in-expo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+
+$tran-sidebarItem: all 200ms ease-in-out; // #{$ease-in-expo}
+// $anim-sidebarItem: sideBar-grow 200ms #{$ease-in-expo} alternate;

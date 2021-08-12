@@ -1,18 +1,38 @@
-@mixin flex-align {
+@mixin flex-row-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-row-space {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-@mixin flex-center {
+@mixin flex-row-start {
   display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+@mixin flex-col-center {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-@mixin flex-column {
+@mixin flex-col-space {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-col-start {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
 }

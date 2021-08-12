@@ -1,11 +1,12 @@
-import '../app/styles/base/_base.scss';
+import '@styles/base/_base.scss';
+import '@styles/base/_transitions.scss';
 import type { AppProps } from 'next/app';
-import Cursor from '@element/Cursor/Cursor';
+import Cursor from '@module/Cursor/Cursor';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      {/* <Cursor /> */}
+      <Cursor disabled />
       <Component {...pageProps} />
     </>
   );
