@@ -3,7 +3,8 @@
 .page_index {
   .section {
     padding: 10px;
-    @include container-1;
     background-color: $color-container-1;
+
+    @include container-1;
   }
 }
