@@ -32,6 +32,13 @@
   align-items: center;
 }
 
+@mixin flex-col-around {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
 @mixin flex-col-start {
   display: flex;
   flex-direction: column;
@@ -39,8 +46,15 @@
   align-items: center;
 }
 
-@mixin container-1 {
+@mixin sidebar-item {
   box-shadow: #00000033 0px 3px 8px 1px, #3d3c62 0px 2px 0px inset;
   background-color: $color-sidebar-active;
+  border-radius: 10px;
+}
+
+@mixin lib-card {
+  box-shadow: #00000033 0px 3px 8px 1px, #3d3c62 0px 2px 0px inset;
+  padding: 10px;
+  background-color: $color-container-1;
   border-radius: 10px;
 }

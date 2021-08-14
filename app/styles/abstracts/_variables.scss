@@ -1,24 +1,22 @@
-$color-primary: #90cbf8;
-$color-black: #050517;
-$color-white: #fff;
+$color-primary: hsl(206, 88%, 77%);
+$color-black: hsl(240, 64%, 5%);
+$color-white: hsl(0, 0%, 100%);
 
-$color-text-primary: #e7e7e7;
-$color-text-secondary: #8a8abd;
+$color-text-primary: hsl(0, 0%, 91%);
+$color-text-secondary: hsl(240, 28%, 64%);
 
-$color-body: #0f0f16;
-$color-background: #2a2a42;
+$color-body: radial-gradient(ellipse at bottom, #172230 0%, #090a0f 100%);
+$color-background: hsla(240, 22%, 21%, 0.9);
 $color-sidebar: linear-gradient(
   0deg,
   rgba(46, 46, 72, 1) 0%,
   rgba(48, 48, 72, 1) 50%,
   rgba(46, 46, 72, 1) 100%
 );
-$color-sidebar-active: #353452;
-$color-container-1: #3534528c;
+$color-sidebar-active: hsl(242, 22%, 26%);
+$color-container-1: hsla(242, 22%, 26%, 0.8);
 
 $width-sidebar: 60px;
-
-$grid-columns: 12;
 
 // Example
 $breakpoints: (

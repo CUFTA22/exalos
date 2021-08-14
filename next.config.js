@@ -14,6 +14,7 @@ module.exports = {
     includePaths: [
       path.join(__dirname, 'app/styles/abstracts'),
       path.join(__dirname, 'app/styles/base'),
+      path.join(__dirname, 'app/styles/scss'),
     ],
   },
   i18n: {

@@ -8,6 +8,7 @@
   background: $color-sidebar;
   position: relative;
   box-shadow: #00000026 1px 1px 2px;
+  z-index: 3;
 
   @include flex-col-space;
 

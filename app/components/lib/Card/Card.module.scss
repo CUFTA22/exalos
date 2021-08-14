@@ -1,0 +1,5 @@
+@import 'mixins';
+
+.lib_card {
+  @include lib-card;
+}

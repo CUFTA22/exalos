@@ -1,10 +1,5 @@
 @import 'mixins';
 
 .page_index {
-  .section {
-    padding: 10px;
-    background-color: $color-container-1;
-
-    @include container-1;
-  }
+  // Some grid layout
 }

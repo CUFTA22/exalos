@@ -54,3 +54,5 @@ const demoItems = [
     route: '/',
   },
 ];
+
+export const protectedRoutes = ['/planner', '/tasks'];

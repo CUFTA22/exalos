@@ -1,3 +1,4 @@
+// import { protectedRoutes } from 'app/utils/resources/sideBarData';
 import clsx from 'clsx';
 import { useRouter } from 'next/dist/client/router';
 import Link from 'next/link';
@@ -8,6 +9,8 @@ import { Props } from './types';
 const SideBarItem: React.FC<Props> = ({ Icon, route, text }) => {
   const router = useRouter();
   const isActive = router.route === route;
+
+  // if (protectedRoutes.includes(route)) return null;
 
   return (
     <Link href={route}>
