@@ -1,14 +1,20 @@
 @import 'variables';
 @import 'mixins';
 
+$dot-color: transparentize(
+  $color: $color-primary,
+  $amount: 0.6,
+);
+
 .lib_fab {
   width: 36px;
   height: 36px;
   cursor: pointer;
   border-radius: 50%;
-  border: 1px solid $color-primary;
+  border: 1px solid transparentize($color: $color-primary, $amount: 0.3);
   box-shadow: transparentize($color: $color-primary, $amount: 0.85) 0px 0px 2px 4px;
   position: relative;
+  user-select: none;
   transition: all 0.1s ease-in-out;
   color: $color-primary;
 
@@ -23,9 +29,9 @@
     }
 
     // Dots
-    box-shadow: -2px -14.5px 0 -9.2px $color-primary, -5px -14px 0 -9.2px $color-primary,
-      -8px -12.5px 0 -9.2px $color-primary, 2px 14.5px 0 -9.2px $color-primary,
-      5px 14px 0 -9.2px $color-primary, 8px 12.5px 0 -9.2px $color-primary;
+    box-shadow: -2.2px -14.8px 0 -9.2px $dot-color, -5.3px -14.2px 0 -9.2px $dot-color,
+      -8px -12.5px 0 -9.2px $dot-color, 2.2px 14.8px 0 -9.2px $dot-color,
+      5.3px 14.2px 0 -9.2px $dot-color, 8px 12.5px 0 -9.2px $dot-color;
   }
 
   .outer {
@@ -38,9 +44,9 @@
     transition: transform 0.3s ease-in-out;
 
     // Dots
-    box-shadow: -18.5px -12px 0 -21px $color-primary, 18.5px -12px 0 -21px $color-primary,
-      22px 0px 0 -21px $color-primary, 18.5px 12px 0 -21px $color-primary,
-      -18.5px 12px 0 -21px $color-primary, -22px 0px 0 -21px $color-primary;
+    box-shadow: -18.5px -12px 0 -21px $dot-color, 18.5px -12px 0 -21px $dot-color,
+      22px 0px 0 -21px $dot-color, 18.5px 12px 0 -21px $dot-color, -18.5px 12px 0 -21px $dot-color,
+      -22px 0px 0 -21px $dot-color;
 
     position: absolute;
     z-index: 10;
