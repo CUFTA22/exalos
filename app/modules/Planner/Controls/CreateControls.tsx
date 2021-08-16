@@ -1,4 +1,6 @@
+import { EyeShow24Regular, Settings24Regular } from '@fluentui/react-icons';
 import Card from '@lib/Card/Card';
+import FAB from '@lib/FAB/FAB';
 import { useState } from 'react';
 import TypeSelect from '../TypeSelect';
 import TypesModal from '../TypesModal/TypesModal';
@@ -15,9 +17,13 @@ const CreateControls = () => {
       {state.typesModal && (
         <TypesModal isOpen={state.typesModal} toggleModal={() => toggleModal('typesModal')} />
       )}
-      <div className="left">
+      <div className={styles.left}>
         <TypeSelect />
         {/* <button onClick={() => toggleModal('typesModal')}>toggle</button> */}
+      </div>
+      <div className={styles.right}>
+        <FAB className={styles.fab} Icon={Settings24Regular} />
+        <FAB className={styles.fab} Icon={EyeShow24Regular} />
       </div>
     </Card>
   );

@@ -4,6 +4,8 @@ import Logo from '@assets/logos/exalos.svg';
 import { sideBarItems } from 'app/utils/resources/sideBarData';
 import SideBarItem from '@element/SideBarItem/SideBarItem';
 import Link from 'next/link';
+import FAB from '@lib/FAB/FAB';
+import { Person24Regular } from '@fluentui/react-icons';
 
 const SideBar: React.FC = () => {
   return (
@@ -16,18 +18,11 @@ const SideBar: React.FC = () => {
 
       <div className={styles.sidebar_mid}>
         {sideBarItems.map((item) => (
-          <SideBarItem
-            key={item.route}
-            Icon={item.Svg}
-            route={item.route}
-            text={item.text}
-          />
+          <SideBarItem key={item.route} Icon={item.Svg} route={item.route} text={item.text} />
         ))}
       </div>
 
-      <div className={styles.sidebar_bot}>
-        <Logo />
-      </div>
+      <FAB className={styles.sidebar_bot} Icon={Person24Regular} />
     </div>
   );
 };

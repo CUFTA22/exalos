@@ -3,6 +3,18 @@
 .controls {
   height: 60px;
   width: 100%;
+  padding: 0 20px;
 
   @include flex-row-space;
+
+  .left {
+  }
+
+  .right {
+    @include flex-row-center;
+
+    .fab {
+      margin-left: 26px;
+    }
+  }
 }
