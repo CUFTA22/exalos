@@ -1,0 +1,80 @@
+@import 'variables';
+@import 'animations';
+
+.lib_button {
+  width: fit-content;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  padding: 8px 10px;
+  transition: 0.1s;
+  height: 35px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  border-left: none;
+  border-top: none;
+  background-color: transparentize($color: $color-primary, $amount: 0.95);
+
+  svg {
+    margin-right: 12px;
+    width: 18px;
+    height: 18px;
+
+    * {
+      fill: $color-primary;
+    }
+  }
+
+  &:hover {
+    opacity: 0.95;
+  }
+
+  &.primary {
+    border-color: $color-primary;
+    color: $color-primary;
+  }
+  &.cancel {
+    border-color: $color-danger;
+    color: $color-danger;
+  }
+  &.inactive {
+    border-color: $color-inactive;
+    color: $color-inactive;
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    border-right: 1px solid $color-primary;
+    border-bottom: 1px solid $color-primary;
+    width: calc(100% - 0px);
+    height: calc(100% - 0px);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .deco {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    border: 1px solid $color-primary;
+    background-color: solid;
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+  }
+
+  .loader {
+    border-radius: 50%;
+    border: 2px solid currentColor;
+    border-bottom-color: transparent;
+    height: 20px;
+    width: 20px;
+    background: transparent !important;
+    display: inline-block;
+    animation: spin 0.75s 0s linear infinite;
+  }
+}

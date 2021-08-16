@@ -8,13 +8,18 @@
   @include flex-row-space;
 
   .left {
+    @include flex-row-center;
   }
 
   .right {
     @include flex-row-center;
-
-    .fab {
-      margin-left: 26px;
-    }
   }
+
+  .mleft {
+    margin-left: 20px;
+  }
+
+  // .mright {
+  //   margin-right: 20px;
+  // }
 }

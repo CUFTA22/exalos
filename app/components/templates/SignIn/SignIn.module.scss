@@ -1,0 +1,26 @@
+@import 'mixins';
+@import 'variables';
+
+.page_signin {
+  @include flex-col-center;
+  height: 100%;
+
+  .email_form {
+  }
+
+  .divider {
+    margin: 20px 0;
+    width: 400px;
+    height: 2px;
+    background-color: transparentize($color: $color-primary, $amount: 0.85);
+  }
+
+  .providers {
+    width: 400px;
+    @include flex-row-space;
+
+    .button {
+      font-size: 14px;
+    }
+  }
+}

@@ -7,6 +7,15 @@ const TypeSelect = () => {
         { label: 'First', value: 'first' },
         { label: 'Second', value: 'second' },
         { label: 'Third', value: 'third' },
+        { label: 'First', value: 'first' },
+        { label: 'Second', value: 'second' },
+        { label: 'Third', value: 'third' },
+        { label: 'First', value: 'first' },
+        { label: 'Second', value: 'second' },
+        { label: 'Third', value: 'third' },
+        { label: 'First', value: 'first' },
+        { label: 'Second', value: 'second' },
+        { label: 'Third', value: 'third' },
       ]}
     />
   );
