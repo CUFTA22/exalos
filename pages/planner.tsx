@@ -1,16 +1,18 @@
 import Default from '@layout/Default/Default';
 import Page from '@template/Planner/Planner';
-// import { GetServerSideProps } from 'next';
+import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 
-// export const getServerSideProps: GetServerSideProps = async (context) => {
-//   // context.query -> params
-//   // service -> getHomePageData()
-//   return {
-//     props: {},
-//   };
-// };
-const Planner = () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  // context.query -> params
+  // service -> getHomePageData()
+  const a = '123';
+  return {
+    props: { a },
+  };
+};
+
+const Planner = (ssProps) => {
   return (
     <Default>
       <Head>
