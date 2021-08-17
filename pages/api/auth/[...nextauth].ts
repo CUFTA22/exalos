@@ -43,7 +43,10 @@ export default NextAuth({
   // Callbacks are asynchronous functions you can use to control what happens
   // when an action is performed.
   callbacks: {
-    // async signIn(user, account, profile) { return true },
+    async signIn(user, account, profile) {
+      // Init one week in planner with user email
+      return true;
+    },
     // async jwt(token, user, account, profile, isNewUser) { return token }
   },
 

@@ -13,7 +13,8 @@
       "@assets/*": ["public/assets/*"],
       "@hooks/*": ["app/hooks/*"],
       "@ts/*": ["app/types/*"],
-      "@styles/*": ["app/styles/*"]
+      "@styles/*": ["app/styles/*"],
+      "@server/*": ["server/*"]
     },
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,

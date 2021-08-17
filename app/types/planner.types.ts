@@ -13,7 +13,7 @@ export interface Planner_Week {
 
 export interface Planner_Data {
   _id: string;
-  user_id: string;
+  user_email: string; // || user_id
   types: Planner_Type[];
   calendar: Planner_Week[];
   settings: {
