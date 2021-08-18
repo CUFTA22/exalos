@@ -11,7 +11,7 @@ export const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   await dbConnect();
 
   handleMethod(req.method, {
-    GET: ctrl.handleGet, // Retrieve all data
+    GET: ctrl.handleGet,
     POST: validate(ctrl.handlePost, postSchema), // Create new planner data ( init )
     PATCH: validate(ctrl.handlePatch, postSchema), // Update cell, settings...
     DELETE: ctrl.handleDelete, // Delete something ( ? )
