@@ -7,6 +7,8 @@ import SideBarItem from '@element/SideBarItem/SideBarItem';
 import Link from 'next/link';
 import FAB from '@lib/FAB/FAB';
 import { Person24Regular } from '@fluentui/react-icons';
+import UserPanel from '@element/UserPanel/UserPanel';
+import Spinner from '@lib/Spinner/Spinner';
 
 const SideBar: React.FC = () => {
   const [session, loading] = useSession();
@@ -30,7 +32,15 @@ const SideBar: React.FC = () => {
         ))}
       </div>
 
-      <FAB onClick={handleSignin} className={styles.sidebar_bot} Icon={Person24Regular} />
+      <div className={styles.sidebar_bottom}>
+        {loading ? (
+          <Spinner />
+        ) : session ? (
+          <UserPanel />
+        ) : (
+          <FAB onClick={handleSignin} Icon={Person24Regular} />
+        )}
+      </div>
     </div>
   );
 };

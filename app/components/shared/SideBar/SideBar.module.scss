@@ -9,11 +9,11 @@
   position: relative;
   box-shadow: #00000026 1px 1px 2px;
   z-index: 3;
+  padding: 20px 0;
 
   @include flex-col-space;
 
   .sidebar_top {
-    margin: 20px 0;
     svg {
       width: 40px;
       height: 40px;
@@ -25,7 +25,9 @@
     width: 50px;
   }
 
-  .sidebar_bot {
-    margin: 20px 0;
+  .sidebar_bottom {
+    width: 50px;
+    height: 50px;
+    @include flex-row-center;
   }
 }

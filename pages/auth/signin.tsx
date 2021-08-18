@@ -1,12 +1,23 @@
 import Default from '@layout/Default/Default';
 import Page from '@template/SignIn/SignIn';
 import { GetServerSideProps } from 'next';
-import { getProviders } from 'next-auth/client';
+import { getProviders, getSession } from 'next-auth/client';
 import Head from 'next/head';
 
 // This is the recommended way for Next.js 9.3 or newer
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const providers = await getProviders();
+  const session = await getSession(context);
+
+  if (session) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
+
   return {
     props: { providers },
   };

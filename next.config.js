@@ -17,6 +17,9 @@ module.exports = {
       path.join(__dirname, 'app/styles/scss'),
     ],
   },
+  images: {
+    domains: ['avatars.githubusercontent.com', 'lh3.googleusercontent.com'],
+  },
   i18n: {
     locales: ['en-US'],
     defaultLocale: 'en-US',

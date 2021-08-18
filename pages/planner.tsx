@@ -6,13 +6,16 @@ import Head from 'next/head';
 export const getServerSideProps: GetServerSideProps = async (context) => {
   // context.query -> params
   // service -> getHomePageData()
-  const a = '123';
+  const sw = await fetch('https://swapi.dev/api/people/1').then((res) => res.json());
+
   return {
-    props: { a },
+    props: { sw },
   };
 };
 
 const Planner = (ssProps) => {
+  console.log(ssProps);
+
   return (
     <Default>
       <Head>

@@ -1,13 +1,13 @@
-import './TypesModal.module.scss';
+import './SettingsModal.module.scss';
 import Modal from '@lib/Modal/Modal';
 import { ModalProps } from '@ts/modal.types';
 
-const TypesModal: React.FC<ModalProps> = ({ isOpen, toggleModal }) => {
+const SettingsModal: React.FC<ModalProps> = ({ isOpen, toggleModal }) => {
   return (
     <Modal isOpen={isOpen} onRequestClose={toggleModal}>
-      awd
+      Settings
     </Modal>
   );
 };
 
-export default TypesModal;
+export default SettingsModal;

@@ -33,8 +33,6 @@ const Button: React.FC<ButtonProps> = ({
       onClick={clickFunc}
       style={potentialStyles}
     >
-      <div className={styles.deco}></div>
-
       <Icon />
       {isLoading ? Spinner : text}
     </div>

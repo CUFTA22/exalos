@@ -1,4 +1,4 @@
-import { BuiltInProviders, OAuthProvider } from 'next-auth/providers';
+import { OAuthProvider } from 'next-auth/providers';
 
 interface PotentialProps {
   providers?: OAuthProvider;

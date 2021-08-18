@@ -3,6 +3,7 @@ import Card from '@lib/Card/Card';
 import FAB from '@lib/FAB/FAB';
 import { useState } from 'react';
 import TypeSelect from '../TypeSelect';
+import SettingsModal from '../SettingsModal/SettingsModal';
 import TypesModal from '../TypesModal/TypesModal';
 import styles from './Controls.module.scss';
 import { initialState, State } from './types';
@@ -17,13 +18,24 @@ const CreateControls = () => {
       {state.typesModal && (
         <TypesModal isOpen={state.typesModal} toggleModal={() => toggleModal('typesModal')} />
       )}
+      {state.settingsModal && (
+        <SettingsModal isOpen={state.typesModal} toggleModal={() => toggleModal('settingsModal')} />
+      )}
+
       <div className={styles.left}>
         <TypeSelect />
-        <FAB className={styles.mleft} Icon={Add24Regular} />
-        {/* <button onClick={() => toggleModal('typesModal')}>toggle</button> */}
+        <FAB
+          onClick={() => toggleModal('typesModal')}
+          className={styles.mleft}
+          Icon={Add24Regular}
+        />
       </div>
       <div className={styles.right}>
-        <FAB className={styles.mleft} Icon={Settings24Regular} />
+        <FAB
+          onClick={() => toggleModal('settingsModal')}
+          className={styles.mleft}
+          Icon={Settings24Regular}
+        />
         <FAB className={styles.mleft} Icon={EyeShow24Regular} />
       </div>
     </Card>

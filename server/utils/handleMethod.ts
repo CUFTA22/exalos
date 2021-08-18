@@ -2,10 +2,10 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 
 type Handler = (req: NextApiRequest, res: NextApiResponse) => Promise<any>;
 interface Callbacks {
-  GET: Handler;
-  POST: Handler;
-  PATCH: Handler;
-  DELETE: Handler;
+  GET: Handler | void;
+  POST: Handler | void;
+  PATCH: Handler | void;
+  DELETE: Handler | void;
 }
 
 const handleMethod = (method: string, callbacks: Callbacks) => {

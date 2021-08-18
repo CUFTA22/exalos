@@ -6,6 +6,7 @@ import { getProviderIcon } from './util';
 
 const SignIn: React.FC<TemplateProps> = ({ ssProps }) => {
   const { providers } = ssProps;
+
   return (
     <div className={styles.page_signin}>
       <div className={styles.email_form}></div>
@@ -18,8 +19,7 @@ const SignIn: React.FC<TemplateProps> = ({ ssProps }) => {
             key={provider.name}
             text={`${provider.name}`}
             width={180}
-            // onClick={() => signIn(provider.id)}
-            onClick={() => {}}
+            onClick={() => signIn(provider.id)}
             Icon={getProviderIcon[provider.name]}
           />
         ))}
