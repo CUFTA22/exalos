@@ -20,11 +20,11 @@ const SideBar: React.FC = () => {
 
   return (
     <div className={styles.sidebar}>
-      <div className={styles.sidebar_top}>
-        <Link href="/">
+      <Link href="/">
+        <div className={styles.sidebar_top}>
           <Logo />
-        </Link>
-      </div>
+        </div>
+      </Link>
 
       <div className={styles.sidebar_mid}>
         {sideBarItems.map((item) => (

@@ -14,8 +14,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 };
 
 const Planner = (ssProps) => {
-  console.log(ssProps);
-
   return (
     <Default>
       <Head>

@@ -6,6 +6,7 @@
   height: 100vh;
   background: $color-body;
   overflow: hidden;
+  position: relative;
 
   @include flex-row-center();
 }
@@ -17,6 +18,7 @@
   border-radius: 10px;
   padding: 20px;
   position: relative;
+  overflow: hidden;
   z-index: 2;
   margin-right: 6px; // Stars somehow fuck up positioning
 

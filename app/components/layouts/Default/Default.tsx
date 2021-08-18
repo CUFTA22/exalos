@@ -1,5 +1,4 @@
 import NextNProgress from 'app/modules/PageTransition/NextNProgress';
-import PageTransition from 'app/modules/PageTransition/PageTransition';
 import SideBar from '@shared/SideBar/SideBar';
 import styles from './Default.module.scss';
 import stars from '@styles/scss/parallaxStars.module.scss';
@@ -13,14 +12,7 @@ const Default: React.FC<Props> = ({ children }) => (
 
     <SideBar />
     <div id="np-container" className={styles.content}>
-      <NextNProgress
-        options={{
-          showSpinner: false,
-          trickleSpeed: 200,
-          parent: '#np-container',
-        }}
-      />
-      {/* <PageTransition>{children}</PageTransition> */}
+      <NextNProgress />
       {children}
     </div>
   </div>
