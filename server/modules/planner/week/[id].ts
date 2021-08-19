@@ -10,7 +10,7 @@ export const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   const router = useRouter(req, res);
 
-  router._post(ctrl.handlePost); // Create week
+  router._delete(ctrl.handleDelete); // Delete week
 };
 
 export default handler;

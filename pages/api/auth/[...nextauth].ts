@@ -40,16 +40,6 @@ export default NextAuth({
     // verifyRequest: '/auth/verify-request', // (used for check email message)
   },
 
-  // Callbacks are asynchronous functions you can use to control what happens
-  // when an action is performed.
-  callbacks: {
-    // async signIn(user, account, profile) {
-    //   // Init one week in planner with user email
-    //   return true;
-    // },
-    // async jwt(token, user, account, profile, isNewUser) { return token }
-  },
-
   // A database is optional, but required to persist accounts in a database
   database: process.env.MONGO_URI,
 });

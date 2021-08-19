@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import authGuard from '@server/middlewares/authGuard';
-import * as ctrl from './week.controller';
+import * as ctrl from './planner.controller';
 import dbConnect from '@server/config/dbConnect';
 import useRouter from '@server/helpers/handleRouter';
 
@@ -10,7 +10,7 @@ export const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   const router = useRouter(req, res);
 
-  router._post(ctrl.handlePost); // Create week
+  router._get(ctrl.handleGet);
 };
 
 export default handler;

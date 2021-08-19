@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import authGuard from '@server/middlewares/authGuard';
-import handleMethod from '@server/utils/handleMethod';
+import handleMethod from '@server/helpers/handleMethod';
 import * as controller from './statistics.controller';
 import dbConnect from '@server/config/dbConnect';
 import { HandleNotFound } from '@server/utils/errorHandling';

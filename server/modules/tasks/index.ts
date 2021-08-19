@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import authGuard from '@server/middlewares/authGuard';
 import { validate } from '@server/middlewares/validate';
-import handleMethod from '@server/utils/handleMethod';
+import handleMethod from '@server/helpers/handleMethod';
 import { postSchema } from './tasks.schema';
 import * as controller from './tasks.controller';
 import dbConnect from '@server/config/dbConnect';

@@ -9,8 +9,8 @@ export const initPlanner = async (email: string) => {
     settings: getDefaultSettings(),
     calendar: getInitCalendar(),
   };
-
-  return await PlannerModel.create(data);
+  const res = await PlannerModel.create(data);
+  return res;
 };
 
 export const a = '';

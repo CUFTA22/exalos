@@ -7,7 +7,10 @@ import * as svc from './planner.service';
  */
 
 export const handleGet = async (req: NextApiRequest, res: NextApiResponse) => {
-  // ...
+  const { email } = req.body;
+  const data = await svc.initPlanner(email);
+
+  res.send(data);
 };
 
 /**

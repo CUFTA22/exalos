@@ -5,7 +5,6 @@ import { getSession } from 'next-auth/client';
 const authGuard = async (req: NextApiRequest, res: NextApiResponse) => {
   const session = await getSession({ req });
   if (!session) HandleUnauthorized(res);
-  res.end();
 };
 
 export default authGuard;

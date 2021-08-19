@@ -1,10 +1,13 @@
 import { Planner_Cell, Planner_Data } from '@ts/planner.types';
+import fetcher from 'app/api/fetcher';
 import removeArrayItem from 'app/utils/functions/removeArrayItem';
 import { useState } from 'react';
+import useSWR from 'swr';
 
-const usePlannner = (initialData: Planner_Data) => {
+const usePlannner = (initialData?: Planner_Data) => {
+  const { data: plannerData, error } = useSWR('/api/planner', fetcher, { initialData });
+
   const [selectedCells, setSelectedCells] = useState<Planner_Cell[]>([]);
-  // set initialData to useSWR
 
   const updateSelectedCells = (action: 'add' | 'remove', cell: Planner_Cell) => {
     switch (action) {

@@ -1,16 +1,19 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-export const handleGet = async (req: NextApiRequest, res: NextApiResponse) => {
-  // ...
-};
+/**
+ * Creates a new week
+ * @returns {Promise}
+ */
 
 export const handlePost = async (req: NextApiRequest, res: NextApiResponse) => {
   // ...
 };
 
-export const handlePatch = async (req: NextApiRequest, res: NextApiResponse) => {
-  // ...
-};
+/**
+ * Deletes a week by it's id
+ * @param {string} id // week_id in DB
+ * @returns {Promise}
+ */
 
 export const handleDelete = async (req: NextApiRequest, res: NextApiResponse) => {
   // ...
