@@ -3,40 +3,32 @@ import Card from '@lib/Card/Card';
 import FAB from '@lib/FAB/FAB';
 import { useState } from 'react';
 import TypeSelect from '../TypeSelect';
-import SettingsModal from '../SettingsModal/SettingsModal';
-import TypesModal from '../TypesModal/TypesModal';
 import styles from './Controls.module.scss';
-import { initialState, State } from './types';
+import { ControlsProps, initialState, State } from './types';
+import Modals from './Modals';
 
-const CreateControls = () => {
+const CreateControls: React.FC<ControlsProps> = ({ plannerData }) => {
   const [state, setState] = useState<State>(initialState);
 
   const toggleModal = (type: keyof State) => setState({ ...state, [type]: !state[type] });
 
   return (
     <Card className={styles.controls}>
-      {state.typesModal && (
-        <TypesModal isOpen={state.typesModal} toggleModal={() => toggleModal('typesModal')} />
-      )}
-      {state.settingsModal && (
-        <SettingsModal isOpen={state.typesModal} toggleModal={() => toggleModal('settingsModal')} />
-      )}
+      <Modals state={state} toggleModal={toggleModal} />
 
       <div className={styles.left}>
         <TypeSelect />
-        <FAB
-          onClick={() => toggleModal('typesModal')}
-          className={styles.mleft}
-          Icon={Add24Regular}
-        />
+        <FAB onClick={() => toggleModal('typesModal')} className={styles.mleft}>
+          <Add24Regular />
+        </FAB>
       </div>
       <div className={styles.right}>
-        <FAB
-          onClick={() => toggleModal('settingsModal')}
-          className={styles.mleft}
-          Icon={Settings24Regular}
-        />
-        <FAB className={styles.mleft} Icon={EyeShow24Regular} />
+        <FAB onClick={() => toggleModal('settingsModal')} className={styles.mleft}>
+          <Settings24Regular />
+        </FAB>
+        <FAB onClick={() => toggleModal('showModal')} className={styles.mleft}>
+          <EyeShow24Regular />
+        </FAB>
       </div>
     </Card>
   );

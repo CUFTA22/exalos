@@ -1,0 +1,17 @@
+.c_modal {
+  width: 540px;
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  .cta {
+    position: absolute;
+    left: 24px;
+    bottom: 24px;
+
+    &.cta-cancel {
+      left: 198px;
+    }
+  }
+}

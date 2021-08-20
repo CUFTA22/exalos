@@ -1,9 +1,22 @@
-export interface State {
-  typesModal: false;
-  settingsModal: false;
+import { Planner_Data } from '@ts/planner.types';
+
+export interface ControlsProps {
+  plannerData: Planner_Data;
 }
 
-export const initialState = {
+export interface State {
+  typesModal: boolean;
+  settingsModal: boolean;
+  showModal: boolean;
+}
+
+export const initialState: State = {
   settingsModal: false,
   typesModal: false,
-} as State;
+  showModal: false,
+};
+
+export interface ModalsProps {
+  state: State;
+  toggleModal: (type: keyof State) => void;
+}

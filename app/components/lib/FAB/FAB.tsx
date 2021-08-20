@@ -7,7 +7,7 @@ const FAB: React.FC<Props> = ({ Icon, className, onClick, children }) => {
   return (
     <div onClick={onClick} className={clsx(styles.lib_fab, className, ripple.ripple)}>
       <div className={styles.outer}></div>
-      {<Icon /> || children}
+      {children || <Icon />}
     </div>
   );
 };

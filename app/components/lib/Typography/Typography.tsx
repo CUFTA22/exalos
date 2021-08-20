@@ -7,21 +7,25 @@ const Typography: React.FC<TypographyProps> = ({
   text,
   color = 'hsl(0, 0%, 91%)',
   tag = 'span',
-  fontSize = 16,
-  fontFamily = 'Inter',
+  fSize = 16,
+  fFamily = 'Inter',
+  fWeight = 400,
+  pad = '4px',
   className,
   children,
 }) => {
   const potentialStyles = {
-    fontFamily: `${fontFamily}, sans-serif`,
-    fontSize: fontSize + 'px',
+    fontFamily: `${fFamily}, sans-serif`,
+    fontSize: fSize + 'px',
+    fontWeight: fWeight,
+    padding: pad,
     color,
   };
 
   return React.createElement(tag, {
     className: clsx(styles.lib_typography, className),
     style: potentialStyles,
-    children: text || children,
+    children: children || text,
   });
 };
 
