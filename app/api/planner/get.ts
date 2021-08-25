@@ -1,21 +1,31 @@
+import { ApiResponse } from '@ts/apiRes.types';
 import { Planner_Data } from '@ts/planner.types';
 import { useSession } from 'next-auth/client';
 import useSWR from 'swr';
 import fetcher from '../fetcher';
 import useFetch from '../useFetch';
 
-export const useGetPlannerData = (initialData: Planner_Data) => {
+export const usePlannerData = (initialData?: Planner_Data) => {
   const [session] = useSession();
-  // prettire-ignore
-  const { data } = useSWR<Planner_Data>(`/api/planner/${session.user.email}`, fetcher, {
-    initialData,
-  });
+  const email = session?.user?.email;
 
-  return data;
+  const { data, error } = useSWR<ApiResponse<Planner_Data>>(
+    session ? `/api/planner/${email}` : null,
+    fetcher,
+    {
+      initialData: { error: false, message: initialData },
+    }
+  );
+
+  return {
+    data: data.message,
+    isLoading: !error && !data,
+    isError: error,
+  };
 };
 
-const getPlanner = async (email: string) => {
-  useFetch()._get('/api/planner:' + email);
+const getPlanner = async (email: string): Promise<Planner_Data> => {
+  return await useFetch().get('/api/planner/' + email);
 };
 
 export default getPlanner;

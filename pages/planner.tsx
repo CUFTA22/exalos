@@ -1,16 +1,17 @@
 import Default from '@layout/Default/Default';
 import Page from '@template/Planner/Planner';
+import getPlanner from 'app/api/planner/get';
+import handleRedirect from 'app/utils/resources/handleRedirect';
 import { GetServerSideProps } from 'next';
+import { getSession } from 'next-auth/client';
 import Head from 'next/head';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  // context.query -> params
-  // service -> getHomePageData()
-  const sw = await fetch('https://swapi.dev/api/people/1').then((res) => res.json());
+  const session = await getSession(context);
+  // if (!session) return handleRedirect('/');
 
-  return {
-    props: { sw },
-  };
+  const plannerData = await getPlanner(session?.user?.email || '');
+  return { props: { plannerData: plannerData || null } };
 };
 
 const Planner = (ssProps) => {

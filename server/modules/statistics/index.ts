@@ -1,20 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import authGuard from '@server/middlewares/authGuard';
-import handleMethod from '@server/helpers/handleMethod';
-import * as controller from './statistics.controller';
-import dbConnect from '@server/config/dbConnect';
-import { HandleNotFound } from '@server/utils/errorHandling';
+import * as ctrl from './statistics.controller';
+import apiHandler from '@server/helpers/apiHandler';
 
-export const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  await authGuard(req, res);
-  await dbConnect();
-
-  handleMethod(req.method, {
-    GET: controller.handleGet, // Retrieve all data
-    POST: HandleNotFound(res), // Create new data ( type? )
-    PATCH: HandleNotFound(res), // Update cell with any data
-    DELETE: HandleNotFound(res), // Delete something ( ? )
-  });
-};
-
-export default handler;
+export default (req: NextApiRequest, res: NextApiResponse) =>
+  apiHandler({
+    POST: { handler: ctrl.handleGet },
+  })(req, res);

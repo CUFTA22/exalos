@@ -1,16 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import authGuard from '@server/middlewares/authGuard';
 import * as ctrl from './week.controller';
-import dbConnect from '@server/config/dbConnect';
-import useRouter from '@server/helpers/handleRouter';
+import apiHandler from '@server/helpers/apiHandler';
 
-export const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  await authGuard(req, res);
-  await dbConnect();
-
-  const router = useRouter(req, res);
-
-  router._post(ctrl.handlePost); // Create week
-};
-
-export default handler;
+export default (req: NextApiRequest, res: NextApiResponse) =>
+  apiHandler({
+    POST: { handler: ctrl.handlePost },
+  })(req, res);

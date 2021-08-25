@@ -2,6 +2,8 @@ import { getDefaultSettings, getInitCalendar } from '@server/utils/util_Planner'
 import { Planner_Data } from '@ts/planner.types';
 import PlannerModel from './planner.model';
 
+const getByEmail = async (email: string) => await PlannerModel.findByUserEmail(email);
+
 export const initPlanner = async (email: string) => {
   const data: Planner_Data = {
     user_email: email,
@@ -13,4 +15,8 @@ export const initPlanner = async (email: string) => {
   return res;
 };
 
-export const a = '';
+export const getData = async (email: string) => {
+  const data = await getByEmail(email);
+
+  return data;
+};

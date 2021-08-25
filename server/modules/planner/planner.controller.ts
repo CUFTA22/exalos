@@ -7,10 +7,10 @@ import * as svc from './planner.service';
  */
 
 export const handleGet = async (req: NextApiRequest, res: NextApiResponse) => {
-  const { email } = req.body;
-  const data = await svc.initPlanner(email);
+  const { email } = req.query as { email: string };
+  const data = await svc.getData(email);
 
-  res.send(data);
+  res.status(200).json({ error: false, message: data });
 };
 
 /**
@@ -23,7 +23,7 @@ export const handlePost = async (req: NextApiRequest, res: NextApiResponse) => {
   const { email } = req.body;
   const data = await svc.initPlanner(email);
 
-  res.send(data);
+  res.status(201).json({ error: false, message: data });
 };
 
 export const handlePatch = async (req: NextApiRequest, res: NextApiResponse) => {

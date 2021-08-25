@@ -1,22 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import authGuard from '@server/middlewares/authGuard';
-import { validate } from '@server/middlewares/validate';
-import handleMethod from '@server/helpers/handleMethod';
+import * as ctrl from './type.controller';
+import apiHandler from '@server/helpers/apiHandler';
 import { postSchema } from './type.schema';
-import * as controller from './type.controller';
-import dbConnect from '@server/config/dbConnect';
-import { HandleNotFound } from '@server/utils/errorHandling';
 
-export const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  await authGuard(req, res);
-  await dbConnect();
-
-  handleMethod(req.method, {
-    GET: HandleNotFound(res),
-    POST: validate(controller.handlePost, postSchema), // Create new week
-    PATCH: HandleNotFound(res),
-    DELETE: controller.handleDelete, // Delete week
-  });
-};
-
-export default handler;
+export default (req: NextApiRequest, res: NextApiResponse) =>
+  apiHandler({
+    POST: { handler: ctrl.handleGet, schema: postSchema },
+    DELETE: { handler: ctrl.handleGet },
+  })(req, res);

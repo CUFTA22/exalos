@@ -1,13 +1,12 @@
 @use "mixins";
 
-.custom404 {
+.error {
   height: 100%;
   @include mixins.flex-row-center;
 
   .center {
-    width: fit-content;
+    width: 440px;
     height: 160px;
-    padding: 20px;
     z-index: 3;
     @include mixins.flex-row-center;
   }

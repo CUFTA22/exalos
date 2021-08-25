@@ -1,4 +1,4 @@
-import { HandleBadRequest } from '@server/utils/errorHandling';
+import { HandleBadRequest } from '@server/helpers/errorHandler';
 import { NextApiHandler, NextApiRequest, NextApiResponse } from 'next';
 import { ObjectShape, OptionalObjectSchema } from 'yup/lib/object';
 
@@ -12,7 +12,8 @@ export function validate(handler: NextApiHandler, schema: OptionalObjectSchema<O
           strict: true,
         });
       } catch (error) {
-        return HandleBadRequest(res);
+        HandleBadRequest(res);
+        return res.end();
       }
     }
 

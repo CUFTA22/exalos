@@ -3,19 +3,25 @@ import SideBar from '@shared/SideBar/SideBar';
 import styles from './Default.module.scss';
 import stars from '@styles/scss/parallaxStars.module.scss';
 import { Props } from './types';
+import useNotification from '@module/Notifications/useNotification';
 
-const Default: React.FC<Props> = ({ children }) => (
-  <div className={styles.default}>
-    <div id={stars.stars}></div>
-    <div id={stars.stars2}></div>
-    <div id={stars.stars3}></div>
+const Default: React.FC<Props> = ({ children }) => {
+  const { NotificationContainer, list } = useNotification();
 
-    <SideBar />
-    <div id="np-container" className={styles.content}>
-      <NextNProgress />
-      {children}
+  return (
+    <div className={styles.default}>
+      <NotificationContainer arr={list} />
+      <div id={stars.stars}></div>
+      <div id={stars.stars2}></div>
+      <div id={stars.stars3}></div>
+
+      <SideBar />
+      <div id="np-container" className={styles.content}>
+        <NextNProgress />
+        {children}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Default;

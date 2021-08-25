@@ -15,7 +15,6 @@ const cell = {
 
 const week = {
   week_id: stringRequired, // Auto-genereted + unique - 12.08.21 ?
-  start_date: stringRequired,
   cells: [cell],
 };
 
@@ -36,6 +35,7 @@ const PlannerSchema = new mongoose.Schema<PlannerDocument, PlannerModel>(
     timestamps: true,
   }
 );
+mongoose.Schema.Types.String.checkRequired((v) => v != null);
 
 export interface PlannerDocument extends Planner_Data, Document {}
 
@@ -52,5 +52,5 @@ PlannerSchema.statics.findByUserEmail = async function (
   return this.findOne({ user_email }).exec();
 };
 
-export default mongoose.models.Planner ||
+export default (mongoose.models.Planner as PlannerModel) ||
   mongoose.model<PlannerDocument, PlannerModel>('Planner', PlannerSchema);

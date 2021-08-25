@@ -8,7 +8,6 @@ import Cursor from 'app/modules/Cursor/Cursor';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Cursor disabled />
       <Provider
         options={{
           // Client Max Age controls how often the useSession in the client should
@@ -21,6 +20,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         }}
         session={pageProps.session}
       >
+        <Cursor disabled />
         <Component {...pageProps} />
       </Provider>
     </>

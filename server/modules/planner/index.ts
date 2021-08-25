@@ -1,19 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import authGuard from '@server/middlewares/authGuard';
-import { postSchema } from './planner.schema';
 import * as ctrl from './planner.controller';
-import dbConnect from '@server/config/dbConnect';
-import useRouter from '@server/helpers/handleRouter';
+import apiHandler from '@server/helpers/apiHandler';
 
-export const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  await authGuard(req, res);
-  await dbConnect();
-
-  const router = useRouter(req, res);
-
-  router._post(ctrl.handlePost, postSchema);
-  router._patch(ctrl.handlePatch, postSchema);
-  router._delete(ctrl.handleDelete);
-};
-
-export default handler;
+export default (req: NextApiRequest, res: NextApiResponse) =>
+  apiHandler({
+    POST: { handler: ctrl.handlePost },
+    PATCH: { handler: ctrl.handlePatch },
+    DELETE: { handler: ctrl.handleDelete },
+  })(req, res);

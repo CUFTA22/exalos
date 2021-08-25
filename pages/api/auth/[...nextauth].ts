@@ -1,4 +1,4 @@
-import NextAuth from 'next-auth';
+import NextAuth, { NextAuthOptions } from 'next-auth';
 import Providers from 'next-auth/providers';
 
 export default NextAuth({
@@ -14,11 +14,16 @@ export default NextAuth({
     }),
   ],
 
+  // The secret should be set to a reasonably long random string.
+  // It is used to sign cookies and to sign and encrypt JSON Web Tokens, unless
+  // a separate secret is defined explicitly for encrypting the JWT.
+  secret: process.env.SECRET,
+
   session: {
     // Use JSON Web Tokens for session instead of database sessions.
     // This option can be used with or without a database for users/accounts.
     // Note: `jwt` is automatically set to `true` if no database is specified.
-    jwt: false,
+    jwt: true,
 
     // Seconds - How long until an idle session expires and is no longer valid.
     maxAge: 1 * 24 * 60 * 60, // 1 days
@@ -27,6 +32,19 @@ export default NextAuth({
     // Use it to limit write operations. Set to 0 to always update the database.
     // Note: This option is ignored if using JSON Web Tokens
     updateAge: 12 * 60 * 60, // 12 hours
+  },
+
+  jwt: {
+    // A secret to use for key generation (you should set this explicitly)
+    secret: process.env.SECRET,
+    encryptionKey: process.env.SECRET,
+    signingKey: process.env.SECRET,
+    // Set to true to use encryption (default: false)
+    encryption: true,
+    // You can define your own encode/decode functions for signing and encryption
+    // if you want to override the default behaviour.
+    // encode: async ({ secret, token, maxAge }) => {},
+    // decode: async ({ secret, token, maxAge }) => {},
   },
 
   // You can define custom pages to override the built-in ones. These will be regular Next.js pages
@@ -41,5 +59,5 @@ export default NextAuth({
   },
 
   // A database is optional, but required to persist accounts in a database
-  database: process.env.MONGO_URI,
-});
+  // database: process.env.MONGO_URI,
+} as NextAuthOptions);

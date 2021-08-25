@@ -3,5 +3,6 @@
 .calendar {
   height: 85%;
   width: 100%;
-  padding: 200px;
+
+  @include flex-col-center;
 }

@@ -1,15 +1,17 @@
 import Default from '@layout/Default/Default';
 import Page from '@template/Tasks/Tasks';
-// import { GetServerSideProps } from 'next';
+import handleRedirect from 'app/utils/resources/handleRedirect';
+import { GetServerSideProps } from 'next';
+import { getSession } from 'next-auth/client';
 import Head from 'next/head';
 
-// export const getServerSideProps: GetServerSideProps = async (context) => {
-//   // context.query -> params
-//   // service -> getHomePageData()
-//   return {
-//     props: {},
-//   };
-// };
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const session = await getSession(context);
+  if (!session) return handleRedirect('/');
+
+  // const plannerData = await getTasks(session.user.email);
+  return { props: { test: '' } };
+};
 
 const Tasks = () => {
   return (
