@@ -1,4 +1,4 @@
-@import 'mixins';
+@use 'mixins';
 
 .lib_modal_overlay {
   position: fixed;
@@ -7,7 +7,14 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: hsla(0, 0%, 8%, 0.75);
+  background: hsla(0, 0%, 8%, 0.65);
+
+  &.overlay_anim_in {
+    animation: overlay_in 0.3s normal 0s 1 ease-in-out forwards;
+  }
+  &.overlay_anim_out {
+    animation: overlay_out 0.3s normal 0s 1 ease-in-out forwards;
+  }
 }
 
 .lib_modal_content {
@@ -16,38 +23,56 @@
   height: fit-content;
   top: 50%;
   left: 50%;
-  transform: scale(1) translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   transform-origin: top left;
   -webkit-overflow-scrolling: touch;
   z-index: 10;
   overflow: hidden;
-  transition: all 0.2s ease-in-out;
-  animation: scaleIn 0.2s normal 0s 1 forwards;
 
-  @include sidebar-item;
-}
-
-.lib_modal_hide_content {
-  animation-name: scaleOut !important;
-}
-.lib_modal_hide_overlay {
-  transition: opacity 0.2s ease-in-out;
-  opacity: 0;
-}
-
-@keyframes scaleIn {
-  from {
-    transform: scale(0) translate(-50%, -50%);
+  &.content_anim_in {
+    animation: anim_in 0.3s normal 0s 1 ease-in-out forwards;
   }
-  to {
+  &.content_anim_out {
+    animation: anim_out 0.3s normal 0s 1 ease-in-out forwards;
+  }
+
+  @include mixins.sidebar-item;
+}
+
+@keyframes anim_in {
+  0% {
+    transform: scale(0.85) translate(-50%, -100%);
+    opacity: 0;
+  }
+  100% {
     transform: scale(1) translate(-50%, -50%);
+    opacity: 1;
   }
 }
-@keyframes scaleOut {
-  from {
+@keyframes anim_out {
+  0% {
     transform: scale(1) translate(-50%, -50%);
+    opacity: 1;
   }
-  to {
-    transform: scale(0) translate(-50%, -50%);
+  100% {
+    transform: scale(0.85) translate(-50%, -100%);
+    opacity: 0;
+  }
+}
+
+@keyframes overlay_in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes overlay_out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { signIn } from 'next-auth/client';
+import { signIn, useSession } from 'next-auth/client';
 import styles from './SideBar.module.scss';
 import Logo from '@assets/logos/exalos.svg';
 import { protectedRoutes, sideBarItems } from 'app/utils/resources/sideBarData';
@@ -9,17 +9,16 @@ import FAB from '@lib/FAB/FAB';
 import { Person24Regular } from '@fluentui/react-icons';
 import UserPanel from '@element/UserPanel/UserPanel';
 import Spinner from '@lib/Spinner/Spinner';
-import useUser from '@module/User/useUser';
 
 const SideBar: React.FC = () => {
-  const { email, isLoading } = useUser();
+  const [session, loading] = useSession();
 
   const handleSignin = (e: Event) => {
     e.preventDefault();
     signIn();
   };
 
-  const validRoutes = email
+  const validRoutes = session?.user?.email
     ? sideBarItems
     : sideBarItems.filter((item) => !protectedRoutes.includes(item.route));
 
@@ -38,9 +37,9 @@ const SideBar: React.FC = () => {
       </div>
 
       <div className={styles.sidebar_bottom}>
-        {isLoading ? (
+        {loading ? (
           <Spinner />
-        ) : email ? (
+        ) : session ? (
           <UserPanel />
         ) : (
           <FAB onClick={handleSignin} Icon={Person24Regular} />

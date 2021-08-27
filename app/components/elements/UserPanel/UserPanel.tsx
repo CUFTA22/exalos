@@ -16,7 +16,7 @@ const UserPanel = () => {
   return (
     <div className={styles.user_panel}>
       <div className={styles.top}>
-        <Typography text={session.user.email} />
+        <Typography text={session.user.email || 'No email attached 🙁'} />
       </div>
 
       <div className={styles.bottom}>

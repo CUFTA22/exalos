@@ -54,7 +54,7 @@ $dot-color: transparentize(
     left: -5px;
   }
 
-  &:active {
+  &:hover {
     transform: scale(0.97);
     box-shadow: transparentize($color: $color-primary, $amount: 0.85) 0px 0px 2px 5px;
 

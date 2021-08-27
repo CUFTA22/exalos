@@ -2,8 +2,8 @@ import { Planner_Cell, Planner_Settings, Planner_Week } from '@ts/planner.types'
 import dayjs from 'dayjs';
 
 export const getDefaultSettings = (): Planner_Settings => ({
-  start_time: '00AM',
-  end_time: '24PM',
+  start_time: '00',
+  end_time: '24',
   include_weekends: true,
 });
 

@@ -8,10 +8,11 @@ import Head from 'next/head';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const session = await getSession(context);
-  // if (!session) return handleRedirect('/');
+  if (!session) return handleRedirect('/');
 
-  const plannerData = await getPlanner(session?.user?.email || '');
-  return { props: { plannerData: plannerData || null } };
+  const plannerData = await getPlanner(session.user.email || '');
+
+  return { props: { planner: plannerData || null } };
 };
 
 const Planner = (ssProps) => {

@@ -4,5 +4,6 @@ import apiHandler from '@server/helpers/apiHandler';
 
 export default (req: NextApiRequest, res: NextApiResponse) =>
   apiHandler({
-    GET: { handler: ctrl.handleGet },
+    // Issue with NextAuth and GetServerSideProps, fails auth middleware
+    GET: { handler: ctrl.handleGet, auth: false },
   })(req, res);

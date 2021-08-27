@@ -5,23 +5,26 @@ const stringRequired = {
   type: String,
   required: true,
 };
-
-const cell = {
-  cell_id: stringRequired, // Auto-genereted + unique - d2_h5 ?
-  task_id: stringRequired, // ID for task to populate and get completed ?
-  text: stringRequired,
-  type: stringRequired, // If type is deleted also clear in DB
-};
-
-const week = {
-  week_id: stringRequired, // Auto-genereted + unique - 12.08.21 ?
-  cells: [cell],
+const string = {
+  type: String,
 };
 
 const PlannerSchema = new mongoose.Schema<PlannerDocument, PlannerModel>(
   {
     user_email: stringRequired,
-    calendar: [week],
+    calendar: [
+      {
+        week_id: stringRequired, // Auto-genereted + unique - 12.08.21 ?
+        cells: [
+          {
+            cell_id: stringRequired, // Auto-genereted + unique - d2_h5 ?
+            task_id: string, // ID for task to populate and get completed ?
+            text: string,
+            type: string, // If type is deleted also clear in DB
+          },
+        ],
+      },
+    ],
     settings: {
       start_time: stringRequired,
       end_time: stringRequired,
@@ -35,7 +38,6 @@ const PlannerSchema = new mongoose.Schema<PlannerDocument, PlannerModel>(
     timestamps: true,
   }
 );
-mongoose.Schema.Types.String.checkRequired((v) => v != null);
 
 export interface PlannerDocument extends Planner_Data, Document {}
 

@@ -8,6 +8,7 @@ import * as svc from './planner.service';
 
 export const handleGet = async (req: NextApiRequest, res: NextApiResponse) => {
   const { email } = req.query as { email: string };
+
   const data = await svc.getData(email);
 
   res.status(200).json({ error: false, message: data });

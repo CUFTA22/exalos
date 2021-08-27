@@ -4,13 +4,21 @@ import Providers from 'next-auth/providers';
 export default NextAuth({
   // Configure one or more authentication providers
   providers: [
-    Providers.GitHub({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
-    }),
     Providers.Google({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
+    }),
+    Providers.Facebook({
+      clientId: process.env.FACEBOOK_ID,
+      clientSecret: process.env.FACEBOOK_SECRET,
+    }),
+    Providers.Discord({
+      clientId: process.env.DISCORD_ID,
+      clientSecret: process.env.DISCORD_SECRET,
+    }),
+    Providers.GitHub({
+      clientId: process.env.GITHUB_ID,
+      clientSecret: process.env.GITHUB_SECRET,
     }),
   ],
 
@@ -37,8 +45,8 @@ export default NextAuth({
   jwt: {
     // A secret to use for key generation (you should set this explicitly)
     secret: process.env.SECRET,
-    encryptionKey: process.env.SECRET,
-    signingKey: process.env.SECRET,
+    // encryptionKey: process.env.SECRET,
+    // signingKey: process.env.SECRET, // This is not how you use it!
     // Set to true to use encryption (default: false)
     encryption: true,
     // You can define your own encode/decode functions for signing and encryption

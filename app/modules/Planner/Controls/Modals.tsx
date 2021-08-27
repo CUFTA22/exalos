@@ -7,20 +7,18 @@ import { ModalsProps } from './types';
 const Modals: React.FC<ModalsProps> = ({ state, toggleModal }) => {
   return (
     <>
-      {state.typesModal && (
-        <TypesModal isOpen={state.typesModal} toggleModal={() => toggleModal('typesModal')} />
-      )}
-      {state.settingsModal && (
-        <SettingsModal isOpen={state.typesModal} toggleModal={() => toggleModal('settingsModal')} />
-      )}
-      {state.showModal && (
-        // <ShowModal isOpen={state.showModal} toggleModal={() => toggleModal('showModal')} />
-        <ConfirmationModal
-          action={() => {}}
-          isOpen={state.showModal}
-          toggleOpen={() => toggleModal('showModal')}
-        />
-      )}
+      <TypesModal isOpen={state.typesModal} toggleModal={() => toggleModal('typesModal')} />
+
+      <SettingsModal
+        isOpen={state.settingsModal}
+        toggleModal={() => toggleModal('settingsModal')}
+      />
+
+      <ConfirmationModal
+        action={() => {}}
+        isOpen={state.showModal}
+        toggleOpen={() => toggleModal('showModal')}
+      />
     </>
   );
 };

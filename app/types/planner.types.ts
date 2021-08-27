@@ -11,8 +11,8 @@ export interface Planner_Week {
 }
 
 export interface Planner_Settings {
-  start_time: '00AM' | '01AM' | '02AM' | '03AM' | '04AM' | '05AM' | '06AM' | '07AM' | '08AM';
-  end_time: '20PM' | '21PM' | '22PM' | '23PM' | '24PM'; // Adjust depending on dayjs
+  start_time: '00' | '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10';
+  end_time: '20' | '21' | '22' | '23' | '24';
   include_weekends: boolean;
 }
 

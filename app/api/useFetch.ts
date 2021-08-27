@@ -11,8 +11,8 @@ const useFetch = () => {
     },
   });
 
-  const hendleFetch = (endpoint: string, args: RequestInit) =>
-    fetch(endpoint, args).then(async (response) => {
+  const handleFetch = (endpoint: string, args: RequestInit) =>
+    fetch(`${process.env.NEXT_PUBLIC_URL}/${endpoint}`, args).then(async (response) => {
       if (response.ok) {
         try {
           return await response.json();
@@ -27,22 +27,23 @@ const useFetch = () => {
 
   const _get = async (endpoint: string, { ...customConfig }: RequestInit = {}) => {
     const newConfig: RequestInit = createConfig('GET', customConfig);
-    return await hendleFetch(endpoint, newConfig).catch(() => {});
+
+    return await handleFetch(endpoint, newConfig).catch(() => {});
   };
 
   const _post = async (endpoint: string, { ...body }: any = {}) => {
     const newConfig: RequestInit = createConfig('POST', { body });
-    return await hendleFetch(endpoint, newConfig).catch(() => {});
+    return await handleFetch(endpoint, newConfig).catch(() => {});
   };
 
   const _patch = async (endpoint: string, { ...body }: any = {}) => {
     const newConfig: RequestInit = createConfig('PATCH', { body });
-    return await hendleFetch(endpoint, newConfig).catch(() => {});
+    return await handleFetch(endpoint, newConfig).catch(() => {});
   };
 
   const _delete = async (endpoint: string, { ...customConfig }: RequestInit = {}) => {
     const newConfig: RequestInit = createConfig('DELETE', customConfig);
-    return await hendleFetch(endpoint, newConfig).catch(() => {});
+    return await handleFetch(endpoint, newConfig).catch(() => {});
   };
 
   return { get: _get, post: _post, patch: _patch, delete: _delete };

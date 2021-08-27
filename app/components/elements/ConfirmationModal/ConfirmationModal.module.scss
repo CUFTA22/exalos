@@ -3,14 +3,13 @@
   height: 240px;
   display: flex;
   flex-direction: column;
-  position: relative;
 
   .cta {
     position: absolute;
     left: 24px;
     bottom: 24px;
 
-    &.cta-cancel {
+    &.cta_cancel {
       left: 198px;
     }
   }

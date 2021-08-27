@@ -33,7 +33,7 @@ const Button: React.FC<ButtonProps> = ({
       onClick={clickFunc}
       style={potentialStyles}
     >
-      {isLoading ? null : <Icon />}
+      {!isLoading && Icon && <Icon />}
       {isLoading ? Spinner : text}
     </div>
   );

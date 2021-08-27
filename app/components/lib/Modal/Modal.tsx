@@ -1,8 +1,9 @@
 import clsx from 'clsx';
-import ReactDOM from 'react-dom';
+import { createPortal } from 'react-dom';
 import { Props } from './types';
 import styles from './Modal.module.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useNonInitialEffect } from '@hooks/useNonInitialEffect';
 
 const Modal: React.FC<Props> = ({
   isOpen,
@@ -11,31 +12,39 @@ const Modal: React.FC<Props> = ({
   content_className,
   overlay_className,
 }) => {
-  const [closing, setClosing] = useState(false);
+  const [isBrowser, setIsBrowser] = useState(false);
+  const [show, setShow] = useState(false);
 
-  const handleClose = () => {
-    setClosing(true);
-    setTimeout(onRequestClose, 200);
-  };
+  useEffect(() => {
+    !isBrowser && setIsBrowser(true);
+  }, []);
 
-  const modal = (
+  useNonInitialEffect(() => {
+    !show && setShow(true);
+    show && !isOpen && setTimeout(() => setShow(false), 300);
+  }, [isOpen]);
+
+  const modal = show && (
     <>
       <div
         className={clsx(styles.lib_modal_overlay, overlay_className, {
-          [styles.lib_modal_hide_overlay]: closing,
+          [styles.overlay_anim_in]: isOpen,
+          [styles.overlay_anim_out]: !isOpen,
         })}
-        onClick={handleClose}
+        onClick={onRequestClose}
       />
       <div
         className={clsx(styles.lib_modal_content, content_className, {
-          [styles.lib_modal_hide_content]: closing,
+          [styles.content_anim_in]: isOpen,
+          [styles.content_anim_out]: !isOpen,
         })}
       >
         {children}
       </div>
     </>
   );
-  return ReactDOM.createPortal(modal, document.getElementById('__next'));
+
+  return isBrowser ? createPortal(modal, document.querySelector('#modals')) : null;
 };
 
 export default Modal;

@@ -9,7 +9,6 @@
       "@module/*": ["app/modules/*"],
       "@template/*": ["app/components/templates/*"],
       "@lib/*": ["app/components/lib/*"],
-      "@constant/*": ["app/constants/*"],
       "@assets/*": ["public/assets/*"],
       "@hooks/*": ["app/hooks/*"],
       "@ts/*": ["app/types/*"],

@@ -1,4 +1,4 @@
-const handleRedirect = (url) => ({
+const handleRedirect = (url: string) => ({
   redirect: {
     destination: url,
     permanent: false,

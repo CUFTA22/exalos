@@ -4,8 +4,11 @@ import '@styles/base/_transitions.scss';
 import { Provider } from 'next-auth/client';
 import type { AppProps } from 'next/app';
 import Cursor from 'app/modules/Cursor/Cursor';
+import useSettings from '@module/Settings/useSettings';
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const { settings } = useSettings();
+
   return (
     <>
       <Provider
@@ -20,7 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         }}
         session={pageProps.session}
       >
-        <Cursor disabled />
+        <Cursor disabled={!settings.customCursor} />
         <Component {...pageProps} />
       </Provider>
     </>

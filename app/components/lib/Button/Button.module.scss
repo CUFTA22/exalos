@@ -4,6 +4,7 @@
 @mixin type($color) {
   border-color: transparentize($color: $color, $amount: 0.6);
   color: $color;
+  box-shadow: transparentize($color: $color, $amount: 0.9) 0px 0px 2px 4px;
 
   svg {
     * {
@@ -26,7 +27,6 @@
   border-radius: 10px;
   background-color: transparentize($color: $color-primary, $amount: 0.98);
   border: 1px solid;
-  box-shadow: transparentize($color: $color-primary, $amount: 0.9) 0px 0px 2px 4px;
 
   svg {
     margin-right: 12px;

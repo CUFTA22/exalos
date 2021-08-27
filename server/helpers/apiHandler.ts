@@ -18,25 +18,23 @@ interface HandlerObject {
   DELETE?: CustomApiHandler;
 }
 
-const apiHandler = (handler: HandlerObject) => {
-  return async (
-    req: NextApiRequest,
-    res: NextApiResponse,
-    schema?: OptionalObjectSchema<ObjectShape>
-  ) => {
+const apiHandler = (config: HandlerObject) => {
+  return async (req: NextApiRequest, res: NextApiResponse) => {
+    const { handler, schema, auth = true } = config[req.method];
+
     // check handler supports HTTP method
-    if (!handler[req.method]) return res.status(405).end(`Method ${req.method} Not Allowed`);
+    if (!config[req.method]) return res.status(405).end(`Method ${req.method} Not Allowed`);
 
     try {
       // global middleware
-      await authMiddleware(req);
+      if (auth) await authMiddleware(req);
+
+      // Mongo connection
       await dbConnect();
 
       // route handler
-      console.log(`${req.method} | ${req.url}`);
-
-      if (schema) return validate(await handler[req.method].handler(req, res), schema);
-      await handler[req.method].handler(req, res);
+      if (schema) return validate(await handler(req, res), schema);
+      await handler(req, res);
     } catch (err) {
       // global error handler
       errorHandler(err, res);

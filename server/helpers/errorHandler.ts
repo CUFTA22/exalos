@@ -13,6 +13,11 @@ const errorHandler = (err: any, res: NextApiResponse) => {
     return res.status(401).json({ error: true, message: 'Unauthorized' });
   }
 
+  if (err?.message === 'BadRequest') {
+    // validation error
+    return res.status(400).json({ error: true, message: 'Bad Request' });
+  }
+
   // default to 500 server error
   return res.status(500).json({ error: true, message: err.message });
 };
