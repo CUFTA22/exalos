@@ -10,7 +10,7 @@ const usePlannerInit = () => {
   const init = async () => {
     if (!email) return;
     await fetch('/api/planner', 'post', { email });
-    mutate(`/api/planner/${email}`, { error: false, message: data }, false);
+    mutate(`/api/planner/${email}`);
   };
 
   return { data, isLoading, init };

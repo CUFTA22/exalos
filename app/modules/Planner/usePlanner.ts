@@ -1,7 +1,7 @@
 import { Planner_Cell, Planner_Data, Planner_Type } from '@ts/planner.types';
 import removeArrayItem from 'app/utils/functions/removeArrayItem';
 import { useSession } from 'next-auth/client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { cache } from 'swr';
 import { Planner_Updates } from './types';
 
@@ -11,12 +11,7 @@ import { Planner_Updates } from './types';
  */
 
 const usePlannner = (): Planner_Updates => {
-  // prettier-ignore
-  const [ {user: { email } } ] = useSession();
-  // prettier-ignore
-  const plannerData: Planner_Data = cache.get(`/api/planner/${email}`)
-
-  const [visibleTypes, setVisibleTypes] = useState<Planner_Type[]>(plannerData?.types || []);
+  const [visibleTypes, setVisibleTypes] = useState<Planner_Type[]>([]);
   const [selectedCells, setSelectedCells] = useState<Planner_Cell[]>([]);
 
   // --------------------------------------------------------------------------------------------

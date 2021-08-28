@@ -12,7 +12,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   const plannerData = await getPlanner(session.user.email || '');
 
-  return { props: { planner: plannerData || null } };
+  return { props: { planner: plannerData.message || null } };
 };
 
 const Planner = (ssProps) => {

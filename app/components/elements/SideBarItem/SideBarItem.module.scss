@@ -1,6 +1,6 @@
-@import 'variables';
-@import 'mixins';
-@import 'animations';
+@use 'variables';
+@use 'mixins';
+@use 'animations';
 
 .sidebar_item {
   width: 50px;
@@ -12,13 +12,13 @@
   overflow: hidden;
   margin-top: 5px;
 
-  transition: $tran-sidebarItem;
-  color: $color-text-secondary;
+  transition: animations.$tran-sidebarItem;
+  color: variables.$color-text-secondary;
 
-  @include flex-row-start;
+  @include mixins.flex-row-start;
 
   &:hover {
-    @include sidebar-item;
+    @include mixins.sidebar-item;
     width: 140px;
     svg {
       transform: scale(1.1);
@@ -26,11 +26,11 @@
   }
 
   &.active {
-    @include sidebar-item;
-    color: $color-primary;
+    @include mixins.sidebar-item;
+    color: variables.$color-primary;
     svg {
       * {
-        fill: $color-primary;
+        fill: variables.$color-primary;
       }
       transform: scale(1.1);
     }
@@ -38,7 +38,7 @@
 
   svg {
     * {
-      fill: $color-text-secondary;
+      fill: variables.$color-text-secondary;
     }
     transition: all 0.2s ease-in-out;
     min-width: 20px;
@@ -46,5 +46,15 @@
     width: 20px;
     height: 20px;
     margin: 0 18px 0 15px;
+  }
+
+  .new_chip {
+    width: 6.5px;
+    height: 6.5px;
+    position: absolute;
+    top: 10px;
+    left: 36px;
+    border-radius: 50%;
+    background-color: variables.$color-success;
   }
 }

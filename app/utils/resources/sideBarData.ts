@@ -5,6 +5,7 @@ import {
   Earth24Regular,
   MusicNote124Regular,
   Options24Regular,
+  Payment24Regular,
   Rocket24Regular,
 } from '@fluentui/react-icons';
 import Collections from '@assets/icons/collections.svg';
@@ -24,6 +25,11 @@ export const sideBarItems = [
     text: 'Tasks',
     Svg: Collections,
     route: '/tasks',
+  },
+  {
+    text: 'Finances',
+    Svg: Payment24Regular,
+    route: '/finances',
   },
   {
     text: 'Music',
@@ -55,4 +61,4 @@ const demoItems = [
   },
 ];
 
-export const protectedRoutes = ['/planner', '/tasks'];
+export const protectedRoutes = ['/planner', '/tasks', '/finance'];

@@ -12,7 +12,7 @@ const useFetch = () => {
   });
 
   const handleFetch = (endpoint: string, args: RequestInit) =>
-    fetch(`${process.env.NEXT_PUBLIC_URL}/${endpoint}`, args).then(async (response) => {
+    fetch(`${process.env.NEXT_PUBLIC_URL}${endpoint}`, args).then(async (response) => {
       if (response.ok) {
         try {
           return await response.json();

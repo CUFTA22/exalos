@@ -32,7 +32,13 @@ const SideBar: React.FC = () => {
 
       <div className={styles.sidebar_mid}>
         {validRoutes.map((item) => (
-          <SideBarItem key={item.route} Icon={item.Svg} route={item.route} text={item.text} />
+          <SideBarItem
+            key={item.route}
+            Icon={item.Svg}
+            route={item.route}
+            text={item.text}
+            isNew={item.route === '/finances'}
+          />
         ))}
       </div>
 

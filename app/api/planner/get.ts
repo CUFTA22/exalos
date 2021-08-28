@@ -24,7 +24,7 @@ export const usePlannerData = (initialData?: Planner_Data) => {
   };
 };
 
-const getPlanner = async (email: string): Promise<Planner_Data> => {
+const getPlanner = async (email: string): Promise<ApiResponse<Planner_Data>> => {
   const res = await useFetch().get('/api/planner/' + email);
   return res;
 };

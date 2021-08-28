@@ -1,0 +1,13 @@
+@use "variables";
+@use "mixins";
+
+.planner_cell {
+  padding: 2px;
+  height: 40px;
+  font-size: 10px;
+  color: transparentize($color: variables.$color-text-secondary, $amount: 0.4);
+  border-left: 1px solid transparentize($color: variables.$color-text-secondary, $amount: 0.9);
+  border-bottom: 1px solid transparentize($color: variables.$color-text-secondary, $amount: 0.9);
+
+  @include mixins.flex-row-space;
+}

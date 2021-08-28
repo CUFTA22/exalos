@@ -1,4 +1,9 @@
-import { Add24Regular, EyeShow24Regular, Settings24Regular } from '@fluentui/react-icons';
+import {
+  Add24Regular,
+  EyeShow24Regular,
+  Settings24Regular,
+  Video24Regular,
+} from '@fluentui/react-icons';
 import Card from '@lib/Card/Card';
 import FAB from '@lib/FAB/FAB';
 import { useState } from 'react';
@@ -20,6 +25,9 @@ const CreateControls: React.FC<ControlsProps> = ({ plannerData }) => {
         <TypeSelect />
         <FAB onClick={() => toggleModal('typesModal')} className={styles.mleft}>
           <Add24Regular />
+        </FAB>
+        <FAB onClick={() => toggleModal('typesModal')} className={styles.mleft}>
+          <Video24Regular />
         </FAB>
       </div>
       <div className={styles.right}>

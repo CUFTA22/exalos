@@ -9,22 +9,32 @@ const string = {
   type: String,
 };
 
+// Cell subschema
+
+const cellSchema = new mongoose.Schema(
+  {
+    cell_id: stringRequired, // Auto-genereted + unique - d2_h5 ?
+    task_id: string, // ID for task to populate and get completed ?
+    text: string,
+    type: string, // If type is deleted also clear in DB
+  },
+  { _id: false }
+);
+
+// Week subschema
+
+const weekSchema = new mongoose.Schema(
+  {
+    week_id: stringRequired, // Auto-genereted + unique - 12.08.21 ?
+    cells: [cellSchema],
+  },
+  { _id: false }
+);
+
 const PlannerSchema = new mongoose.Schema<PlannerDocument, PlannerModel>(
   {
     user_email: stringRequired,
-    calendar: [
-      {
-        week_id: stringRequired, // Auto-genereted + unique - 12.08.21 ?
-        cells: [
-          {
-            cell_id: stringRequired, // Auto-genereted + unique - d2_h5 ?
-            task_id: string, // ID for task to populate and get completed ?
-            text: string,
-            type: string, // If type is deleted also clear in DB
-          },
-        ],
-      },
-    ],
+    calendar: [weekSchema],
     settings: {
       start_time: stringRequired,
       end_time: stringRequired,

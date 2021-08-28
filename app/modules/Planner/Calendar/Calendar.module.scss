@@ -1,8 +1,28 @@
-@import 'mixins';
+@use 'mixins';
 
 .calendar {
   height: 85%;
   width: 100%;
+  padding: 0;
+  overflow: hidden;
 
-  @include flex-col-center;
+  @include mixins.flex-col-center;
+
+  .cells_container {
+    width: 100%;
+    height: calc(100% - 24px);
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    @include mixins.flex-row-center;
+    align-items: flex-start; // Important !
+  }
+
+  .weeks_container {
+    width: 100%;
+    height: 24px;
+
+    @include mixins.flex-row-start;
+  }
 }
