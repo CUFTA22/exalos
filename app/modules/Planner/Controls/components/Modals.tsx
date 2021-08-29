@@ -1,8 +1,8 @@
 import ConfirmationModal from '@element/ConfirmationModal/ConfirmationModal';
-import SettingsModal from '../modals/SettingsModal/SettingsModal';
-import ShowModal from '../modals/ShowModal/ShowModal';
-import TypesModal from '../modals/TypesModal/TypesModal';
-import { ModalsProps } from './types';
+import SettingsModal from '../../modals/SettingsModal/SettingsModal';
+import ShowModal from '../../modals/ShowModal/ShowModal';
+import TypesModal from '../../modals/TypesModal/TypesModal';
+import { ModalsProps } from '../types';
 
 const Modals: React.FC<ModalsProps> = ({ state, toggleModal }) => {
   return (

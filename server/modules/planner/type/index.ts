@@ -5,6 +5,7 @@ import { postSchema } from './type.schema';
 
 export default (req: NextApiRequest, res: NextApiResponse) =>
   apiHandler({
-    POST: { handler: ctrl.handleGet, schema: postSchema },
-    DELETE: { handler: ctrl.handleGet },
+    POST: { handler: ctrl.handlePost },
+    PATCH: { handler: ctrl.handlePatch },
+    DELETE: { handler: ctrl.handleDelete },
   })(req, res);

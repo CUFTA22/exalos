@@ -10,6 +10,8 @@ const usePlannerInit = () => {
   const init = async () => {
     if (!email) return;
     await fetch('/api/planner', 'post', { email });
+
+    // Invalidate cache
     mutate(`/api/planner/${email}`);
   };
 

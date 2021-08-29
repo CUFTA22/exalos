@@ -7,10 +7,10 @@ import {
 import Card from '@lib/Card/Card';
 import FAB from '@lib/FAB/FAB';
 import { useState } from 'react';
-import TypeSelect from '../TypeSelect';
+import TypeSelect from './components/TypeSelect';
 import styles from './Controls.module.scss';
 import { ControlsProps, initialState, State } from './types';
-import Modals from './Modals';
+import Modals from './components/Modals';
 
 const CreateControls: React.FC<ControlsProps> = ({ plannerData }) => {
   const [state, setState] = useState<State>(initialState);

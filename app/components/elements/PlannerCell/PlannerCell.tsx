@@ -7,6 +7,8 @@ const PlannerCell: React.FC<Props> = ({ text, type, cell_id, task_id, previous }
 
   const display_text = shouldDisplay ? text : '';
 
+  // Idea - right click -> opens popup < Expand, Join Meet, Clear Cell >
+
   return (
     <div className={styles.planner_cell}>
       {cell_id}

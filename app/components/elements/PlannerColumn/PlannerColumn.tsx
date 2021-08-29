@@ -7,7 +7,7 @@ const PlannerColumn: React.FC<Props> = ({ cells }) => {
     <div className={styles.planner_column}>
       {cells.map((cell, i) => {
         let previousCell = cells[i - 1];
-        return <PlannerCell {...cell} previous={previousCell} />;
+        return <PlannerCell {...cell} key={cell.cell_id} previous={previousCell} />;
       })}
     </div>
   );

@@ -1,0 +1,22 @@
+@use "variables";
+@use "mixins";
+
+.lib_simpleFab {
+  min-width: 30px;
+  height: 30px;
+  margin: 0 4px;
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+
+  @include mixins.flex-row-center;
+
+  &:hover {
+    background-color: transparentize($color: variables.$color-primary, $amount: 0.92);
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}

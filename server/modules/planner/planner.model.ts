@@ -31,10 +31,21 @@ const weekSchema = new mongoose.Schema(
   { _id: false }
 );
 
+// Type subschema
+
+const typeSchema = new mongoose.Schema(
+  {
+    name: string,
+    color: string,
+  },
+  { _id: false }
+);
+
 const PlannerSchema = new mongoose.Schema<PlannerDocument, PlannerModel>(
   {
     user_email: stringRequired,
     calendar: [weekSchema],
+    types: [typeSchema],
     settings: {
       start_time: stringRequired,
       end_time: stringRequired,

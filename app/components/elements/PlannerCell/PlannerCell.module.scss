@@ -5,6 +5,8 @@
   padding: 2px;
   height: 40px;
   font-size: 10px;
+  user-select: none;
+
   color: transparentize($color: variables.$color-text-secondary, $amount: 0.4);
   border-left: 1px solid transparentize($color: variables.$color-text-secondary, $amount: 0.9);
   border-bottom: 1px solid transparentize($color: variables.$color-text-secondary, $amount: 0.9);
