@@ -7,7 +7,7 @@ export const handlePost = async (req: NextApiRequest, res: NextApiResponse) => {
   const { user: { email } } = await getSession({ req });
   const data = await svc.createType(email, req.body);
 
-  res.status(201).json({ error: false, message: data });
+  res.status(200).json({ error: false, message: data });
 };
 
 export const handlePatch = async (req: NextApiRequest, res: NextApiResponse) => {
@@ -15,5 +15,9 @@ export const handlePatch = async (req: NextApiRequest, res: NextApiResponse) => 
 };
 
 export const handleDelete = async (req: NextApiRequest, res: NextApiResponse) => {
-  // ...
+  // prettier-ignore
+  const { user: { email } } = await getSession({ req });
+  const data = await svc.deleteType(email, req.body);
+
+  res.status(200).json({ error: false, message: data });
 };

@@ -38,7 +38,7 @@ const typeSchema = new mongoose.Schema(
     name: string,
     color: string,
   },
-  { _id: false }
+  { _id: true } // Keep _id for DELETE requests
 );
 
 const PlannerSchema = new mongoose.Schema<PlannerDocument, PlannerModel>(
