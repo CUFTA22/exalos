@@ -8,7 +8,7 @@ import Head from 'next/head';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const session = await getSession(context);
-  if (!session) return handleRedirect('/');
+  // if (!session) return handleRedirect('/');
 
   const plannerData = await getPlanner(session.user.email || '');
 
