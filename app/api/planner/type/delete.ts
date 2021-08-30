@@ -8,9 +8,9 @@ const useDeleteType = () => {
   const email = session?.user?.email;
   const { data, isLoading, mutate: fetch } = useMutation();
 
-  const deleteType = async (type: Planner_Type) => {
-    if (!type.name) return;
-    await fetch('/api/planner/type', 'delete', { ...type });
+  const deleteType = async (_id: string) => {
+    if (!_id) return;
+    await fetch(`/api/planner/type/${_id}`, 'delete');
 
     // Invalidate cache
     mutate(`/api/planner/${email}`);

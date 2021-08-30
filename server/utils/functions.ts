@@ -1,9 +1,3 @@
-export const compareObjects = (obj1: object, obj2: object) =>
-  JSON.stringify(obj1) === JSON.stringify(obj2);
+export const removeItemById = (arr: any[], id: any) => arr.filter((val) => !val._id.equals(id));
 
-export const removeArrayItem = (arr: any[], value: any) => {
-  const index = arr.indexOf(value);
-  if (index > -1) arr.splice(index, 1);
-
-  return arr;
-};
+export const updateItemById = (arr: any[], id: string) => arr.filter((val) => val._id == id);

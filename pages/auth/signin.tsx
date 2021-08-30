@@ -3,20 +3,14 @@ import Page from '@template/SignIn/SignIn';
 import { GetServerSideProps } from 'next';
 import { getProviders, getSession } from 'next-auth/client';
 import Head from 'next/head';
+import handleRedirect from '../../app/utils/resources/handleRedirect';
 
 // This is the recommended way for Next.js 9.3 or newer
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const providers = await getProviders();
   const session = await getSession(context);
 
-  if (session) {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      },
-    };
-  }
+  if (session) return handleRedirect('/');
 
   return {
     props: { providers },

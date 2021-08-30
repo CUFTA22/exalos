@@ -13,11 +13,6 @@ import Spinner from '@lib/Spinner/Spinner';
 const SideBar: React.FC = () => {
   const [session, loading] = useSession();
 
-  const handleSignin = (e: Event) => {
-    e.preventDefault();
-    signIn();
-  };
-
   const validRoutes = session?.user?.email
     ? sideBarItems
     : sideBarItems.filter((item) => !protectedRoutes.includes(item.route));
@@ -48,7 +43,7 @@ const SideBar: React.FC = () => {
         ) : session ? (
           <UserPanel />
         ) : (
-          <FAB onClick={handleSignin} Icon={Person24Regular} />
+          <FAB onClick={signIn} Icon={Person24Regular} />
         )}
       </div>
     </div>

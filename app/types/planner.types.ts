@@ -26,6 +26,7 @@ export interface Planner_Data {
 // Types - color labels for cells
 
 export interface Planner_Type {
+  _id?: string;
   name: string;
   color: string; // rgb value ?
 }

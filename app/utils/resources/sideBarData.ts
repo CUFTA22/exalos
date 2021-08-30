@@ -61,4 +61,4 @@ const demoItems = [
   },
 ];
 
-export const protectedRoutes = ['/planner', '/tasks', '/finance'];
+export const protectedRoutes = ['/tasks', '/finances'];

@@ -5,6 +5,7 @@ import Typography from '@lib/Typography/Typography';
 import { useSession, signOut } from 'next-auth/client';
 import { MouseEvent } from 'react';
 import styles from './UserPanel.module.scss';
+
 const UserPanel = () => {
   const [session] = useSession();
 
@@ -21,9 +22,8 @@ const UserPanel = () => {
 
       <div className={styles.bottom}>
         <Avatar.Big className={styles.avatar} src={session.user.image} />
-        <a href={`/api/auth/signout`} onClick={handleSignOut}>
-          <Button width={140} text="Logout" Icon={ConferenceRoom24Regular} />
-        </a>
+
+        <Button width={140} text="Logout" onClick={handleSignOut} Icon={ConferenceRoom24Regular} />
       </div>
     </div>
   );
