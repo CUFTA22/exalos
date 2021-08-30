@@ -9,6 +9,8 @@ import useSettings from '@module/Settings/useSettings';
 function MyApp({ Component, pageProps }: AppProps) {
   const { settings } = useSettings();
 
+  console.log(process.env.NEXT_PUBLIC_URL);
+
   return (
     <>
       <Provider
