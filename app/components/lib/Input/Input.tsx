@@ -6,6 +6,7 @@ import { InputProps } from './types';
 const Input: React.FC<InputProps> = ({
   value,
   onChange,
+  onEnter,
   icons_back,
   icons_front,
   placeholder,
@@ -27,6 +28,7 @@ const Input: React.FC<InputProps> = ({
         type="text"
         value={value}
         onChange={(e) => onChange(e.target.value)}
+        onKeyPress={(e) => e.code === 'Enter' && onEnter()}
         placeholder={placeholder}
         disabled={disabled}
       />

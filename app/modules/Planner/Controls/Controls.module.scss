@@ -1,22 +1,30 @@
-@import 'mixins';
+@use 'mixins';
+@use "variables";
 
 .controls {
   height: 60px;
   width: 100%;
   padding: 0 20px;
 
-  @include flex-row-space;
+  @include mixins.flex-row-space;
 
   .left {
-    @include flex-row-center;
+    @include mixins.flex-row-center;
   }
 
   .right {
-    @include flex-row-center;
+    @include mixins.flex-row-center;
   }
 
   .mleft {
     margin-left: 20px;
+  }
+
+  .divider {
+    height: 30px;
+    width: 2px;
+    margin: 0 30px;
+    background-color: transparentize($color: variables.$color-text-secondary, $amount: 0.5);
   }
 
   // .mright {

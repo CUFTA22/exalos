@@ -4,6 +4,8 @@
   height: 24px;
   font-size: 10px;
   padding: 6px 22px;
+  position: relative;
+  overflow: hidden;
   transition: all 0.1s ease-in-out;
   border-top-right-radius: 8px;
   border-top: 1px solid variables.$color-primary;
@@ -14,10 +16,22 @@
   &:hover {
     cursor: pointer;
     color: variables.$color-primary;
+
+    .remove_week {
+      right: 6px;
+    }
   }
 
   &.active {
     box-shadow: transparentize($color: variables.$color-primary, $amount: 0.5) 1.5px -1.5px 3px;
     color: variables.$color-primary;
+  }
+
+  .remove_week {
+    position: absolute;
+    transition: all 0.1s ease-in-out;
+    top: 50%;
+    right: -30px;
+    transform: scale(0.85) translateY(-50%);
   }
 }

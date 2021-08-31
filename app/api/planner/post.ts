@@ -1,18 +1,19 @@
+import usePlanner from '@module/Planner/usePlanner';
 import { useSession } from 'next-auth/client';
-import { mutate } from 'swr';
 import useMutation from '../useMutation';
 
 const usePlannerInit = () => {
+  const { setPlannerData } = usePlanner();
   const [session] = useSession();
   const email = session?.user?.email;
   const { data, isLoading, mutate: fetch } = useMutation();
 
   const init = async () => {
     if (!email) return;
-    await fetch('/api/planner', 'post', { email });
+    const res = await fetch('/api/planner', 'post', { email });
 
-    // Invalidate cache
-    mutate(`/api/planner/${email}`);
+    // @ts-ignore
+    setPlannerData(res.message);
   };
 
   return { data, isLoading, init };

@@ -27,6 +27,7 @@ const useMutation = () => {
       );
 
     setState({ data: res, loading: false });
+    return res;
   };
 
   return { data: state.data, mutate, isLoading: state.loading };

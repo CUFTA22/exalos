@@ -11,6 +11,7 @@ import TypeSelect from './components/TypeSelect';
 import styles from './Controls.module.scss';
 import { ControlsProps, initialState, State } from './types';
 import Modals from './components/Modals';
+import Input from '@lib/Input/Input';
 
 const CreateControls: React.FC<ControlsProps> = ({ plannerData }) => {
   const [state, setState] = useState<State>(initialState);
@@ -26,9 +27,16 @@ const CreateControls: React.FC<ControlsProps> = ({ plannerData }) => {
         <FAB onClick={() => toggleModal('typesModal')} className={styles.mleft}>
           <Add24Regular />
         </FAB>
-        <FAB onClick={() => toggleModal('typesModal')} className={styles.mleft}>
-          <Video24Regular />
-        </FAB>
+
+        <div className={styles.divider}></div>
+
+        <Input
+          value="https://meet.google.com/69696969"
+          onChange={() => {}}
+          placeholder="Add meet url"
+          width="240px"
+          icons_front={[<Video24Regular primaryFill="hsl(240, 28%, 64%)" />]}
+        />
       </div>
       <div className={styles.right}>
         <FAB onClick={() => toggleModal('settingsModal')} className={styles.mleft}>

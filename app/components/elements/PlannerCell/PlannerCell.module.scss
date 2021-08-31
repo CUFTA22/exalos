@@ -11,5 +11,23 @@
   border-left: 1px solid transparentize($color: variables.$color-text-secondary, $amount: 0.9);
   border-bottom: 1px solid transparentize($color: variables.$color-text-secondary, $amount: 0.9);
 
+  &.selected_solo {
+    border: 1px solid variables.$color-primary;
+  }
+  &.selected_top {
+    border-top: 1px solid variables.$color-primary;
+    border-left: 1px solid variables.$color-primary;
+    border-right: 1px solid variables.$color-primary;
+  }
+  &.selected_middle {
+    border-left: 1px solid variables.$color-primary;
+    border-right: 1px solid variables.$color-primary;
+  }
+  &.selected_bottom {
+    border-bottom: 1px solid variables.$color-primary;
+    border-left: 1px solid variables.$color-primary;
+    border-right: 1px solid variables.$color-primary;
+  }
+
   @include mixins.flex-row-space;
 }
