@@ -9,19 +9,7 @@
   @include mixins.flex-row-center;
 
   input {
-    background-color: transparent;
-    width: 100%;
-    padding: 6px;
-    font-family: 'Inter', sans-serif;
-    color: variables.$color-text-secondary;
-    outline: none;
-    border: none;
-    font-size: 13px;
-    text-overflow: ellipsis;
-
-    /* Required for text-overflow to do anything */
-    white-space: nowrap;
-    overflow: hidden;
+    @include mixins.input-shared;
 
     &::placeholder {
       color: transparentize($color: variables.$color-text-secondary, $amount: 0.7);

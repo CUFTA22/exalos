@@ -27,7 +27,10 @@ const CreateCalendar: React.FC<CalendarProps> = ({ plannerData }) => {
 
   return (
     <Card className={styles.calendar}>
-      <div className={styles.cells_container}>{renderCalendar()}</div>
+      <div className={styles.cells_container}>
+        <div className={styles.hours_placeholder}></div>
+        {renderCalendar()}
+      </div>
       <div className={styles.weeks_container}>
         {renderWeeks()}
         <Add12Regular primaryFill="hsl(128, 88%, 77%)" className={styles.add_week} />

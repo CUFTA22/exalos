@@ -1,4 +1,11 @@
-import { Planner_Cell, Planner_Data, Planner_Type, Planner_Updates } from '@ts/planner.types';
+import {
+  Planner_Cell,
+  Planner_Cell_Updates,
+  Planner_Data,
+  Planner_Type,
+  Planner_Updates,
+} from '@ts/planner.types';
+import useFetch from 'app/api/useFetch';
 import { PlannerContext } from 'app/store/planner/CTX';
 import { useContext } from 'react';
 
@@ -10,6 +17,7 @@ import { useContext } from 'react';
 const usePlanner = (): Planner_Updates => {
   const { plannerData, selectedCells, visibleTypes, selectedWeek, dispatch } =
     useContext(PlannerContext);
+  const client = useFetch();
 
   // --------------------------------------------------------------------------------------------
   // Set Planner Data - initial
@@ -29,7 +37,10 @@ const usePlanner = (): Planner_Updates => {
     return dispatch({ type: action, payload: cell });
   };
 
-  const updateCellsData = (data: Planner_Cell) => {};
+  const updateCellsData = async (week_id: string, data: Planner_Cell_Updates) => {
+    const res = await client.patch(`/api/planner/week/${week_id}`, { ...data });
+    setPlannerData(res.message);
+  };
 
   // --------------------------------------------------------------------------------------------
   // Type Actions

@@ -1,4 +1,4 @@
-@import 'variables';
+@use 'variables';
 
 @mixin flex-row-center {
   display: flex;
@@ -55,13 +55,29 @@
 
 @mixin sidebar-item {
   box-shadow: #00000033 0px 3px 8px 1px, #3d3c62 0px 2px 0px inset;
-  background-color: $color-sidebar-active;
+  background-color: variables.$color-sidebar-active;
   border-radius: 10px;
 }
 
 @mixin lib-card {
   box-shadow: #00000033 0px 3px 8px 1px, #3d3c62 0px 2px 0px inset;
   padding: 10px;
-  background-color: $color-container-1;
+  background-color: variables.$color-container-1;
   border-radius: 10px;
+}
+
+@mixin input-shared {
+  background-color: transparent;
+  width: 100%;
+  padding: 6px;
+  font-family: 'Inter', sans-serif;
+  color: variables.$color-text-secondary;
+  outline: none;
+  border: none;
+  font-size: 13px;
+  text-overflow: ellipsis;
+
+  /* Required for text-overflow to do anything */
+  white-space: nowrap;
+  overflow: hidden;
 }

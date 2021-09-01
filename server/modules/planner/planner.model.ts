@@ -17,6 +17,7 @@ const cellSchema = new mongoose.Schema(
     task_id: string, // ID for task to populate and get completed ?
     text: string,
     type: string, // If type is deleted also clear in DB
+    meet_url: string,
   },
   { _id: false }
 );

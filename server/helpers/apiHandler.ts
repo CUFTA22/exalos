@@ -33,7 +33,7 @@ const apiHandler = (config: HandlerObject) => {
       await dbConnect();
 
       // route handler
-      if (schema) return validate(await handler(req, res), schema);
+      if (schema) return validate(handler, schema)(req, res);
       await handler(req, res);
     } catch (err) {
       // global error handler

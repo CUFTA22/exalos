@@ -6,7 +6,8 @@ import PlannerModel from './planner.model';
 // Utility functions
 // ---------------------------------------------------------------------------------------------
 
-export const getByEmail = async (email: string) => await PlannerModel.findByUserEmail(email);
+export const getByEmail = (email: string) => PlannerModel.findByUserEmail(email);
+export const getByEmailLean = (email: string) => PlannerModel.findOne({ user_email: email }).lean();
 
 export const initPlanner = async (email: string) => {
   const data: Planner_Data = {

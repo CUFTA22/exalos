@@ -20,7 +20,7 @@ export const plannerReducer = (
     case 'SELECTED_CELL_ADD':
       return {
         ...state,
-        selectedCells: [...state.selectedCells, action.payload],
+        selectedCells: [action.payload],
       };
     case 'SELECTED_CELL_REMOVE':
       return {
@@ -28,15 +28,9 @@ export const plannerReducer = (
         selectedCells: removeArrayItem(state.selectedCells, action.payload),
       };
     case 'SELECTED_WEEK_SET':
-      return {
-        ...state,
-        selectedWeek: action.payload,
-      };
+      return { ...state, selectedWeek: action.payload };
     case 'PLANNER_DATA_SET':
-      return {
-        ...state,
-        plannerData: action.payload,
-      };
+      return { ...state, plannerData: action.payload };
     default:
       return state;
   }

@@ -1,9 +1,10 @@
-import { Planner_Cell, Planner_Week } from '@ts/planner.types';
+import { Planner_Week } from '@ts/planner.types';
 
 // Groups all cells into days and filters by settings
 // cell[] => cell[][]  |  by days, first array will be d0, second d1...
 
 export const transformWeekData = (week: Planner_Week, from: string = '00', to: string = '24') => {
+  // Cuts off days based on users settings
   const filteredWeek: Planner_Week = {
     ...week,
     cells: week.cells.filter(

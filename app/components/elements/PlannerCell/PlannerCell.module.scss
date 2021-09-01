@@ -2,32 +2,49 @@
 @use "mixins";
 
 .planner_cell {
-  padding: 2px;
+  padding: 2px 6px;
   height: 40px;
-  font-size: 10px;
   user-select: none;
+  transition: all 0.1s ease-in-out;
+  position: relative;
 
-  color: transparentize($color: variables.$color-text-secondary, $amount: 0.4);
-  border-left: 1px solid transparentize($color: variables.$color-text-secondary, $amount: 0.9);
-  border-bottom: 1px solid transparentize($color: variables.$color-text-secondary, $amount: 0.9);
-
-  &.selected_solo {
-    border: 1px solid variables.$color-primary;
-  }
-  &.selected_top {
-    border-top: 1px solid variables.$color-primary;
-    border-left: 1px solid variables.$color-primary;
-    border-right: 1px solid variables.$color-primary;
-  }
-  &.selected_middle {
-    border-left: 1px solid variables.$color-primary;
-    border-right: 1px solid variables.$color-primary;
-  }
-  &.selected_bottom {
-    border-bottom: 1px solid variables.$color-primary;
-    border-left: 1px solid variables.$color-primary;
-    border-right: 1px solid variables.$color-primary;
-  }
+  border: 1px solid transparentize($color: variables.$color-text-secondary, $amount: 0.9);
+  border-right-color: transparent;
+  border-top-color: transparent;
 
   @include mixins.flex-row-space;
+
+  input {
+    @include mixins.input-shared;
+    font-size: 10px;
+    width: 80%;
+  }
+
+  // &.selected_solo,
+  &.selected_true {
+    // border: 2px solid variables.$color-primary !important;
+    box-shadow: 0 0 2px 1px variables.$color-primary;
+  }
+  // &.selected_top {
+  //   border-top: 1px solid variables.$color-primary;
+  //   border-left: 1px solid variables.$color-primary;
+  //   border-right: 1px solid variables.$color-primary;
+  // }
+  // &.selected_middle {
+  //   border-left: 1px solid variables.$color-primary;
+  //   border-right: 1px solid variables.$color-primary;
+  // }
+  // &.selected_bottom {
+  //   border-bottom: 1px solid variables.$color-primary;
+  //   border-left: 1px solid variables.$color-primary;
+  //   border-right: 1px solid variables.$color-primary;
+  // }
+
+  .display_hour {
+    position: absolute;
+    left: -34px;
+    bottom: -8px;
+    font-size: 9px;
+    color: transparentize($color: variables.$color-text-secondary, $amount: 0.5);
+  }
 }

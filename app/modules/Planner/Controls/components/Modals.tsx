@@ -1,4 +1,4 @@
-import ConfirmationModal from '@element/ConfirmationModal/ConfirmationModal';
+import ConfirmationModal from '@shared/ConfirmationModal/ConfirmationModal';
 import usePlanner from '@module/Planner/usePlanner';
 import SettingsModal from '../../modals/SettingsModal/SettingsModal';
 import ShowModal from '../../modals/ShowModal/ShowModal';
