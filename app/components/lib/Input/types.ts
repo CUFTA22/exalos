@@ -8,5 +8,6 @@ export interface InputProps {
   icons_front?: React.ReactElement<IFluentIconsProps>[];
   icons_back?: React.ReactElement<IFluentIconsProps>[];
   width?: string;
+  className?: string;
   disabled?: boolean;
 }

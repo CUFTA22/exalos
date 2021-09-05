@@ -1,5 +1,8 @@
 import {
   Add24Regular,
+  CalendarStar16Regular,
+  CalendarStar24Regular,
+  Extension24Regular,
   EyeShow24Regular,
   Settings24Regular,
   Video24Regular,
@@ -35,10 +38,15 @@ const CreateControls: React.FC<ControlsProps> = ({ plannerData }) => {
           onChange={() => {}}
           placeholder="Add meet url"
           width="240px"
+          className="no-clickaway"
           icons_front={[<Video24Regular primaryFill="hsl(240, 28%, 64%)" />]}
         />
       </div>
       <div className={styles.right}>
+        {/* V.3 Templates */}
+        {/* <FAB onClick={() => {}} className={styles.mleft}>
+          <Extension24Regular />
+        </FAB> */}
         <FAB onClick={() => toggleModal('settingsModal')} className={styles.mleft}>
           <Settings24Regular />
         </FAB>

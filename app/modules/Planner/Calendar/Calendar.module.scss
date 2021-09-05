@@ -4,7 +4,7 @@
 .calendar {
   height: 85%;
   width: 100%;
-  padding: 0;
+  padding: 2px 4px 0 0;
   overflow: hidden;
 
   @include mixins.flex-col-center;
@@ -21,7 +21,7 @@
     align-items: flex-start; // Important !
 
     .hours_placeholder {
-      width: 38px;
+      width: 42px;
     }
   }
 

@@ -11,6 +11,7 @@ const Input: React.FC<InputProps> = ({
   icons_front,
   placeholder,
   width,
+  className,
   disabled,
 }) => {
   const css = {
@@ -18,7 +19,7 @@ const Input: React.FC<InputProps> = ({
   };
 
   return (
-    <div className={styles.lib_input_container} style={css}>
+    <div className={clsx(styles.lib_input_container, className)} style={css}>
       {icons_front?.map((Icon, i) => (
         <div key={i} className={styles.svg}>
           {Icon}
@@ -27,6 +28,7 @@ const Input: React.FC<InputProps> = ({
       <input
         type="text"
         value={value}
+        className={className}
         onChange={(e) => onChange(e.target.value)}
         onKeyPress={(e) => e.code === 'Enter' && onEnter()}
         placeholder={placeholder}

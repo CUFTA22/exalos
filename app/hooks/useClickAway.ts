@@ -1,18 +1,22 @@
-import { useRef, useEffect } from 'react';
+import { useEffect } from 'react';
 
-export default function useClickAway(callback: any) {
-  const ref = useRef(null) as any;
-
+export default function useClickAway(cellRef: any, callback: any) {
   const handleClickOutside = (event: any) => {
-    if (ref.current && !ref.current.contains(event.target)) callback(event);
+    console.log(event.target?.classList);
+
+    if (
+      cellRef.current &&
+      !cellRef.current.contains(event.target) &&
+      !event.target?.classList?.contains('no-clickaway') &&
+      !event.target?.classList?.contains('rfs-control-container')
+    )
+      callback(event);
   };
 
   useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside, true);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside, true);
     };
   }, []);
-
-  return ref;
 }

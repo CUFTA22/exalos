@@ -38,6 +38,9 @@ const usePlanner = (): Planner_Updates => {
   };
 
   const updateCellsData = async (week_id: string, data: Planner_Cell_Updates) => {
+    // Send all cells for update
+    data.cell_ids = selectedCells.map((cell) => cell.cell_id);
+
     const res = await client.patch(`/api/planner/week/${week_id}`, { ...data });
     setPlannerData(res.message);
   };

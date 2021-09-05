@@ -1,6 +1,4 @@
 import { Planner_Context, Planner_Context_Action } from '@ts/planner.types';
-import removeArrayItem from 'app/utils/functions/removeArrayItem';
-import React from 'react';
 
 const noop = () => false;
 
@@ -18,15 +16,9 @@ export const plannerReducer = (
 ): Planner_Context => {
   switch (action.type) {
     case 'SELECTED_CELL_ADD':
-      return {
-        ...state,
-        selectedCells: [action.payload],
-      };
+      return { ...state, selectedCells: [action.payload] };
     case 'SELECTED_CELL_REMOVE':
-      return {
-        ...state,
-        selectedCells: removeArrayItem(state.selectedCells, action.payload),
-      };
+      return { ...state, selectedCells: [] };
     case 'SELECTED_WEEK_SET':
       return { ...state, selectedWeek: action.payload };
     case 'PLANNER_DATA_SET':

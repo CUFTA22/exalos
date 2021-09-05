@@ -11,9 +11,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const session = await getSession(context);
   if (!session) return handleRedirect('/');
 
-  const plannerData = await getPlanner(session.user.email || '');
+  const plannerData = await getPlanner(session.user.email);
 
-  return { props: { planner: plannerData.message || null } };
+  return { props: { planner: plannerData?.message || null } };
 };
 
 const Planner = (ssProps) => {

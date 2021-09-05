@@ -45,20 +45,23 @@ const handleUpdateCell = (cell: Planner_Cell, newData: Planner_Cell_Updates): Pl
   type: newData.type || cell.type,
 });
 
-export const updatePlannerCell = (
+export const updatePlannerCells = (
   plannerData: PlannerDocument,
   week_id: string,
   data: Planner_Cell_Updates
 ) => {
   const weekIdx = plannerData.calendar.findIndex((week) => week.week_id === week_id);
-  const cellIdx = plannerData.calendar[weekIdx].cells.findIndex(
-    (cell) => cell.cell_id === data.cell_id
-  );
 
-  plannerData.calendar[weekIdx].cells[cellIdx] = handleUpdateCell(
-    plannerData.calendar[weekIdx].cells[cellIdx],
-    data
-  );
+  data.cell_ids.map((cell_id) => {
+    const cellIdx = plannerData.calendar[weekIdx].cells.findIndex(
+      (cell) => cell.cell_id === cell_id
+    );
+
+    plannerData.calendar[weekIdx].cells[cellIdx] = handleUpdateCell(
+      plannerData.calendar[weekIdx].cells[cellIdx],
+      data
+    );
+  });
 
   return plannerData;
 };

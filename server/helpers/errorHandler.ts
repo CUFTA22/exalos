@@ -5,7 +5,7 @@ const errorHandler = (err: any, res: NextApiResponse) => {
     // custom application error
     const is404 = err.toLowerCase().endsWith('not found');
     const statusCode = is404 ? 404 : 400;
-    return res.status(statusCode).json({ message: err });
+    return res.status(statusCode).json({ error: true, message: err });
   }
 
   if (err?.message === 'UnauthorizedError') {

@@ -1,9 +1,10 @@
 import { ChevronDown12Regular } from '@fluentui/react-icons';
 import { useCallback } from 'react';
-import { Select, SelectProps } from 'react-functional-select';
+import { Select } from 'react-functional-select';
 import { customStyles } from './styles';
+import { CustomSelectProps } from './types';
 
-const CustomSelect: React.FC<SelectProps> = (props) => {
+const CustomSelect: React.FC<CustomSelectProps> = ({ className, ...props }) => {
   const customCaretIcon = useCallback(
     ({ menuOpen }): React.ReactNode => (
       <ChevronDown12Regular
@@ -17,7 +18,16 @@ const CustomSelect: React.FC<SelectProps> = (props) => {
     []
   );
 
-  return <Select themeConfig={customStyles} caretIcon={customCaretIcon} {...props} />;
+  return (
+    <div className={className}>
+      <Select
+        themeConfig={customStyles}
+        noOptionsMsg="No types"
+        caretIcon={customCaretIcon}
+        {...props}
+      />
+    </div>
+  );
 };
 
 export default CustomSelect;

@@ -46,7 +46,7 @@ export interface Planner_Updates {
     action: 'SELECTED_CELL_ADD' | 'SELECTED_CELL_REMOVE',
     cell: Planner_Cell
   ) => void;
-  updateCellsData: (cell_id: string, data: Planner_Cell_Updates) => void;
+  updateCellsData: (week_id: string, data: Planner_Cell_Updates) => void;
   updateVisibleTypes: (
     action: 'VISIBLE_TYPES_ADD' | 'VISIBLE_TYPES_REMOVE',
     type: Planner_Type
@@ -59,7 +59,7 @@ export interface Planner_Updates {
 // For updates
 
 export interface Planner_Cell_Updates {
-  cell_id?: string;
+  cell_ids?: string[];
   task_id?: string;
   text?: string;
   type?: string;
