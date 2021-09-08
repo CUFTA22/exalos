@@ -1,23 +1,22 @@
+import {
+  MBooleanRequired,
+  MObjectId,
+  MString,
+  MStringRequired,
+  MStringRequiredUinque,
+} from '@server/utils/modelTypes';
 import { Planner_Data } from '@ts/planner.types';
-import mongoose, { Document, Model, Schema } from 'mongoose';
-
-const stringRequired = {
-  type: String,
-  required: true,
-};
-const string = {
-  type: String,
-};
+import mongoose, { Document, Model } from 'mongoose';
 
 // Cell subschema
 
 const cellSchema = new mongoose.Schema(
   {
-    cell_id: stringRequired, // Auto-genereted + unique - d2_h5 ?
-    task_id: { type: Schema.Types.ObjectId, ref: 'Task' }, // ID for task to populate and get completed ?
-    text: string,
-    type_id: { type: Schema.Types.ObjectId, ref: 'Planner' }, // If type is deleted also clear in DB
-    meet_url: string,
+    cell_id: MStringRequired, // Auto-genereted + unique - d2_h5 ?
+    task_id: MObjectId('Task'), // ID for task to populate and get completed ?
+    text: MString,
+    type_id: MObjectId('Planner'), // If type is deleted also clear in DB
+    meet_url: MString,
   },
   { _id: false }
 );
@@ -26,7 +25,7 @@ const cellSchema = new mongoose.Schema(
 
 const weekSchema = new mongoose.Schema(
   {
-    week_id: stringRequired, // Auto-genereted + unique - 12.08.21 ?
+    week_id: MStringRequired, // Auto-genereted + unique - 12.08.21 ?
     cells: [cellSchema],
   },
   { _id: false }
@@ -36,24 +35,21 @@ const weekSchema = new mongoose.Schema(
 
 const typeSchema = new mongoose.Schema(
   {
-    name: string,
-    color: string,
+    name: MString,
+    color: MString,
   },
   { _id: true } // Keep _id for DELETE requests
 );
 
 const PlannerSchema = new mongoose.Schema<PlannerDocument, PlannerModel>(
   {
-    user_email: stringRequired,
+    user_email: MStringRequiredUinque,
     calendar: [weekSchema],
     types: [typeSchema],
     settings: {
-      start_time: stringRequired,
-      end_time: stringRequired,
-      include_weekends: {
-        type: Boolean,
-        required: true,
-      },
+      start_time: MStringRequired,
+      end_time: MStringRequired,
+      include_weekends: MBooleanRequired,
     },
   },
   {
