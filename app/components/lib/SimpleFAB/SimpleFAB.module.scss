@@ -8,6 +8,7 @@
   border-radius: 50%;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
+  position: relative;
 
   @include mixins.flex-row-center;
 

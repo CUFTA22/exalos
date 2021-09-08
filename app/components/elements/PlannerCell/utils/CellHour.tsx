@@ -1,10 +1,15 @@
 import React from 'react';
-import { formatCellHour } from './formatCellHour';
-
 interface Props {
   cell_id: string;
   className: string;
 }
+
+export const formatCellHour = (cell_id: string) => {
+  const format = `${parseInt(cell_id.substr(4)) < 9 ? '0' : ''}${
+    parseInt(cell_id.substr(4)) + 1
+  }:00`;
+  return format;
+};
 
 const CellHour: React.FC<Props> = ({ cell_id, className }) => {
   return (

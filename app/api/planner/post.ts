@@ -13,7 +13,7 @@ const usePlannerInit = () => {
     const res = await fetch('/api/planner', 'post', { email });
 
     // @ts-ignore
-    setPlannerData(res.message);
+    setPlannerData(res.data);
   };
 
   return { data, isLoading, init };

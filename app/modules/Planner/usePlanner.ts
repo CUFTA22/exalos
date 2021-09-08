@@ -1,3 +1,4 @@
+import { updatePlannerCells } from '@server/utils/util_Planner';
 import {
   Planner_Cell,
   Planner_Cell_Updates,
@@ -41,8 +42,10 @@ const usePlanner = (): Planner_Updates => {
     // Send all cells for update
     data.cell_ids = selectedCells.map((cell) => cell.cell_id);
 
-    const res = await client.patch(`/api/planner/week/${week_id}`, { ...data });
-    setPlannerData(res.message);
+    const newData = updatePlannerCells(plannerData, week_id, data);
+    setPlannerData(newData);
+
+    await client.patch(`/api/planner/week/${week_id}`, { ...data });
   };
 
   // --------------------------------------------------------------------------------------------

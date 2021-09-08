@@ -12,17 +12,13 @@
   .cells_container {
     width: 100%;
     height: calc(100% - 24px);
-    padding: 4px;
+    padding: 38px 4px 4px 46px;
 
     overflow-y: scroll;
     overflow-x: hidden;
 
     @include mixins.flex-row-center;
     align-items: flex-start; // Important !
-
-    .hours_placeholder {
-      width: 42px;
-    }
   }
 
   .weeks_container {

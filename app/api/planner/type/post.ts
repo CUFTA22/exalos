@@ -11,7 +11,7 @@ const useAddType = () => {
     const res = await fetch('/api/planner/type', 'post', { ...type });
 
     // @ts-ignore
-    setPlannerData(res.message);
+    setPlannerData(res.data);
   };
 
   return { data, isLoading, addType };

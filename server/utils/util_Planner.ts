@@ -2,6 +2,7 @@ import { PlannerDocument } from '@server/modules/planner/planner.model';
 import {
   Planner_Cell,
   Planner_Cell_Updates,
+  Planner_Data,
   Planner_Settings,
   Planner_Week,
 } from '@ts/planner.types';
@@ -46,7 +47,7 @@ const handleUpdateCell = (cell: Planner_Cell, newData: Planner_Cell_Updates): Pl
 });
 
 export const updatePlannerCells = (
-  plannerData: PlannerDocument,
+  plannerData: PlannerDocument | Planner_Data,
   week_id: string,
   data: Planner_Cell_Updates
 ) => {

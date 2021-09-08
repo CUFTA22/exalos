@@ -11,7 +11,7 @@ export const handleGet = async (req: NextApiRequest, res: NextApiResponse) => {
 
   const data = await svc.getData(email);
 
-  res.status(200).json({ error: false, message: data });
+  res.status(200).json({ error: false, message: 'Planner data retrieved.', data });
 };
 
 /**
@@ -24,7 +24,7 @@ export const handlePost = async (req: NextApiRequest, res: NextApiResponse) => {
   const { email } = req.body;
   const data = await svc.initPlanner(email);
 
-  res.status(201).json({ error: false, message: data });
+  res.status(201).json({ error: false, message: 'Planner data initialized.', data });
 };
 
 export const handlePatch = async (req: NextApiRequest, res: NextApiResponse) => {

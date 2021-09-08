@@ -7,9 +7,11 @@ export interface Props extends ModalProps {
 export interface State {
   name: string;
   color: string;
+  openPicker: boolean;
 }
 
 export const initialState: State = {
   name: '',
   color: '#fff',
+  openPicker: false,
 };

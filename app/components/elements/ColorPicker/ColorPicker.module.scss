@@ -1,0 +1,14 @@
+@use "mixins";
+
+.color_picker_container {
+  width: 220px;
+  height: fit-content;
+  padding: 16px;
+  position: absolute;
+  //   bottom: -220px;
+  left: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+
+  @include mixins.sidebar-item;
+}

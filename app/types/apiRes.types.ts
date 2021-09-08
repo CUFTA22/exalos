@@ -1,4 +1,5 @@
-export interface ApiResponse<Message> {
+export interface ApiResponse<Data> {
   error: boolean;
-  message: Message;
+  message: string;
+  data?: Data;
 }

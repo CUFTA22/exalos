@@ -10,21 +10,19 @@
 
   border: 1px solid transparentize($color: variables.$color-text-secondary, $amount: 0.9);
   border-right-color: transparent;
-  border-top-color: transparent;
+  border-bottom-color: transparent;
 
   @include mixins.flex-row-space;
-
-  input {
-    @include mixins.input-shared;
-
-    font-size: 10px;
-    width: 86%;
-  }
 
   // &.selected_solo,
   &.selected_true {
     // border: 2px solid variables.$color-primary !important;
     box-shadow: 0 0 2px 1px variables.$color-primary;
+  }
+
+  &.sameAsPrev {
+    border-top: none;
+    border-bottom: none;
   }
   // &.selected_top {
   //   border-top: 1px solid variables.$color-primary;
@@ -41,12 +39,22 @@
   //   border-right: 1px solid variables.$color-primary;
   // }
 
-  .display_hour {
+  .display_hour,
+  .display_day {
     position: absolute;
     left: -36px;
     bottom: -6px;
     font-size: 9px;
     color: transparentize($color: variables.$color-text-secondary, $amount: 0.5);
+  }
+
+  .display_day {
+    position: absolute;
+    left: 50%;
+    top: -29px;
+    font-size: 14px;
+    font-weight: 500;
+    transform: translateX(-50%);
   }
 
   .display_labels {

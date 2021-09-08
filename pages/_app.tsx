@@ -1,4 +1,5 @@
 import '@styles/base/_base.scss';
+import '@styles/base/_lib.scss';
 import '@styles/base/_transitions.scss';
 
 import { Provider } from 'next-auth/client';

@@ -10,7 +10,7 @@ const useDeleteType = () => {
     const res = await fetch(`/api/planner/type/${_id}`, 'delete');
 
     // @ts-ignore
-    setPlannerData(res.message);
+    setPlannerData(res.data);
   };
 
   return { data, isLoading, deleteType };

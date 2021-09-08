@@ -34,5 +34,5 @@ export const handlePatch = async (req: NextApiRequest, res: NextApiResponse) => 
 
   const data = await svc.updateCells(email, id, req.body);
 
-  res.status(200).json({ error: false, message: data });
+  res.status(200).json({ error: false, message: 'Cell updated.', data });
 };
