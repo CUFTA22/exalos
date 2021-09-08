@@ -1,12 +1,16 @@
 import { PlannerDocument } from '@server/modules/planner/planner.model';
+import type from '@server/modules/planner/type';
 import {
   Planner_Cell,
   Planner_Cell_Updates,
   Planner_Data,
   Planner_Settings,
+  Planner_Type,
+  Planner_Type_Updates,
   Planner_Week,
 } from '@ts/planner.types';
 import dayjs from 'dayjs';
+import { updateItemById } from './functions';
 
 export const getDefaultSettings = (): Planner_Settings => ({
   start_time: '00',
@@ -22,7 +26,7 @@ const generateCells = (): Planner_Cell[] => {
       cell_id: `d${cycle}_h${i - cycle * 24}`,
       task_id: '',
       text: '',
-      type: '',
+      type_id: '',
       meet_url: '',
     });
   });
@@ -43,11 +47,11 @@ const handleUpdateCell = (cell: Planner_Cell, newData: Planner_Cell_Updates): Pl
   meet_url: newData.meet_url || cell.meet_url,
   task_id: newData.task_id || cell.task_id,
   text: newData.text || cell.text,
-  type: newData.type || cell.type,
+  type_id: newData.type_id || cell.type_id,
 });
 
 export const updatePlannerCells = (
-  plannerData: PlannerDocument | Planner_Data,
+  plannerData: Planner_Data | PlannerDocument,
   week_id: string,
   data: Planner_Cell_Updates
 ) => {
@@ -66,3 +70,6 @@ export const updatePlannerCells = (
 
   return plannerData;
 };
+
+export const getLeanTypes = (types: Planner_Type[]): Planner_Type[] =>
+  types.map(({ color, name, _id }) => ({ color, name, _id }));

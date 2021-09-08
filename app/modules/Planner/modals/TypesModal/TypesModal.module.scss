@@ -26,6 +26,8 @@
     @include mixins.flex-row-space;
 
     .type_actions {
+      position: relative;
+
       @include mixins.flex-row-space;
     }
   }

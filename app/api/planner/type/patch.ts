@@ -2,19 +2,18 @@ import usePlanner from '@module/Planner/usePlanner';
 import { Planner_Type } from '@ts/planner.types';
 import useMutation from '../../useMutation';
 
-const useAddType = () => {
+const useDeleteType = () => {
   const { setPlannerData } = usePlanner();
   const { data, isLoading, mutate } = useMutation();
 
-  const addType = async (type: Planner_Type) => {
-    if (!type.name) return;
-    const res = await mutate('/api/planner/type', 'post', { ...type });
+  const deleteType = async (_id: string, type: Planner_Type) => {
+    const res = await mutate(`/api/planner/type/${_id}`, 'patch', { ...type });
 
     // @ts-ignore
     setPlannerData(res.data);
   };
 
-  return { data, isLoading, addType };
+  return { data, isLoading, deleteType };
 };
 
-export default useAddType;
+export default useDeleteType;

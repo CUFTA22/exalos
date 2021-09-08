@@ -5,9 +5,9 @@
   height: fit-content;
   padding: 16px;
   position: absolute;
-  //   bottom: -220px;
+  top: 120%;
   left: 50%;
-  transform: translateY(-50%);
+  transform: translateX(-50%);
   z-index: 5;
 
   @include mixins.sidebar-item;

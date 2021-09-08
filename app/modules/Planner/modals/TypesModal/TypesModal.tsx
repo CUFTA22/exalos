@@ -31,17 +31,28 @@ const TypesModal: React.FC<Props> = ({ isOpen, toggleModal, plannerData }) => {
         onEnter={handleAddType}
         placeholder="Enter type name"
         width="400px"
-        icons_front={[<CircleHalfFill24Regular primaryFill={state.color} />]}
+        icons_front={[
+          <div
+            style={{
+              width: '14px',
+              height: '14px',
+              borderRadius: '4px',
+              backgroundColor: state.color,
+            }}
+          ></div>,
+        ]}
         icons_back={[
-          <Color24Regular
-            onClick={togglePicker}
-            className="no-clickaway"
-            primaryFill="hsl(240, 28%, 64%)"
-          />,
+          <div>
+            <Color24Regular
+              onClick={togglePicker}
+              className="no-clickaway"
+              primaryFill="hsl(240, 28%, 64%)"
+            />
+            <ColorPicker isOpen={state.openPicker} color={state.color} onChange={changeColor} />
+          </div>,
           <Add24Regular primaryFill="hsl(240, 28%, 64%)" onClick={!isLoading && handleAddType} />,
         ]}
       />
-      <ColorPicker isOpen={state.openPicker} color={state.color} onChange={changeColor} />
       <div className={styles.types_wrapper}>{renderTypes()}</div>
     </Modal>
   );

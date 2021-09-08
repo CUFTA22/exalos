@@ -3,17 +3,16 @@ import { useSession } from 'next-auth/client';
 import useMutation from '../useMutation';
 
 const usePlannerInit = () => {
-  const { setPlannerData } = usePlanner();
+  const { initializeState } = usePlanner();
   const [session] = useSession();
   const email = session?.user?.email;
-  const { data, isLoading, mutate: fetch } = useMutation();
+  const { data, isLoading, mutate } = useMutation();
 
   const init = async () => {
     if (!email) return;
-    const res = await fetch('/api/planner', 'post', { email });
+    const res = await mutate('/api/planner', 'post', { email });
 
-    // @ts-ignore
-    setPlannerData(res.data);
+    initializeState(res.data);
   };
 
   return { data, isLoading, init };

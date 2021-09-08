@@ -4,7 +4,7 @@ export interface Planner_Cell {
   cell_id: string; // Auto-genereted + unique - d2_h5 ?
   task_id: string; // ID for task to populate and get completed ?
   text: string;
-  type: string; // If type is deleted also clear in DB
+  type_id: string; // If type is deleted also clear in DB
   meet_url: string;
 }
 
@@ -41,6 +41,7 @@ export interface Planner_Type {
 export interface Planner_Updates {
   plannerData: Planner_Data;
   setPlannerData: (data: Planner_Data) => void;
+  initializeState: (planner: Planner_Data) => void;
   selectedCells: Planner_Cell[];
   updateSelectedCells: (
     action: 'SELECTED_CELL_ADD' | 'SELECTED_CELL_REMOVE',
@@ -51,7 +52,7 @@ export interface Planner_Updates {
     action: 'VISIBLE_TYPES_ADD' | 'VISIBLE_TYPES_REMOVE',
     type: Planner_Type
   ) => void;
-  updateTypesData: (data: Planner_Type) => void;
+  updateTypesData: (type_id: string, data: Planner_Type_Updates) => void;
   selectedWeek: string;
   setSelectedWeek: (week: string) => void;
 }
@@ -62,8 +63,14 @@ export interface Planner_Cell_Updates {
   cell_ids?: string[];
   task_id?: string;
   text?: string;
-  type?: string;
+  type_id?: string;
   meet_url?: string;
+}
+
+export interface Planner_Type_Updates {
+  _id?: string; // _id for updating DB
+  name?: string;
+  color?: string; // rgb value ?
 }
 
 // -----------------------------------------------------------------

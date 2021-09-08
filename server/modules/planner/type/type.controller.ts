@@ -23,7 +23,13 @@ export const handlePost = async (req: NextApiRequest, res: NextApiResponse) => {
  */
 
 export const handlePatch = async (req: NextApiRequest, res: NextApiResponse) => {
-  // ...
+  // prettier-ignore
+  const { user: { email } } = await getSession({ req });
+  const { id } = req.query as { id: string }; // type id
+
+  const data = await svc.updateType(email, id, req.body);
+
+  res.status(200).json({ error: false, message: 'Type updated.', data });
 };
 
 /**

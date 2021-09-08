@@ -6,18 +6,16 @@ import { useEffect } from 'react';
 import styles from './Planner.module.scss';
 
 const Planner: React.FC<TemplateProps> = ({ ssProps }) => {
-  const { setSelectedWeek, setPlannerData } = usePlanner();
+  const { initializeState, plannerData } = usePlanner();
 
   useEffect(() => {
-    // Set selected week to last one
-    setPlannerData(ssProps.planner);
-    setSelectedWeek(ssProps.planner.calendar[ssProps.planner.calendar.length - 1].week_id);
+    initializeState(ssProps.planner);
   }, []);
 
   return (
     <div className={styles.page_planner}>
-      <CreateControls plannerData={ssProps.planner} />
-      <CreateCalendar plannerData={ssProps.planner} />
+      <CreateControls plannerData={ssProps.planner || plannerData} />
+      <CreateCalendar plannerData={ssProps.planner || plannerData} />
     </div>
   );
 };

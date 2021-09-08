@@ -12,6 +12,6 @@ export interface State {
 
 export const initialState: State = {
   name: '',
-  color: '#fff',
+  color: '#ffffff',
   openPicker: false,
 };

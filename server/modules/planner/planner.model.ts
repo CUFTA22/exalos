@@ -1,5 +1,5 @@
 import { Planner_Data } from '@ts/planner.types';
-import mongoose, { Document, Model } from 'mongoose';
+import mongoose, { Document, Model, Schema } from 'mongoose';
 
 const stringRequired = {
   type: String,
@@ -14,9 +14,9 @@ const string = {
 const cellSchema = new mongoose.Schema(
   {
     cell_id: stringRequired, // Auto-genereted + unique - d2_h5 ?
-    task_id: string, // ID for task to populate and get completed ?
+    task_id: { type: Schema.Types.ObjectId, ref: 'Task' }, // ID for task to populate and get completed ?
     text: string,
-    type: string, // If type is deleted also clear in DB
+    type_id: { type: Schema.Types.ObjectId, ref: 'Planner' }, // If type is deleted also clear in DB
     meet_url: string,
   },
   { _id: false }

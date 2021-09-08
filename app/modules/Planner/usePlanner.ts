@@ -1,9 +1,11 @@
+import { updateItemById } from '@server/utils/functions';
 import { updatePlannerCells } from '@server/utils/util_Planner';
 import {
   Planner_Cell,
   Planner_Cell_Updates,
   Planner_Data,
   Planner_Type,
+  Planner_Type_Updates,
   Planner_Updates,
 } from '@ts/planner.types';
 import useFetch from 'app/api/useFetch';
@@ -26,6 +28,13 @@ const usePlanner = (): Planner_Updates => {
 
   const setPlannerData = (data: Planner_Data) =>
     dispatch({ type: 'PLANNER_DATA_SET', payload: data });
+
+  const initializeState = (planner: Planner_Data) => {
+    // Set initial plannerData
+    // Set selected week to last one
+    setPlannerData(planner);
+    setSelectedWeek(planner?.calendar[planner.calendar.length - 1].week_id);
+  };
 
   // --------------------------------------------------------------------------------------------
   // Cell Actions
@@ -59,7 +68,15 @@ const usePlanner = (): Planner_Updates => {
     dispatch({ type: action, payload: type });
   };
 
-  const updateTypesData = (data: Planner_Type) => {};
+  const updateTypesData = async (type_id: string, data: Planner_Type_Updates) => {
+    const newData = plannerData;
+
+    newData.types = updateItemById(plannerData.types, type_id, data);
+
+    setPlannerData(newData);
+
+    await client.patch(`/api/planner/type/${type_id}`, { ...data });
+  };
 
   // --------------------------------------------------------------------------------------------
   // Week Actions
@@ -73,6 +90,7 @@ const usePlanner = (): Planner_Updates => {
   return {
     plannerData,
     setPlannerData,
+    initializeState,
     selectedCells,
     updateSelectedCells,
     updateCellsData,

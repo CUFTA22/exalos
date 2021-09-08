@@ -8,7 +8,7 @@ const TypeSelect = () => {
   const isSelected = selectedCells.length > 0;
 
   const handleChange = (data: { label: string; value: string }) =>
-    updateCellsData(selectedWeek, { type: data.label });
+    updateCellsData(selectedWeek, { type_id: data.value });
 
   return (
     <Select

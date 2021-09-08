@@ -1,9 +1,9 @@
 import { Planner_Type } from '@ts/planner.types';
 
-export const getTypeStyles = (type: string, types: Planner_Type[], isSelected: boolean) => {
+const getTypeStyles = (type: string, types: Planner_Type[], isSelected: boolean) => {
   if (!types) return {};
 
-  const color = types.find((t) => t.name === type)?.color;
+  const color = types.find((t) => t._id === type)?.color;
 
   if (!color) return {};
 
@@ -12,3 +12,5 @@ export const getTypeStyles = (type: string, types: Planner_Type[], isSelected: b
     background: `${color}0D`,
   };
 };
+
+export default getTypeStyles;

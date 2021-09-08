@@ -1,11 +1,12 @@
 import styles from './ColorPicker.module.scss';
 import { Props } from './types';
 import { HexColorPicker } from 'react-colorful';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import useClickAway from '@hooks/useClickAway';
 import Input from '@lib/Input/Input';
+import { debounce } from 'app/utils/functions/debounce';
 
-const ColorPicker: React.FC<Props> = ({ color, isOpen, onChange }) => {
+const ColorPicker: React.FC<Props> = ({ color, isOpen, onChange, isDebounce = false }) => {
   const popoverRef = useRef();
   const [state, setState] = useState({
     colorVal: color,
@@ -16,6 +17,10 @@ const ColorPicker: React.FC<Props> = ({ color, isOpen, onChange }) => {
     onChange(color);
     setState({ ...state, colorVal: color });
   };
+  const debouncedOnChange = useCallback(
+    debounce((color: string) => handleChange(color), 1000),
+    [onChange]
+  );
 
   useClickAway(popoverRef, () => setState({ ...state, open: false }));
   useEffect(() => {
@@ -25,10 +30,14 @@ const ColorPicker: React.FC<Props> = ({ color, isOpen, onChange }) => {
   if (!state.open) return null;
   return (
     <div className={styles.color_picker_container} ref={popoverRef}>
-      <HexColorPicker className={styles.color_picker} color={color} onChange={handleChange} />
+      <HexColorPicker
+        className={styles.color_picker}
+        color={color}
+        onChange={(color) => (isDebounce ? debouncedOnChange(color) : handleChange(color))}
+      />
       <Input
-        value={state.colorVal}
-        onChange={handleChange}
+        defaultValue={state.colorVal}
+        onChange={(color) => (isDebounce ? debouncedOnChange(color) : handleChange(color))}
         width="100%"
         fSize="12px"
         placeholder="Hex value"

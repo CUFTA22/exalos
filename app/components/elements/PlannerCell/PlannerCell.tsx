@@ -7,7 +7,7 @@ import { Planner_Cell, Planner_Cell_Updates } from '@ts/planner.types';
 import CellHour from './utils/CellHour';
 import useClickAway from '@hooks/useClickAway';
 import CellLabels from './utils/CellLabels';
-import { getTypeStyles } from './utils/getTypeStyles';
+import getTypeStyles from './utils/getTypeStyles';
 import Input from '@lib/Input/Input';
 import CellDay from './utils/CellDay';
 
@@ -15,10 +15,10 @@ const PlannerCell: React.FC<Planner_Cell> = (props) => {
   const cellRef = useRef(null);
 
   const plannerCtrl = usePlanner();
-  const cellCtrl = useCell(props.cell_id);
+  const { isSelected } = useCell(props.cell_id);
 
   // Type styles - left box shadow and background
-  const typeStyles = getTypeStyles(props.type, plannerCtrl.plannerData?.types, cellCtrl.isSelected);
+  const typeStyles = getTypeStyles(props.type_id, plannerCtrl.plannerData?.types, isSelected);
 
   // Handlers
   const handleClick = () => plannerCtrl.updateSelectedCells('SELECTED_CELL_ADD', props);
@@ -30,10 +30,8 @@ const PlannerCell: React.FC<Planner_Cell> = (props) => {
 
   return (
     <div
-      ref={cellCtrl.isSelected ? cellRef : null}
-      className={clsx(styles.planner_cell, styles[`selected_${cellCtrl.isSelected}`], {
-        [styles.sameAsPrev]: cellCtrl.sameAsNext,
-      })}
+      ref={isSelected ? cellRef : null}
+      className={clsx(styles.planner_cell, styles[`selected_${isSelected}`])}
       onClick={handleClick}
       style={{ ...typeStyles }}
     >
@@ -45,7 +43,7 @@ const PlannerCell: React.FC<Planner_Cell> = (props) => {
         fSize="10px"
         defaultValue={props.text}
         onChange={(text) => handleUpdateCell({ text })}
-        disabled={!cellCtrl.isSelected}
+        disabled={!isSelected}
         isDebounce
         isUnderline={false}
       />
