@@ -10,23 +10,27 @@ import CellLabels from './utils/CellLabels';
 import getTypeStyles from './utils/getTypeStyles';
 import Input from '@lib/Input/Input';
 import CellDay from './utils/CellDay';
+import useEventListener from '@hooks/useEventListener';
+import useFocus from './utils/useFocus';
 
 const PlannerCell: React.FC<Planner_Cell> = (props) => {
-  const cellRef = useRef(null);
-
-  const plannerCtrl = usePlanner();
+  const { plannerData, updateSelectedCells, updateCellsData, selectedWeek } = usePlanner();
   const { isSelected } = useCell(props.cell_id);
+  const cellRef = useRef(null);
+  const [inputRef, setFocus] = useFocus();
 
   // Type styles - left box shadow and background
-  const typeStyles = getTypeStyles(props.type_id, plannerCtrl.plannerData?.types, isSelected);
+  const typeStyles = getTypeStyles(props.type_id, plannerData?.types, isSelected);
 
   // Handlers
-  const handleClick = () => plannerCtrl.updateSelectedCells('SELECTED_CELL_ADD', props);
-  const handleUpdateCell = (data: Planner_Cell_Updates) =>
-    plannerCtrl.updateCellsData(plannerCtrl.selectedWeek, data);
+  const handleClick = () => updateSelectedCells('SELECTED_CELL_ADD', props);
+  const handleUpdateCell = (data: Planner_Cell_Updates) => updateCellsData(selectedWeek, data);
 
   // Unfocus cell when click outside
-  useClickAway(cellRef, () => plannerCtrl.updateSelectedCells('SELECTED_CELL_REMOVE', props));
+  useClickAway(cellRef, () => updateSelectedCells('SELECTED_CELL_REMOVE', props));
+
+  // Focus input on Enter
+  useEventListener('keydown', (e: KeyboardEvent) => setFocus(isSelected, e));
 
   return (
     <div
@@ -39,6 +43,7 @@ const PlannerCell: React.FC<Planner_Cell> = (props) => {
       <CellDay cell_id={props.cell_id} className={styles.display_day} />
 
       <Input
+        ref={inputRef}
         width="86%"
         fSize="10px"
         defaultValue={props.text}

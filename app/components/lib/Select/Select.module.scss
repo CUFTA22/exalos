@@ -1,0 +1,74 @@
+@use "variables";
+@use "mixins";
+
+.select_wrapper {
+  position: relative;
+
+  .focus_border {
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background-color: variables.$color-primary;
+    transition: 0.4s ease-in-out;
+
+    &.full {
+      width: 100%;
+      left: 0;
+      background-color: transparentize($color: variables.$color-primary, $amount: 0.8);
+    }
+
+    &.expand {
+      width: 100%;
+      left: 0;
+    }
+  }
+
+  // -----------------------------------------------
+  // Select Control
+  // -----------------------------------------------
+
+  .select_control {
+    width: 100%;
+    padding-right: 10px;
+    cursor: pointer;
+
+    @include mixins.flex-row-space;
+  }
+
+  // -----------------------------------------------
+  // Select Menu ( Dropdown )
+  // -----------------------------------------------
+
+  .select_menu {
+    width: 100%;
+    position: absolute;
+    max-height: 300px;
+    overflow: hidden;
+    z-index: 20;
+    left: 0;
+    bottom: -48px;
+    background-color: transparentize($color: variables.$color-primary, $amount: 0.85);
+    border-radius: 10px;
+  }
+
+  // -----------------------------------------------
+  // Select Menu Option
+  // -----------------------------------------------
+
+  .select_menu_option {
+    width: 100%;
+    padding: 10px;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+
+    color: variables.$color-text-secondary;
+
+    &:hover,
+    &.selected {
+      color: variables.$color-primary;
+      background-color: transparentize($color: variables.$color-primary, $amount: 0.8);
+    }
+  }
+}

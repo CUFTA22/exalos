@@ -15,11 +15,14 @@ import styles from './Controls.module.scss';
 import { ControlsProps, initialState, State } from './types';
 import Modals from './components/Modals';
 import Input from '@lib/Input/Input';
+import Spinner from '@lib/Spinner/Spinner';
 
 const CreateControls: React.FC<ControlsProps> = ({ plannerData }) => {
   const [state, setState] = useState<State>(initialState);
 
   const toggleModal = (type: keyof State) => setState({ ...state, [type]: !state[type] });
+
+  if (!plannerData) return <Spinner />;
 
   return (
     <Card className={styles.controls}>

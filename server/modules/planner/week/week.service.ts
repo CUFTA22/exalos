@@ -4,6 +4,7 @@ import { getByEmail } from '../planner.service';
 
 export const updateCells = async (email: string, id: string, data: Planner_Cell_Updates) => {
   let plannerData = await getByEmail(email);
+  console.log(email, id, data);
 
   // @ts-ignore
   plannerData = updatePlannerCells(plannerData, id, data);

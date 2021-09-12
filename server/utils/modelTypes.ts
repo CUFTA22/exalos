@@ -26,3 +26,9 @@ export const MBooleanRequired = {
 };
 
 export const MObjectId = (ref: string) => ({ type: Schema.Types.ObjectId, ref });
+
+export const MObjectIdDefault = (ref: string) => ({
+  type: Schema.Types.ObjectId,
+  ref,
+  default: '',
+});

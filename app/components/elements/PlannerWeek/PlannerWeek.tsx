@@ -3,9 +3,18 @@ import { Planner_Week } from '@ts/planner.types';
 import usePlanner from '@module/Planner/usePlanner';
 import clsx from 'clsx';
 import { Dismiss12Regular } from '@fluentui/react-icons';
+import useDeleteWeek from 'app/api/planner/week/delete';
+import { useState } from 'react';
+import ConfirmationModal from '@shared/ConfirmationModal/ConfirmationModal';
 
 const PlannerWeek: React.FC<Planner_Week> = ({ week_id }) => {
+  const [deleteModal, setDeleteModal] = useState(false);
+  const { deleteWeek } = useDeleteWeek();
   const { selectedWeek, setSelectedWeek } = usePlanner();
+
+  const toggleDeleteModal = () => setDeleteModal(!deleteModal);
+  const handleDelete = () => deleteWeek(week_id);
+
   const isSelected = selectedWeek === week_id;
 
   return (
@@ -13,8 +22,19 @@ const PlannerWeek: React.FC<Planner_Week> = ({ week_id }) => {
       className={clsx(styles.planner_week, { [styles.active]: isSelected })}
       onClick={() => setSelectedWeek(week_id)}
     >
+      <ConfirmationModal
+        action={handleDelete}
+        isOpen={deleteModal}
+        toggleOpen={toggleDeleteModal}
+        subtitle="Please confirm deletion of this week"
+      />
+
       {week_id}
-      <Dismiss12Regular primaryFill="hsl(0, 88%, 77%)" className={styles.remove_week} />
+      <Dismiss12Regular
+        onClick={toggleDeleteModal}
+        primaryFill="hsl(0, 88%, 77%)"
+        className={styles.remove_week}
+      />
     </div>
   );
 };

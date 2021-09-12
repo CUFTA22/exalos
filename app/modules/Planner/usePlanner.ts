@@ -10,7 +10,8 @@ import {
 } from '@ts/planner.types';
 import useFetch from 'app/api/useFetch';
 import { PlannerContext } from 'app/store/planner/CTX';
-import { useContext } from 'react';
+import { Key, useContext } from 'react';
+import { getNewCellOnKeyDown } from './utils';
 
 /**
  * Used for all updates on planner data
@@ -20,7 +21,7 @@ import { useContext } from 'react';
 const usePlanner = (): Planner_Updates => {
   const { plannerData, selectedCells, visibleTypes, selectedWeek, dispatch } =
     useContext(PlannerContext);
-  const client = useFetch();
+  const fetch = useFetch();
 
   // --------------------------------------------------------------------------------------------
   // Set Planner Data - initial
@@ -30,8 +31,7 @@ const usePlanner = (): Planner_Updates => {
     dispatch({ type: 'PLANNER_DATA_SET', payload: data });
 
   const initializeState = (planner: Planner_Data) => {
-    // Set initial plannerData
-    // Set selected week to last one
+    // Set initial plannerData & selected week to last one
     setPlannerData(planner);
     setSelectedWeek(planner?.calendar[planner.calendar.length - 1].week_id);
   };
@@ -54,10 +54,22 @@ const usePlanner = (): Planner_Updates => {
     const newData = updatePlannerCells(plannerData, week_id, data);
     setPlannerData(newData);
 
-    await client.patch(`/api/planner/week/${week_id}`, { ...data });
+    await fetch.patch(`/api/planner/week/${week_id}`, { ...data });
   };
 
-  // --------------------------------------------------------------------------------------------
+  const handleChangeCellOnKey = (e: KeyboardEvent) => {
+    if (
+      !selectedCells.length ||
+      !['ArrowUp', 'ArrowLeft', 'ArrowDown', 'ArrowRight'].includes(e.key)
+    )
+      return;
+
+    const newCell = getNewCellOnKeyDown(plannerData, selectedCells, selectedWeek, e);
+
+    newCell && dispatch({ type: 'SELECTED_CELL_ADD', payload: newCell });
+  };
+
+  // --------------------- -----------------------------------------------------------------------
   // Type Actions
   // --------------------------------------------------------------------------------------------
 
@@ -75,7 +87,7 @@ const usePlanner = (): Planner_Updates => {
 
     setPlannerData(newData);
 
-    await client.patch(`/api/planner/type/${type_id}`, { ...data });
+    await fetch.patch(`/api/planner/type/${type_id}`, { ...data });
   };
 
   // --------------------------------------------------------------------------------------------
@@ -94,6 +106,7 @@ const usePlanner = (): Planner_Updates => {
     selectedCells,
     updateSelectedCells,
     updateCellsData,
+    handleChangeCellOnKey,
     updateVisibleTypes,
     updateTypesData,
     selectedWeek,

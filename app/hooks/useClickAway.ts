@@ -5,9 +5,7 @@ export default function useClickAway(cellRef: any, callback: any) {
     if (
       cellRef.current &&
       !cellRef.current.contains(event.target) &&
-      !event.target?.classList?.contains('no-clickaway') &&
-      !event.target?.classList?.contains('rfs-control-container') &&
-      !event.target?.classList?.contains('rfs-option')
+      !event.target?.classList?.contains('no-clickaway')
     )
       callback(event);
   };

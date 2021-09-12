@@ -6,5 +6,5 @@ import { patchSchema } from './week.schema';
 export default (req: NextApiRequest, res: NextApiResponse) =>
   apiHandler({
     DELETE: { handler: ctrl.handleDelete },
-    PATCH: { handler: ctrl.handlePatch, schema: patchSchema },
+    PATCH: { handler: ctrl.handlePatch },
   })(req, res);

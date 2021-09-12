@@ -24,10 +24,10 @@ const generateCells = (): Planner_Cell[] => {
     const cycle = Math.floor(i / 24);
     return arr.push({
       cell_id: `d${cycle}_h${i - cycle * 24}`,
-      task_id: '',
+      task_id: null,
       text: '',
-      type_id: '',
       meet_url: '',
+      type_id: null,
     });
   });
   return arr;

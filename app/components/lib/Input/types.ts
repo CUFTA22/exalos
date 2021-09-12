@@ -1,6 +1,8 @@
 import { IFluentIconsProps } from '@fluentui/react-icons';
+import { ForwardedRef } from 'react';
 
 export interface InputProps {
+  ref?: ForwardedRef<HTMLInputElement>;
   value?: string;
   defaultValue?: string;
   onChange?: (val: string) => void;

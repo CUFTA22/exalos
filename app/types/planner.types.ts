@@ -48,6 +48,7 @@ export interface Planner_Updates {
     cell: Planner_Cell
   ) => void;
   updateCellsData: (week_id: string, data: Planner_Cell_Updates) => void;
+  handleChangeCellOnKey: (e: KeyboardEvent) => void;
   updateVisibleTypes: (
     action: 'VISIBLE_TYPES_ADD' | 'VISIBLE_TYPES_REMOVE',
     type: Planner_Type
