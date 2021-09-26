@@ -1,4 +1,4 @@
-import NextNProgress from 'app/modules/PageTransition/NextNProgress';
+import NextNProgress from '@module/PageTransition/NextNProgress';
 import SideBar from '@shared/SideBar/SideBar';
 import styles from './Default.module.scss';
 import stars from '@styles/scss/parallaxStars.module.scss';

@@ -1,5 +1,5 @@
 import styles from './Select.module.scss';
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { SelectOption, SelectProps } from './types';
 import SelectControl from './components/SelectControl';
 import SelectMenu from './components/SelectMenu';
@@ -8,7 +8,6 @@ import useClickAway from '@hooks/useClickAway';
 
 const CustomSelect: React.FC<SelectProps> = ({
   className,
-  defaultValue,
   disabled = false,
   icon_control,
   icon_option,
@@ -21,7 +20,7 @@ const CustomSelect: React.FC<SelectProps> = ({
 }) => {
   const selectRef = useRef(null);
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
-  const [selectedOption, setSelectedOption] = useState<SelectOption>(value || defaultValue);
+  const [selectedOption, setSelectedOption] = useState<SelectOption | null>(null);
 
   const handleChange = (option: SelectOption) => {
     setSelectedOption(option);
@@ -30,38 +29,44 @@ const CustomSelect: React.FC<SelectProps> = ({
   };
 
   const toggleOpen = () => {
-    setMenuOpen(!menuOpen);
+    !disabled && setMenuOpen(!menuOpen);
   };
+
+  useEffect(() => {
+    setSelectedOption(value);
+  }, [value]);
 
   useClickAway(selectRef, () => setMenuOpen(false));
 
-  const css = { width };
+  const css = { width, cursor: disabled ? 'default' : 'pointer' };
 
   return (
     <div ref={selectRef} style={css} className={clsx(styles.select_wrapper, className)}>
       <SelectControl
         toggleOpen={toggleOpen}
-        className={styles.select_control}
+        styles={styles}
         menuOpen={menuOpen}
         selectedOption={selectedOption}
         placeholder={placeholder}
         icon_control={icon_control}
+        disabled={disabled}
       />
 
       {menuOpen && !disabled && (
         <SelectMenu
-          className={styles.select_menu}
-          optionClassName={styles.select_menu_option}
+          styles={styles}
           options={options}
           handleChange={handleChange}
           selectedOption={selectedOption}
         />
       )}
 
-      {!disabled && isUnderline && (
+      {isUnderline && (
         <>
           <div className={clsx(styles.focus_border, { [styles.expand]: menuOpen })}></div>
-          <div className={clsx(styles.focus_border, styles.full)}></div>
+          <div
+            className={clsx(styles.focus_border, styles.full, { [styles.disabled]: disabled })}
+          ></div>
         </>
       )}
     </div>

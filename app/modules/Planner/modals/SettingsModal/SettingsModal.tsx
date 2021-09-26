@@ -1,4 +1,4 @@
-import './SettingsModal.module.scss';
+import styles from './SettingsModal.module.scss';
 import Modal from '@lib/Modal/Modal';
 import { ModalProps } from '@ts/modal.types';
 

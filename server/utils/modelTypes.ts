@@ -16,18 +16,27 @@ export const MStringRequiredUinque = {
   required: true,
   unique: true,
 };
-
-export const MBoolean = {
-  type: String,
-};
-export const MBooleanRequired = {
+export const MStringRequiredDefault = (def) => ({
   type: String,
   required: true,
+  default: def,
+});
+
+export const MBoolean = {
+  type: Boolean,
 };
+export const MBooleanRequired = {
+  type: Boolean,
+  required: true,
+};
+export const MBooleanRequiredDefault = (def) => ({
+  type: Boolean,
+  required: true,
+  default: def,
+});
 
-export const MObjectId = (ref: string) => ({ type: Schema.Types.ObjectId, ref });
-
-export const MObjectIdDefault = (ref: string) => ({
+export const MObjectId = (ref) => ({ type: Schema.Types.ObjectId, ref });
+export const MObjectIdDefault = (ref) => ({
   type: Schema.Types.ObjectId,
   ref,
   default: '',

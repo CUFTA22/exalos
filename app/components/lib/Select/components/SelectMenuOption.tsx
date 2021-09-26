@@ -1,27 +1,30 @@
+import Typography from '@lib/Typography/Typography';
+import clsx from 'clsx';
 import { SelectOption } from '../types';
 
 interface Props {
   label: string;
   value: string;
-  className: string;
-  selectedOption: SelectOption;
-  options: SelectOption[];
+  styles: any;
+  selectedOption: SelectOption | null;
   handleChange: (option: SelectOption) => void;
 }
 
 const SelectMenuOption: React.FC<Props> = ({
   label,
-  options,
   selectedOption,
   value,
-  className,
+  styles,
   handleChange,
 }) => {
-  const isSelected = false;
+  const isSelected = selectedOption?.value === value;
 
   return (
-    <div onClick={() => handleChange({ label, value })} className={className}>
-      {label}
+    <div
+      onClick={() => handleChange({ label, value })}
+      className={clsx(styles.select_menu_option, 'no-clickaway', { [styles.selected]: isSelected })}
+    >
+      <Typography text={label} fSize={14} color="secondary" />
     </div>
   );
 };

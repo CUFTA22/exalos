@@ -5,7 +5,7 @@ import React from 'react';
 
 const Typography: React.FC<TypographyProps> = ({
   text,
-  color = 'hsl(0, 0%, 91%)',
+  color = 'primary',
   tag = 'span',
   fSize = 16,
   fFamily = 'Inter',
@@ -19,7 +19,7 @@ const Typography: React.FC<TypographyProps> = ({
     fontSize: fSize + 'px',
     fontWeight: fWeight,
     padding: pad,
-    color,
+    color: color === 'primary' ? 'hsl(0, 0%, 91%)' : 'hsl(240, 28%, 64%)',
   };
 
   return React.createElement(tag, {

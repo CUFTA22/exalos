@@ -51,7 +51,13 @@ const TypeRow: React.FC<Planner_Type> = ({ color, name, _id }) => {
       />
 
       <div className={styles.type_actions}>
-        <ColorPicker isOpen={openPicker} color={state.color} onChange={changeColor} isDebounce />
+        <ColorPicker
+          isOpen={openPicker}
+          color={state.color}
+          onChange={changeColor}
+          isDebounce
+          css={{ position: 'fixed', top: '50%', transform: 'translate(-50%, -50%)' }}
+        />
         <SimpleFAB
           Icon={<Color20Regular onClick={togglePicker} primaryFill="hsl(240, 28%, 64%)" />}
         />

@@ -6,7 +6,7 @@ import useClickAway from '@hooks/useClickAway';
 import Input from '@lib/Input/Input';
 import { debounce } from 'app/utils/functions/debounce';
 
-const ColorPicker: React.FC<Props> = ({ color, isOpen, onChange, isDebounce = false }) => {
+const ColorPicker: React.FC<Props> = ({ color, isOpen, onChange, isDebounce = false, css }) => {
   const popoverRef = useRef();
   const [state, setState] = useState({
     colorVal: color,
@@ -29,14 +29,14 @@ const ColorPicker: React.FC<Props> = ({ color, isOpen, onChange, isDebounce = fa
 
   if (!state.open) return null;
   return (
-    <div className={styles.color_picker_container} ref={popoverRef}>
+    <div ref={popoverRef} className={styles.color_picker_container} style={css}>
       <HexColorPicker
         className={styles.color_picker}
         color={color}
         onChange={(color) => (isDebounce ? debouncedOnChange(color) : handleChange(color))}
       />
       <Input
-        defaultValue={state.colorVal}
+        value={state.colorVal}
         onChange={(color) => (isDebounce ? debouncedOnChange(color) : handleChange(color))}
         width="100%"
         fSize="12px"

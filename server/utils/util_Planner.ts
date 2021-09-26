@@ -54,11 +54,11 @@ export const updatePlannerCells = (
   plannerData: Planner_Data | PlannerDocument,
   week_id: string,
   data: Planner_Cell_Updates
-) => {
-  const weekIdx = plannerData.calendar.findIndex((week) => week.week_id === week_id);
+): Planner_Data => {
+  const weekIdx = plannerData?.calendar.findIndex((week) => week.week_id === week_id);
 
   data.cell_ids.map((cell_id) => {
-    const cellIdx = plannerData.calendar[weekIdx].cells.findIndex(
+    const cellIdx = plannerData?.calendar[weekIdx].cells.findIndex(
       (cell) => cell.cell_id === cell_id
     );
 

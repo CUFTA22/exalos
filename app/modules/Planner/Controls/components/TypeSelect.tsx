@@ -19,19 +19,18 @@ const TypeSelect = () => {
   );
 
   useNonInitialEffect(() => {
-    console.log(selectedCells[0]?.type_id);
-
     setCurrentVal(findTypeAndTransform(plannerData?.types, selectedCells[0]?.type_id)?.label);
   }, [selectedCells]);
 
   return (
     <Select
-      defaultValue={currentVal}
+      value={currentVal}
       placeholder="Select type..."
       onChange={handleChange}
       options={transformToSelectValues(plannerData?.types, 'name', '_id')}
       width="140px"
       className="no-clickaway"
+      disabled={!selectedCells.length}
     />
   );
 };

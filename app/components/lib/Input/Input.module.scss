@@ -1,5 +1,5 @@
-@use "variables";
-@use "mixins";
+@use 'variables';
+@use 'mixins';
 
 .lib_input_container {
   // width: 100%;
@@ -29,6 +29,11 @@
       width: 100%;
       left: 0;
       background-color: transparentize($color: variables.$color-primary, $amount: 0.8);
+
+      &.disabled {
+        width: 90%;
+        background-color: transparentize($color: variables.$color-inactive, $amount: 0.8);
+      }
     }
   }
 
@@ -43,9 +48,16 @@
     height: 30px;
     margin: 0 4px;
     @include mixins.flex-row-center;
+
+    &.disabled {
+      * {
+        fill: transparentize($color: variables.$color-inactive, $amount: 0.8) !important;
+      }
+    }
   }
 
   svg {
+    transition: all 0.3s ease-in-out;
     width: 20px;
     height: 20px;
   }

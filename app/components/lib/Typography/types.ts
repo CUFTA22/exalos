@@ -6,5 +6,5 @@ export interface TypographyProps {
   fWeight?: number;
   fFamily?: string;
   pad?: string;
-  color?: string;
+  color?: 'primary' | 'secondary';
 }

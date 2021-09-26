@@ -1,12 +1,4 @@
-import {
-  Add24Regular,
-  CalendarStar16Regular,
-  CalendarStar24Regular,
-  Extension24Regular,
-  EyeShow24Regular,
-  Settings24Regular,
-  Video24Regular,
-} from '@fluentui/react-icons';
+import { Add24Regular, EyeShow24Regular, Settings24Regular } from '@fluentui/react-icons';
 import Card from '@lib/Card/Card';
 import FAB from '@lib/FAB/FAB';
 import { useState } from 'react';
@@ -14,8 +6,8 @@ import TypeSelect from './components/TypeSelect';
 import styles from './Controls.module.scss';
 import { ControlsProps, initialState, State } from './types';
 import Modals from './components/Modals';
-import Input from '@lib/Input/Input';
 import Spinner from '@lib/Spinner/Spinner';
+import AddMeetUrl from './components/AddMeetUrl';
 
 const CreateControls: React.FC<ControlsProps> = ({ plannerData }) => {
   const [state, setState] = useState<State>(initialState);
@@ -36,14 +28,7 @@ const CreateControls: React.FC<ControlsProps> = ({ plannerData }) => {
 
         <div className={styles.divider}></div>
 
-        <Input
-          value="https://meet.google.com/69696969"
-          onChange={() => {}}
-          placeholder="Add meet url"
-          width="240px"
-          className="no-clickaway"
-          icons_front={[<Video24Regular primaryFill="hsl(240, 28%, 64%)" />]}
-        />
+        <AddMeetUrl />
       </div>
       <div className={styles.right}>
         {/* V.3 Templates */}

@@ -44,7 +44,7 @@ const Input: React.FC<InputProps> = React.forwardRef<HTMLInputElement, InputProp
         {icons_front?.map(
           (Icon, i) =>
             Icon && (
-              <div key={i} className={styles.svg}>
+              <div key={i} className={clsx(styles.svg, { [styles.disabled]: disabled })}>
                 {Icon}
               </div>
             )
@@ -67,10 +67,12 @@ const Input: React.FC<InputProps> = React.forwardRef<HTMLInputElement, InputProp
           maxLength={maxLength}
         />
 
-        {!disabled && isUnderline && (
+        {isUnderline && (
           <>
             <div className={styles.focus_border}></div>
-            <div className={clsx(styles.focus_border, styles.full)}></div>
+            <div
+              className={clsx(styles.focus_border, styles.full, { [styles.disabled]: disabled })}
+            ></div>
           </>
         )}
 

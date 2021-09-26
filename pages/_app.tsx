@@ -4,7 +4,7 @@ import '@styles/base/_transitions.scss';
 
 import { Provider } from 'next-auth/client';
 import type { AppProps } from 'next/app';
-import Cursor from 'app/modules/Cursor/Cursor';
+import Cursor from '@module/Cursor/Cursor';
 import useSettings from '@module/Settings/useSettings';
 
 function MyApp({ Component, pageProps }: AppProps) {

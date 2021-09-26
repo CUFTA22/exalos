@@ -27,5 +27,5 @@ export const findTypeAndTransform = (arr: Planner_Type[], type_id: string) => {
 
   const found = arr?.find((type) => type._id === type_id);
 
-  return { value: found._id, label: found.name };
+  return { value: found?._id, label: found?.name };
 };

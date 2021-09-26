@@ -1,36 +1,33 @@
+import Typography from '@lib/Typography/Typography';
+import clsx from 'clsx';
 import { SelectOption } from '../types';
 import SelectMenuOption from './SelectMenuOption';
 
 interface Props {
-  className: string;
-  optionClassName: string;
+  styles: any;
   options: SelectOption[];
   handleChange: (option: SelectOption) => void;
   selectedOption: SelectOption;
 }
 
-const SelectMenu: React.FC<Props> = ({
-  className,
-  options,
-  handleChange,
-  optionClassName,
-  selectedOption,
-}) => {
-  if (!options)
+const SelectMenu: React.FC<Props> = ({ styles, options, handleChange, selectedOption }) => {
+  if (!options.length)
     return (
-      <div className={className}>
-        <span>No Options</span>
+      <div
+        className={styles.select_menu}
+        style={{ padding: '10px', textAlign: 'center', cursor: 'default' }}
+      >
+        <Typography text="No Options" fSize={14} color="secondary" />
       </div>
     );
 
   return (
-    <div className={className}>
+    <div className={clsx(styles.select_menu, 'no-clickaway')}>
       {options.map((option) => (
         <SelectMenuOption
           key={option.value}
           selectedOption={selectedOption}
-          options={options}
-          className={optionClassName}
+          styles={styles}
           handleChange={handleChange}
           {...option}
         />
