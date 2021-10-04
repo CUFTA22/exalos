@@ -11,8 +11,11 @@ const Calendar: React.FC<Props> = ({ plannerData }) => {
   const { selectedWeek } = usePlanner();
 
   const renderCalendar = () => {
-    if (!selectedWeek) return;
-    const week = plannerData?.calendar?.find((week) => week.week_id === selectedWeek);
+    let fixWeek = selectedWeek || plannerData?.calendar[0]?.week_id;
+    if (!fixWeek) return;
+
+    const week = plannerData?.calendar?.find((week) => week.week_id === fixWeek);
+
     const transformedWeek = transformWeekData(week, plannerData?.settings);
     return transformedWeek.map((day) => <PlannerColumn key={day[0].cell_id} cells={day} />);
   };

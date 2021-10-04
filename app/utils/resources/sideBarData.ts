@@ -21,31 +21,31 @@ export const sideBarItems = [
     Svg: CalendarLtr24Regular,
     route: '/planner',
   },
-  {
-    text: 'Tasks',
-    Svg: Collections,
-    route: '/tasks',
-  },
-  {
-    text: 'Finances',
-    Svg: Payment24Regular,
-    route: '/finances',
-  },
-  {
-    text: 'Music',
-    Svg: MusicNote124Regular,
-    route: '/music',
-  },
-  {
-    text: 'Demos',
-    Svg: Cube24Regular,
-    route: '/demos',
-  },
-  {
-    text: 'Options',
-    Svg: Options24Regular,
-    route: '/options',
-  },
+  // {
+  //   text: 'Tasks',
+  //   Svg: Collections,
+  //   route: '/tasks',
+  // },
+  // {
+  //   text: 'Finances',
+  //   Svg: Payment24Regular,
+  //   route: '/finances',
+  // },
+  // {
+  //   text: 'Music',
+  //   Svg: MusicNote124Regular,
+  //   route: '/music',
+  // },
+  // {
+  //   text: 'Demos',
+  //   Svg: Cube24Regular,
+  //   route: '/demos',
+  // },
+  // {
+  //   text: 'Options',
+  //   Svg: Options24Regular,
+  //   route: '/options',
+  // },
 ];
 
 const demoItems = [

@@ -9,7 +9,7 @@ import ConfirmationModal from '@shared/ConfirmationModal/ConfirmationModal';
 
 const PlannerWeek: React.FC<Planner_Week> = ({ week_id }) => {
   const [deleteModal, setDeleteModal] = useState(false);
-  const { deleteWeek } = useDeleteWeek();
+  const { deleteWeek, isLoading } = useDeleteWeek();
   const { selectedWeek, setSelectedWeek } = usePlanner();
 
   const toggleDeleteModal = () => setDeleteModal(!deleteModal);
@@ -27,9 +27,11 @@ const PlannerWeek: React.FC<Planner_Week> = ({ week_id }) => {
         isOpen={deleteModal}
         toggleOpen={toggleDeleteModal}
         subtitle="Please confirm deletion of this week"
+        isLoading={isLoading}
       />
 
       {week_id}
+
       <Dismiss12Regular
         onClick={toggleDeleteModal}
         primaryFill="hsl(0, 88%, 77%)"

@@ -1,16 +1,21 @@
 import { PlannerDocument } from '@server/modules/planner/planner.model';
-import type from '@server/modules/planner/type';
 import {
   Planner_Cell,
   Planner_Cell_Updates,
   Planner_Data,
   Planner_Settings,
   Planner_Type,
-  Planner_Type_Updates,
   Planner_Week,
 } from '@ts/planner.types';
 import dayjs from 'dayjs';
-import { updateItemById } from './functions';
+import { removeWeekById } from './functions';
+
+export const getLeanTypes = (types: Planner_Type[]): Planner_Type[] =>
+  types.map(({ color, name, _id }) => ({ color, name, _id }));
+
+// -------------------------------------------------------------------------------------------------------
+// Init calendar
+// -------------------------------------------------------------------------------------------------------
 
 export const getDefaultSettings = (): Planner_Settings => ({
   start_time: '00',
@@ -42,6 +47,10 @@ export const getInitCalendar = (): Planner_Week[] => {
   return [data];
 };
 
+// -------------------------------------------------------------------------------------------------------
+// Update cell
+// -------------------------------------------------------------------------------------------------------
+
 const handleUpdateCell = (cell: Planner_Cell, newData: Planner_Cell_Updates): Planner_Cell => ({
   cell_id: cell.cell_id,
   meet_url: newData.meet_url || cell.meet_url,
@@ -71,5 +80,31 @@ export const updatePlannerCells = (
   return plannerData;
 };
 
-export const getLeanTypes = (types: Planner_Type[]): Planner_Type[] =>
-  types.map(({ color, name, _id }) => ({ color, name, _id }));
+// -------------------------------------------------------------------------------------------------------
+// Add week
+// -------------------------------------------------------------------------------------------------------
+
+export const addPlannerWeek = (plannerData: Planner_Data | PlannerDocument) => {
+  const nextWeek = dayjs().startOf('week').add(1, 'week').format('DD.MM.YY');
+  const lastCreated = plannerData.calendar[plannerData.calendar.length - 1].week_id;
+
+  // Prevent going too far in the future ( only 1 week )
+  if (nextWeek === lastCreated) throw new Error('BadRequest');
+
+  plannerData.calendar.push({
+    week_id: nextWeek,
+    cells: generateCells(),
+  });
+
+  return plannerData;
+};
+
+// -------------------------------------------------------------------------------------------------------
+// Delete week
+// -------------------------------------------------------------------------------------------------------
+
+export const deletePlannerWeek = (plannerData: Planner_Data | PlannerDocument, week_id: string) => {
+  plannerData.calendar = removeWeekById(plannerData.calendar, week_id);
+
+  return plannerData;
+};

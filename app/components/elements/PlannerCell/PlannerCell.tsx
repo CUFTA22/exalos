@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './PlannerCell.module.scss';
 import clsx from 'clsx';
 import usePlanner from '@module/Planner/usePlanner';
@@ -18,19 +18,27 @@ const PlannerCell: React.FC<Planner_Cell> = (props) => {
   const { isSelected } = useCell(props.cell_id);
   const cellRef = useRef(null);
   const [inputRef, setFocus] = useFocus();
+  const [inputVal, setInputVal] = useState(props.text);
 
   // Type styles - left box shadow and background
   const typeStyles = getTypeStyles(props.type_id, plannerData?.types, isSelected);
 
   // Handlers
   const handleClick = () => updateSelectedCells('SELECTED_CELL_ADD', props);
-  const handleUpdateCell = (data: Planner_Cell_Updates) => updateCellsData(selectedWeek, data);
+  const handleUpdateCell = (data: Planner_Cell_Updates) => {
+    setInputVal(data.text);
+    updateCellsData(selectedWeek, data);
+  };
 
   // Unfocus cell when click outside
   useClickAway(cellRef, () => updateSelectedCells('SELECTED_CELL_REMOVE', props));
 
   // Focus input on Enter
   useEventListener('keydown', (e: KeyboardEvent) => setFocus(isSelected, e));
+
+  useEffect(() => {
+    setInputVal(props.text);
+  }, [props.text]);
 
   return (
     <div
@@ -46,7 +54,7 @@ const PlannerCell: React.FC<Planner_Cell> = (props) => {
         ref={inputRef}
         width="86%"
         fSize="10px"
-        defaultValue={props.text}
+        value={inputVal}
         onChange={(text) => handleUpdateCell({ text })}
         disabled={!isSelected}
         isDebounce

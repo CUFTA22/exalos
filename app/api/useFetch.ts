@@ -1,4 +1,11 @@
-const useFetch = () => {
+interface Fetch_Return {
+  get: (endpoint: string, { ...customConfig }?: RequestInit) => Promise<any>;
+  post: (endpoint: string, { ...body }?: any) => Promise<any>;
+  patch: (endpoint: string, { ...body }?: any) => Promise<any>;
+  delete: (endpoint: string, { ...customConfig }?: RequestInit) => Promise<any>;
+}
+
+const useFetch = (): Fetch_Return => {
   const headers = { 'Content-Type': 'application/json' };
 
   const createConfig = (method: string, customConfig: RequestInit): RequestInit => ({

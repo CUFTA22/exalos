@@ -18,8 +18,8 @@ const Planner: React.FC<TemplateProps> = ({ ssProps }) => {
 
   return (
     <div className={styles.page_planner}>
-      <CreateControls plannerData={ssProps.planner || plannerData} />
-      <CreateCalendar plannerData={ssProps.planner || plannerData} />
+      <CreateControls plannerData={plannerData || ssProps.planner} />
+      <CreateCalendar plannerData={plannerData || ssProps.planner} />
     </div>
   );
 };

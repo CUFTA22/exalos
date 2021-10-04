@@ -20,7 +20,7 @@ const selectDay = {
 const CellDay: React.FC<Props> = ({ cell_id, className }) => {
   const { plannerData } = usePlanner();
 
-  const firstHour = plannerData.calendar[0].cells[0].cell_id.substr(4);
+  const firstHour = plannerData?.calendar[0].cells[0].cell_id.substr(4);
 
   return (
     <>
