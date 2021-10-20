@@ -1,7 +1,7 @@
+@use 'variables';
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
-@import 'variables';
 
 *,
 *:after,
@@ -10,6 +10,10 @@
   padding: 0;
   margin: 0;
   // cursor: none;
+
+  // Firefox scrollbar
+  scrollbar-width: thin;
+  scrollbar-color: variables.$color-primary #303048;
 }
 
 html {
@@ -21,7 +25,7 @@ body {
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
   font-size: 1.6rem;
-  background-color: $color-body;
+  background-color: variables.$color-body;
 }
 
 a {
@@ -38,9 +42,9 @@ a {
   width: 4px;
 }
 ::-webkit-scrollbar-thumb {
-  background: $color-primary;
+  background: variables.$color-primary;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-track {
-  background: $color-sidebar;
+  background: variables.$color-sidebar;
 }

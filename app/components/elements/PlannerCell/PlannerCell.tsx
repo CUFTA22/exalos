@@ -9,7 +9,6 @@ import useClickAway from '@hooks/useClickAway';
 import CellLabels from './utils/CellLabels';
 import getTypeStyles from './utils/getTypeStyles';
 import Input from '@lib/Input/Input';
-import CellDay from './utils/CellDay';
 import useEventListener from '@hooks/useEventListener';
 import useFocus from './utils/useFocus';
 
@@ -48,18 +47,21 @@ const PlannerCell: React.FC<Planner_Cell> = (props) => {
       style={{ ...typeStyles }}
     >
       <CellHour cell_id={props.cell_id} className={styles.display_hour} />
-      <CellDay cell_id={props.cell_id} className={styles.display_day} />
 
-      <Input
-        ref={inputRef}
-        width="86%"
-        fSize="10px"
-        value={inputVal}
-        onChange={(text) => handleUpdateCell({ text })}
-        disabled={!isSelected}
-        isDebounce
-        isUnderline={false}
-      />
+      {isSelected ? (
+        <Input
+          ref={inputRef}
+          width="86%"
+          fSize="10px"
+          value={inputVal}
+          onChange={(text) => handleUpdateCell({ text })}
+          disabled={!isSelected}
+          isDebounce
+          isUnderline={false}
+        />
+      ) : (
+        <div className={styles.display_text}>{inputVal}</div>
+      )}
 
       <CellLabels {...props} className={styles.display_labels} />
     </div>

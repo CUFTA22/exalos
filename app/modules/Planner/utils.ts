@@ -10,7 +10,7 @@ export const transformWeekData = (week: Planner_Week, settings: Planner_Settings
     cells: week.cells.filter(
       (cell) =>
         parseInt(cell.cell_id.substr(4, 2)) >= parseInt(settings.start_time) &&
-        parseInt(cell.cell_id.substr(4, 2)) <= parseInt(settings.end_time)
+        parseInt(cell.cell_id.substr(4, 2)) < parseInt(settings.end_time)
     ),
   };
 

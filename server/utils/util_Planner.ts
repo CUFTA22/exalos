@@ -85,7 +85,7 @@ export const updatePlannerCells = (
 // -------------------------------------------------------------------------------------------------------
 
 export const addPlannerWeek = (plannerData: Planner_Data | PlannerDocument) => {
-  const nextWeek = dayjs().startOf('week').add(1, 'week').format('DD.MM.YY');
+  const nextWeek = dayjs().startOf('week').add(1, 'week').add(1, 'day').format('DD.MM.YY');
   const lastCreated = plannerData.calendar[plannerData.calendar.length - 1].week_id;
 
   // Prevent going too far in the future ( only 1 week )

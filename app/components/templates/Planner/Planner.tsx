@@ -1,6 +1,6 @@
 import useEventListener from '@hooks/useEventListener';
-import CreateCalendar from '@module/Planner/Calendar/CreateCalendar';
-import CreateControls from '@module/Planner/Controls/CreateControls';
+import PlannerCalendar from '@module/Planner/Calendar/PlannerCalendar';
+import PlannerControls from '@module/Planner/Controls/PlannerControls';
 import usePlanner from '@module/Planner/usePlanner';
 import { TemplateProps } from '@template/types';
 import { useEffect } from 'react';
@@ -18,8 +18,8 @@ const Planner: React.FC<TemplateProps> = ({ ssProps }) => {
 
   return (
     <div className={styles.page_planner}>
-      <CreateControls plannerData={plannerData || ssProps.planner} />
-      <CreateCalendar plannerData={plannerData || ssProps.planner} />
+      <PlannerControls plannerData={plannerData || ssProps.planner} />
+      <PlannerCalendar plannerData={plannerData || ssProps.planner} />
     </div>
   );
 };

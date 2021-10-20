@@ -12,7 +12,7 @@ interface Props {
 const Weeks: React.FC<Props> = ({ plannerData, addClassName }) => {
   const { addWeek } = useAddWeek();
 
-  const nextWeek = dayjs().startOf('week').add(1, 'week').format('DD.MM.YY');
+  const nextWeek = dayjs().startOf('week').add(1, 'week').add(1, 'day').format('DD.MM.YY');
   const lastCreated = plannerData.calendar[plannerData.calendar.length - 1].week_id;
 
   const renderWeeks = () =>

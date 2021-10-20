@@ -10,7 +10,7 @@ import {
 } from '@ts/planner.types';
 import useFetch from 'app/api/useFetch';
 import { PlannerContext } from 'app/store/planner/CTX';
-import { Key, useContext } from 'react';
+import { useContext } from 'react';
 import { getNewCellOnKeyDown } from './utils';
 
 /**

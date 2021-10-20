@@ -2,6 +2,7 @@ import {
   CalendarLtr24Regular,
   Cube24Regular,
   DataPie24Regular,
+  Document24Regular,
   Earth24Regular,
   MusicNote124Regular,
   Options24Regular,
@@ -21,31 +22,36 @@ export const sideBarItems = [
     Svg: CalendarLtr24Regular,
     route: '/planner',
   },
+  {
+    text: 'Tasks',
+    Svg: Collections,
+    route: '/tasks',
+  },
+  {
+    text: 'Finances',
+    Svg: Payment24Regular,
+    route: '/finances',
+  },
   // {
-  //   text: 'Tasks',
-  //   Svg: Collections,
-  //   route: '/tasks',
-  // },
-  // {
-  //   text: 'Finances',
-  //   Svg: Payment24Regular,
-  //   route: '/finances',
+  //   text: 'Resume',
+  //   Svg: Document24Regular,
+  //   route: '/cv',
   // },
   // {
   //   text: 'Music',
   //   Svg: MusicNote124Regular,
   //   route: '/music',
   // },
-  // {
-  //   text: 'Demos',
-  //   Svg: Cube24Regular,
-  //   route: '/demos',
-  // },
-  // {
-  //   text: 'Options',
-  //   Svg: Options24Regular,
-  //   route: '/options',
-  // },
+  {
+    text: 'Demos',
+    Svg: Cube24Regular,
+    route: '/demos',
+  },
+  {
+    text: 'Options',
+    Svg: Options24Regular,
+    route: '/options',
+  },
 ];
 
 const demoItems = [
