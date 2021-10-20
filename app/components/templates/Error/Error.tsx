@@ -10,7 +10,7 @@ const Error = ({ statusCode }: { statusCode?: number }) => {
     <div className={styles.error}>
       <GameOfLife />
       <Card className={styles.center}>
-        <Typography text={message} color="hsl(206, 88%, 77%)" fSize={38} fWeight={500} />
+        <Typography text={message} fSize={38} fWeight={500} />
       </Card>
     </div>
   );

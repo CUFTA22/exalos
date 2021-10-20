@@ -8,12 +8,7 @@ const Custom404 = () => {
     <div className={styles.custom404}>
       <GameOfLife />
       <Card className={styles.center}>
-        <Typography
-          text="404 | Page Not Found"
-          color="hsl(206, 88%, 77%)"
-          fSize={42}
-          fWeight={500}
-        />
+        <Typography text="404 | Page Not Found" fSize={42} fWeight={500} />
       </Card>
     </div>
   );
