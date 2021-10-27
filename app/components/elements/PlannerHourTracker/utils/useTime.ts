@@ -31,7 +31,7 @@ const useTime = () => {
   const [now, setNow] = useState(getTime());
 
   useEffect(() => {
-    const intervalId = setInterval(() => setNow(getTime()), 1000);
+    const intervalId = setInterval(() => setNow(getTime()), 10000);
     return () => clearInterval(intervalId);
   }, [setInterval, clearInterval, setNow, getTime]);
 

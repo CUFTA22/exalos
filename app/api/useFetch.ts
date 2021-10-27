@@ -1,7 +1,7 @@
 interface Fetch_Return {
   get: (endpoint: string, { ...customConfig }?: RequestInit) => Promise<any>;
-  post: (endpoint: string, { ...body }?: any) => Promise<any>;
-  patch: (endpoint: string, { ...body }?: any) => Promise<any>;
+  post: (endpoint: string, { ...body }?: any, headers?: any) => Promise<any>;
+  patch: (endpoint: string, { ...body }?: any, headers?: any) => Promise<any>;
   delete: (endpoint: string, { ...customConfig }?: RequestInit) => Promise<any>;
 }
 
@@ -19,7 +19,7 @@ const useFetch = (): Fetch_Return => {
   });
 
   const handleFetch = (endpoint: string, args: RequestInit) =>
-    fetch(`${process.env.NEXT_PUBLIC_URL}${endpoint}`, args).then(async (response) => {
+    fetch(`${process.env.NEXT_PUBLIC_URL}${endpoint}`, {}).then(async (response) => {
       if (response.ok) {
         try {
           return await response.json();
@@ -38,13 +38,13 @@ const useFetch = (): Fetch_Return => {
     return await handleFetch(endpoint, newConfig).catch(() => {});
   };
 
-  const _post = async (endpoint: string, { ...body }: any = {}) => {
-    const newConfig: RequestInit = createConfig('POST', { body });
+  const _post = async (endpoint: string, { ...body }: any = {}, headers: any) => {
+    const newConfig: RequestInit = createConfig('POST', { body, headers });
     return await handleFetch(endpoint, newConfig).catch(() => {});
   };
 
-  const _patch = async (endpoint: string, { ...body }: any = {}) => {
-    const newConfig: RequestInit = createConfig('PATCH', { body });
+  const _patch = async (endpoint: string, { ...body }: any = {}, headers: any) => {
+    const newConfig: RequestInit = createConfig('PATCH', { body, headers });
     return await handleFetch(endpoint, newConfig).catch(() => {});
   };
 

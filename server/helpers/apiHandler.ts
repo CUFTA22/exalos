@@ -4,6 +4,7 @@ import { validate } from '@server/middlewares/validate';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { ObjectShape, OptionalObjectSchema } from 'yup/lib/object';
 import errorHandler from './errorHandler';
+import sendSlackMsg from './slackHandler';
 
 interface CustomApiHandler {
   handler: (req: NextApiRequest, res: NextApiResponse) => Promise<void | any>;
@@ -21,6 +22,7 @@ interface HandlerObject {
 const apiHandler = (config: HandlerObject) => {
   return async (req: NextApiRequest, res: NextApiResponse) => {
     const { handler, schema, auth = true } = config[req.method];
+    sendSlackMsg();
 
     // check handler supports HTTP method
     if (!config[req.method]) return res.status(405).end(`Method ${req.method} Not Allowed`);

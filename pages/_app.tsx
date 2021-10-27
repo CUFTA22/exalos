@@ -6,8 +6,10 @@ import { Provider } from 'next-auth/client';
 import type { AppProps } from 'next/app';
 import Cursor from '@module/Cursor/Cursor';
 import useSettings from '@module/Settings/useSettings';
+import useLogVisit from '@module/Log/Slack/useLogVisit';
 
 function MyApp({ Component, pageProps }: AppProps) {
+  useLogVisit();
   const { settings } = useSettings();
 
   return (
