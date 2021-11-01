@@ -14,8 +14,6 @@ const sendSlackMsg = async () => {
     },
     { authorization: `Bearer ${SLACK_TOKEN}` }
   );
-
-  console.log('Done', res);
 };
 
 export default sendSlackMsg;

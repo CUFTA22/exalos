@@ -9,7 +9,7 @@ import useSettings from '@module/Settings/useSettings';
 import useLogVisit from '@module/Log/Slack/useLogVisit';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  useLogVisit();
+  // useLogVisit();
   const { settings } = useSettings();
 
   return (
