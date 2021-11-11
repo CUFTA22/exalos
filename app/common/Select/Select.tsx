@@ -1,10 +1,11 @@
 import styles from './Select.module.scss';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { SelectOption, SelectProps } from './types';
+import { animateStyles, SelectOption, SelectProps } from './types';
 import SelectControl from './components/SelectControl';
 import SelectMenu from './components/SelectMenu';
 import clsx from 'clsx';
 import useClickAway from '@hooks/useClickAway';
+import Animate from '@lib/Animate/Animate';
 
 const CustomSelect: React.FC<SelectProps> = ({
   className,
@@ -52,14 +53,16 @@ const CustomSelect: React.FC<SelectProps> = ({
         disabled={disabled}
       />
 
-      {menuOpen && !disabled && (
-        <SelectMenu
-          styles={styles}
-          options={options}
-          handleChange={handleChange}
-          selectedOption={selectedOption}
-        />
-      )}
+      <Animate animationIn="menuIn" animationOut="menuOut" style={animateStyles}>
+        {menuOpen && !disabled && (
+          <SelectMenu
+            styles={styles}
+            options={options}
+            handleChange={handleChange}
+            selectedOption={selectedOption}
+          />
+        )}
+      </Animate>
 
       {isUnderline && (
         <>

@@ -39,6 +39,17 @@
     padding-right: 10px;
 
     @include mixins.flex-row-space;
+
+    .select_value_display {
+      width: 100%;
+      user-select: none;
+
+      @include mixins.input-shared;
+
+      &.no_option {
+        color: transparentize($color: variables.$color-text-secondary, $amount: 0.7);
+      }
+    }
   }
 
   // -----------------------------------------------
@@ -52,11 +63,11 @@
     overflow-y: auto;
     z-index: 20;
     left: 0;
-    top: 48px;
-    background-color: transparentize($color: variables.$color-primary, $amount: 0.85);
-    border: 1px solid transparentize($color: variables.$color-primary, $amount: 0.3);
-    box-shadow: transparentize($color: variables.$color-primary, $amount: 0.85) 0px 0px 2px 2px;
+    top: 12px;
+    background-color: transparentize($color: variables.$color-primary, $amount: 0.9);
+    box-shadow: transparentize($color: variables.$color-primary, $amount: 0.3) 0px 0px 2px 1px;
 
+    backdrop-filter: blur(6px);
     border-radius: 10px;
   }
 

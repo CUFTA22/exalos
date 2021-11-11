@@ -4,8 +4,8 @@ import { ModalProps } from '@ts/modal.types';
 
 const ShowModal: React.FC<ModalProps> = ({ isOpen, toggleModal }) => {
   return (
-    <Modal isOpen={isOpen} onRequestClose={toggleModal}>
-      Settings
+    <Modal content_className={styles.modal_show} isOpen={isOpen} onRequestClose={toggleModal}>
+      Under Work
     </Modal>
   );
 };

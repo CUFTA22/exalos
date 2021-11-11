@@ -17,3 +17,10 @@ export interface SelectProps {
   disabled?: boolean;
   isUnderline?: boolean;
 }
+
+export const animateStyles = {
+  position: 'absolute',
+  inset: '28px 0px 0px',
+  height: 'fit-content',
+  zIndex: '19',
+};

@@ -53,7 +53,7 @@ const PlannerCell: React.FC<Planner_Cell> = (props) => {
           ref={inputRef}
           width="86%"
           fSize="10px"
-          value={inputVal}
+          defaultValue={inputVal}
           onChange={(text) => handleUpdateCell({ text })}
           disabled={!isSelected}
           isDebounce

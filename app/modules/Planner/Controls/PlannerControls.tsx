@@ -38,9 +38,9 @@ const CreateControls: React.FC<ControlsProps> = ({ plannerData }) => {
         <FAB onClick={() => toggleModal('settingsModal')} className={styles.mleft}>
           <Settings24Regular />
         </FAB>
-        <FAB onClick={() => toggleModal('showModal')} className={styles.mleft}>
+        {/* <FAB onClick={() => toggleModal('showModal')} className={styles.mleft}>
           <EyeShow24Regular />
-        </FAB>
+        </FAB> */}
       </div>
     </Card>
   );

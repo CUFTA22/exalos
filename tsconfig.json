@@ -3,45 +3,19 @@
     "target": "es5",
     "baseUrl": ".",
     "paths": {
-      "@element/*": [
-        "app/components/elements/*"
-      ],
-      "@layout/*": [
-        "app/components/layouts/*"
-      ],
-      "@shared/*": [
-        "app/components/shared/*"
-      ],
-      "@module/*": [
-        "app/modules/*"
-      ],
-      "@template/*": [
-        "app/components/templates/*"
-      ],
-      "@lib/*": [
-        "app/components/lib/*"
-      ],
-      "@assets/*": [
-        "public/assets/*"
-      ],
-      "@hooks/*": [
-        "app/hooks/*"
-      ],
-      "@ts/*": [
-        "app/types/*"
-      ],
-      "@styles/*": [
-        "app/styles/*"
-      ],
-      "@server/*": [
-        "server/*"
-      ]
+      "@element/*": ["app/components/elements/*"],
+      "@layout/*": ["app/components/layouts/*"],
+      "@shared/*": ["app/components/shared/*"],
+      "@module/*": ["app/modules/*"],
+      "@template/*": ["app/components/templates/*"],
+      "@lib/*": ["app/common/*"],
+      "@assets/*": ["public/assets/*"],
+      "@hooks/*": ["app/hooks/*"],
+      "@ts/*": ["app/types/*"],
+      "@styles/*": ["app/styles/*"],
+      "@server/*": ["server/*"]
     },
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -55,13 +29,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "next.config.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next.config.ts"],
+  "exclude": ["node_modules"]
 }

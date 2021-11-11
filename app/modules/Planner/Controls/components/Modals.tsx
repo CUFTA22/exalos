@@ -1,4 +1,3 @@
-import ConfirmationModal from '@shared/ConfirmationModal/ConfirmationModal';
 import usePlanner from '@module/Planner/usePlanner';
 import SettingsModal from '../../modals/SettingsModal/SettingsModal';
 import ShowModal from '../../modals/ShowModal/ShowModal';
@@ -21,11 +20,7 @@ const Modals: React.FC<ModalsProps> = ({ state, toggleModal }) => {
         toggleModal={() => toggleModal('settingsModal')}
       />
 
-      <ConfirmationModal
-        action={() => {}}
-        isOpen={state.showModal}
-        toggleOpen={() => toggleModal('showModal')}
-      />
+      <ShowModal isOpen={state.showModal} toggleModal={() => toggleModal('showModal')} />
     </>
   );
 };

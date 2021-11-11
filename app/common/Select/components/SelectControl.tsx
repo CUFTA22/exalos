@@ -1,5 +1,6 @@
 import { ChevronDown12Regular, IFluentIconsProps } from '@fluentui/react-icons';
 import Input from '@lib/Input/Input';
+import clsx from 'clsx';
 import { SelectOption } from '../types';
 
 interface Props {
@@ -23,15 +24,14 @@ const SelectControl: React.FC<Props> = ({
 }) => {
   return (
     <div onClick={toggleOpen} className={styles.select_control}>
-      <Input
-        isUnderline={false}
-        placeholder={placeholder}
-        defaultValue={selectedOption?.label}
-        icons_front={[icon_control]}
-        disabled
-        width="100%"
-        className="no-clickaway"
-      />
+      <div
+        className={clsx(styles.select_value_display, 'no-clickaway', {
+          [styles.no_option]: !selectedOption?.label,
+        })}
+      >
+        {selectedOption?.label || placeholder}
+      </div>
+
       <ChevronDown12Regular
         className="no-clickaway"
         style={{

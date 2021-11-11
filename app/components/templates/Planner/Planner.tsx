@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import styles from './Planner.module.scss';
 
 const Planner: React.FC<TemplateProps> = ({ ssProps }) => {
-  const { initializeState, plannerData, handleChangeCellOnKey } = usePlanner();
+  const { initializeState, plannerData, selectedCells, handleChangeCellOnKey } = usePlanner();
 
   useEffect(() => {
     initializeState(ssProps.planner);

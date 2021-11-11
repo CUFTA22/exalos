@@ -10,7 +10,7 @@ const AddMeetUrl = () => {
 
   const debouncedOnChange = useCallback(
     debounce((val: string) => updateCellsData(selectedWeek, { meet_url: val }), 1000),
-    []
+    [selectedWeek, updateCellsData]
   );
 
   const handleChange = (val: string) => {

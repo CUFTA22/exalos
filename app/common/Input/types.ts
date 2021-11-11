@@ -6,6 +6,7 @@ export interface InputProps {
   value?: string;
   defaultValue?: string;
   onChange?: (val: string) => void;
+  onClick?: () => void;
   onEnter?: () => void;
   placeholder?: string;
   icons_front?: React.ReactElement<IFluentIconsProps>[];

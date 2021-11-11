@@ -9,6 +9,7 @@
     border-radius: 50%;
     border: 1px solid transparentize($color: $color-primary, $amount: 0.3);
     box-shadow: transparentize($color: $color-primary, $amount: 0.85) 0px 0px 2px 4px;
+    overflow: visible !important;
   }
 
   &::before {
@@ -25,7 +26,8 @@
     border-bottom-color: $color-primary;
   }
 
-  div {
+  div,
+  span {
     overflow: visible !important;
   }
 }

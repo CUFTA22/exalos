@@ -1,0 +1,15 @@
+@use 'mixins';
+
+.modal_settings {
+  padding: 40px 60px;
+  overflow: visible !important;
+
+  .settings_row {
+    margin: 26px 0;
+    @include mixins.flex-row-start;
+
+    .settings_txt {
+      margin: 0 10px;
+    }
+  }
+}

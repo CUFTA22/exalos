@@ -10,8 +10,9 @@ const Input: React.FC<InputProps> = React.forwardRef<HTMLInputElement, InputProp
     {
       value,
       defaultValue,
-      onChange,
+      onChange = () => {},
       onEnter = () => {},
+      onClick = () => {},
       icons_back,
       icons_front,
       placeholder,
@@ -61,6 +62,7 @@ const Input: React.FC<InputProps> = React.forwardRef<HTMLInputElement, InputProp
             isDebounce ? debouncedOnChange(e.target.value) : onChange(e.target.value)
           }
           onKeyPress={(e) => e.code === 'Enter' && onEnter()}
+          onClick={onClick}
           placeholder={placeholder}
           disabled={disabled}
           minLength={minLength}
