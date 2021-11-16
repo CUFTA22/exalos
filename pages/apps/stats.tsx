@@ -1,6 +1,6 @@
 import Default from '@layout/Default/Default';
 import Page from '@template/Apps/Stats/Stats';
-import PageHeaders from 'app/utils/resources/PageHeaders';
+import PageHeaders from '@utils/resources/PageHeaders';
 import { GetServerSideProps } from 'next';
 
 // export const getServerSideProps: GetServerSideProps = async (context) => {

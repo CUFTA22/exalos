@@ -12,6 +12,7 @@
       "@assets/*": ["public/assets/*"],
       "@hooks/*": ["app/hooks/*"],
       "@ts/*": ["app/types/*"],
+      "@utils/*": ["app/utils/*"],
       "@styles/*": ["app/styles/*"],
       "@server/*": ["server/*"]
     },

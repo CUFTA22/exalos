@@ -1,7 +1,7 @@
 import Default from '@layout/Default/Default';
 import Page from '@template/Explore/Explore';
-import PageHeaders from 'app/utils/resources/PageHeaders';
-import { appItems } from 'app/utils/resources/sideBarData';
+import PageHeaders from '@utils/resources/PageHeaders';
+import { appItems } from '@utils/resources/sideBarData';
 
 const Apps = () => {
   return (

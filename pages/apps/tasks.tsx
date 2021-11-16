@@ -1,7 +1,7 @@
 import Default from '@layout/Default/Default';
 import Page from '@template/Apps/Tasks/Tasks';
 import handleRedirect from 'app/utils/resources/handleRedirect';
-import PageHeaders from 'app/utils/resources/PageHeaders';
+import PageHeaders from '@utils/resources/PageHeaders';
 import { GetServerSideProps } from 'next';
 import { getSession } from 'next-auth/client';
 

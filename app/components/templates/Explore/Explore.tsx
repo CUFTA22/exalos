@@ -13,7 +13,11 @@ const Explore: React.FC<ExploreProps> = ({ options, title }) => {
 
       <div className={styles.options_container}>
         {options.map((option) => (
-          <Card onClick={() => router.push(option.route)} className={styles.option_item}>
+          <Card
+            key={option.route}
+            onClick={() => router.push(option.route)}
+            className={styles.option_item}
+          >
             <option.Svg />
             <Typography text={option.text} color="secondary" fSize={20} />
           </Card>
