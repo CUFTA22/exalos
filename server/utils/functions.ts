@@ -7,3 +7,6 @@ export const updateItemById = (arr: any[], id: string, data: any) =>
 
 export const removeWeekById = (arr: Planner_Week[], id: any) =>
   arr.filter((val) => val.week_id !== id);
+
+export const randomNumber = (min: number, max: number) =>
+  Math.floor(Math.random() * (max - min + 1) + min);

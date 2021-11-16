@@ -1,0 +1,28 @@
+@use 'mixins';
+@use 'variables';
+
+.roulette_header {
+  width: 100%;
+  height: fit-content;
+  padding: 8px 10px;
+
+  border-bottom: 2px solid transparentize($color: variables.$color-primary, $amount: 0.85);
+
+  @include mixins.flex-row-space;
+
+  .right {
+    @include mixins.flex-row-center;
+    @include mixins.lib-card;
+
+    padding: 6px 14px;
+    width: 110px;
+
+    svg * {
+      fill: variables.$color-warn;
+    }
+
+    .coins {
+      margin-left: 4px;
+    }
+  }
+}

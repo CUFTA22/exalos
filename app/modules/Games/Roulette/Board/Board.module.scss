@@ -1,0 +1,7 @@
+@use 'mixins';
+
+.roulette_board {
+  .numbers {
+    @include mixins.flex-row-center;
+  }
+}

@@ -1,0 +1,7 @@
+@use 'mixins';
+
+.page_planner {
+  height: 100%;
+
+  @include mixins.flex-col-around;
+}

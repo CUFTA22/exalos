@@ -1,9 +1,10 @@
-@import 'mixins';
-@import 'variables';
+@use 'mixins';
+@use 'variables';
 
 .page_signin {
-  @include flex-col-center;
   height: 100%;
+
+  @include mixins.flex-col-center;
 
   .email_form {
   }
@@ -12,12 +13,12 @@
     margin: 20px 0;
     width: 400px;
     height: 2px;
-    background-color: transparentize($color: $color-primary, $amount: 0.85);
+    background-color: transparentize($color: variables.$color-primary, $amount: 0.85);
   }
 
   .providers {
     width: 400px;
-    @include flex-row-space;
+    @include mixins.flex-row-space;
 
     .button {
       font-size: 14px;

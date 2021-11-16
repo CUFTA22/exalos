@@ -1,0 +1,12 @@
+@use 'mixins';
+@use 'variables';
+
+.roulette_chat {
+  width: 20%;
+  height: 100%;
+
+  @include mixins.lib-card;
+  @include mixins.flex-col-center;
+  justify-content: flex-end;
+  padding: 16px 10px;
+}

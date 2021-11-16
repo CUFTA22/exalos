@@ -29,7 +29,7 @@ const SideBar: React.FC = () => {
         {validRoutes.map((item) => (
           <SideBarItem
             key={item.route}
-            Icon={item.Svg}
+            Svg={item.Svg}
             route={item.route}
             text={item.text}
             isNew={item.route === '/finances'}

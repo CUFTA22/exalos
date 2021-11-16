@@ -1,0 +1,63 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "version": "1.0.0",
+    "title": "Exalos API",
+    "description": "API documentation for Exalos"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/",
+      "description": "Local server"
+    },
+    {
+      "url": "https://exalos.vercel.app/",
+      "description": "Production server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Planner Documentation"
+    }
+  ],
+  "paths": {
+    "/api/planner/{email}": {
+      "get": {
+        "tags": ["Planner Documentation"],
+        "summary": "Retrieve planner data for user, by email.",
+        "operationId": "listPets",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "description": "User email, eg. nikolajovanovic5556@gmail.com",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An paged array of pets",
+            "schema": {
+              "$ref": "#/components/schemas/plannerData"
+            },
+            "headers": {
+              "x-next": {
+                "type": "string",
+                "description": "A link to the next page of responses"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "components": {
+    "schemas": {
+      "plannerData": {
+        "type": "object"
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+@use 'mixins';
+@use 'variables';
+
+.page_explore {
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+
+  @include mixins.flex-col-start;
+
+  .options_container {
+    margin-top: 20px;
+
+    @include mixins.flex-row-center;
+    flex-wrap: wrap;
+
+    .option_item {
+      width: 160px;
+      height: 130px;
+      margin: 20px;
+      padding: 10px;
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+      user-select: none;
+
+      @include mixins.flex-col-center;
+
+      svg {
+        * {
+          fill: variables.$color-text-secondary;
+        }
+        width: 42px;
+        height: 42px;
+        margin-bottom: 6px;
+      }
+
+      &:hover {
+        transform: scale(1.06);
+      }
+      &:active {
+        transform: scale(0.98);
+      }
+    }
+  }
+}
