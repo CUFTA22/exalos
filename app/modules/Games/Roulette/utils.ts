@@ -1,3 +1,4 @@
+import { randomNumber } from '@server/utils/functions';
 import { rouletteNumbers } from '@utils/resources/rouletteNumbers';
 
 export const findDistance = (offset: number, current: number, winner: number) => {
@@ -6,7 +7,7 @@ export const findDistance = (offset: number, current: number, winner: number) =>
 
   //   console.log(findC, ' - ', findW, ' - ', offset);
 
-  const diff = Math.abs(findC - findW) * 60 + 5580;
+  const diff = Math.abs(findC - findW) * 60 + 5580 + randomNumber(-25, 25);
 
   return { distance: findC - findW, xValue: diff };
 };

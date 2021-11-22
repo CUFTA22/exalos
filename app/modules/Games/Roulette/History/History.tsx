@@ -6,9 +6,12 @@ import useRoulette from '../useRoulette';
 const History = () => {
   const { history } = useRoulette();
 
+  console.log(history.length);
+  console.log(history);
+
   return (
     <div className={styles.roulette_history}>
-      {history.slice(0, 14).map((val, i) => (
+      {history.slice(-14).map((val, i) => (
         <RouletteNumber
           key={i}
           n={val}

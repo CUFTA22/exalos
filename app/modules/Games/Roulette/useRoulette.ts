@@ -64,7 +64,7 @@ const useRoulette = () => {
       const resultColor = rouletteNumbers.find((num) => num.n === result.data).c;
 
       const isWin = resultColor === betColor;
-      const coinDiff = betAmount * (betColor === 'green' ? 14 : 2);
+      const coinDiff = betAmount * (betColor === 'green' ? 7 : 1);
 
       const newCoins = isWin ? coins + coinDiff : coins - betAmount;
 
