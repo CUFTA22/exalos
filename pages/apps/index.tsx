@@ -1,12 +1,13 @@
 import Default from '@layout/Default/Default';
 import Page from '@template/Explore/Explore';
-import PageHeaders from '@utils/resources/PageHeaders';
+import PageHead from '@utils/resources/PageHead';
 import { appItems } from '@utils/resources/sideBarData';
+import Head from 'next/head';
 
 const Apps = () => {
   return (
     <Default>
-      <PageHeaders title="Exalos | Apps" />
+      <PageHead title="Exalos | Apps" />
 
       <Page options={appItems} title="Explore Apps" />
     </Default>

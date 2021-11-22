@@ -1,3 +1,5 @@
+import { type2Color } from '@utils/resources/boardData';
+import { rouletteNumbers } from '@utils/resources/rouletteNumbers';
 import useFetch from 'app/api/useFetch';
 import { RouletteContext } from 'app/store/roulette/CTX';
 import { useContext } from 'react';
@@ -8,10 +10,62 @@ import { useContext } from 'react';
  */
 
 const useRoulette = () => {
-  const { coins, history, placedBet, chat, isLoading, dispatch } = useContext(RouletteContext);
+  const { coins, history, betAmount, betColor, chat, isLoading, winner, dispatch } =
+    useContext(RouletteContext);
   const fetch = useFetch();
 
-  return { coins, history, placedBet, chat, isLoading };
+  // --------------------------------------------------------------------------------------------
+  // Set bet color - red, black or green
+  // --------------------------------------------------------------------------------------------
+
+  const setBetColor = (val: string) => {
+    const color = type2Color[val];
+    dispatch({ type: 'COLOR_ADD', payload: color });
+  };
+
+  // --------------------------------------------------------------------------------------------
+  // Set coin amount
+  // --------------------------------------------------------------------------------------------
+
+  const setBetAmount = (val: number) => {
+    if (!val) return dispatch({ type: 'AMOUNT_ADD', payload: 0 });
+
+    const newValue = betAmount + val > coins ? coins : betAmount + val;
+    dispatch({ type: 'AMOUNT_ADD', payload: newValue ? newValue : betAmount });
+  };
+
+  // --------------------------------------------------------------------------------------------
+  // Set coin amount
+  // --------------------------------------------------------------------------------------------
+
+  const startSpin = async () => {
+    const result = await fetch.post('/api/roulette');
+    dispatch({ type: 'START_GAME', payload: result.data });
+
+    setTimeout(() => {
+      const resultColor = rouletteNumbers.find((num) => num.n === result.data).c;
+
+      const isWin = resultColor === betColor;
+      const coinDiff = betAmount * (betColor === 'green' ? 14 : 2);
+
+      const newCoins = isWin ? coins + coinDiff : coins - betAmount;
+
+      dispatch({ type: 'FINISH_GAME', payload: { newCoins, winner: result.data } });
+    }, 12000);
+  };
+
+  return {
+    coins,
+    history,
+    winner,
+    betAmount,
+    betColor,
+    chat,
+    isLoading,
+    setBetAmount,
+    setBetColor,
+    startSpin,
+  };
 };
 
 export default useRoulette;

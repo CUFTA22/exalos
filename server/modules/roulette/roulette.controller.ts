@@ -7,8 +7,6 @@ import { NextApiRequest, NextApiResponse } from 'next';
  */
 
 export const handlePost = async (req: NextApiRequest, res: NextApiResponse) => {
-  const { email } = req.query as { email: string };
-
   const data = randomNumber(0, 36);
 
   res.status(200).json({ error: false, message: 'Winner recieved.', data });

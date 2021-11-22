@@ -1,6 +1,6 @@
 import Default from '@layout/Default/Default';
 import Page from '@template/Apps/Stats/Stats';
-import PageHeaders from '@utils/resources/PageHeaders';
+import PageHead from '@utils/resources/PageHead';
 import { GetServerSideProps } from 'next';
 
 // export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -14,7 +14,7 @@ import { GetServerSideProps } from 'next';
 const Home = () => {
   return (
     <Default>
-      <PageHeaders title="Exalos | Apps" />
+      <PageHead title="Exalos | Apps" />
 
       <Page />
     </Default>

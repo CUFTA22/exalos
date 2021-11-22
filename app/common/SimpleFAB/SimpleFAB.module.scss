@@ -1,5 +1,5 @@
-@use "variables";
-@use "mixins";
+@use 'variables';
+@use 'mixins';
 
 .lib_simpleFab {
   min-width: 30px;
@@ -19,5 +19,9 @@
   svg {
     width: 20px;
     height: 20px;
+
+    * {
+      fill: hsl(240, 28%, 64%);
+    }
   }
 }

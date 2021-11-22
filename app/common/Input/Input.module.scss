@@ -12,7 +12,7 @@
     @include mixins.input-shared;
 
     &::placeholder {
-      color: transparentize($color: variables.$color-text-secondary, $amount: 0.7);
+      color: transparentize($color: variables.$color-text-secondary, $amount: 0.4);
     }
   }
 
@@ -48,6 +48,10 @@
     height: 30px;
     margin: 0 4px;
     @include mixins.flex-row-center;
+
+    // * {
+    //   fill: hsl(240, 28%, 64%);
+    // }
 
     &.disabled {
       * {

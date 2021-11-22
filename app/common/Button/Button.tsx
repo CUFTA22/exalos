@@ -19,7 +19,6 @@ const Button: React.FC<ButtonProps> = ({
     width: width + 'px',
     display: hidden ? 'none' : 'flex',
     cursor: disabled ? 'default' : 'pointer',
-    fontSize: size === 'large' ? '16px' : size === 'medium' ? '15px' : '14px',
     color,
   };
 
@@ -29,7 +28,7 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <div
-      className={clsx(styles.lib_button, className, styles[type])}
+      className={clsx(styles.lib_button, className, styles[type], styles[size])}
       onClick={clickFunc}
       style={potentialStyles}
     >

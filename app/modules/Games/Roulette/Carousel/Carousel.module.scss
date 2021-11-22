@@ -1,0 +1,87 @@
+@use 'mixins';
+@use 'variables';
+@use 'animations';
+
+.carousel {
+  width: 90%;
+  margin-bottom: 50px;
+  padding: 14px 5px;
+  overflow: hidden;
+  position: relative;
+  @include mixins.flex-row-center;
+
+  .spin_container {
+    // Width of 1 num - 60px
+    // Width of 37 nums - 2220px = 60 * 37
+
+    z-index: 1;
+    width: 2220px;
+    min-width: 2220px;
+    max-width: 2220px;
+    overflow: hidden;
+    position: relative;
+
+    .spin_items {
+      width: 8880px;
+
+      @include mixins.flex-row-start;
+
+      .num {
+        min-width: 56px;
+        height: 56px;
+        margin: 2px;
+        font-size: 20px;
+        font-weight: 600;
+        border-radius: 10px;
+
+        @include mixins.flex-row-center;
+
+        &.num_green {
+          background-color: variables.$color-success;
+          color: variables.$color-white;
+          box-shadow: variables.$color-success 0 0 2px 1px;
+        }
+        &.num_red {
+          background-color: variables.$color-danger;
+          color: variables.$color-black;
+          box-shadow: variables.$color-danger 0 0 2px 1px;
+        }
+        &.num_black {
+          background-color: variables.$color-black;
+          color: variables.$color-text-primary;
+          box-shadow: variables.$color-black 0 0 2px 1px;
+        }
+      }
+    }
+  }
+
+  .pointer {
+    width: 2px;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+
+    background-color: transparentize($color: variables.$color-primary, $amount: 0.2);
+    box-shadow: transparentize($color: variables.$color-primary, $amount: 0.8) 0 0 3px 1px;
+
+    .top_dot,
+    .bot_dot {
+      position: absolute;
+      top: 0;
+      left: -3px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: transparentize($color: variables.$color-primary, $amount: 0);
+    }
+
+    .bot_dot {
+      bottom: 0;
+      top: unset;
+    }
+  }
+}

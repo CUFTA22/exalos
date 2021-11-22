@@ -3,8 +3,9 @@ import { ForwardedRef } from 'react';
 
 export interface InputProps {
   ref?: ForwardedRef<HTMLInputElement>;
-  value?: string;
+  value?: string | number;
   defaultValue?: string;
+  type?: string;
   onChange?: (val: string) => void;
   onClick?: () => void;
   onEnter?: () => void;
@@ -15,9 +16,12 @@ export interface InputProps {
   fSize?: string;
   className?: string;
   disabled?: boolean;
+  applyDisabledStyles?: boolean;
   isUnderline?: boolean;
   isDebounce?: boolean;
   debounceTime?: number;
   minLength?: number;
   maxLength?: number;
+  min?: number;
+  max?: number;
 }

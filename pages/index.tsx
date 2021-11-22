@@ -1,7 +1,7 @@
 import Default from '@layout/Default/Default';
 import Page from '@template/Index/Index';
 import { GetServerSideProps } from 'next';
-import PageHeaders from '@utils/resources/PageHeaders';
+import PageHeaders from '@utils/resources/PageHead';
 
 // export const getServerSideProps: GetServerSideProps = async (context) => {
 //   // context.query -> params

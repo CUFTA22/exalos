@@ -10,6 +10,7 @@ const Input: React.FC<InputProps> = React.forwardRef<HTMLInputElement, InputProp
     {
       value,
       defaultValue,
+      type = 'text',
       onChange = () => {},
       onEnter = () => {},
       onClick = () => {},
@@ -20,11 +21,14 @@ const Input: React.FC<InputProps> = React.forwardRef<HTMLInputElement, InputProp
       fSize = '13px',
       className,
       disabled,
+      applyDisabledStyles = false,
       isUnderline = true,
       isDebounce = false,
       debounceTime = 1000,
       minLength = 0,
-      maxLength = 100,
+      maxLength = 200,
+      min = 0,
+      max = 1000000,
     },
     ref
   ) => {
@@ -45,7 +49,10 @@ const Input: React.FC<InputProps> = React.forwardRef<HTMLInputElement, InputProp
         {icons_front?.map(
           (Icon, i) =>
             Icon && (
-              <div key={i} className={clsx(styles.svg, { [styles.disabled]: disabled })}>
+              <div
+                key={i}
+                className={clsx(styles.svg, { [styles.disabled]: disabled && applyDisabledStyles })}
+              >
                 {Icon}
               </div>
             )
@@ -53,7 +60,7 @@ const Input: React.FC<InputProps> = React.forwardRef<HTMLInputElement, InputProp
 
         <input
           ref={ref}
-          type="text"
+          type={type}
           value={value}
           defaultValue={defaultValue}
           className={className}
@@ -67,13 +74,17 @@ const Input: React.FC<InputProps> = React.forwardRef<HTMLInputElement, InputProp
           disabled={disabled}
           minLength={minLength}
           maxLength={maxLength}
+          min={min}
+          max={max}
         />
 
         {isUnderline && (
           <>
             <div className={styles.focus_border}></div>
             <div
-              className={clsx(styles.focus_border, styles.full, { [styles.disabled]: disabled })}
+              className={clsx(styles.focus_border, styles.full, {
+                [styles.disabled]: disabled && applyDisabledStyles,
+              })}
             ></div>
           </>
         )}

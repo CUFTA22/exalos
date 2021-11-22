@@ -1,5 +1,5 @@
-@import 'variables';
-@import 'animations';
+@use 'variables';
+@use 'animations';
 
 @mixin type($color) {
   border-color: transparentize($color: $color, $amount: 0.6);
@@ -17,15 +17,13 @@
   width: fit-content;
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  padding: 8px 10px;
   transition: 0.1s;
-  height: 35px;
   align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
   border-radius: 10px;
-  background-color: transparentize($color: $color-primary, $amount: 0.98);
+  background-color: transparentize($color: variables.$color-primary, $amount: 0.98);
   border: 1px solid;
 
   svg {
@@ -42,17 +40,37 @@
   }
 
   &.primary {
-    @include type($color-primary);
+    @include type(variables.$color-primary);
   }
   &.cancel {
-    @include type($color-danger);
+    @include type(variables.$color-danger);
   }
   &.inactive {
-    @include type($color-inactive);
+    @include type(variables.$color-inactive);
+  }
+  &.success {
+    @include type(variables.$color-success);
+  }
+  &.black {
+    @include type(variables.$color-black);
+    box-shadow: transparentize($color: variables.$color-black, $amount: 0.75) 0px 0px 2px 4px;
+  }
+
+  &.small {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+  &.medium {
+    font-size: 15px;
+    padding: 8px 10px;
+  }
+  &.large {
+    font-size: 16px;
+    padding: 10px 12px;
   }
 
   &::after {
-    background: transparentize($color: $color-inactive, $amount: 0.8);
+    background: transparentize($color: variables.$color-inactive, $amount: 0.8);
     content: '';
     height: 155px;
     left: -75px;

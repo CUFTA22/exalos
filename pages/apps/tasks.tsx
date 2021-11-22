@@ -1,7 +1,7 @@
 import Default from '@layout/Default/Default';
 import Page from '@template/Apps/Tasks/Tasks';
 import handleRedirect from 'app/utils/resources/handleRedirect';
-import PageHeaders from '@utils/resources/PageHeaders';
+import PageHead from '@utils/resources/PageHead';
 import { GetServerSideProps } from 'next';
 import { getSession } from 'next-auth/client';
 
@@ -16,7 +16,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 const Tasks = () => {
   return (
     <Default>
-      <PageHeaders title="Exalos | Apps" />
+      <PageHead title="Exalos | Apps" />
 
       <Page />
     </Default>

@@ -1,11 +1,11 @@
 import Default from '@layout/Default/Default';
 import Page from '@template/Custom404/Custom404';
-import PageHeaders from '@utils/resources/PageHeaders';
+import PageHead from '@utils/resources/PageHead';
 
 const Planner = () => {
   return (
     <Default>
-      <PageHeaders />
+      <PageHead />
       <Page />
     </Default>
   );

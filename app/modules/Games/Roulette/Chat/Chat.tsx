@@ -1,3 +1,5 @@
+import { Chat24Regular } from '@fluentui/react-icons';
+import Card from '@lib/Card/Card';
 import Input from '@lib/Input/Input';
 import { useState } from 'react';
 import useRoulette from '../useRoulette';
@@ -8,9 +10,15 @@ const Chat = () => {
   const { chat } = useRoulette();
 
   return (
-    <div className={styles.roulette_chat}>
-      <Input value={message} onChange={setMessage} placeholder="Type in chat" width="100%" />
-    </div>
+    <Card className={styles.roulette_chat}>
+      <Input
+        value={message}
+        onChange={setMessage}
+        icons_front={[<Chat24Regular primaryFill="hsl(240, 28%, 64%)" />]}
+        placeholder="Type in chat"
+        width="100%"
+      />
+    </Card>
   );
 };
 

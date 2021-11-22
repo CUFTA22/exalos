@@ -24,4 +24,10 @@ module.exports = {
     locales: ['en-US'],
     defaultLocale: 'en-US',
   },
+
+  // Rust compiler for minification.
+  swcMinify: true,
+  // experimental: {
+  //   urlImports: ['https://cdn.skypack.dev'],
+  // },
 };

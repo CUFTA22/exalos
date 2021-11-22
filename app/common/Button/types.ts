@@ -1,5 +1,5 @@
 export interface ButtonProps {
-  type?: 'primary' | 'cancel' | 'inactive';
+  type?: 'primary' | 'cancel' | 'inactive' | 'success' | 'black';
   onClick?: any;
   text: string;
   size?: 'small' | 'medium' | 'large';

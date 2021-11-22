@@ -1,13 +1,16 @@
 import Default from '@layout/Default/Default';
 import Page from '@template/Games/Roulette/Roulette';
-import PageHeaders from '@utils/resources/PageHeaders';
+import PageHead from '@utils/resources/PageHead';
+import { RouletteCTXProvider } from 'app/store/roulette/CTX';
 
 const Roulette = () => {
   return (
     <Default>
-      <PageHeaders title="Exalos | Games" />
+      <PageHead title="Exalos | Games" />
 
-      <Page />
+      <RouletteCTXProvider>
+        <Page />
+      </RouletteCTXProvider>
     </Default>
   );
 };

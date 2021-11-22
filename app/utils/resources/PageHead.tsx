@@ -4,7 +4,7 @@ interface Props {
   title?: string;
 }
 
-const PageHeaders: React.FC<Props> = ({ title = 'Exalos' }) => {
+const PageHead: React.FC<Props> = ({ title = 'Exalos' }) => {
   return (
     <Head>
       <title>{title}</title>
@@ -14,4 +14,4 @@ const PageHeaders: React.FC<Props> = ({ title = 'Exalos' }) => {
   );
 };
 
-export default PageHeaders;
+export default PageHead;
