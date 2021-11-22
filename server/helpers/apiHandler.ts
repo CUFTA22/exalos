@@ -21,7 +21,7 @@ interface HandlerObject {
 
 const apiHandler = (config: HandlerObject) => {
   return async (req: NextApiRequest, res: NextApiResponse) => {
-    const { handler, schema, auth = true } = config[req.method];
+    const { handler, schema, auth } = config[req.method];
 
     // check handler supports HTTP method
     if (!config[req.method]) return res.status(405).end(`Method ${req.method} Not Allowed`);

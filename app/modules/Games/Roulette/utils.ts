@@ -6,7 +6,7 @@ export const findDistance = (offset: number, current: number, winner: number) =>
 
   //   console.log(findC, ' - ', findW, ' - ', offset);
 
-  const diff = Math.abs(findC - findW) * 60 + 5581;
+  const diff = Math.abs(findC - findW) * 60 + 5580;
 
   return { distance: findC - findW, xValue: diff };
 };

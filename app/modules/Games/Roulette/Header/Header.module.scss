@@ -17,12 +17,20 @@
     padding: 6px 14px;
     width: 110px;
 
-    svg * {
+    .right_star * {
       fill: variables.$color-warn;
     }
 
+    .right_reset {
+      cursor: pointer;
+
+      * {
+        fill: variables.$color-text-secondary;
+      }
+    }
+
     .coins {
-      margin-left: 4px;
+      margin: 0 4px;
     }
   }
 }

@@ -1,0 +1,6 @@
+@use 'mixins';
+
+.roulette_history {
+  @include mixins.flex-row-start;
+  flex-direction: row-reverse;
+}

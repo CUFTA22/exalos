@@ -15,6 +15,22 @@ const useRoulette = () => {
   const fetch = useFetch();
 
   // --------------------------------------------------------------------------------------------
+  // Send message
+  // --------------------------------------------------------------------------------------------
+
+  const sendMessage = (msg: string) => {
+    dispatch({ type: 'CHAT_ADD', payload: msg });
+  };
+
+  // --------------------------------------------------------------------------------------------
+  // Reset coins
+  // --------------------------------------------------------------------------------------------
+
+  const resetCoins = () => {
+    dispatch({ type: 'COINS_ADD', payload: 1000 });
+  };
+
+  // --------------------------------------------------------------------------------------------
   // Set bet color - red, black or green
   // --------------------------------------------------------------------------------------------
 
@@ -40,6 +56,8 @@ const useRoulette = () => {
 
   const startSpin = async () => {
     const result = await fetch.post('/api/roulette');
+    if (!result) return;
+
     dispatch({ type: 'START_GAME', payload: result.data });
 
     setTimeout(() => {
@@ -62,6 +80,8 @@ const useRoulette = () => {
     betColor,
     chat,
     isLoading,
+    resetCoins,
+    sendMessage,
     setBetAmount,
     setBetColor,
     startSpin,

@@ -114,4 +114,4 @@ export const demoItems = [
   },
 ];
 
-export const protectedRoutes = ['/apps', '/games'];
+export const protectedRoutes = ['/apps'];
