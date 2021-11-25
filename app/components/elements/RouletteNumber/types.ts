@@ -1,5 +1,5 @@
 export interface Props {
-  n: number;
+  n: string;
   c: string;
   size?: 'small' | 'normal';
 }

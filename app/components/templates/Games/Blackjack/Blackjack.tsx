@@ -1,0 +1,17 @@
+import Board from '@module/Games/Blackjack/Board/Board';
+import Header from '@module/Games/Blackjack/Header/Header';
+import styles from './Blackjack.module.scss';
+
+const Blackjack: React.FC = () => {
+  return (
+    <div className={styles.page_blackjack}>
+      <Header />
+
+      <div className={styles.game_container}>
+        <Board />
+      </div>
+    </div>
+  );
+};
+
+export default Blackjack;

@@ -1,4 +1,5 @@
 import { randomNumber } from '@server/utils/functions';
+import { rouletteEuNumbers, rouletteUsNumbers } from '@utils/resources/rouletteNumbers';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 /**
@@ -7,7 +8,13 @@ import { NextApiRequest, NextApiResponse } from 'next';
  */
 
 export const handlePost = async (req: NextApiRequest, res: NextApiResponse) => {
-  const data = randomNumber(0, 36);
+  const { type } = req.body as { type: 'eu' | 'us' };
 
-  res.status(200).json({ error: false, message: 'Winner recieved.', data });
+  const length = type === 'eu' ? rouletteEuNumbers.length : rouletteUsNumbers.length;
+
+  const randomIdx = randomNumber(0, length);
+
+  const winner = type === 'eu' ? rouletteEuNumbers[randomIdx].n : rouletteUsNumbers[randomIdx].n;
+
+  res.status(200).json({ error: false, message: 'Winner recieved.', data: parseInt(winner) });
 };

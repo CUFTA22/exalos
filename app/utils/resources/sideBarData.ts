@@ -1,10 +1,13 @@
 import {
+  AppRecent24Regular,
   Beaker24Regular,
   CalendarLtr24Regular,
+  ColumnTriple24Regular,
   Cube24Regular,
   DataPie24Regular,
   Document24Regular,
   Earth24Regular,
+  Games24Regular,
   Grid24Regular,
   MusicNote124Regular,
   Options24Regular,
@@ -15,45 +18,6 @@ import {
   SquareMultiple24Regular,
   Trophy24Regular,
 } from '@fluentui/react-icons';
-
-// --------------------------------------------------------
-// Apps
-// --------------------------------------------------------
-
-export const appItems = [
-  {
-    text: 'Statistics',
-    Svg: DataPie24Regular,
-    route: '/apps/stats',
-  },
-  {
-    text: 'Planner',
-    Svg: CalendarLtr24Regular,
-    route: '/apps/planner',
-  },
-  {
-    text: 'Tasks',
-    Svg: SquareMultiple24Regular,
-    route: '/apps/tasks',
-  },
-  // {
-  //   text: 'Finances',
-  //   Svg: Payment24Regular,
-  //   route: '/finances',
-  // },
-];
-
-// --------------------------------------------------------
-// Games
-// --------------------------------------------------------
-
-export const gameItems = [
-  {
-    text: 'Roulette',
-    Svg: Premium24Regular,
-    route: '/games/roulette',
-  },
-];
 
 // --------------------------------------------------------
 // Sidebar Data
@@ -67,7 +31,7 @@ export const sideBarItems = [
   },
   {
     text: 'Games',
-    Svg: Trophy24Regular,
+    Svg: Games24Regular,
     route: '/games',
   },
   {
@@ -93,25 +57,79 @@ export const sideBarItems = [
 ];
 
 // --------------------------------------------------------
+// Apps
+// --------------------------------------------------------
+
+export const appItems = [
+  {
+    text: 'Statistics',
+    Svg: DataPie24Regular,
+    route: '/apps/stats',
+  },
+  {
+    text: 'Planner',
+    Svg: CalendarLtr24Regular,
+    route: '/apps/planner',
+  },
+  // {
+  //   text: 'Tasks',
+  //   Svg: SquareMultiple24Regular,
+  //   route: '/apps/tasks',
+  // },
+  // {
+  //   text: 'Finances',
+  //   Svg: Payment24Regular,
+  //   route: '/finances',
+  // },
+];
+
+// --------------------------------------------------------
+// Games
+// --------------------------------------------------------
+
+export const gameItems = [
+  {
+    text: 'EU Roulette',
+    Svg: Premium24Regular,
+    route: '/games/roulette/eu',
+  },
+  {
+    text: 'US Roulette',
+    Svg: Premium24Regular,
+    route: '/games/roulette/us',
+  },
+  {
+    text: '21 Blackjack',
+    Svg: AppRecent24Regular,
+    route: '/games/blackjack',
+  },
+  // {
+  //   text: 'Slots',
+  //   Svg: ColumnTriple24Regular,
+  //   route: '/games/blackjack',
+  // },
+];
+
+// --------------------------------------------------------
 // WebGL Demos
 // --------------------------------------------------------
 
 export const demoItems = [
-  {
-    text: 'Test',
-    Svg: Beaker24Regular,
-    route: '/',
-  },
-  {
-    text: 'Globe',
-    Svg: Earth24Regular,
-    route: '/',
-  },
-  {
-    text: 'Space',
-    Svg: Rocket24Regular,
-    route: '/',
-  },
+  // {
+  //   text: 'Test',
+  //   Svg: Beaker24Regular,
+  //   route: '/',
+  // },
+  // {
+  //   text: 'Globe',
+  //   Svg: Earth24Regular,
+  //   route: '/',
+  // },
+  // {
+  //   text: 'Space',
+  //   Svg: Rocket24Regular,
+  //   route: '/',
+  // },
 ];
 
 export const protectedRoutes = ['/apps'];

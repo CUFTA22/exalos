@@ -1,11 +1,7 @@
 import { Dispatch } from 'react';
 
-// European Roulette = 37 total  |  18 red     * 2 win
-//                               |  18 black   * 2 win
-//                               |  1  green   * 30 win
-
 // -----------------------------------------------------------------
-// For planner context
+// For roulette context
 // -----------------------------------------------------------------
 
 export type Roulette_Context_Action =

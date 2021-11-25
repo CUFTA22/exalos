@@ -1,0 +1,48 @@
+@use 'mixins';
+@use 'variables';
+@use 'animations';
+
+.roulette_board {
+  width: 100%;
+  height: 100%;
+  padding: 16px 10px;
+  @include mixins.flex-row-space;
+
+  .hands {
+    flex: 1;
+  }
+
+  .controls {
+    @include mixins.flex-col-center;
+
+    .bet_change {
+      margin: 12px 0 20px 0;
+      @include mixins.flex-row-center;
+
+      .bet_change_opt {
+        font-size: 13px;
+        width: 65px;
+        padding: 5px 0px;
+        margin: 0 5px;
+        cursor: pointer;
+        user-select: none;
+        border-radius: 8px;
+        border: 1px solid variables.$color-primary;
+        color: variables.$color-primary;
+
+        @include mixins.flex-row-center;
+
+        &:hover {
+          transform: scale(1.02);
+        }
+        &:active {
+          transform: scale(0.98);
+        }
+      }
+    }
+
+    .cta {
+      margin: 12px 0;
+    }
+  }
+}

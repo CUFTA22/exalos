@@ -9,7 +9,7 @@ const Roulette = () => {
       <PageHead title="Exalos | Games" />
 
       <RouletteCTXProvider>
-        <Page />
+        <Page type="eu" />
       </RouletteCTXProvider>
     </Default>
   );

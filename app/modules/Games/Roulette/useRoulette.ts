@@ -1,5 +1,5 @@
 import { type2Color } from '@utils/resources/boardData';
-import { rouletteNumbers } from '@utils/resources/rouletteNumbers';
+import { rouletteEuNumbers, rouletteUsNumbers } from '@utils/resources/rouletteNumbers';
 import useFetch from 'app/api/useFetch';
 import { RouletteContext } from 'app/store/roulette/CTX';
 import { useContext } from 'react';
@@ -54,14 +54,16 @@ const useRoulette = () => {
   // Set coin amount
   // --------------------------------------------------------------------------------------------
 
-  const startSpin = async () => {
+  const startSpin = async (type: 'eu' | 'us') => {
     const result = await fetch.post('/api/roulette');
     if (!result) return;
 
     dispatch({ type: 'START_GAME', payload: result.data });
 
     setTimeout(() => {
-      const resultColor = rouletteNumbers.find((num) => num.n === result.data).c;
+      const numbers = type === 'eu' ? rouletteEuNumbers : rouletteUsNumbers;
+
+      const resultColor = numbers.find((num) => parseInt(num.n) === result.data).c;
 
       const isWin = resultColor === betColor;
       const coinDiff = betAmount * (betColor === 'green' ? 7 : 1);

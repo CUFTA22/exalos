@@ -1,8 +1,8 @@
 import Default from '@layout/Default/Default';
-import Page from '@template/Index/Index';
+import Page from '@template/Options/Options';
 import PageHeaders from '@utils/resources/PageHead';
 
-const Home = () => {
+const Options = () => {
   return (
     <Default>
       <PageHeaders />
@@ -11,4 +11,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Options;

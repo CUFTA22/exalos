@@ -10,14 +10,15 @@ import { Dismiss24Regular, Star24Filled } from '@fluentui/react-icons';
 import useRoulette from '../useRoulette';
 import { betChangeOpts, betOptionsOpts, type2Color } from '../../../../utils/resources/boardData';
 import Carousel from '../Carousel/Carousel';
+import { RouletteProps } from './types';
 
-const Board = () => {
+const Board: React.FC<RouletteProps> = ({ type }) => {
   const { coins, setBetAmount, setBetColor, betAmount, betColor, startSpin, isLoading } =
     useRoulette();
 
   return (
     <Card className={styles.roulette_board}>
-      <Carousel />
+      <Carousel type={type} />
 
       <Input
         value={betAmount}

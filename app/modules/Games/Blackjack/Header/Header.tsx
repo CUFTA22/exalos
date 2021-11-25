@@ -1,18 +1,14 @@
 import { ArrowClockwise16Regular, Star20Filled } from '@fluentui/react-icons';
 import Typography from '@lib/Typography/Typography';
-import { RouletteProps } from '@template/Games/Roulette/types';
-import History from '../History/History';
-import useRoulette from '../useRoulette';
+import useBlackjack from '../useBlackjack';
 import styles from './Header.module.scss';
 
-const Header: React.FC<RouletteProps> = ({ type }) => {
-  const { coins, resetCoins } = useRoulette();
+const Header = () => {
+  const { coins, resetCoins } = useBlackjack();
 
   return (
-    <div className={styles.roulette_header}>
-      <div className={styles.left}>
-        <History type={type} />
-      </div>
+    <div className={styles.blackjack_header}>
+      <div className={styles.left}></div>
       <div className={styles.right}>
         <Star20Filled className={styles.right_star} />
         <Typography className={styles.coins} text={`${coins}`} color="secondary" />
