@@ -4,6 +4,7 @@ import useFetch from 'app/api/useFetch';
 import { BlackjackContext } from 'app/store/blackjack/CTX';
 import { RouletteContext } from 'app/store/roulette/CTX';
 import { useContext } from 'react';
+import { generateRandomCard } from './utils';
 
 /**
  * Used for all logic of roulette
@@ -46,7 +47,9 @@ const useBlackjack = () => {
   // Handle Hit action
   // --------------------------------------------------------------------------------------------
 
-  const handleHit = () => {};
+  const handleHit = () => {
+    dispatch({ type: 'HAND_ADD', payload: { field: 'handPlayer', card: generateRandomCard() } });
+  };
 
   // --------------------------------------------------------------------------------------------
   // Handle Hit action
@@ -63,6 +66,8 @@ const useBlackjack = () => {
     resetCoins,
     setBetAmount,
     startGame,
+    handleHit,
+    handleStand,
   };
 };
 

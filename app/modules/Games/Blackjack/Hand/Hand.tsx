@@ -4,15 +4,15 @@ import styles from './Hand.module.scss';
 import { Props } from './types';
 
 const Hand: React.FC<Props> = ({ cards, title }) => {
+  const isHouse = title === 'House hand';
+
   return (
     <div className={styles.hand}>
-      <div className="title">
-        <Typography text={title} fSize={20} color="secondary" />
-      </div>
+      {cards.length ? <Typography text={title} fSize={24} color="secondary" /> : null}
 
-      <div className="cards">
-        {cards.map((c) => (
-          <Card {...c} />
+      <div className={styles.cards}>
+        {cards.map((c, i) => (
+          <Card {...c} isFlipped={isHouse && i > 0} />
         ))}
       </div>
     </div>

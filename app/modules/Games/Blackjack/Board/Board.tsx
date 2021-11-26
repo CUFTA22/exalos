@@ -13,11 +13,20 @@ import Button from '@lib/Button/Button';
 import Hand from '../Hand/Hand';
 
 const Board = () => {
-  const { betAmount, isLoading, setBetAmount, coins, handPlayer, handHouse, startGame } =
-    useBlackjack();
+  const {
+    betAmount,
+    isLoading,
+    setBetAmount,
+    coins,
+    handPlayer,
+    handHouse,
+    startGame,
+    handleHit,
+    handleStand,
+  } = useBlackjack();
 
   return (
-    <Card className={styles.roulette_board}>
+    <Card className={styles.blackjack_board}>
       <div className={styles.hands}>
         <Hand title="House hand" cards={handHouse} />
         <Hand title="Your hand" cards={handPlayer} />
@@ -53,7 +62,7 @@ const Board = () => {
               text="Hit"
               disabled={!betAmount}
               Icon={CollectionsAdd24Regular}
-              // onClick={}
+              onClick={handleHit}
             />
             <Button
               className={styles.cta}
@@ -62,7 +71,7 @@ const Board = () => {
               text="Stand"
               disabled={!betAmount}
               Icon={HandLeft24Regular}
-              // onClick={}
+              onClick={handleStand}
             />
           </>
         ) : (

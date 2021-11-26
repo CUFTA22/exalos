@@ -1,12 +1,14 @@
 @use 'mixins';
 
 .hand {
-  @include mixins.flex-col-start;
+  width: 100%;
 
-  .title {
-  }
+  @include mixins.flex-col-start;
+  align-items: flex-start;
 
   .cards {
+    margin-top: 12px;
+
     @include mixins.flex-row-center;
   }
 }
