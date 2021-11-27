@@ -28,13 +28,13 @@ const CardPattern: React.FC<BlackjackCard> = ({ value, type, color, symbol }) =>
         <div
           className={clsx(
             styles.number_logo,
-            styles[`number_logo_${value[0]}`],
+            styles[`number_logo_${value}`],
             styles[`number_logo_${color}`],
             { [styles.is_square]: isSquare }
           )}
         >
-          {Array.apply(null, Array(value[0])).map(() => (
-            <CardSymbol />
+          {Array.apply(null, Array(value)).map((_val, i) => (
+            <CardSymbol key={i} />
           ))}
         </div>
       )}

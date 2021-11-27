@@ -1,10 +1,60 @@
 @use 'mixins';
+@use 'variables';
 
 .hand {
   width: 100%;
 
   @include mixins.flex-col-start;
   align-items: flex-start;
+
+  .top {
+    @include mixins.flex-row-center;
+
+    .BJ {
+      margin-left: 10px;
+
+      @include mixins.flex-row-center;
+
+      color: variables.$color-warn;
+
+      svg {
+        margin-right: 6px;
+        * {
+          fill: variables.$color-warn;
+        }
+      }
+    }
+
+    .LOST {
+      margin-left: 10px;
+
+      @include mixins.flex-row-center;
+
+      color: variables.$color-danger;
+
+      svg {
+        margin-right: 6px;
+        * {
+          fill: variables.$color-danger;
+        }
+      }
+    }
+
+    .WIN {
+      margin-left: 10px;
+
+      @include mixins.flex-row-center;
+
+      color: variables.$color-success;
+
+      svg {
+        margin-right: 6px;
+        * {
+          fill: variables.$color-success;
+        }
+      }
+    }
+  }
 
   .cards {
     margin-top: 12px;

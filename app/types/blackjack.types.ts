@@ -11,7 +11,10 @@ export type Blackjack_Context_Action =
   | { type: 'COINS_ADD'; payload: number }
   | { type: 'HAND_ADD'; payload: { field: 'handPlayer' | 'handHouse'; card: BlackjackCard } }
   | { type: 'START_GAME' }
-  | { type: 'FINISH_GAME'; payload: { newCoins: number; winner: number } };
+  | {
+      type: 'FINISH_GAME';
+      payload: { newCoins: number; field?: 'handPlayer' | 'handHouse'; cards?: BlackjackCard[] };
+    };
 
 export interface Blackjack_Context {
   coins: number;

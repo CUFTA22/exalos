@@ -41,6 +41,7 @@ export const blackjackReducer = (
         coins: action.payload.newCoins,
         betAmount: 0,
         isLoading: false,
+        [action.payload?.field]: action.payload?.cards,
       };
 
     default:

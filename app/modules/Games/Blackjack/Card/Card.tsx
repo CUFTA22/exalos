@@ -4,7 +4,7 @@ import CardPattern from './components/CardPattern';
 import { Props } from './types';
 
 const Card: React.FC<Props> = ({ color, symbol, value, type, isFlipped }) => {
-  const cardNumber = ['J', 'K', 'Q'].includes(type) ? type : type === 'ace' ? 'A' : value?.[0];
+  const cardNumber = ['J', 'K', 'Q'].includes(type) ? type : type === 'ace' ? 'A' : value;
 
   return (
     <div className={styles.card}>

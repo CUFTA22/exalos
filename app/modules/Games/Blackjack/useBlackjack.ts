@@ -4,7 +4,7 @@ import useFetch from 'app/api/useFetch';
 import { BlackjackContext } from 'app/store/blackjack/CTX';
 import { RouletteContext } from 'app/store/roulette/CTX';
 import { useContext } from 'react';
-import { generateRandomCard } from './utils';
+import { calculateHandValue, generateRandomCard } from './utils';
 
 /**
  * Used for all logic of roulette
@@ -14,7 +14,6 @@ import { generateRandomCard } from './utils';
 const useBlackjack = () => {
   const { coins, betAmount, isLoading, dispatch, handHouse, handPlayer } =
     useContext(BlackjackContext);
-  const fetch = useFetch();
 
   // --------------------------------------------------------------------------------------------
   // Reset coins
@@ -48,14 +47,44 @@ const useBlackjack = () => {
   // --------------------------------------------------------------------------------------------
 
   const handleHit = () => {
-    dispatch({ type: 'HAND_ADD', payload: { field: 'handPlayer', card: generateRandomCard() } });
+    const newCard = generateRandomCard();
+    dispatch({ type: 'HAND_ADD', payload: { field: 'handPlayer', card: newCard } });
+
+    const newCards = [...handPlayer, newCard];
+    const sum = calculateHandValue(newCards);
+
+    if (sum > 21) {
+      dispatch({ type: 'FINISH_GAME', payload: { newCoins: coins - betAmount } });
+    }
   };
 
   // --------------------------------------------------------------------------------------------
   // Handle Hit action
   // --------------------------------------------------------------------------------------------
 
-  const handleStand = () => {};
+  const handleStand = () => {
+    let houseVal = calculateHandValue(handHouse);
+    let playerVal = calculateHandValue(handPlayer);
+    let newCards = [...handHouse];
+
+    while (houseVal < playerVal) {
+      const newCard = generateRandomCard();
+      newCards.push(newCard);
+
+      houseVal = calculateHandValue(newCards);
+    }
+
+    console.log(houseVal);
+
+    const isWin = playerVal > houseVal || houseVal > 21;
+    const isDraw = playerVal === houseVal && playerVal <= 21;
+    const newCoins = isDraw ? coins : isWin ? coins + betAmount : coins - betAmount;
+
+    dispatch({
+      type: 'FINISH_GAME',
+      payload: { newCoins: newCoins, field: 'handHouse', cards: newCards },
+    });
+  };
 
   return {
     coins,

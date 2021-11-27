@@ -7,7 +7,7 @@ import {
 import { randomNumber } from '@server/utils/functions';
 
 export interface BlackjackCard {
-  value: number[];
+  value: number;
   color: 'red' | 'black';
   symbol: any;
   type: 'num' | 'ace' | 'K' | 'Q' | 'J';
@@ -20,79 +20,79 @@ export const generateRandomSymbol = () =>
 
 export const blackjackCards: BlackjackCard[] = [
   {
-    value: [1, 11],
+    value: 1,
     color: generateRandomColor(),
     symbol: generateRandomSymbol(),
     type: 'ace',
   },
   {
-    value: [2],
+    value: 2,
     color: generateRandomColor(),
     symbol: generateRandomSymbol(),
     type: 'num',
   },
   {
-    value: [3],
+    value: 3,
     color: generateRandomColor(),
     symbol: generateRandomSymbol(),
     type: 'num',
   },
   {
-    value: [4],
+    value: 4,
     color: generateRandomColor(),
     symbol: generateRandomSymbol(),
     type: 'num',
   },
   {
-    value: [5],
+    value: 5,
     color: generateRandomColor(),
     symbol: generateRandomSymbol(),
     type: 'num',
   },
   {
-    value: [6],
+    value: 6,
     color: generateRandomColor(),
     symbol: generateRandomSymbol(),
     type: 'num',
   },
   {
-    value: [7],
+    value: 7,
     color: generateRandomColor(),
     symbol: generateRandomSymbol(),
     type: 'num',
   },
   {
-    value: [8],
+    value: 8,
     color: generateRandomColor(),
     symbol: generateRandomSymbol(),
     type: 'num',
   },
   {
-    value: [9],
+    value: 9,
     color: generateRandomColor(),
     symbol: generateRandomSymbol(),
     type: 'num',
   },
   {
-    value: [10], // 10
+    value: 10, // 10
     color: generateRandomColor(),
     symbol: generateRandomSymbol(),
     type: 'num',
   },
   {
-    value: [10], // J
+    value: 10, // J
     color: generateRandomColor(),
     symbol: generateRandomSymbol(),
     type: 'J',
   },
   {
-    value: [10], // Q
+    value: 10, // Q
     color: generateRandomColor(),
     symbol: generateRandomSymbol(),
     type: 'Q',
   },
   {
-    value: [10], // K
+    value: 10, // K
     color: generateRandomColor(),
     symbol: generateRandomSymbol(),
     type: 'K',

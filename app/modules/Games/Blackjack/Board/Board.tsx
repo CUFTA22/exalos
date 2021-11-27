@@ -53,7 +53,7 @@ const Board = () => {
           ))}
         </div>
 
-        {handPlayer.length ? (
+        {isLoading ? (
           <>
             <Button
               className={styles.cta}
@@ -81,7 +81,7 @@ const Board = () => {
             width={220}
             text="Deal"
             onClick={startGame}
-            disabled={!betAmount || isLoading}
+            disabled={!betAmount}
             Icon={CollectionsAdd24Regular}
             isLoading={isLoading}
           />
