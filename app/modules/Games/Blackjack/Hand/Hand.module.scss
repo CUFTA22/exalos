@@ -54,6 +54,21 @@
         }
       }
     }
+
+    .DRAW {
+      margin-left: 10px;
+
+      @include mixins.flex-row-center;
+
+      color: variables.$color-inactive;
+
+      svg {
+        margin-right: 6px;
+        * {
+          fill: variables.$color-inactive;
+        }
+      }
+    }
   }
 
   .cards {

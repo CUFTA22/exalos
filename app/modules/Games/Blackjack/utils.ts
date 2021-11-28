@@ -1,7 +1,24 @@
 import { randomNumber } from '@server/utils/functions';
 import { BlackjackCard, blackjackCards } from '@utils/resources/blackjackCards';
 
-export const generateRandomCard = () => blackjackCards[randomNumber(0, 12)];
+export const generateRandomCard = (currentArr: BlackjackCard[]) => {
+  let newCard = blackjackCards[randomNumber(0, 12)] as BlackjackCard;
+
+  if (currentArr.find((item) => item.value === newCard.value))
+    return generateRandomCard(currentArr);
+
+  return newCard;
+};
+
+export const generateFirstDeal = () => {
+  const cards = [] as BlackjackCard[];
+
+  for (let i = 0; i < 4; i++) {
+    cards.push(generateRandomCard(cards));
+  }
+
+  return cards;
+};
 
 export const getValue = (arr: number[]) => arr.reduce((a, b) => a + b);
 

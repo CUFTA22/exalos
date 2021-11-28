@@ -6,6 +6,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  display: flex;
 
   .ace_logo {
     height: 72px;
@@ -17,14 +18,10 @@
   }
 
   .picture_logo {
-    height: 66px;
-
-    svg {
-      width: 66px;
-      height: 66px;
-      * {
-        fill: variables.$color-primary;
-      }
+    width: 66px;
+    height: fit-content;
+    * {
+      fill: variables.$color-primary;
     }
   }
 
@@ -54,6 +51,10 @@
     height: 20px;
     transform: rotate(45deg);
   }
+
+  // ------------------------------------------------
+  // Grids
+  // ------------------------------------------------
 
   .number_logo_2 {
     display: grid;

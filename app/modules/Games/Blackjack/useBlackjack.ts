@@ -47,7 +47,7 @@ const useBlackjack = () => {
   // --------------------------------------------------------------------------------------------
 
   const handleHit = () => {
-    const newCard = generateRandomCard();
+    const newCard = generateRandomCard([...handPlayer, ...handHouse]);
     dispatch({ type: 'HAND_ADD', payload: { field: 'handPlayer', card: newCard } });
 
     const newCards = [...handPlayer, newCard];
@@ -68,13 +68,11 @@ const useBlackjack = () => {
     let newCards = [...handHouse];
 
     while (houseVal < playerVal) {
-      const newCard = generateRandomCard();
+      const newCard = generateRandomCard([...newCards, ...handPlayer]);
       newCards.push(newCard);
 
       houseVal = calculateHandValue(newCards);
     }
-
-    console.log(houseVal);
 
     const isWin = playerVal > houseVal || houseVal > 21;
     const isDraw = playerVal === houseVal && playerVal <= 21;

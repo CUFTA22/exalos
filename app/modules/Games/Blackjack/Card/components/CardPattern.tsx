@@ -5,11 +5,10 @@ import Logo from '@assets/logos/exalos.svg';
 import Queen from '@assets/icons/card_queen.svg';
 import King from '@assets/icons/card_king.svg';
 import Jack from '@assets/icons/card_jack.svg';
-import { randomNumber } from '@server/utils/functions';
 import { Stop16Filled } from '@fluentui/react-icons';
 
 const CardPattern: React.FC<BlackjackCard> = ({ value, type, color, symbol }) => {
-  const CardPicture = type === 'J' ? <Jack /> : type === 'K' ? <King /> : <Queen />;
+  const CardPicture = type === 'J' ? Jack : type === 'K' ? King : Queen;
   const CardSymbol = symbol;
 
   const isSquare = symbol === Stop16Filled;
@@ -22,7 +21,7 @@ const CardPattern: React.FC<BlackjackCard> = ({ value, type, color, symbol }) =>
         </div>
       )}
 
-      {['J', 'K', 'Q'].includes(type) && <div className={styles.picture_logo}>{CardPicture}</div>}
+      {['J', 'K', 'Q'].includes(type) && <CardPicture className={styles.picture_logo} />}
 
       {type === 'num' && (
         <div

@@ -3,7 +3,12 @@ import Typography from '@lib/Typography/Typography';
 import styles from './Hand.module.scss';
 import { Props } from './types';
 import { calculateHandValue } from '../utils';
-import { Dismiss24Regular, Premium24Regular, Trophy24Regular } from '@fluentui/react-icons';
+import {
+  Block24Regular,
+  Dismiss24Regular,
+  Premium24Regular,
+  Trophy24Regular,
+} from '@fluentui/react-icons';
 import useBlackjack from '../useBlackjack';
 
 const Hand: React.FC<Props> = ({ cards, title }) => {
@@ -45,8 +50,8 @@ const Hand: React.FC<Props> = ({ cards, title }) => {
               </div>
             )}
           {!isHouse && !isLoading && handValue === houseValue && handValue <= 21 && (
-            <div className={styles.WIN}>
-              <Trophy24Regular />
+            <div className={styles.DRAW}>
+              <Block24Regular />
               <span>Draw</span>
             </div>
           )}

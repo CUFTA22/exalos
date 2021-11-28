@@ -1,4 +1,4 @@
-import { generateRandomCard } from '@module/Games/Blackjack/utils';
+import { generateRandomCard, generateFirstDeal } from '@module/Games/Blackjack/utils';
 import { Blackjack_Context, Blackjack_Context_Action } from '@ts/blackjack.types';
 
 const noop = () => false;
@@ -23,13 +23,16 @@ export const blackjackReducer = (
       return { ...state, isLoading: action.payload };
     case 'COINS_ADD':
       return { ...state, coins: action.payload };
-    case 'START_GAME':
+    case 'START_GAME': {
+      const cards = generateFirstDeal();
+
       return {
         ...state,
         isLoading: true,
-        handHouse: [generateRandomCard(), generateRandomCard()],
-        handPlayer: [generateRandomCard(), generateRandomCard()],
+        handHouse: [cards[0], cards[1]],
+        handPlayer: [cards[2], cards[3]],
       };
+    }
     case 'HAND_ADD':
       return {
         ...state,
