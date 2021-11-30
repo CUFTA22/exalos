@@ -25,6 +25,7 @@
   border-radius: 10px;
   background-color: transparentize($color: variables.$color-primary, $amount: 0.98);
   border: 1px solid;
+  user-select: none;
 
   svg {
     margin-right: 12px;

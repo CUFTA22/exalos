@@ -13,7 +13,7 @@ const Modal: React.FC<Props> = ({
   overlay_className,
 }) => {
   const [isBrowser, setIsBrowser] = useState(false);
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(isOpen);
 
   useEffect(() => {
     !isBrowser && setIsBrowser(true);

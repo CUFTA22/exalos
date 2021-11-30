@@ -4,6 +4,7 @@ import Input from '@lib/Input/Input';
 import {
   CollectionsAdd24Regular,
   Dismiss24Regular,
+  Flag24Regular,
   HandLeft24Regular,
   Star24Filled,
 } from '@fluentui/react-icons';
@@ -23,6 +24,7 @@ const Board = () => {
     startGame,
     handleHit,
     handleStand,
+    handleSurrender,
   } = useBlackjack();
 
   return (
@@ -72,6 +74,15 @@ const Board = () => {
               disabled={!betAmount}
               Icon={HandLeft24Regular}
               onClick={handleStand}
+            />
+            <Button
+              className={styles.cta}
+              size="large"
+              width={220}
+              text="Surrender"
+              disabled={!betAmount || handPlayer.length > 2}
+              Icon={Flag24Regular}
+              onClick={handleSurrender}
             />
           </>
         ) : (

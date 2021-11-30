@@ -59,7 +59,7 @@ const useBlackjack = () => {
   };
 
   // --------------------------------------------------------------------------------------------
-  // Handle Hit action
+  // Handle Stand action
   // --------------------------------------------------------------------------------------------
 
   const handleStand = () => {
@@ -84,6 +84,14 @@ const useBlackjack = () => {
     });
   };
 
+  // --------------------------------------------------------------------------------------------
+  // Handle Surrender action
+  // --------------------------------------------------------------------------------------------
+
+  const handleSurrender = () => {
+    dispatch({ type: 'FINISH_GAME', payload: { newCoins: coins - betAmount / 2 } });
+  };
+
   return {
     coins,
     betAmount,
@@ -95,6 +103,7 @@ const useBlackjack = () => {
     startGame,
     handleHit,
     handleStand,
+    handleSurrender,
   };
 };
 
