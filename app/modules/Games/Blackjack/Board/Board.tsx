@@ -9,9 +9,10 @@ import {
   Star24Filled,
 } from '@fluentui/react-icons';
 import useBlackjack from '../useBlackjack';
-import { betChangeOpts } from '@utils/resources/boardData';
 import Button from '@lib/Button/Button';
 import Hand from '../Hand/Hand';
+import { betActionsOpts, betChangeOpts } from '@utils/resources/blackjackBoardData';
+import clsx from 'clsx';
 
 const Board = () => {
   const {
@@ -25,6 +26,7 @@ const Board = () => {
     handleHit,
     handleStand,
     handleSurrender,
+    handleDoubleDown,
   } = useBlackjack();
 
   return (
@@ -55,48 +57,38 @@ const Board = () => {
           ))}
         </div>
 
-        {isLoading ? (
-          <>
+        <div className={clsx(styles.action_buttons, { [styles.gap]: isLoading })}>
+          {isLoading ? (
+            <>
+              {betActionsOpts(handleHit, handleStand, handleSurrender, handleDoubleDown).map(
+                (btn) => (
+                  <Button
+                    className={styles.cta}
+                    size="large"
+                    width={180}
+                    text={btn.text}
+                    disabled={
+                      btn.text !== 'Surrender' ? !betAmount : !betAmount || handPlayer.length > 2
+                    }
+                    Icon={btn.Icon}
+                    onClick={btn.action}
+                  />
+                )
+              )}
+            </>
+          ) : (
             <Button
               className={styles.cta}
               size="large"
               width={220}
-              text="Hit"
+              text="Deal"
+              onClick={startGame}
               disabled={!betAmount}
               Icon={CollectionsAdd24Regular}
-              onClick={handleHit}
+              isLoading={isLoading}
             />
-            <Button
-              className={styles.cta}
-              size="large"
-              width={220}
-              text="Stand"
-              disabled={!betAmount}
-              Icon={HandLeft24Regular}
-              onClick={handleStand}
-            />
-            <Button
-              className={styles.cta}
-              size="large"
-              width={220}
-              text="Surrender"
-              disabled={!betAmount || handPlayer.length > 2}
-              Icon={Flag24Regular}
-              onClick={handleSurrender}
-            />
-          </>
-        ) : (
-          <Button
-            className={styles.cta}
-            size="large"
-            width={220}
-            text="Deal"
-            onClick={startGame}
-            disabled={!betAmount}
-            Icon={CollectionsAdd24Regular}
-            isLoading={isLoading}
-          />
-        )}
+          )}
+        </div>
       </div>
     </Card>
   );

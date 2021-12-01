@@ -8,7 +8,11 @@ import Button from '@lib/Button/Button';
 import { Dismiss24Regular, Star24Filled } from '@fluentui/react-icons';
 
 import useRoulette from '../useRoulette';
-import { betChangeOpts, betOptionsOpts, type2Color } from '../../../../utils/resources/boardData';
+import {
+  betChangeOpts,
+  betOptionsOpts,
+  type2Color,
+} from '../../../../utils/resources/rouletteBoardData';
 import Carousel from '../Carousel/Carousel';
 import { RouletteProps } from './types';
 

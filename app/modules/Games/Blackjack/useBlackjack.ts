@@ -1,4 +1,5 @@
-import { type2Color } from '@utils/resources/boardData';
+import { BlackjackCard } from '@utils/resources/blackjackCards';
+import { type2Color } from '@utils/resources/rouletteBoardData';
 import { rouletteEuNumbers, rouletteUsNumbers } from '@utils/resources/rouletteNumbers';
 import useFetch from 'app/api/useFetch';
 import { BlackjackContext } from 'app/store/blackjack/CTX';
@@ -62,13 +63,15 @@ const useBlackjack = () => {
   // Handle Stand action
   // --------------------------------------------------------------------------------------------
 
-  const handleStand = () => {
+  const handleStand = (doubleDown: boolean = false, handP: BlackjackCard[] = handPlayer) => {
+    const outcomeMultiply = doubleDown ? 2 : 1;
+
     let houseVal = calculateHandValue(handHouse);
-    let playerVal = calculateHandValue(handPlayer);
+    let playerVal = calculateHandValue(handP);
     let newCards = [...handHouse];
 
-    while (houseVal < playerVal) {
-      const newCard = generateRandomCard([...newCards, ...handPlayer]);
+    while (houseVal <= playerVal) {
+      const newCard = generateRandomCard([...newCards, ...handP]);
       newCards.push(newCard);
 
       houseVal = calculateHandValue(newCards);
@@ -76,11 +79,15 @@ const useBlackjack = () => {
 
     const isWin = playerVal > houseVal || houseVal > 21;
     const isDraw = playerVal === houseVal && playerVal <= 21;
-    const newCoins = isDraw ? coins : isWin ? coins + betAmount : coins - betAmount;
+    const newCoins = isDraw
+      ? coins
+      : isWin
+      ? coins + betAmount * outcomeMultiply
+      : coins - betAmount * outcomeMultiply;
 
     dispatch({
       type: 'FINISH_GAME',
-      payload: { newCoins: newCoins, field: 'handHouse', cards: newCards },
+      payload: { newCoins: newCoins < 0 ? 0 : newCoins, field: 'handHouse', cards: newCards },
     });
   };
 
@@ -90,6 +97,23 @@ const useBlackjack = () => {
 
   const handleSurrender = () => {
     dispatch({ type: 'FINISH_GAME', payload: { newCoins: coins - betAmount / 2 } });
+  };
+
+  // --------------------------------------------------------------------------------------------
+  // Handle Double Down action
+  // --------------------------------------------------------------------------------------------
+
+  const handleDoubleDown = () => {
+    const newCard = generateRandomCard([...handPlayer, ...handHouse]);
+    dispatch({ type: 'HAND_ADD', payload: { field: 'handPlayer', card: newCard } });
+
+    const newCards = [...handPlayer, newCard];
+
+    if (calculateHandValue(newCards) > 21) {
+      return dispatch({ type: 'FINISH_GAME', payload: { newCoins: coins - betAmount * 2 } });
+    }
+
+    setTimeout(() => handleStand(true, newCards), 300);
   };
 
   return {
@@ -104,6 +128,7 @@ const useBlackjack = () => {
     handleHit,
     handleStand,
     handleSurrender,
+    handleDoubleDown,
   };
 };
 

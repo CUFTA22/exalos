@@ -1,4 +1,4 @@
-import { type2Color } from '@utils/resources/boardData';
+import { type2Color } from '@utils/resources/rouletteBoardData';
 import { rouletteEuNumbers, rouletteUsNumbers } from '@utils/resources/rouletteNumbers';
 import useFetch from 'app/api/useFetch';
 import { RouletteContext } from 'app/store/roulette/CTX';
