@@ -2,10 +2,9 @@ import NextNProgress from '@module/PageTransition/NextNProgress';
 import SideBar from '@shared/SideBar/SideBar';
 import styles from './Default.module.scss';
 import stars from '@styles/scss/parallaxStars.module.scss';
-import { Props } from './types';
 import useNotification from '@module/Notifications/useNotification';
 
-const Default: React.FC<Props> = ({ children }) => {
+const Default: React.FC<{}> = ({ children }) => {
   const { NotificationContainer, list } = useNotification();
 
   return (

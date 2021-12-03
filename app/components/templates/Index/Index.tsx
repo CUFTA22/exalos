@@ -1,4 +1,3 @@
-import Card from '@lib/Card/Card';
 import styles from './Index.module.scss';
 
 const Index = () => {

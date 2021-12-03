@@ -10,7 +10,7 @@ const Typography: React.FC<TypographyProps> = ({
   fSize = 16,
   fFamily = 'Inter',
   fWeight = 400,
-  pad = '4px',
+  pad = '0px',
   className,
   children,
 }) => {

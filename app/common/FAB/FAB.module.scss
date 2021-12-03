@@ -1,8 +1,8 @@
-@import 'variables';
-@import 'mixins';
+@use 'variables';
+@use 'mixins';
 
 $dot-color: transparentize(
-  $color: $color-primary,
+  $color: variables.$color-primary,
   $amount: 0.6,
 );
 
@@ -11,21 +11,21 @@ $dot-color: transparentize(
   height: 36px;
   cursor: pointer;
   border-radius: 50%;
-  border: 1px solid transparentize($color: $color-primary, $amount: 0.3);
-  box-shadow: transparentize($color: $color-primary, $amount: 0.85) 0px 0px 2px 4px;
+  border: 1px solid transparentize($color: variables.$color-primary, $amount: 0.3);
+  box-shadow: transparentize($color: variables.$color-primary, $amount: 0.85) 0px 0px 2px 4px;
   position: relative;
   user-select: none;
   transition: all 0.1s ease-in-out;
-  color: $color-primary;
+  color: variables.$color-primary;
 
-  @include flex-row-center;
+  @include mixins.flex-row-center;
 
   svg {
     width: 20px;
     height: 20px;
     border-radius: 50%;
     * {
-      fill: $color-primary;
+      fill: variables.$color-primary;
     }
 
     // Dots
@@ -39,8 +39,8 @@ $dot-color: transparentize(
     height: 44px;
     border-radius: 50%;
     border: 1px solid transparent;
-    border-top-color: $color-primary;
-    border-bottom-color: $color-primary;
+    border-top-color: variables.$color-primary;
+    border-bottom-color: variables.$color-primary;
     transition: transform 0.3s ease-in-out;
 
     // Dots
@@ -56,7 +56,7 @@ $dot-color: transparentize(
 
   &:hover {
     transform: scale(0.97);
-    box-shadow: transparentize($color: $color-primary, $amount: 0.85) 0px 0px 2px 5px;
+    box-shadow: transparentize($color: variables.$color-primary, $amount: 0.85) 0px 0px 2px 5px;
 
     .outer {
       transform: scale(1.05) rotate(-45deg);

@@ -1,0 +1,8 @@
+@use 'mixins';
+
+.page_music {
+  height: 100%;
+  position: relative;
+
+  @include mixins.flex-col-center;
+}

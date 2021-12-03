@@ -1,0 +1,10 @@
+@use 'variables';
+@use 'mixins';
+
+.mobile {
+  width: 100%;
+  height: 100vh;
+  background: variables.$color-body;
+  overflow: hidden;
+  position: relative;
+}

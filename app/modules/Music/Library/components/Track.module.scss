@@ -1,0 +1,48 @@
+@use 'mixins';
+@use 'variables';
+
+.track {
+  padding: 6px;
+  border-radius: 6px;
+  margin: 8px 0;
+  cursor: pointer;
+  border: 1px solid transparentize($color: variables.$color-primary, $amount: 0.6);
+
+  @include mixins.flex-row-space;
+
+  &.isPlaying {
+    border: 1px solid transparentize($color: variables.$color-primary, $amount: 0);
+    box-shadow: transparentize($color: variables.$color-primary, $amount: 0.7) 0px 0px 3px 3px;
+  }
+
+  .left {
+    width: 40px;
+    height: 40px;
+    margin-right: 6px;
+    border-radius: 6px;
+    background-color: transparentize($color: variables.$color-primary, $amount: 0.8);
+    @include mixins.flex-row-center;
+
+    svg * {
+      fill: variables.$color-primary;
+    }
+  }
+
+  .info {
+    flex: 1;
+
+    @include mixins.flex-col-start;
+    align-items: flex-start;
+
+    .title {
+      margin-bottom: 4px;
+
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 1; /* number of lines to show */
+      line-clamp: 1;
+      -webkit-box-orient: vertical;
+    }
+  }
+}

@@ -1,0 +1,63 @@
+@use 'variables';
+
+.range_wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+
+  .input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+    outline: 0;
+    height: 3px;
+    width: 100%;
+    border-radius: 40px;
+    background: transparentize($color: variables.$color-primary, $amount: 0.5);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 14px;
+      height: 14px;
+      background: variables.$color-primary;
+      border-radius: 50%;
+      transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+
+      &:hover {
+        box-shadow: 0px 0px 0px 7px transparentize($color: variables.$color-primary, $amount: 0.7);
+      }
+      &:active {
+        box-shadow: 0px 0px 0px 12px transparentize($color: variables.$color-primary, $amount: 0.7);
+      }
+    }
+
+    &::-moz-range-thumb {
+      -webkit-appearance: none;
+      min-width: 14px;
+      min-height: 14px;
+      background: variables.$color-primary;
+      border-radius: 50%;
+      transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+      border: none;
+      overflow: visible;
+
+      &:hover {
+        box-shadow: 0px 0px 0px 7px transparentize($color: variables.$color-primary, $amount: 0.7);
+      }
+      &:active {
+        box-shadow: 0px 0px 0px 12px transparentize($color: variables.$color-primary, $amount: 0.7);
+      }
+    }
+  }
+
+  &.isVertical {
+    .input {
+      transform: rotate(-90deg);
+    }
+  }
+}

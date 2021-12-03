@@ -7,4 +7,5 @@ export interface TypographyProps {
   fFamily?: string;
   pad?: string;
   color?: 'primary' | 'secondary';
+  maxLines?: number;
 }

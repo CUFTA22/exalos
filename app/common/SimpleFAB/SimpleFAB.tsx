@@ -1,9 +1,38 @@
 import { IFluentIconsProps } from '@fluentui/react-icons';
 import clsx from 'clsx';
 import styles from './SimpleFAB.module.scss';
+import ripple from '@styles/scss/ripple.module.scss';
 
-const SimpleFAB: React.FC<{ Icon: React.ReactElement<IFluentIconsProps> }> = ({ Icon }) => {
-  return <div className={clsx(styles.lib_simpleFab, 'no-clickaway')}>{Icon}</div>;
+interface Props {
+  Icon: React.ReactElement<IFluentIconsProps>;
+  size?: 'normal' | 'large';
+  className?: string;
+  isActive?: boolean;
+  onClick?: () => void;
+}
+
+const SimpleFAB: React.FC<Props> = ({
+  Icon,
+  size = 'normal',
+  className,
+  isActive = false,
+  onClick,
+}) => {
+  return (
+    <div
+      onClick={onClick}
+      className={clsx(
+        styles.lib_simpleFab,
+        ripple.ripple,
+        className,
+        styles[`lib_simpleFab_${size}`],
+        { [styles.isActive]: isActive },
+        'no-clickaway'
+      )}
+    >
+      {Icon}
+    </div>
+  );
 };
 
 export default SimpleFAB;

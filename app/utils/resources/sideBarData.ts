@@ -44,11 +44,11 @@ export const sideBarItems = [
   //   Svg: Document24Regular,
   //   route: '/api-docs',
   // },
-  // {
-  //   text: 'Music',
-  //   Svg: MusicNote124Regular,
-  //   route: '/music',
-  // },
+  {
+    text: 'Music',
+    Svg: MusicNote124Regular,
+    route: '/music',
+  },
   {
     text: 'Options',
     Svg: Options24Regular,

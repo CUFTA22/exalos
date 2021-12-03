@@ -1,0 +1,30 @@
+@use 'mixins';
+@use 'variables';
+
+.music_wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  @include mixins.flex-row-center;
+
+  .divider {
+    height: 100%;
+    width: 2px;
+    background-color: transparentize($color: variables.$color-primary, $amount: 0.85);
+    margin: 0 8px;
+  }
+
+  .main_player {
+    height: 100%;
+    flex: 1;
+
+    @include mixins.flex-col-center;
+
+    .animation {
+      flex: 1;
+      width: 100%;
+      @include mixins.flex-row-center;
+    }
+  }
+}
