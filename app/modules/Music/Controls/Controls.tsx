@@ -10,6 +10,7 @@ import {
   SpeakerOff24Filled,
 } from '@fluentui/react-icons';
 import { useNonInitialEffect } from '@hooks/useNonInitialEffect';
+import useScreenSize from '@hooks/useScreenSize';
 import FAB from '@lib/FAB/FAB';
 import SimpleFAB from '@lib/SimpleFAB/SimpleFAB';
 import Slider from '@lib/Slider/Slider';
@@ -27,6 +28,9 @@ const Controls: React.FC<Props> = ({
   currentTime,
   setCurrentTime,
 }) => {
+  const screenSize = useScreenSize();
+  const isMobile = screenSize?.screen === 'xs';
+
   const { duration, isPlaying, volume, currentSong, isShuffle, isRepeat, isAutoplay } =
     wrapperState;
 
@@ -103,7 +107,7 @@ const Controls: React.FC<Props> = ({
   // -------------------------------------------------------------------------
 
   const updateVolume = (mute?: boolean) => {
-    const volume = mute ? 0 : parseInt(volumeRef.current.value) / 100;
+    const volume = mute ? 0 : parseInt(volumeRef.current.value) / (isMobile ? 20 : 100);
     if (mute) volumeRef.current.value = '0';
 
     audioRef.current.volume = volume;
@@ -175,7 +179,7 @@ const Controls: React.FC<Props> = ({
           {volume === 0 ? (
             <SpeakerOff24Filled />
           ) : (
-            <Speaker224Filled onClick={() => updateVolume(true)} />
+            <Speaker224Filled onClick={() => !isMobile && updateVolume(true)} />
           )}
         </div>
       </div>
