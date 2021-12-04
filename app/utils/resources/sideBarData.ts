@@ -62,11 +62,6 @@ export const sideBarItems = [
     Svg: Games24Regular,
     route: '/games',
   },
-  {
-    text: 'Demos',
-    Svg: Cube24Regular,
-    route: '/demos',
-  },
   // {
   //   text: 'OpenAPI',
   //   Svg: Document24Regular,
@@ -76,6 +71,11 @@ export const sideBarItems = [
     text: 'Music',
     Svg: MusicNote124Regular,
     route: '/music',
+  },
+  {
+    text: 'Demos',
+    Svg: Cube24Regular,
+    route: '/demos',
   },
   {
     text: 'Options',
