@@ -1,0 +1,16 @@
+@import 'mixins';
+@import 'variables';
+
+.appbar {
+  width: 100%;
+  height: fit-content;
+  background: $color-sidebar;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  box-shadow: #00000026 1px 1px 2px;
+  z-index: 3;
+  padding: 10px 30px;
+
+  @include flex-row-space;
+}

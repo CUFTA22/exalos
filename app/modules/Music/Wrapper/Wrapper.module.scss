@@ -8,6 +8,11 @@
 
   @include mixins.flex-row-center;
 
+  .main_library {
+    width: 300px;
+    height: 100%;
+  }
+
   .divider {
     height: 100%;
     width: 2px;
@@ -25,6 +30,71 @@
       flex: 1;
       width: 100%;
       @include mixins.flex-row-center;
+    }
+  }
+
+  .top {
+    display: none;
+  }
+
+  // --------------------------------------------------------------------
+  // --------------------------------------------------------------------
+  // Mobile Styles
+  // --------------------------------------------------------------------
+  // --------------------------------------------------------------------
+
+  @media screen and (max-width: 576px) {
+    width: 100%;
+    overflow: hidden;
+
+    .divider {
+      display: none;
+    }
+
+    .top {
+      width: 100%;
+      padding: 10px;
+
+      @include mixins.flex-row-space;
+
+      span {
+        cursor: pointer;
+      }
+      svg * {
+        fill: variables.$color-primary;
+      }
+    }
+
+    .main_library {
+      width: 100%;
+      position: absolute;
+      transition: all 0.4s ease-in-out;
+      left: 0;
+
+      @include mixins.flex-col-center;
+    }
+    .main_player {
+      width: 100%;
+      position: absolute;
+      transition: all 0.4s ease-in-out;
+      right: 0;
+    }
+
+    &.tab_music {
+      .main_library {
+        left: -100%;
+      }
+      .main_player {
+        right: 0;
+      }
+    }
+    &.tab_library {
+      .main_library {
+        left: 0;
+      }
+      .main_player {
+        right: -100%;
+      }
     }
   }
 }

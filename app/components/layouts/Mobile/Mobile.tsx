@@ -1,5 +1,5 @@
 import NextNProgress from '@module/PageTransition/NextNProgress';
-import SideBar from '@shared/SideBar/SideBar';
+import AppBar from '@shared/AppBar/AppBar';
 import styles from './Mobile.module.scss';
 
 const Mobile: React.FC<{}> = ({ children }) => {
@@ -7,9 +7,9 @@ const Mobile: React.FC<{}> = ({ children }) => {
     <div id="np-container" className={styles.mobile}>
       <NextNProgress />
 
-      {children}
+      <div className={styles.content}>{children}</div>
 
-      <SideBar />
+      <AppBar />
     </div>
   );
 };

@@ -9,6 +9,7 @@ import {
   Earth24Regular,
   Games24Regular,
   Grid24Regular,
+  Home24Regular,
   MusicNote124Regular,
   Options24Regular,
   Payment24Regular,
@@ -18,6 +19,33 @@ import {
   SquareMultiple24Regular,
   Trophy24Regular,
 } from '@fluentui/react-icons';
+
+// --------------------------------------------------------
+// App Data
+// --------------------------------------------------------
+
+export const appBarItems = [
+  {
+    text: 'Home',
+    Svg: Home24Regular,
+    route: '/',
+  },
+  {
+    text: 'Games',
+    Svg: Games24Regular,
+    route: '/games',
+  },
+  {
+    text: 'Demos',
+    Svg: Cube24Regular,
+    route: '/demos',
+  },
+  {
+    text: 'Music',
+    Svg: MusicNote124Regular,
+    route: '/music',
+  },
+];
 
 // --------------------------------------------------------
 // Sidebar Data

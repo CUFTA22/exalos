@@ -2,7 +2,7 @@
 
 .music_library {
   padding: 14px;
-  width: 300px;
+  width: 100%;
   height: 100%;
 
   @include mixins.flex-col-start;
@@ -12,5 +12,13 @@
     margin-top: 6px;
     overflow-y: auto;
     flex: 1;
+    padding: 5px;
+  }
+
+  @media screen and (max-width: 576px) {
+    padding: 10px;
+    .title {
+      display: none;
+    }
   }
 }

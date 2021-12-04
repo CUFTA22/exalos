@@ -1,7 +1,9 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require('path');
+const withPWA = require('next-pwa');
+const runtimeCaching = require('next-pwa/cache');
 
-module.exports = {
+module.exports = withPWA({
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
@@ -30,4 +32,14 @@ module.exports = {
   // experimental: {
   //   urlImports: ['https://cdn.skypack.dev'],
   // },
-};
+
+  // PWA stuff
+  pwa: {
+    dest: 'public',
+    register: true,
+    skipWaiting: true,
+    disable: process.env.NODE_ENV === 'development',
+    runtimeCaching,
+    buildExcludes: [/middleware-manifest\.json$/],
+  },
+});

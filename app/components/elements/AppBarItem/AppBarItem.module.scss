@@ -1,0 +1,49 @@
+@use 'variables';
+@use 'mixins';
+@use 'animations';
+
+.appbar_item {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 10px;
+  position: relative;
+  z-index: 3;
+  overflow: hidden;
+  margin-top: 5px;
+
+  transition: animations.$tran-sidebarItem;
+  color: variables.$color-text-secondary;
+
+  @include mixins.flex-col-center;
+
+  &:hover {
+    @include mixins.sidebar-item;
+    color: variables.$color-primary;
+    svg {
+      * {
+        fill: variables.$color-primary;
+      }
+    }
+  }
+
+  &.active {
+    @include mixins.sidebar-item;
+    color: variables.$color-primary;
+    svg {
+      * {
+        fill: variables.$color-primary;
+      }
+    }
+  }
+
+  svg {
+    * {
+      fill: variables.$color-text-secondary;
+    }
+
+    width: 28px;
+    height: 28px;
+    margin: 12px 0;
+  }
+}

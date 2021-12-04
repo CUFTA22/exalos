@@ -1,13 +1,13 @@
-import Default from '@layout/Default/Default';
+import AppLayout from '@layout/AppLayout';
 import Page from '@template/Index/Index';
 import PageHeaders from '@utils/resources/PageHead';
 
 const Home = () => {
   return (
-    <Default>
+    <AppLayout>
       <PageHeaders />
       <Page />
-    </Default>
+    </AppLayout>
   );
 };
 
