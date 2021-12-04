@@ -36,14 +36,14 @@ export const appBarItems = [
     route: '/games',
   },
   {
-    text: 'Demos',
-    Svg: Cube24Regular,
-    route: '/demos',
-  },
-  {
     text: 'Music',
     Svg: MusicNote124Regular,
     route: '/music',
+  },
+  {
+    text: 'Demos',
+    Svg: Cube24Regular,
+    route: '/demos',
   },
 ];
 
