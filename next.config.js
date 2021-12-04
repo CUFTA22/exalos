@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require('path');
 const withPWA = require('next-pwa');
-// const runtimeCaching = require('next-pwa/cache');
+const runtimeCaching = require('next-pwa/cache');
 
 module.exports = withPWA({
   webpack(config) {
@@ -39,7 +39,7 @@ module.exports = withPWA({
     register: true,
     skipWaiting: true,
     disable: process.env.NODE_ENV === 'development',
-    // runtimeCaching,
-    // buildExcludes: [/middleware-manifest\.json$/],
+    runtimeCaching,
+    buildExcludes: [/middleware-manifest\.json$/],
   },
 });
