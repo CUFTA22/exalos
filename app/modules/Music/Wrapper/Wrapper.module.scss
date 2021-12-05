@@ -96,6 +96,15 @@
       position: absolute;
       transition: all 0.4s ease-in-out;
       right: 0;
+
+      .animation {
+        .note {
+          svg {
+            width: 90px;
+            height: 90px;
+          }
+        }
+      }
     }
 
     &.tab_music {

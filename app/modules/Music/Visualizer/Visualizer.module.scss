@@ -1,5 +1,10 @@
-.canvas {
-  @media screen and (max-width: 576px) {
-    width: 100%;
+.visualizer {
+  display: flex;
+
+  .canvas {
+    @media screen and (max-width: 576px) {
+      width: 90%;
+      margin: 0 auto;
+    }
   }
 }

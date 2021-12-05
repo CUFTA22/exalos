@@ -70,4 +70,10 @@
   .action_sm {
     transform: scale(0.9);
   }
+
+  @media screen and (max-width: 576px) {
+    .actions {
+      margin-bottom: 10px;
+    }
+  }
 }
