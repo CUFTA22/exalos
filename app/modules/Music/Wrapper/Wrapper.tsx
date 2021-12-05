@@ -11,6 +11,8 @@ import { initialState, State } from './types';
 import styles from './Wrapper.module.scss';
 import clsx from 'clsx';
 import Typography from '@lib/Typography/Typography';
+import Visualizer from '../Visualizer/Visualizer';
+import { musicData } from '@utils/resources/musicData';
 
 const Wrapper = () => {
   const [state, setState] = useState<State>(initialState);
@@ -26,7 +28,7 @@ const Wrapper = () => {
       <Card className={styles.main_library}>
         <div className={styles.top}>
           <div style={{ width: '24px' }}></div>
-          <Typography text="Library" fSize={16} />
+          <Typography text="Library" fSize={18} />
           <ChevronRight24Filled onClick={() => setTab('music')} />
         </div>
 
@@ -38,12 +40,20 @@ const Wrapper = () => {
       <Card className={styles.main_player}>
         <div className={styles.top}>
           <ChevronLeft24Filled onClick={() => setTab('library')} />
-          <Typography text="Player" fSize={16} />
+          <Typography
+            maxLines={1}
+            text={musicData.find((t) => t.file === state.currentSong).title}
+            fSize={18}
+            width="60%"
+          />
           <div style={{ width: '24px' }}></div>
         </div>
 
         <div className={styles.animation}>
-          <MusicNote224Filled />
+          <div className={styles.note}>
+            <MusicNote224Filled />
+          </div>
+          <Visualizer wrapperState={state} />
         </div>
 
         <Controls

@@ -6,6 +6,7 @@ const Options = () => {
   return (
     <Default>
       <PageHeaders />
+
       <Page />
     </Default>
   );

@@ -6,6 +6,7 @@ const Home = () => {
   return (
     <AppLayout>
       <PageHeaders />
+      
       <Page />
     </AppLayout>
   );

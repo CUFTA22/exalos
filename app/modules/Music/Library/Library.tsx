@@ -17,7 +17,12 @@ const Library: React.FC<Props> = ({ setWrapperState, wrapperState, setTab }) => 
 
       <div className={styles.tracks}>
         {musicData.map((track) => (
-          <Track {...track} selectTrack={selectTrack} currentSong={wrapperState.currentSong} />
+          <Track
+            {...track}
+            key={track.id}
+            selectTrack={selectTrack}
+            currentSong={wrapperState.currentSong}
+          />
         ))}
       </div>
     </div>

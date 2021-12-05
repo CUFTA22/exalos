@@ -36,4 +36,16 @@ export const musicData: ITrack[] = [
     channel: 'CLuBLioNx',
     file: '/files/music/a-neverending-dream.mp3',
   },
+  {
+    id: 6,
+    title: 'Nightcore - Take My Hand (Freddy@Disco Radio Edit) [DJ Kajjin Feat Mimi]',
+    channel: 'CLuBLioNx',
+    file: '/files/music/take-my-hand.mp3',
+  },
+  {
+    id: 7,
+    title: 'Nightcore - The Deadfaced Dimension',
+    channel: 'CLuBLioNx',
+    file: '/files/music/the-deadfaced-dimension.mp3',
+  },
 ];

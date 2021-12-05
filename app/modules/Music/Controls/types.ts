@@ -1,4 +1,4 @@
-import { Dispatch } from 'react';
+import { Dispatch, ForwardedRef, MutableRefObject } from 'react';
 import { State } from '../Wrapper/types';
 
 export interface Props {

@@ -11,8 +11,10 @@ const Typography: React.FC<TypographyProps> = ({
   fFamily = 'Inter',
   fWeight = 400,
   pad = '0px',
+  maxLines = 1,
   className,
   children,
+  width,
 }) => {
   const potentialStyles = {
     fontFamily: `${fFamily}, sans-serif`,
@@ -20,6 +22,13 @@ const Typography: React.FC<TypographyProps> = ({
     fontWeight: fWeight,
     padding: pad,
     color: color === 'primary' ? 'hsl(0, 0%, 91%)' : 'hsl(240, 28%, 64%)',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    display: '-webkit-box',
+    WebkitLineClamp: maxLines,
+    lineClamp: maxLines,
+    WebkitBoxOrient: 'vertical',
+    width,
   };
 
   return React.createElement(tag, {

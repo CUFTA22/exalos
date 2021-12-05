@@ -6,6 +6,7 @@ const Planner = () => {
   return (
     <Default>
       <PageHead />
+
       <Page />
     </Default>
   );

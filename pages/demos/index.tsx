@@ -1,14 +1,15 @@
-import Default from '@layout/Default/Default';
+import AppLayout from '@layout/AppLayout';
 import Page from '@template/Explore/Explore';
 import PageHead from '@utils/resources/PageHead';
 import { demoItems } from 'app/utils/resources/sideBarData';
 
 const Demos = () => {
   return (
-    <Default>
+    <AppLayout>
       <PageHead title="Exalos | Demos" />
+
       <Page options={demoItems} title="Explore Demos" />
-    </Default>
+    </AppLayout>
   );
 };
 

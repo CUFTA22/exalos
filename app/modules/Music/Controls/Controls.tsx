@@ -15,7 +15,7 @@ import FAB from '@lib/FAB/FAB';
 import SimpleFAB from '@lib/SimpleFAB/SimpleFAB';
 import Slider from '@lib/Slider/Slider';
 import Typography from '@lib/Typography/Typography';
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Audio from '../Audio/Audio';
 import { calculateTime, getNextSongClick } from '../utils';
 import { State } from '../Wrapper/types';

@@ -26,6 +26,7 @@
 
       .time {
         width: 76px;
+        display: flex !important;
         @include mixins.flex-row-center;
       }
     }

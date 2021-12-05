@@ -6,6 +6,7 @@ const Music = () => {
   return (
     <AppLayout>
       <PageHeaders />
+
       <Page />
     </AppLayout>
   );

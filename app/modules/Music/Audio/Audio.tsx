@@ -6,6 +6,7 @@ const Audio: React.FC<Props> = React.forwardRef<HTMLAudioElement, Props>(
   ({ song = musicData[0].file, loop }, ref) => {
     return (
       <audio
+        id="exalos-audio-player"
         ref={ref}
         src={process.env.NEXT_PUBLIC_URL + song}
         loop={loop}

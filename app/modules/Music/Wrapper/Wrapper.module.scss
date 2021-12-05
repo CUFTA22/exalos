@@ -27,9 +27,26 @@
     @include mixins.flex-col-center;
 
     .animation {
+      position: relative;
       flex: 1;
       width: 100%;
       @include mixins.flex-row-center;
+
+      .note {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        svg {
+          width: 120px;
+          height: 120px;
+
+          * {
+            fill: variables.$color-primary;
+          }
+        }
+      }
     }
   }
 

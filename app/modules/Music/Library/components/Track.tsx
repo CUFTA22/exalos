@@ -9,14 +9,24 @@ interface Props extends ITrack {
   currentSong: string;
 }
 
-const Track: React.FC<Props> = ({ channel, file, id, title, selectTrack,currentSong }) => {
+const Track: React.FC<Props> = ({ channel, file, id, title, selectTrack, currentSong }) => {
   return (
-    <div onClick={() => selectTrack(file)} className={clsx(styles.track, {[styles.isPlaying]: currentSong === file})}>
+    <div
+      onClick={() => selectTrack(file)}
+      className={clsx(styles.track, { [styles.isPlaying]: currentSong === file })}
+    >
       <div className={styles.left}>
         <MusicNote224Filled />
       </div>
-      <div className={styles.info}>
-        <Typography text={title} fSize={14} color="secondary" className={styles.title} />
+      <div style={{ WebkitLineClamp: 1 }} className={styles.info}>
+        <Typography
+          text={title}
+          fSize={14}
+          color="secondary"
+          className={styles.title}
+          maxLines={1}
+          tag="div"
+        />
         <Typography text={channel} fSize={10} color="secondary" className={styles.channel} />
       </div>
     </div>
