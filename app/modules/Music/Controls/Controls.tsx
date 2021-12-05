@@ -9,6 +9,7 @@ import {
   Speaker224Filled,
   SpeakerOff24Filled,
 } from '@fluentui/react-icons';
+import useEventListener from '@hooks/useEventListener';
 import { useNonInitialEffect } from '@hooks/useNonInitialEffect';
 import useScreenSize from '@hooks/useScreenSize';
 import FAB from '@lib/FAB/FAB';
@@ -86,12 +87,12 @@ const Controls: React.FC<Props> = ({
   // Action - Play/Pause
   // -------------------------------------------------------------------------
 
-  const updateCurrentTime = () => {
+  const updateCurrentTime = (newVal?: number) => {
     // It just pauses if it ends and you change time
     if (audioRef.current.ended) audioRef.current.play();
 
-    audioRef.current.currentTime = parseInt(sliderRef.current.value);
-    setCurrentTime(parseInt(sliderRef.current.value));
+    audioRef.current.currentTime = newVal || parseInt(sliderRef.current.value);
+    setCurrentTime(newVal || parseInt(sliderRef.current.value));
   };
 
   // -------------------------------------------------------------------------
@@ -115,7 +116,17 @@ const Controls: React.FC<Props> = ({
   };
 
   // -------------------------------------------------------------------------
-  // Effect - Update song duretion
+  // Event Listener - Key contorls
+  // -------------------------------------------------------------------------
+
+  useEventListener('keydown', (e: KeyboardEvent) => {
+    e.code === 'Space' && togglePlaying();
+    e.code === 'ArrowLeft' && updateCurrentTime(parseInt(sliderRef.current.value) - 5);
+    e.code === 'ArrowRight' && updateCurrentTime(parseInt(sliderRef.current.value) + 5);
+  });
+
+  // -------------------------------------------------------------------------
+  // Effect - Update song duration
   // -------------------------------------------------------------------------
 
   useEffect(() => {

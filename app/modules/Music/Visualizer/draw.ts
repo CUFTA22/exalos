@@ -1,5 +1,18 @@
+const adjustValues = (arr: number[]) => {
+  return arr.map((val) => {
+    if (val >= 220) return val * 1.8;
+    if (val >= 200) return val * 1.4;
+    if (val >= 180) return val * 1.2;
+    if (val >= 140) return val;
+    if (val >= 120) return val / 1.2;
+    if (val >= 100) return val / 1.4;
+    if (val >= 60) return val / 1.6;
+    return val / 1.6;
+  });
+};
+
 const drawVisualizer = (u8aData: any, canvas: HTMLCanvasElement) => {
-  const data = [...u8aData];
+  const data = adjustValues([...u8aData]);
 
   if (!canvas) return;
 
@@ -35,13 +48,13 @@ const drawVisualizer = (u8aData: any, canvas: HTMLCanvasElement) => {
     // Instead of [1, 2, 3, 4] it goes [1, 2, 2, 1]
     const newI = i > barNum / 2 ? barNum - 1 - i : i;
 
-    const amplitude = data[newI * freqJump] / 1.4 || barHeight;
+    const amplitude = data[newI * freqJump] || barHeight;
     const theta = (i * 2.77 * Math.PI) / maxBarNum;
     const delta = ((4 * 45 - barWidth) * Math.PI) / 180;
     const x = 0;
     const y = radius - (amplitude / 24 - barHeight);
     const w = barWidth;
-    const h = amplitude / amplitudeReduction + barHeight;
+    const h = (amplitude / amplitudeReduction + barHeight) / 2;
 
     ctx.save();
     ctx.translate(cx + barSpacing - 26, cy + barSpacing - 20);

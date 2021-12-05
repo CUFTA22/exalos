@@ -60,8 +60,9 @@ const Visualizer: React.FC<Props> = ({ wrapperState }) => {
   }, []);
 
   useEffect(() => {
-    if (wrapperState.isPlaying) animRef.current = requestAnimationFrame(whilePlaying);
-  }, [wrapperState.isPlaying]);
+    if (wrapperState.isPlaying || !audioPlayer.current.paused)
+      animRef.current = requestAnimationFrame(whilePlaying);
+  }, [wrapperState.isPlaying, audioPlayer?.current?.readyState]);
 
   return (
     <div className={styles.visualizer}>
