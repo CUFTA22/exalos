@@ -17,7 +17,7 @@ export const initialState: State = {
   isRepeat: false,
   isAutoplay: false,
 
-  volume: 0.2,
+  volume: 0.1,
   duration: '0',
   currentSong: musicData[0].file,
 };

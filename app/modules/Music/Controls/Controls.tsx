@@ -38,6 +38,7 @@ const Controls: React.FC<Props> = ({
   const audioRef = useRef<HTMLAudioElement>();
   const sliderRef = useRef<HTMLInputElement>();
   const volumeRef = useRef<HTMLInputElement>();
+  const volumeOuterRef = useRef<HTMLDivElement>();
   const animRef = useRef<any>();
 
   // -------------------------------------------------------------------------
@@ -90,6 +91,7 @@ const Controls: React.FC<Props> = ({
   const updateCurrentTime = (newVal?: number) => {
     // It just pauses if it ends and you change time
     if (audioRef.current.ended) audioRef.current.play();
+    if (newVal) sliderRef.current.value = newVal.toString();
 
     audioRef.current.currentTime = newVal || parseInt(sliderRef.current.value);
     setCurrentTime(newVal || parseInt(sliderRef.current.value));
@@ -107,9 +109,13 @@ const Controls: React.FC<Props> = ({
   // Action - Update volume
   // -------------------------------------------------------------------------
 
-  const updateVolume = (mute?: boolean) => {
-    const volume = mute ? 0 : parseInt(volumeRef.current.value) / (isMobile ? 20 : 100);
-    if (mute) volumeRef.current.value = '0';
+  const updateVolume = (newVal?: number) => {
+    const volume =
+      newVal !== undefined ? newVal : parseInt(volumeRef.current.value) / (isMobile ? 20 : 100);
+
+    console.log(volume);
+
+    if (newVal !== undefined) volumeRef.current.value = (newVal * (isMobile ? 20 : 100)).toString();
 
     audioRef.current.volume = volume;
     setWrapperState({ ...wrapperState, volume });
@@ -121,8 +127,11 @@ const Controls: React.FC<Props> = ({
 
   useEventListener('keydown', (e: KeyboardEvent) => {
     e.code === 'Space' && togglePlaying();
-    e.code === 'ArrowLeft' && updateCurrentTime(parseInt(sliderRef.current.value) - 5);
-    e.code === 'ArrowRight' && updateCurrentTime(parseInt(sliderRef.current.value) + 5);
+    e.code === 'ArrowLeft' && updateCurrentTime(currentTime - 5);
+    e.code === 'ArrowRight' && updateCurrentTime(currentTime + 5);
+    e.code === 'ArrowUp' && updateVolume(volume < 0.19 ? volume + 0.01 : 0.2);
+    e.code === 'ArrowDown' && updateVolume(volume > 0.02 ? volume - 0.01 : 0);
+    e.code === 'KeyM' && updateVolume(0);
   });
 
   // -------------------------------------------------------------------------
@@ -178,7 +187,7 @@ const Controls: React.FC<Props> = ({
           <Typography text={`${duration}`} color="secondary" className={styles.time} />
         </div>
 
-        <div className={styles.volume}>
+        <div ref={volumeOuterRef} className={styles.volume}>
           <Slider
             ref={volumeRef}
             className={styles.volume_slider}
@@ -190,7 +199,7 @@ const Controls: React.FC<Props> = ({
           {volume === 0 ? (
             <SpeakerOff24Filled />
           ) : (
-            <Speaker224Filled onClick={() => !isMobile && updateVolume(true)} />
+            <Speaker224Filled onClick={() => !isMobile && updateVolume(0)} />
           )}
         </div>
       </div>
