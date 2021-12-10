@@ -4,9 +4,7 @@ import Input from '@lib/Input/Input';
 import {
   CollectionsAdd24Regular,
   Dismiss24Regular,
-  Flag24Regular,
-  HandLeft24Regular,
-  Star24Filled,
+  TicketHorizontal24Filled,
 } from '@fluentui/react-icons';
 import useBlackjack from '../useBlackjack';
 import Button from '@lib/Button/Button';
@@ -38,7 +36,7 @@ const Board = () => {
       <div className={styles.controls}>
         <Input
           value={betAmount}
-          icons_front={[<Star24Filled primaryFill="hsl(54, 88%, 77%)" />]}
+          icons_front={[<TicketHorizontal24Filled primaryFill="hsl(128, 88%, 77%)" />]}
           icons_back={[<Dismiss24Regular onClick={() => !isLoading && setBetAmount(0)} />]}
           placeholder="Bet amount"
           width="260px"

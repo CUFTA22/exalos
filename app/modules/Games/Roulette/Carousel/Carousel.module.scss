@@ -8,7 +8,11 @@
   padding: 14px 5px;
   overflow: hidden;
   position: relative;
+  border-radius: 24px;
+
   @include mixins.flex-row-center;
+
+  box-shadow: #41405f 0px 2px 0 2px, rgba(0, 0, 0, 0.2) 0px 1px 5px 4px;
 
   .spin_container {
     // Width of 1 num - 60px
@@ -56,5 +60,18 @@
       bottom: 0;
       top: unset;
     }
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+
+    box-shadow: rgba(0, 0, 0, 0.5) 10px -3px 6px 0px inset,
+      rgba(0, 0, 0, 0.5) -10px -3px 6px 0px inset;
   }
 }

@@ -6,8 +6,10 @@ import {
   Pause24Filled,
   Play24Filled,
   Previous24Filled,
+  Speaker024Filled,
+  Speaker124Filled,
   Speaker224Filled,
-  SpeakerOff24Filled,
+  SpeakerMute24Filled,
 } from '@fluentui/react-icons';
 import useEventListener from '@hooks/useEventListener';
 import { useNonInitialEffect } from '@hooks/useNonInitialEffect';
@@ -48,6 +50,9 @@ const Controls: React.FC<Props> = ({
   const changeSong = (action: 'next' | 'prev') => {
     const nextSong = getNextSongClick(action, currentSong, isShuffle);
     setWrapperState({ ...wrapperState, currentSong: nextSong });
+
+    sliderRef.current.value = '0';
+    setCurrentTime(0);
   };
 
   // -------------------------------------------------------------------------
@@ -55,11 +60,16 @@ const Controls: React.FC<Props> = ({
   // -------------------------------------------------------------------------
 
   const whilePlaying = () => {
-    sliderRef.current.value = audioRef.current.currentTime.toString();
-    setCurrentTime(parseInt(sliderRef.current.value));
+    if (
+      audioRef.current.currentTime > parseInt(sliderRef.current.value) + 0.5 ||
+      audioRef.current.currentTime === 0
+    ) {
+      sliderRef.current.value = audioRef.current.currentTime.toString();
+      setCurrentTime(parseInt(sliderRef.current.value));
+    }
 
     // Autoplay
-    if (audioRef.current.ended && isAutoplay) {
+    if (audioRef.current.currentTime === audioRef?.current?.duration && isAutoplay) {
       setTimeout(() => {
         changeSong('next');
       }, 2000);
@@ -72,16 +82,16 @@ const Controls: React.FC<Props> = ({
   // Action - Play/Pause
   // -------------------------------------------------------------------------
 
-  const togglePlaying = () => {
-    setWrapperState({ ...wrapperState, isPlaying: !isPlaying });
-
+  const togglePlaying = (viaKey?: boolean) => {
     if (isPlaying) {
-      audioRef.current.pause();
+      !viaKey && audioRef.current.pause();
       cancelAnimationFrame(animRef.current);
     } else {
-      audioRef.current.play();
+      !viaKey && audioRef.current.play();
       animRef.current = requestAnimationFrame(whilePlaying);
     }
+
+    setWrapperState({ ...wrapperState, isPlaying: !isPlaying });
   };
 
   // -------------------------------------------------------------------------
@@ -165,6 +175,14 @@ const Controls: React.FC<Props> = ({
     }
   }, [currentSong]);
 
+  // -------------------------------------------------------------------------
+  // Effect - When we play/pause via key - "MediaPlayPause"
+  // -------------------------------------------------------------------------
+
+  const onPlayPause = () => {
+    if (audioRef?.current?.paused !== !isPlaying) togglePlaying(true);
+  };
+
   return (
     <div className={styles.music_controls}>
       <div className={styles.slider}>
@@ -196,10 +214,14 @@ const Controls: React.FC<Props> = ({
             min={0}
             max={20}
           />
-          {volume === 0 ? (
-            <SpeakerOff24Filled />
-          ) : (
+          {volume > 0.15 ? (
             <Speaker224Filled onClick={() => !isMobile && updateVolume(0)} />
+          ) : volume > 0.075 ? (
+            <Speaker124Filled onClick={() => !isMobile && updateVolume(0)} />
+          ) : volume > 0 ? (
+            <Speaker024Filled onClick={() => !isMobile && updateVolume(0)} />
+          ) : (
+            <SpeakerMute24Filled />
           )}
         </div>
       </div>
@@ -242,7 +264,7 @@ const Controls: React.FC<Props> = ({
         />
       </div>
 
-      <Audio ref={audioRef} song={currentSong} loop={isRepeat} />
+      <Audio ref={audioRef} song={currentSong} loop={isRepeat} onPlayPause={onPlayPause} />
     </div>
   );
 };

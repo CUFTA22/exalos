@@ -9,6 +9,7 @@ const Library: React.FC<Props> = ({ setWrapperState, wrapperState, setTab }) => 
   const selectTrack = (file: string) => {
     setTab('music');
     setWrapperState({ ...wrapperState, currentSong: file });
+
   };
 
   return (

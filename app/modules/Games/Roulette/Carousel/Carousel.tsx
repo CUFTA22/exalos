@@ -46,6 +46,8 @@ const Carousel: React.FC<Props> = ({ type }) => {
         <div className={styles.top_dot}></div>
         <div className={styles.bot_dot}></div>
       </div>
+
+      <div className={styles.overlay}></div>
     </div>
   );
 };

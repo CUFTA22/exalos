@@ -2,6 +2,7 @@ import {
   AppRecent24Regular,
   Beaker24Regular,
   CalendarLtr24Regular,
+  City24Regular,
   ColumnTriple24Regular,
   Cube24Regular,
   DataPie24Regular,
@@ -143,11 +144,11 @@ export const gameItems = [
 // --------------------------------------------------------
 
 export const demoItems = [
-  // {
-  //   text: 'Test',
-  //   Svg: Beaker24Regular,
-  //   route: '/',
-  // },
+  {
+    text: 'Test',
+    Svg: Beaker24Regular,
+    route: '/demos/test',
+  },
   // {
   //   text: 'Globe',
   //   Svg: Earth24Regular,
@@ -156,6 +157,11 @@ export const demoItems = [
   // {
   //   text: 'Space',
   //   Svg: Rocket24Regular,
+  //   route: '/',
+  // },
+  // {
+  //   text: 'City 17',
+  //   Svg: City24Regular,
   //   route: '/',
   // },
 ];

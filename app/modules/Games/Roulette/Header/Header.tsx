@@ -1,4 +1,4 @@
-import { ArrowClockwise16Regular, Star20Filled } from '@fluentui/react-icons';
+import { ArrowClockwise16Regular, TicketHorizontal20Filled } from '@fluentui/react-icons';
 import Typography from '@lib/Typography/Typography';
 import { RouletteProps } from '@template/Games/Roulette/types';
 import History from '../History/History';
@@ -14,7 +14,7 @@ const Header: React.FC<RouletteProps> = ({ type }) => {
         <History type={type} />
       </div>
       <div className={styles.right}>
-        <Star20Filled className={styles.right_star} />
+        <TicketHorizontal20Filled className={styles.right_star} />
         <Typography className={styles.coins} text={`${coins}`} color="secondary" />
         {!coins && <ArrowClockwise16Regular className={styles.right_reset} onClick={resetCoins} />}
       </div>

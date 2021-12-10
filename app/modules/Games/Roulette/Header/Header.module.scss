@@ -14,15 +14,15 @@
     @include mixins.flex-row-center;
     @include mixins.lib-card;
 
-    padding: 6px 14px;
-    width: 110px;
+    padding: 10px 24px;
 
     .right_star * {
-      fill: variables.$color-warn;
+      fill: variables.$color-success;
     }
 
     .right_reset {
       cursor: pointer;
+      margin-left: 8px;
 
       * {
         fill: variables.$color-text-secondary;
@@ -30,7 +30,7 @@
     }
 
     .coins {
-      margin: 0 4px;
+      margin-left: 8px;
     }
   }
 }

@@ -5,7 +5,7 @@ import Card from '@lib/Card/Card';
 import Input from '@lib/Input/Input';
 import Button from '@lib/Button/Button';
 
-import { Dismiss24Regular, Star24Filled } from '@fluentui/react-icons';
+import { Dismiss24Regular, TicketHorizontal24Filled } from '@fluentui/react-icons';
 
 import useRoulette from '../useRoulette';
 import {
@@ -26,7 +26,7 @@ const Board: React.FC<RouletteProps> = ({ type }) => {
 
       <Input
         value={betAmount}
-        icons_front={[<Star24Filled primaryFill="hsl(54, 88%, 77%)" />]}
+        icons_front={[<TicketHorizontal24Filled primaryFill="hsl(128, 88%, 77%)" />]}
         icons_back={[<Dismiss24Regular onClick={() => !isLoading && setBetAmount(0)} />]}
         placeholder="Bet amount"
         width="260px"
