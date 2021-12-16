@@ -1,11 +1,13 @@
 import {
   AppRecent24Regular,
+  ArrowTrendingLines24Regular,
   Beaker24Regular,
   CalendarLtr24Regular,
   City24Regular,
   ColumnTriple24Regular,
   Cube24Regular,
   DataPie24Regular,
+  DataTrending24Regular,
   Document24Regular,
   Earth24Regular,
   Games24Regular,
@@ -132,6 +134,11 @@ export const gameItems = [
     Svg: AppRecent24Regular,
     route: '/games/blackjack',
   },
+  // {
+  //   text: 'Crash',
+  //   Svg: DataTrending24Regular,
+  //   route: '/games',
+  // },
   // {
   //   text: 'Slots',
   //   Svg: ColumnTriple24Regular,

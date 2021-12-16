@@ -8,7 +8,7 @@
 
   svg {
     * {
-      fill: $color;
+      fill: $color !important;
     }
   }
 }

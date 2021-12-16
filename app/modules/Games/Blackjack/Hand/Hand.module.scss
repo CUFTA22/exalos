@@ -10,6 +10,10 @@
   .top {
     @include mixins.flex-row-center;
 
+    span:nth-child(1) {
+      margin-right: 8px;
+    }
+
     .BJ {
       margin-left: 10px;
 

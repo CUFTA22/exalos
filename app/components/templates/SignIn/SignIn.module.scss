@@ -1,8 +1,10 @@
 @use 'mixins';
 @use 'variables';
+@use 'transitions';
 
 .page_signin {
   height: 100%;
+  animation: fade-in 0.3s ease-in-out forwards;
 
   @include mixins.flex-col-center;
 

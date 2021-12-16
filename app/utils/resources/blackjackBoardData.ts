@@ -1,9 +1,8 @@
 import {
-  AddSubtractCircle24Regular,
-  CollectionsAdd24Regular,
-  Flag24Regular,
-  HandLeft24Regular,
-  TabAdd24Regular,
+  AddSubtractCircle24Filled,
+  Flag24Filled,
+  HandLeft24Filled,
+  TabAdd24Filled,
 } from '@fluentui/react-icons';
 
 export const betChangeOpts = (coins: number) => [
@@ -42,22 +41,22 @@ export const betActionsOpts = (
   double: () => void
 ): ActionsOpt[] => [
   {
-    Icon: TabAdd24Regular,
+    Icon: TabAdd24Filled,
     text: 'Hit',
     action: hit,
   },
   {
-    Icon: HandLeft24Regular,
+    Icon: HandLeft24Filled,
     text: 'Stand',
     action: () => stand(false),
   },
   {
-    Icon: Flag24Regular,
+    Icon: Flag24Filled,
     text: 'Surrender',
     action: surr,
   },
   {
-    Icon: AddSubtractCircle24Regular,
+    Icon: AddSubtractCircle24Filled,
     text: 'Double Down',
     action: double,
   },

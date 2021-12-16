@@ -1,7 +1,9 @@
 @use 'mixins';
+@use 'transitions';
 
 .page_planner {
   height: 100%;
+  animation: fade-in 0.3s ease-in-out forwards;
 
   @include mixins.flex-col-around;
 }

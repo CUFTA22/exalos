@@ -1,5 +1,7 @@
-@import 'mixins';
+@use 'transitions';
 
 .page_stats {
+  animation: fade-in 0.3s ease-in-out forwards;
+
   // Some grid layout
 }

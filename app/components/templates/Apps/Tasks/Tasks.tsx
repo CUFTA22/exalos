@@ -10,7 +10,7 @@ const Tasks: React.FC<TemplateProps> = ({ ssProps }) => {
     initializeState(ssProps.tasks);
   }, []);
 
-  return <div className={styles.page_planner}>{/* Map collections */}</div>;
+  return <div className={styles.page_tasks}>{/* Map collections */}</div>;
 };
 
 export default Tasks;
