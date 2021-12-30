@@ -1,10 +1,10 @@
 import usePlanner from '@module/Planner/usePlanner';
-import { useSession } from 'next-auth/client';
+import { useSession } from 'next-auth/react';
 import useMutation from '../useMutation';
 
 const usePlannerInit = () => {
   const { initializeState } = usePlanner();
-  const [session] = useSession();
+  const { data: session } = useSession();
   const email = session?.user?.email;
   const { data, isLoading, mutate } = useMutation();
 

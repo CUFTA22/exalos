@@ -20,6 +20,7 @@ import {
   Premium24Regular,
   Rocket24Regular,
   SquareMultiple24Regular,
+  Toolbox24Regular,
   Trophy24Regular,
 } from '@fluentui/react-icons';
 
@@ -155,6 +156,11 @@ export const demoItems = [
     text: 'Test',
     Svg: Beaker24Regular,
     route: '/demos/test',
+  },
+  {
+    text: 'Chest',
+    Svg: Toolbox24Regular,
+    route: '/demos/chest',
   },
   // {
   //   text: 'Globe',

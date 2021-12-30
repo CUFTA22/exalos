@@ -1,6 +1,6 @@
 import Button from '@lib/Button/Button';
 import { TemplateProps } from '@template/types';
-import { signIn } from 'next-auth/client';
+import { signIn } from 'next-auth/react';
 import styles from './SignIn.module.scss';
 import { getProviderIcon } from './util';
 

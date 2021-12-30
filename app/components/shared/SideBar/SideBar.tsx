@@ -1,5 +1,5 @@
 import React from 'react';
-import { signIn, useSession } from 'next-auth/client';
+import { signIn, useSession } from 'next-auth/react';
 import styles from './SideBar.module.scss';
 import Logo from '@assets/logos/exalos.svg';
 import { protectedRoutes, sideBarItems } from 'app/utils/resources/sideBarData';
@@ -11,7 +11,7 @@ import UserPanel from '@element/UserPanel/UserPanel';
 import Spinner from '@lib/Spinner/Spinner';
 
 const SideBar: React.FC = () => {
-  const [session, loading] = useSession();
+  const { data: session, status } = useSession();
 
   const validRoutes = session?.user?.email
     ? sideBarItems
@@ -38,7 +38,7 @@ const SideBar: React.FC = () => {
       </div>
 
       <div className={styles.sidebar_bottom}>
-        {loading ? (
+        {status === 'loading' ? (
           <Spinner />
         ) : session ? (
           <UserPanel />

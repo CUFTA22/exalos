@@ -1,59 +1,38 @@
 import NextAuth, { NextAuthOptions } from 'next-auth';
-import Providers from 'next-auth/providers';
+import GoogleProvider from 'next-auth/providers/google';
+import FacebookProvider from 'next-auth/providers/facebook';
+import DiscordProvider from 'next-auth/providers/discord';
+import GitHubProvider from 'next-auth/providers/github';
 
 export default NextAuth({
   // Configure one or more authentication providers
   providers: [
-    Providers.Google({
+    GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
     }),
-    Providers.Facebook({
+    FacebookProvider({
       clientId: process.env.FACEBOOK_ID,
       clientSecret: process.env.FACEBOOK_SECRET,
     }),
-    Providers.Discord({
+    DiscordProvider({
       clientId: process.env.DISCORD_ID,
       clientSecret: process.env.DISCORD_SECRET,
     }),
-    Providers.GitHub({
+    GitHubProvider({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
     }),
   ],
 
-  // The secret should be set to a reasonably long random string.
-  // It is used to sign cookies and to sign and encrypt JSON Web Tokens, unless
-  // a separate secret is defined explicitly for encrypting the JWT.
-  secret: process.env.AUTH_SECRET,
+  // A random string used to hash tokens, sign/encrypt cookies and generate cryptographic keys.
+  // If not specified in development, it uses a hash for all configuration options,
+  // including OAuth Client ID / Secrets for entropy.
+  // Although if the user does not use such a provider, the configuration might be guessed.
+  // You can quickly create a valid secret on the command line via this openssl command.
+  //? openssl rand -base64 32
 
-  session: {
-    // Use JSON Web Tokens for session instead of database sessions.
-    // This option can be used with or without a database for users/accounts.
-    // Note: `jwt` is automatically set to `true` if no database is specified.
-    jwt: true,
-
-    // Seconds - How long until an idle session expires and is no longer valid.
-    maxAge: 30 * 24 * 60 * 60, // 30 days
-
-    // Seconds - Throttle how frequently to write to database to extend a session.
-    // Use it to limit write operations. Set to 0 to always update the database.
-    // Note: This option is ignored if using JSON Web Tokens
-    // updateAge: 15 * 24 * 60 * 60, // 15 days
-  },
-
-  jwt: {
-    // A secret to use for key generation (you should set this explicitly)
-    secret: process.env.JWT_SECRET,
-    // encryptionKey: process.env.SECRET,
-    // signingKey: process.env.SECRET, // This is not how you use it!
-    // Set to true to use encryption (default: false)
-    encryption: true,
-    // You can define your own encode/decode functions for signing and encryption
-    // if you want to override the default behaviour.
-    // encode: async ({ secret, token, maxAge }) => {},
-    // decode: async ({ secret, token, maxAge }) => {},
-  },
+  secret: process.env.JWT_SECRET,
 
   // You can define custom pages to override the built-in ones. These will be regular Next.js pages
   // so ensure that they are placed outside of the '/api' folder, e.g. signIn: '/auth/mycustom-signin'
@@ -65,7 +44,4 @@ export default NextAuth({
     // error: '/auth/error', // Error code passed in query string as ?error=
     // verifyRequest: '/auth/verify-request', // (used for check email message)
   },
-
-  // A database is optional, but required to persist accounts in a database
-  // database: process.env.MONGO_URI,
 } as NextAuthOptions);

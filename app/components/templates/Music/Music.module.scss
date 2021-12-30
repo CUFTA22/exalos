@@ -5,7 +5,7 @@
   height: 100%;
   width: 100%;
   position: relative;
-  animation: fade-in 0.3s ease-in-out forwards;
+  animation: fade-in 0.3s ease-in-out normal;
 
   @include mixins.flex-col-center;
 }

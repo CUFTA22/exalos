@@ -1,15 +1,15 @@
 import AppLayout from '@layout/AppLayout';
-import Page from '@template/Demos/Test/Test';
+import Page from '@template/Demos/Chest/Chest';
 import PageHead from '@utils/resources/PageHead';
 
-const Test = () => {
+const Chest = () => {
   return (
     <AppLayout>
-      <PageHead title="Exalos | Demo Test" />
+      <PageHead title="Exalos | Demo Chest" />
 
       <Page />
     </AppLayout>
   );
 };
 
-export default Test;
+export default Chest;

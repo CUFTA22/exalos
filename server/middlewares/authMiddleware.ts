@@ -1,5 +1,5 @@
 import { NextApiRequest } from 'next';
-import { getSession } from 'next-auth/client';
+import { getSession } from 'next-auth/react';
 
 const authMiddleware = async (req: NextApiRequest) => {
   const session = await getSession({ req });

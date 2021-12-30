@@ -2,12 +2,12 @@ import { ConferenceRoom24Regular } from '@fluentui/react-icons';
 import Avatar from '@lib/Avatar';
 import Button from '@lib/Button/Button';
 import Typography from '@lib/Typography/Typography';
-import { useSession, signOut } from 'next-auth/client';
+import { useSession, signOut } from 'next-auth/react';
 import { MouseEvent } from 'react';
 import styles from './UserPanel.module.scss';
 
 const UserPanel = () => {
-  const [session] = useSession();
+  const { data: session } = useSession();
 
   const handleSignOut = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
