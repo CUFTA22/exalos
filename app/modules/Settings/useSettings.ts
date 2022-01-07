@@ -1,12 +1,12 @@
-import { useState } from 'react';
-import { initialSettings, Settings, SettingsUpdates } from './types';
+import { GlobalContext } from 'app/store/global/CTX';
+import { useContext, useState } from 'react';
 
 const useSettings = () => {
-  const [settings, setSettings] = useState<Settings>(initialSettings);
+  const { customCursor, dispatch } = useContext(GlobalContext);
 
-  const updateSettings = (args: SettingsUpdates) => setSettings({ ...settings, ...args });
+  const toggleCursor = () => dispatch({ type: 'CURSOR_TOGGLE' });
 
-  return { settings, updateSettings };
+  return { customCursor, toggleCursor };
 };
 
 export default useSettings;

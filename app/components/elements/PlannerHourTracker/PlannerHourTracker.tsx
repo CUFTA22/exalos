@@ -1,4 +1,4 @@
-import usePlanner from '@module/Planner/usePlanner';
+import usePlanner from '@module/Apps/Planner/usePlanner';
 import styles from './PlannerHourTracker.module.scss';
 import useTime from './utils/useTime';
 

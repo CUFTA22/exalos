@@ -1,0 +1,35 @@
+@use 'mixins';
+
+.settings_left {
+  width: 50%;
+
+  @include mixins.flex-col-start;
+
+  .option_item {
+    width: 300px;
+    padding: 16px;
+
+    @include mixins.flex-col-start;
+
+    .opt_title {
+      align-self: flex-start;
+      justify-self: flex-start;
+      margin-bottom: 12px;
+    }
+
+    .opt_row {
+      width: 100%;
+      margin-top: 8px;
+
+      @include mixins.flex-row-center;
+
+      svg {
+        margin-right: 12px;
+      }
+
+      .flex_grow {
+        flex-grow: 1;
+      }
+    }
+  }
+}

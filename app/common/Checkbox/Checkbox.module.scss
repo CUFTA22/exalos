@@ -1,0 +1,26 @@
+@use 'variables';
+@use 'mixins';
+
+.lib_checkbox {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 1px solid transparentize($color: variables.$color-primary, $amount: 0.3);
+  box-shadow: transparentize($color: variables.$color-primary, $amount: 0.85) 0px 0px 2px 4px;
+  position: relative;
+  user-select: none;
+  transition: all 0.1s ease-in-out;
+  color: variables.$color-primary;
+
+  @include mixins.flex-row-center;
+
+  .checked_thumb {
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: variables.$color-primary;
+    box-shadow: transparentize($color: variables.$color-primary, $amount: 0.85) 0px 0px 1px 3px;
+  }
+}

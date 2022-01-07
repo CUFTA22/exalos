@@ -1,4 +1,4 @@
-import usePlanner from '@module/Planner/usePlanner';
+import usePlanner from '@module/Apps/Planner/usePlanner';
 import { useSession } from 'next-auth/react';
 import useMutation from '../useMutation';
 

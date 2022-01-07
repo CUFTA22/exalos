@@ -1,8 +1,12 @@
-import Card from '@lib/Card/Card';
+import LeftOptions from '@module/Settings/Left/LeftOptions';
 import styles from './Options.module.scss';
 
 const Options = () => {
-  return <div className={styles.page_index}>Options</div>;
+  return (
+    <div className={styles.page_index}>
+      <LeftOptions />
+    </div>
+  );
 };
 
 export default Options;

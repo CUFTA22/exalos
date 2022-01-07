@@ -1,6 +1,6 @@
 import styles from './PlannerWeek.module.scss';
 import { Planner_Week } from '@ts/planner.types';
-import usePlanner from '@module/Planner/usePlanner';
+import usePlanner from '@module/Apps/Planner/usePlanner';
 import clsx from 'clsx';
 import { Dismiss12Regular } from '@fluentui/react-icons';
 import useDeleteWeek from 'app/api/planner/week/delete';

@@ -1,7 +1,7 @@
 import useEventListener from '@hooks/useEventListener';
-import PlannerCalendar from '@module/Planner/Calendar/PlannerCalendar';
-import PlannerControls from '@module/Planner/Controls/PlannerControls';
-import usePlanner from '@module/Planner/usePlanner';
+import PlannerCalendar from '@module/Apps/Planner/Calendar/PlannerCalendar';
+import PlannerControls from '@module/Apps/Planner/Controls/PlannerControls';
+import usePlanner from '@module/Apps/Planner/usePlanner';
 import { TemplateProps } from '@template/types';
 import { useEffect } from 'react';
 import styles from './Planner.module.scss';

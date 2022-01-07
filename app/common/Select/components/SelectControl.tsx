@@ -22,8 +22,11 @@ const SelectControl: React.FC<Props> = ({
   selectedOption,
   disabled,
 }) => {
+  const IconControl = icon_control;
   return (
     <div onClick={toggleOpen} className={styles.select_control}>
+      {IconControl && <div className={styles.select_control_svg}>{IconControl}</div>}
+
       <div
         className={clsx(styles.select_value_display, 'no-clickaway', {
           [styles.no_option]: !selectedOption?.label,

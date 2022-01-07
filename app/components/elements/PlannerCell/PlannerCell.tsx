@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './PlannerCell.module.scss';
 import clsx from 'clsx';
-import usePlanner from '@module/Planner/usePlanner';
+import usePlanner from '@module/Apps/Planner/usePlanner';
 import useCell from './utils/useCell';
 import { Planner_Cell, Planner_Cell_Updates } from '@ts/planner.types';
 import CellHour from './utils/CellHour';

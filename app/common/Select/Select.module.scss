@@ -40,6 +40,19 @@
 
     @include mixins.flex-row-space;
 
+    .select_control_svg {
+      width: 30px;
+      height: 30px;
+      margin: 0 4px 0 8px;
+
+      @include mixins.flex-row-center;
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
     .select_value_display {
       width: 100%;
       user-select: none;
@@ -81,12 +94,28 @@
     transition: all 0.1s ease-in-out;
     cursor: pointer;
 
+    @include mixins.flex-row-start;
+
+    .select_menu_option_svg {
+      width: 26px;
+      height: 26px;
+      margin: 0 8px 0 0;
+
+      @include mixins.flex-row-center;
+
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+
     &:hover,
     &.selected {
       background-color: transparentize($color: variables.$color-primary, $amount: 0.8);
 
       * {
         color: variables.$color-primary !important;
+        fill: variables.$color-primary !important;
       }
     }
   }

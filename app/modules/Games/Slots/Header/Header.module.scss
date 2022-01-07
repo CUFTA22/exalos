@@ -1,0 +1,36 @@
+@use 'mixins';
+@use 'variables';
+
+.slots_header {
+  width: 100%;
+  height: fit-content;
+  padding: 8px 10px;
+
+  border-bottom: 2px solid transparentize($color: variables.$color-primary, $amount: 0.85);
+
+  @include mixins.flex-row-space;
+
+  .right {
+    @include mixins.flex-row-center;
+    @include mixins.lib-card;
+
+    padding: 10px 24px;
+
+    .right_star * {
+      fill: variables.$color-success;
+    }
+
+    .right_reset {
+      cursor: pointer;
+      margin-left: 8px;
+
+      * {
+        fill: variables.$color-text-secondary;
+      }
+    }
+
+    .coins {
+      margin-left: 8px;
+    }
+  }
+}

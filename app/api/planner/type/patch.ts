@@ -1,4 +1,4 @@
-import usePlanner from '@module/Planner/usePlanner';
+import usePlanner from '@module/Apps/Planner/usePlanner';
 import { Planner_Type } from '@ts/planner.types';
 import useMutation from '../../useMutation';
 

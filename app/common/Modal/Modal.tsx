@@ -27,17 +27,25 @@ const Modal: React.FC<Props> = ({
   const modal = show && (
     <>
       <div
-        className={clsx(styles.lib_modal_overlay, overlay_className, {
-          [styles.overlay_anim_in]: isOpen,
-          [styles.overlay_anim_out]: !isOpen,
-        })}
+        className={clsx(
+          styles.lib_modal_overlay,
+          {
+            [styles.overlay_anim_in]: isOpen,
+            [styles.overlay_anim_out]: !isOpen,
+          },
+          overlay_className
+        )}
         onClick={onRequestClose}
       />
       <div
-        className={clsx(styles.lib_modal_content, content_className, {
-          [styles.content_anim_in]: isOpen,
-          [styles.content_anim_out]: !isOpen,
-        })}
+        className={clsx(
+          styles.lib_modal_content,
+          {
+            [styles.content_anim_in]: isOpen,
+            [styles.content_anim_out]: !isOpen,
+          },
+          content_className
+        )}
       >
         {children}
       </div>

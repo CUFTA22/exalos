@@ -1,14 +1,14 @@
-import Default from '@layout/Default/Default';
+import AppLayout from '@layout/AppLayout';
 import Page from '@template/Options/Options';
 import PageHeaders from '@utils/resources/PageHead';
 
 const Options = () => {
   return (
-    <Default>
+    <AppLayout>
       <PageHeaders />
 
       <Page />
-    </Default>
+    </AppLayout>
   );
 };
 

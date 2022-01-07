@@ -1,4 +1,4 @@
-import usePlanner from '@module/Planner/usePlanner';
+import usePlanner from '@module/Apps/Planner/usePlanner';
 import dayjs from 'dayjs';
 import { useEffect, useState } from 'react';
 

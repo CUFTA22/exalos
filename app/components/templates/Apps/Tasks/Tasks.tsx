@@ -1,4 +1,4 @@
-import useTasks from '@module/Tasks/useTasks';
+import useTasks from '@module/Apps/Tasks/useTasks';
 import { TemplateProps } from '@template/types';
 import { useEffect } from 'react';
 import styles from './Tasks.module.scss';

@@ -1,0 +1,26 @@
+@use 'mixins';
+@use 'variables';
+
+.food_header {
+  width: 100%;
+  height: fit-content;
+  padding: 8px 10px;
+
+  @include mixins.lib-card;
+  @include mixins.flex-row-space;
+
+  .left {
+    @include mixins.flex-row-center;
+    align-items: flex-end;
+
+    .divider {
+      height: 30px;
+      width: 2px;
+      margin: 0 28px;
+      background-color: transparentize($color: variables.$color-text-secondary, $amount: 0.5);
+    }
+  }
+
+  .right {
+  }
+}

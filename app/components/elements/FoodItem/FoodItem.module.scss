@@ -1,0 +1,12 @@
+@use 'mixins';
+@use 'transitions';
+
+.food_item {
+  width: 280px;
+  height: 60px;
+  margin: 10px 20px;
+  cursor: pointer;
+  animation: fade-in 0.3s ease-in-out normal;
+
+  @include mixins.flex-row-space;
+}

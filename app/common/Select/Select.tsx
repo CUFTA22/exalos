@@ -60,6 +60,7 @@ const CustomSelect: React.FC<SelectProps> = ({
             options={options}
             handleChange={handleChange}
             selectedOption={selectedOption}
+            icon_option={icon_option}
           />
         )}
       </Animate>
