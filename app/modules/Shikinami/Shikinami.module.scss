@@ -1,0 +1,14 @@
+@use 'transitions';
+
+.gif {
+  position: fixed !important;
+  bottom: 0 !important;
+  right: 0 !important;
+  z-index: 998;
+
+  width: 200px;
+  height: auto;
+  object-fit: contain;
+
+  animation: fade-in 0.3s ease-in-out normal;
+}

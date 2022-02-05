@@ -38,6 +38,8 @@ const SelectControl: React.FC<Props> = ({
       <ChevronDown12Regular
         className="no-clickaway"
         style={{
+          width: '18px',
+          height: 'auto',
           transition: 'transform .2s ease-in-out',
           transform: menuOpen ? 'rotateX(180deg)' : '',
           color: disabled ? 'hsla(240, 28%, 64%, 0.8)' : 'hsl(206, 88%, 77%)',

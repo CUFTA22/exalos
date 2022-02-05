@@ -1,4 +1,4 @@
-import Default from '@layout/Default/Default';
+import AppLayout from '@layout/AppLayout';
 import Page from '@template/Apps/Tasks/Tasks';
 import handleRedirect from 'app/utils/resources/handleRedirect';
 import PageHead from '@utils/resources/PageHead';
@@ -15,11 +15,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
 const Tasks = () => {
   return (
-    <Default>
+    <AppLayout>
       <PageHead title="Exalos | Apps" />
 
       <Page />
-    </Default>
+    </AppLayout>
   );
 };
 

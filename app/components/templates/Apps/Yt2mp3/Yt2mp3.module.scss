@@ -1,0 +1,21 @@
+@use 'transitions';
+@use 'mixins';
+
+.page_yt2mp3 {
+  height: 100%;
+  animation: fade-in 0.3s ease-in-out normal;
+
+  @include mixins.flex-row-center;
+
+  // Some grid layout
+
+  .center {
+    padding: 40px 60px;
+
+    @include mixins.flex-col-center;
+
+    .cta {
+      margin-top: 20px;
+    }
+  }
+}

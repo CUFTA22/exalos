@@ -1,0 +1,46 @@
+@use 'variables';
+@use 'mixins';
+
+.desktop {
+  width: 100%;
+  height: 100vh;
+  background: variables.$color-body;
+  overflow: hidden;
+  position: relative;
+
+  @include mixins.flex-row-center;
+
+  .desktop_content {
+    width: calc(95% - #{variables.$width-sidebar});
+    height: 95vh;
+    background: variables.$color-background;
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    margin-right: 6px; // Stars somehow fuck up positioning
+
+    // Dotted background
+    background-image: radial-gradient(#{variables.$color-sidebar-active} 1.4px, transparent 0);
+    background-size: 20px 20px;
+  }
+}
+
+// Mobile styles
+
+.mobile {
+  width: 100%;
+  height: 100vh;
+  background: variables.$color-body;
+  overflow: hidden;
+  position: relative;
+
+  .mobile_content {
+    // App bar - 75px
+    height: calc(100vh - 75px);
+
+    padding: 10px;
+    @include mixins.flex-row-center;
+  }
+}

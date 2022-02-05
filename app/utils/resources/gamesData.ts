@@ -2,7 +2,12 @@
 // Games
 // --------------------------------------------------------
 
-import { AppRecent24Regular, ColumnTriple24Regular, Premium24Regular } from '@fluentui/react-icons';
+import {
+  AppRecent24Regular,
+  ColumnTriple24Regular,
+  MusicNote124Regular,
+  Premium24Regular,
+} from '@fluentui/react-icons';
 
 export const gameItems = [
   {
@@ -35,4 +40,5 @@ export const gameItems = [
   //   Svg: TetrisApp24Regular,
   //   route: '/games/slots',
   // },
+
 ];

@@ -1,4 +1,4 @@
-import Default from '@layout/Default/Default';
+import AppLayout from '@layout/AppLayout';
 import Page from '@template/Apps/Stats/Stats';
 import PageHead from '@utils/resources/PageHead';
 import { GetServerSideProps } from 'next';
@@ -13,11 +13,11 @@ import { GetServerSideProps } from 'next';
 
 const Home = () => {
   return (
-    <Default>
+    <AppLayout>
       <PageHead title="Exalos | Apps" />
 
       <Page />
-    </Default>
+    </AppLayout>
   );
 };
 

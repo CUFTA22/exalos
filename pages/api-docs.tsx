@@ -1,4 +1,4 @@
-import Default from '@layout/Default/Default';
+import AppLayout from '@layout/AppLayout';
 import Page from '@template/Swagger/Swagger';
 import PageHead from '@utils/resources/PageHead';
 
@@ -7,11 +7,11 @@ import PageHead from '@utils/resources/PageHead';
 
 const Docs = () => {
   return (
-    <Default>
+    <AppLayout>
       <PageHead />
       {/* <Page /> */}
       Wip
-    </Default>
+    </AppLayout>
   );
 };
 

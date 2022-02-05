@@ -4,6 +4,7 @@ const noop = () => false;
 
 export const initialState: Global_Context = {
   customCursor: false,
+  gif: false,
   dispatch: noop,
 };
 
@@ -14,6 +15,8 @@ export const globalReducer = (
   switch (action.type) {
     case 'CURSOR_TOGGLE':
       return { ...state, customCursor: !state.customCursor };
+    case 'GIF_TOGGLE':
+      return { ...state, gif: !state.gif };
 
     default:
       return state;

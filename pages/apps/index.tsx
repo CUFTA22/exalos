@@ -1,4 +1,4 @@
-import Default from '@layout/Default/Default';
+import AppLayout from '@layout/AppLayout';
 import Page from '@template/Explore/Explore';
 import PageHead from '@utils/resources/PageHead';
 import { appItems } from '@utils/resources/appsData';
@@ -6,11 +6,11 @@ import Head from 'next/head';
 
 const Apps = () => {
   return (
-    <Default>
+    <AppLayout>
       <PageHead title="Exalos | Apps" />
 
       <Page options={appItems} title="Explore Apps" />
-    </Default>
+    </AppLayout>
   );
 };
 

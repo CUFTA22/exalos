@@ -1,15 +1,15 @@
 import AppLayout from '@layout/AppLayout';
-import Page from '@template/Custom404/Custom404';
+import Page from '@template/Apps/Yt2mp3/Yt2mp3';
 import PageHead from '@utils/resources/PageHead';
 
-const Planner = () => {
+const Yt2mp3 = () => {
   return (
     <AppLayout>
-      <PageHead />
+      <PageHead title="Exalos | Games" />
 
       <Page />
     </AppLayout>
   );
 };
 
-export default Planner;
+export default Yt2mp3;

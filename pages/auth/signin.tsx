@@ -1,4 +1,4 @@
-import Default from '@layout/Default/Default';
+import AppLayout from '@layout/AppLayout';
 import Page from '@template/SignIn/SignIn';
 import PageHead from '@utils/resources/PageHead';
 import { GetServerSideProps } from 'next';
@@ -19,11 +19,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
 const SignIn = (ssProps) => {
   return (
-    <Default>
+    <AppLayout>
       <PageHead title="Exalos | Sign In" />
 
       <Page ssProps={ssProps} />
-    </Default>
+    </AppLayout>
   );
 };
 

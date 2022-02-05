@@ -1,12 +1,13 @@
 import { Dispatch } from 'react';
 
 // -----------------------------------------------------------------
-// For food context
+// For global context
 // -----------------------------------------------------------------
 
-export type Global_Context_Action = { type: 'CURSOR_TOGGLE' };
+export type Global_Context_Action = { type: 'CURSOR_TOGGLE' } | { type: 'GIF_TOGGLE' };
 
 export interface Global_Context {
-  customCursor: boolean;
   dispatch: Dispatch<Global_Context_Action>;
+  customCursor: boolean;
+  gif: boolean;
 }

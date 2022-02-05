@@ -1,4 +1,4 @@
-import Default from '@layout/Default/Default';
+import AppLayout from '@layout/AppLayout';
 import Page from '@template/Apps/Planner/Planner';
 import getPlanner from 'app/api/planner/get';
 import { PlannerCTXProvider } from 'app/store/planner/CTX';
@@ -18,13 +18,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
 const Planner = (ssProps) => {
   return (
-    <Default>
+    <AppLayout>
       <PageHead title="Exalos | Apps" />
 
       <PlannerCTXProvider>
         <Page ssProps={ssProps} />
       </PlannerCTXProvider>
-    </Default>
+    </AppLayout>
   );
 };
 
