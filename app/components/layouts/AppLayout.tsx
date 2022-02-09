@@ -2,13 +2,15 @@ import styles from './Layout.module.scss';
 import stars from '@styles/scss/parallaxStars.module.scss';
 
 import useScreenSize from '@hooks/useScreenSize';
-import Cursor from '@module/Cursor/Cursor';
 import useSettings from '@module/Settings/useSettings';
 
 import NextNProgress from '@module/PageTransition/NextNProgress';
 import SideBar from '@shared/SideBar/SideBar';
 import AppBar from '@shared/AppBar/AppBar';
 import Shikinami from '@module/Shikinami/Shikinami';
+
+import Logo from '@assets/logos/exalos.svg';
+import { CustomCursor } from 'react-svg-cursor';
 
 const AppLayout: React.FC = ({ children }) => {
   const screenSize = useScreenSize();
@@ -21,7 +23,15 @@ const AppLayout: React.FC = ({ children }) => {
 
   return (
     <>
-      <Cursor disabled={!customCursor} />
+      {/* <Cursor disabled={!customCursor} /> */}
+      <CustomCursor
+        component={Logo}
+        isDisabled={!customCursor}
+        transform="translate(-30%, -10%) rotateZ(-22deg)"
+        width={16}
+        height={16}
+      />
+
       <Shikinami disabled={!gif} />
 
       <div className={isMobile ? styles.mobile : styles.desktop}>

@@ -4,12 +4,14 @@ import '@styles/base/_transitions.scss';
 
 import { SessionProvider } from 'next-auth/react';
 import type { AppProps } from 'next/app';
-import Cursor from '@module/Cursor/Cursor';
 import useLogVisit from '@module/Log/Slack/useLogVisit';
 import { GlobalCTXProvider } from 'app/store/global/CTX';
+import usePepe from '@utils/functions/pepe';
 
 function MyApp({ Component, pageProps }: AppProps) {
   // useLogVisit();
+
+  usePepe();
 
   return (
     <>
