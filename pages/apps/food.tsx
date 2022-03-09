@@ -1,5 +1,5 @@
 import AppLayout from '@layout/AppLayout';
-import Page from '@template/Food/Food';
+import Page from '@template/Apps/Food/Food';
 import PageHeaders from '@utils/resources/PageHead';
 
 const Food = () => {

@@ -1,10 +1,11 @@
-import List from '@module/Food/List/List';
-import Header from '@module/Food/Header/Header';
 import { useState } from 'react';
 import styles from './Food.module.scss';
 import { IRecipe } from '@utils/resources/recipes';
 import Card from '@lib/Card/Card';
-import OpenRecipe from '@module/Food/OperRecipe/OpenRecipe';
+
+import List from '@module/Apps/Food/List/List';
+import Header from '@module/Apps/Food/Header/Header';
+import OpenRecipe from '@module/Apps/Food/OperRecipe/OpenRecipe';
 
 const Food: React.FC = () => {
   const [query, setQuery] = useState('');

@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import * as svc from './yt2mp3.service';
+import * as svc from './info.service';
 
 /**
  * Get planner data for user ( by email )
@@ -11,7 +11,7 @@ export const handleGet = async (req: NextApiRequest, res: NextApiResponse) => {
 
   if (!url) return res.status(400).json({ error: true, message: 'No url.', data: null });
 
-  const data = await svc.getSong(url);
+  const data = await svc.getSongInfo(url);
 
-  res.status(200).send(data);
+  res.status(200).json({ error: false, message: 'Info retrieved.', data });
 };

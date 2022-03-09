@@ -1,0 +1,10 @@
+[
+  {
+    "url": "http://localhost:3000/",
+    "description": "Local server"
+  },
+  {
+    "url": "https://exalos.vercel.app/",
+    "description": "Production server"
+  }
+]

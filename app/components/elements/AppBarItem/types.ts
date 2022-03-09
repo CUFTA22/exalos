@@ -1,11 +1,6 @@
 import { IFluentIconsProps } from '@fluentui/react-icons';
+import { INavItem } from '@ts/nav.types';
 
-export interface BaseItem {
-  Svg: any;
-  text: string;
-  route: string;
-}
-export interface Props extends BaseItem {
+export interface Props extends INavItem {
   isNew?: boolean;
-  options?: BaseItem[];
 }

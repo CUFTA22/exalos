@@ -7,13 +7,7 @@ const AppBar: React.FC = () => {
   return (
     <div className={styles.appbar}>
       {appBarItems.map((item) => (
-        <AppBarItem
-          key={item.route}
-          Svg={item.Svg}
-          route={item.route}
-          text={item.text}
-          isNew={item.route === '/finances'}
-        />
+        <AppBarItem key={item.route} {...item} />
       ))}
     </div>
   );

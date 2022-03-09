@@ -9,8 +9,8 @@ const Docs = () => {
   return (
     <AppLayout>
       <PageHead />
-      {/* <Page /> */}
-      Wip
+
+      <Page />
     </AppLayout>
   );
 };

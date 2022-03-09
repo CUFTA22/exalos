@@ -1,10 +1,12 @@
 import SwaggerUI from 'swagger-ui-react';
 import 'swagger-ui-react/swagger-ui.css';
-import openApiSpec from '@server/openApi.json';
-import AppLayout from '@layout/AppLayout';
+// import openApiSpec from '@server/openApi.json';
+import getDocs from '@server/docs/getDocs';
 
-const Swagger = () => (
-  <AppLayout>
+const Swagger = () => {
+  const openApiSpec = getDocs();
+
+  return (
     <div
       style={{
         backgroundColor: 'white',
@@ -18,7 +20,7 @@ const Swagger = () => (
     >
       <SwaggerUI spec={openApiSpec} />
     </div>
-  </AppLayout>
-);
+  );
+};
 
 export default Swagger;
