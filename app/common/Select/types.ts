@@ -1,4 +1,4 @@
-import { IFluentIconsProps } from '@fluentui/react-icons';
+import { FluentIconsProps } from '@fluentui/react-icons';
 
 export interface SelectOption {
   label: string;
@@ -10,8 +10,8 @@ export interface SelectProps {
   placeholder?: string;
   onChange?: (option: SelectOption) => void;
   options?: SelectOption[];
-  icon_control?: React.ReactElement<IFluentIconsProps>;
-  icon_option?: (option: SelectOption, selected: boolean) => React.ReactElement<IFluentIconsProps>;
+  icon_control?: React.ReactElement<FluentIconsProps>;
+  icon_option?: (option: SelectOption, selected: boolean) => React.ReactElement<FluentIconsProps>;
   className?: string;
   width?: string;
   disabled?: boolean;

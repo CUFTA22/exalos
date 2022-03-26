@@ -1,4 +1,4 @@
-import { ChevronDown12Regular, IFluentIconsProps } from '@fluentui/react-icons';
+import { ChevronDown12Regular, FluentIconsProps } from '@fluentui/react-icons';
 import Input from '@lib/Input/Input';
 import clsx from 'clsx';
 import { SelectOption } from '../types';
@@ -8,7 +8,7 @@ interface Props {
   styles: any;
   menuOpen: boolean;
   selectedOption: SelectOption;
-  icon_control: React.ReactElement<IFluentIconsProps>;
+  icon_control: React.ReactElement<FluentIconsProps>;
   placeholder: string;
   disabled: boolean;
 }

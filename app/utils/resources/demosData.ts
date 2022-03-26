@@ -2,7 +2,7 @@
 // WebGL Demos
 // --------------------------------------------------------
 
-import { Beaker24Regular, Cube24Regular } from '@fluentui/react-icons';
+import { Beaker24Regular, Cube24Regular, Earth24Regular } from '@fluentui/react-icons';
 import { INavItem } from '@ts/nav.types';
 
 export const demoItems: INavItem[] = [
@@ -13,17 +13,11 @@ export const demoItems: INavItem[] = [
     hidden: false,
   },
   {
-    text: 'Minecraft',
-    Svg: Cube24Regular,
-    route: '/demos/minecraft',
+    text: 'Globe',
+    Svg: Earth24Regular,
+    route: '/',
     hidden: true,
   },
-  // {
-  //   text: 'Globe',
-  //   Svg: Earth24Regular,
-  //   route: '/',
-  //   hidden: true
-  // },
   // {
   //   text: 'Space',
   //   Svg: Rocket24Regular,

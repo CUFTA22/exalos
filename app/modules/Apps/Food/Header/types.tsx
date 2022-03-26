@@ -4,7 +4,7 @@ import {
   Food24Regular,
   FoodCake24Regular,
   FoodEgg24Regular,
-  IFluentIconsProps,
+  FluentIconsProps,
 } from '@fluentui/react-icons';
 
 export interface Props {
@@ -24,7 +24,7 @@ export const foodTypes = [
 export const findFoodIcon = (
   type: string,
   selected: boolean
-): React.ReactElement<IFluentIconsProps> => {
+): React.ReactElement<FluentIconsProps> => {
   switch (type) {
     case 'juice':
       return (

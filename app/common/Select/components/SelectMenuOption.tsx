@@ -1,4 +1,4 @@
-import { IFluentIconsProps } from '@fluentui/react-icons';
+import { FluentIconsProps } from '@fluentui/react-icons';
 import Typography from '@lib/Typography/Typography';
 import clsx from 'clsx';
 import { SelectOption } from '../types';
@@ -9,7 +9,7 @@ interface Props {
   styles: any;
   selectedOption: SelectOption | null;
   handleChange: (option: SelectOption) => void;
-  icon_option?: (option: SelectOption, selected: boolean) => React.ReactElement<IFluentIconsProps>;
+  icon_option?: (option: SelectOption, selected: boolean) => React.ReactElement<FluentIconsProps>;
 }
 
 const SelectMenuOption: React.FC<Props> = ({

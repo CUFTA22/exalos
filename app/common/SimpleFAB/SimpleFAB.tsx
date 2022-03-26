@@ -1,10 +1,10 @@
-import { IFluentIconsProps } from '@fluentui/react-icons';
+import { FluentIconsProps } from '@fluentui/react-icons';
 import clsx from 'clsx';
 import styles from './SimpleFAB.module.scss';
 import ripple from '@styles/scss/ripple.module.scss';
 
 interface Props {
-  Icon: React.ReactElement<IFluentIconsProps>;
+  Icon: React.ReactElement<FluentIconsProps>;
   size?: 'normal' | 'large';
   className?: string;
   isActive?: boolean;
