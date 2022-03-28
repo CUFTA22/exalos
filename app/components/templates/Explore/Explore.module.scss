@@ -29,7 +29,7 @@
 
       svg {
         * {
-          fill: variables.$color-text-secondary;
+          fill: variables.$color-text-secondary !important;
         }
         width: 42px;
         height: 42px;

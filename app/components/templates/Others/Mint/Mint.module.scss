@@ -1,0 +1,8 @@
+@use 'transitions';
+
+.pageThreepage_mint_test {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  animation: fade-in 0.3s ease-in-out normal;
+}

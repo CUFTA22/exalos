@@ -1,12 +1,15 @@
 import {
   Cube24Regular,
+  Diversity24Regular,
   DocumentToolbox24Regular,
   FoodPizza24Regular,
   Games24Regular,
+  Globe24Regular,
   Grid24Regular,
   Home24Regular,
   MusicNote124Regular,
   Options24Regular,
+  Symbols24Regular,
 } from '@fluentui/react-icons';
 
 import { INavItem } from '@ts/nav.types';
@@ -69,13 +72,13 @@ export const sideBarItems: INavItem[] = [
     text: 'Demos',
     Svg: Cube24Regular,
     route: '/demos',
-    hidden: true,
+    hidden: false,
   },
   {
-    text: 'OpenAPI',
-    Svg: DocumentToolbox24Regular,
-    route: '/api-docs',
-    hidden: true,
+    text: 'Others',
+    Svg: Diversity24Regular,
+    route: '/others',
+    hidden: false,
   },
   {
     text: 'Options',
@@ -85,4 +88,4 @@ export const sideBarItems: INavItem[] = [
   },
 ];
 
-export const protectedRoutes = ['/apps', '/hextech'];
+export const protectedRoutes = ['/apps'];

@@ -8,6 +8,7 @@ import {
   MusicNote124Regular,
   Premium24Regular,
 } from '@fluentui/react-icons';
+
 import { INavItem } from '@ts/nav.types';
 
 export const gameItems: INavItem[] = [

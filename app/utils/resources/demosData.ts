@@ -15,19 +15,19 @@ export const demoItems: INavItem[] = [
   {
     text: 'Globe',
     Svg: Earth24Regular,
-    route: '/',
+    route: '/demos/globe',
     hidden: true,
   },
   // {
   //   text: 'Space',
   //   Svg: Rocket24Regular,
-  //   route: '/',
+  //   route: '/demos/space',
   //   hidden: true
   // },
   // {
   //   text: 'City 17',
   //   Svg: City24Regular,
-  //   route: '/',
+  //   route: '/demos/city',
   //   hidden: true
   // },
 ];

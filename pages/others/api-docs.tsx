@@ -1,5 +1,5 @@
 import AppLayout from '@layout/AppLayout';
-import Page from '@template/Swagger/Swagger';
+import Page from '@template/Others/Swagger/Swagger';
 import PageHead from '@utils/resources/PageHead';
 
 // For some reason Next 12 breaks swagger-ui
