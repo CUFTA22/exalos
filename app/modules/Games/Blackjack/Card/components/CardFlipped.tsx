@@ -1,9 +1,9 @@
-import styles from './CardFlipped.module.scss';
+import classes from './CardFlipped.module.scss';
 
 const CardFlipped = () => {
   return (
-    <div className={styles.card_flipped}>
-      <div className={styles.inner_ring}></div>
+    <div className={classes.card_flipped}>
+      <div className={classes.inner_ring}></div>
     </div>
   );
 };

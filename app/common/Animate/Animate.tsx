@@ -62,11 +62,11 @@ const Animate: React.FC<Props> = ({
   switch (animation) {
     case 'in':
       //@ts-ignore
-      styles.animation = skipAnim ? 'none' : animations[animationIn] || animationIn;
+      classes.animation = skipAnim ? 'none' : animations[animationIn] || animationIn;
       break;
     case 'out':
       //@ts-ignore
-      styles.animation = skipAnim ? 'none' : animations[animationOut] || animationOut;
+      classes.animation = skipAnim ? 'none' : animations[animationOut] || animationOut;
       break;
   }
 

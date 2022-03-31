@@ -1,7 +1,7 @@
 import usePlanner from '@module/Apps/Planner/usePlanner';
 import clsx from 'clsx';
 import dayjs from 'dayjs';
-import styles from './Day.module.scss';
+import classes from './Day.module.scss';
 
 const DAYS = {
   '0': 'Monday',
@@ -21,8 +21,8 @@ const Day = ({ index }) => {
   const isToday = date === dayjs().format('D').toString();
 
   return (
-    <div className={clsx(styles.display_day, { [styles.is_today]: isToday })}>
-      <span className={styles.date}>{date}</span>
+    <div className={clsx(classes.display_day, { [classes.is_today]: isToday })}>
+      <span className={classes.date}>{date}</span>
       <span>{DAYS[index]}</span>
     </div>
   );

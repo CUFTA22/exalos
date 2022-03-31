@@ -82,7 +82,7 @@
     row-gap: 26px;
     column-gap: 16px;
 
-    > span {
+    > svg {
       &:nth-child(3) {
         grid-column-start: span 2;
       }
@@ -104,10 +104,10 @@
     row-gap: 14px;
     column-gap: 16px;
 
-    > span {
+    > svg {
       &:nth-child(3) {
         grid-column-start: span 2;
-        height: 11px;
+        margin: -5px 0;
         overflow: visible;
       }
     }
@@ -130,10 +130,10 @@
     row-gap: 6px;
     column-gap: 16px;
 
-    > span {
+    > svg {
       &:nth-child(3) {
         grid-column-start: span 2;
-        height: 11px;
+        margin: -5px 0;
         overflow: visible;
       }
     }
@@ -147,16 +147,16 @@
     row-gap: 3px;
     column-gap: 16px;
 
-    > span {
+    > svg {
       &:nth-child(3) {
         grid-column-start: span 2;
-        height: 11px;
+        margin: -5px 0;
         overflow: visible;
       }
 
       &:nth-child(8) {
         grid-column-start: span 2;
-        height: 11px;
+        margin: -5px 0;
         overflow: visible;
       }
     }

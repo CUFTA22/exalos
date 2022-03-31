@@ -1,4 +1,4 @@
-import styles from './Typography.module.scss';
+import classes from './Typography.module.scss';
 import clsx from 'clsx';
 import { TypographyProps } from './types';
 import React from 'react';
@@ -32,7 +32,7 @@ const Typography: React.FC<TypographyProps> = ({
   };
 
   return React.createElement(tag, {
-    className: clsx(styles.lib_typography, className),
+    className: clsx(classes.lib_typography, className),
     style: potentialStyles,
     children: children || text,
   });

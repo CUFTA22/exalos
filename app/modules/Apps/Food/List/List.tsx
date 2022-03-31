@@ -1,4 +1,4 @@
-import styles from './List.module.scss';
+import classes from './List.module.scss';
 import Card from '@lib/Card/Card';
 import { Props, findFoodData } from './types';
 import { IRecipe } from '@utils/resources/recipes';
@@ -19,7 +19,7 @@ const List: React.FC<Props> = ({ query, setQuery, type, setType, setSelectedReci
   }, [query, type]);
 
   return (
-    <div className={styles.food_list}>
+    <div className={classes.food_list}>
       {foodData.map((recipe) => (
         <FoodItem key={recipe.title} {...recipe} setSelectedRecipe={setSelectedRecipe} />
       ))}

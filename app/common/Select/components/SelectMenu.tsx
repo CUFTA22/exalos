@@ -5,7 +5,7 @@ import { SelectOption } from '../types';
 import SelectMenuOption from './SelectMenuOption';
 
 interface Props {
-  styles: any;
+  classes: any;
   options: SelectOption[];
   handleChange: (option: SelectOption) => void;
   selectedOption: SelectOption;
@@ -13,7 +13,7 @@ interface Props {
 }
 
 const SelectMenu: React.FC<Props> = ({
-  styles,
+  classes,
   options,
   handleChange,
   selectedOption,
@@ -22,7 +22,7 @@ const SelectMenu: React.FC<Props> = ({
   if (!options.length)
     return (
       <div
-        className={styles.select_menu}
+        className={classes.select_menu}
         style={{ padding: '10px', textAlign: 'center', cursor: 'default' }}
       >
         <Typography text="No Options" fSize={14} color="secondary" />
@@ -30,12 +30,12 @@ const SelectMenu: React.FC<Props> = ({
     );
 
   return (
-    <div className={clsx(styles.select_menu, 'no-clickaway')}>
+    <div className={clsx(classes.select_menu, 'no-clickaway')}>
       {options.map((option) => (
         <SelectMenuOption
           key={option.value}
           selectedOption={selectedOption}
-          styles={styles}
+          classes={classes}
           handleChange={handleChange}
           icon_option={icon_option}
           {...option}

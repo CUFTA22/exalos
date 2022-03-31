@@ -4,7 +4,7 @@ import PlannerControls from '@module/Apps/Planner/Controls/PlannerControls';
 import usePlanner from '@module/Apps/Planner/usePlanner';
 import { TemplateProps } from '@template/types';
 import { useEffect } from 'react';
-import styles from './Planner.module.scss';
+import classes from './Planner.module.scss';
 
 const Planner: React.FC<TemplateProps> = ({ ssProps }) => {
   const { initializeState, plannerData, selectedCells, handleChangeCellOnKey } = usePlanner();
@@ -17,7 +17,7 @@ const Planner: React.FC<TemplateProps> = ({ ssProps }) => {
   useEventListener('keydown', handleChangeCellOnKey);
 
   return (
-    <div className={styles.page_planner}>
+    <div className={classes.page_planner}>
       <PlannerControls plannerData={plannerData || ssProps.planner} />
       <PlannerCalendar plannerData={plannerData || ssProps.planner} />
     </div>

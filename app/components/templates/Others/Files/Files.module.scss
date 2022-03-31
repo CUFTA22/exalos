@@ -1,0 +1,34 @@
+@use 'transitions';
+@use 'variables';
+@use 'mixins';
+
+.page_files {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  animation: fade-in 0.3s ease-in-out normal;
+
+  .center {
+    padding: 24px;
+    height: 100%;
+    overflow-y: auto;
+
+    @include mixins.flex-col-start;
+
+    .title {
+      font-size: 36px;
+      text-align: center;
+      margin: 12px 0 48px 0;
+
+      color: variables.$color-text-primary;
+    }
+
+    .grid {
+      @include mixins.flex-row-center;
+
+      .btn {
+        margin: 24px;
+      }
+    }
+  }
+}

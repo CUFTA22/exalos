@@ -5,7 +5,7 @@ import Typography from '@lib/Typography/Typography';
 import { downloadFile } from '@utils/functions/downloadFile';
 import getYTSong from 'app/api/yt2mp3/get';
 import { useState } from 'react';
-import styles from './Yt2mp3.module.scss';
+import classes from './Yt2mp3.module.scss';
 
 const Yt2mp3 = () => {
   const [song, setSong] = useState('');
@@ -26,10 +26,10 @@ const Yt2mp3 = () => {
   };
 
   return (
-    <div className={styles.page_yt2mp3}>
-      <Card className={styles.center}>
+    <div className={classes.page_yt2mp3}>
+      <Card className={classes.center}>
         <Typography
-          className={styles.title}
+          className={classes.title}
           text="Yt2mp3"
           color="primary"
           fSize={36}
@@ -37,13 +37,18 @@ const Yt2mp3 = () => {
         />
 
         <Input
-          className={styles.yt2mp3_input}
+          className={classes.yt2mp3_input}
           value={song}
           onChange={setSong}
           placeholder="Song URL..."
         />
 
-        <Button className={styles.cta} text="Download" onClick={handleSubmit} isLoading={loading} />
+        <Button
+          className={classes.cta}
+          text="Download"
+          onClick={handleSubmit}
+          isLoading={loading}
+        />
       </Card>
     </div>
   );

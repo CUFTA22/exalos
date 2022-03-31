@@ -22,7 +22,7 @@ import React, { useEffect, useRef } from 'react';
 import Audio from '../Audio/Audio';
 import { calculateTime, getNextSongClick } from '../utils';
 import { State } from '../Wrapper/types';
-import styles from './Controls.module.scss';
+import classes from './Controls.module.scss';
 import { Props } from './types';
 
 const Controls: React.FC<Props> = ({
@@ -184,31 +184,31 @@ const Controls: React.FC<Props> = ({
   };
 
   return (
-    <div className={styles.music_controls}>
-      <div className={styles.slider}>
-        <div className={styles.autoplay}>
+    <div className={classes.music_controls}>
+      <div className={classes.slider}>
+        <div className={classes.autoplay}>
           <SimpleFAB
             onClick={() => toggleState('isAutoplay')}
             isActive={isAutoplay}
             Icon={<ArrowExportLtr24Filled />}
-            className={styles.action}
+            className={classes.action}
           />
         </div>
 
-        <div className={styles.duration}>
+        <div className={classes.duration}>
           <Typography
             text={`${calculateTime(currentTime)}`}
             color="secondary"
-            className={styles.time}
+            className={classes.time}
           />
           <Slider ref={sliderRef} onChange={updateCurrentTime} defaultValue={currentTime} />
-          <Typography text={`${duration}`} color="secondary" className={styles.time} />
+          <Typography text={`${duration}`} color="secondary" className={classes.time} />
         </div>
 
-        <div ref={volumeOuterRef} className={styles.volume}>
+        <div ref={volumeOuterRef} className={classes.volume}>
           <Slider
             ref={volumeRef}
-            className={styles.volume_slider}
+            className={classes.volume_slider}
             isVertical
             onChange={() => updateVolume()}
             min={0}
@@ -226,33 +226,33 @@ const Controls: React.FC<Props> = ({
         </div>
       </div>
 
-      <div className={styles.actions}>
+      <div className={classes.actions}>
         <SimpleFAB
           onClick={() => toggleState('isShuffle')}
           isActive={isShuffle}
           Icon={<ArrowSwap24Filled />}
           size="large"
-          className={styles.action}
+          className={classes.action}
         />
 
         <SimpleFAB
           onClick={() => changeSong('prev')}
           Icon={<Previous24Filled />}
           size="large"
-          className={styles.action}
+          className={classes.action}
         />
 
         <FAB
           Icon={isPlaying ? Pause24Filled : Play24Filled}
           onClick={() => togglePlaying()}
-          className={styles.action}
+          className={classes.action}
         />
 
         <SimpleFAB
           onClick={() => changeSong('next')}
           Icon={<Next24Filled />}
           size="large"
-          className={styles.action}
+          className={classes.action}
         />
 
         <SimpleFAB
@@ -260,7 +260,7 @@ const Controls: React.FC<Props> = ({
           isActive={isRepeat}
           Icon={<ArrowRepeatAll24Filled />}
           size="large"
-          className={styles.action}
+          className={classes.action}
         />
       </div>
 

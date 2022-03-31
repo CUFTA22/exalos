@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styles from './Food.module.scss';
+import classes from './Food.module.scss';
 import { IRecipe } from '@utils/resources/recipes';
 import Card from '@lib/Card/Card';
 
@@ -20,10 +20,10 @@ const Food: React.FC = () => {
   };
 
   return (
-    <div className={styles.page_food}>
+    <div className={classes.page_food}>
       <Header query={query} setQuery={setQuery} type={type} setType={setType} />
 
-      <Card className={styles.main_container}>
+      <Card className={classes.main_container}>
         <List
           query={query}
           setQuery={setQuery}

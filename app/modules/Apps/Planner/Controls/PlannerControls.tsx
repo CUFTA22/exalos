@@ -3,7 +3,7 @@ import Card from '@lib/Card/Card';
 import FAB from '@lib/FAB/FAB';
 import { useState } from 'react';
 import TypeSelect from './components/TypeSelect';
-import styles from './Controls.module.scss';
+import classes from './Controls.module.scss';
 import { ControlsProps, initialState, State } from './types';
 import Modals from './components/Modals';
 import Spinner from '@lib/Spinner/Spinner';
@@ -17,28 +17,28 @@ const CreateControls: React.FC<ControlsProps> = ({ plannerData }) => {
   if (!plannerData) return <Spinner />;
 
   return (
-    <Card className={styles.controls}>
+    <Card className={classes.controls}>
       <Modals state={state} toggleModal={toggleModal} />
 
-      <div className={styles.left}>
+      <div className={classes.left}>
         <TypeSelect />
-        <FAB onClick={() => toggleModal('typesModal')} className={styles.mleft}>
+        <FAB onClick={() => toggleModal('typesModal')} className={classes.mleft}>
           <Add24Regular />
         </FAB>
 
-        <div className={styles.divider}></div>
+        <div className={classes.divider}></div>
 
         <AddMeetUrl />
       </div>
-      <div className={styles.right}>
+      <div className={classes.right}>
         {/* V.3 Templates */}
-        {/* <FAB onClick={() => {}} className={styles.mleft}>
+        {/* <FAB onClick={() => {}} className={classes.mleft}>
           <Extension24Regular />
         </FAB> */}
-        <FAB onClick={() => toggleModal('settingsModal')} className={styles.mleft}>
+        <FAB onClick={() => toggleModal('settingsModal')} className={classes.mleft}>
           <Settings24Regular />
         </FAB>
-        {/* <FAB onClick={() => toggleModal('showModal')} className={styles.mleft}>
+        {/* <FAB onClick={() => toggleModal('showModal')} className={classes.mleft}>
           <EyeShow24Regular />
         </FAB> */}
       </div>

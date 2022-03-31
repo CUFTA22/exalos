@@ -2,15 +2,15 @@ import { Document24Regular, FoodPizza20Regular, Search24Regular } from '@fluentu
 import Button from '@lib/Button/Button';
 import Input from '@lib/Input/Input';
 import Select from '@lib/Select/Select';
-import styles from './Header.module.scss';
+import classes from './Header.module.scss';
 import { Props, foodTypes, findFoodIcon } from './types';
 
 const Header: React.FC<Props> = ({ query, setQuery, type, setType }) => {
   return (
-    <div className={styles.food_header}>
-      <div className={styles.left}>
+    <div className={classes.food_header}>
+      <div className={classes.left}>
         <Select
-          className={styles.type_select}
+          className={classes.type_select}
           onChange={setType}
           value={type}
           placeholder="Select type..."
@@ -19,7 +19,7 @@ const Header: React.FC<Props> = ({ query, setQuery, type, setType }) => {
           icon_option={(opt, selected) => findFoodIcon(opt.value, selected)}
         />
 
-        <div className={styles.divider}></div>
+        <div className={classes.divider}></div>
 
         <Input
           value={query}
@@ -28,7 +28,7 @@ const Header: React.FC<Props> = ({ query, setQuery, type, setType }) => {
           icons_front={[<Search24Regular primaryFill="hsl(206, 88%, 77%)" />]}
         />
       </div>
-      <div className={styles.right}>
+      <div className={classes.right}>
         <Button
           text="View PDF"
           onClick={() => window.open('/files/food.pdf')}

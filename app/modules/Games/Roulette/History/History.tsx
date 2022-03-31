@@ -1,4 +1,4 @@
-import styles from './History.module.scss';
+import classes from './History.module.scss';
 import RouletteNumber from '@element/RouletteNumber/RouletteNumber';
 import { rouletteEuNumbers, rouletteUsNumbers } from '@utils/resources/rouletteNumbers';
 import useRoulette from '../useRoulette';
@@ -10,7 +10,7 @@ const History: React.FC<RouletteProps> = ({ type }) => {
   const numbers = type === 'eu' ? rouletteEuNumbers : rouletteUsNumbers;
 
   return (
-    <div className={styles.roulette_history}>
+    <div className={classes.roulette_history}>
       {history.slice(-14).map((val, i) => (
         <RouletteNumber
           key={i}

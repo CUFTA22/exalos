@@ -4,15 +4,15 @@ import Checkbox from '@lib/Checkbox/Checkbox';
 import Typography from '@lib/Typography/Typography';
 import SettingsRow from '../SettingsRow/SettingsRow';
 import useSettings from '../useSettings';
-import styles from './LeftOptions.module.scss';
+import classes from './LeftOptions.module.scss';
 
 const LeftOptions = () => {
   const { customCursor, toggleCursor, gif, toggleGif, enableHidden, toggleHidden } = useSettings();
 
   return (
-    <div className={styles.settings_left}>
-      <Card className={styles.option_item}>
-        <Typography text="Global" fSize={22} fWeight={600} className={styles.opt_title} />
+    <div className={classes.settings_left}>
+      <Card className={classes.option_item}>
+        <Typography text="Global" fSize={22} fWeight={600} className={classes.opt_title} />
 
         <SettingsRow
           Icon={Cursor24Regular}

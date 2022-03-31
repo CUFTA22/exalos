@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { rouletteEuNumbers, rouletteUsNumbers } from '@utils/resources/rouletteNumbers';
-import styles from './Carousel.module.scss';
+import classes from './Carousel.module.scss';
 import useRoulette from '../useRoulette';
 import { findDistance } from '../utils';
 import usePrevious from '@hooks/usePrevious';
@@ -27,14 +27,14 @@ const Carousel: React.FC<Props> = ({ type }) => {
   const offset = type === 'eu' ? 1140 : 1200;
 
   return (
-    <div className={styles.carousel}>
-      <div className={styles.spin_container}>
+    <div className={classes.carousel}>
+      <div className={classes.spin_container}>
         <div
           style={{
             transition: isLoading ? easeFunky : '',
             transform: isLoading ? calculateStyles() : `matrix(1, 0, 0, 1, -${offset}, 0)`,
           }}
-          className={styles.spin_items}
+          className={classes.spin_items}
         >
           {numbers.map((num, i) => (
             <RouletteNumber key={i} {...num} />
@@ -42,12 +42,12 @@ const Carousel: React.FC<Props> = ({ type }) => {
         </div>
       </div>
 
-      <div className={styles.pointer}>
-        <div className={styles.top_dot}></div>
-        <div className={styles.bot_dot}></div>
+      <div className={classes.pointer}>
+        <div className={classes.top_dot}></div>
+        <div className={classes.bot_dot}></div>
       </div>
 
-      <div className={styles.overlay}></div>
+      <div className={classes.overlay}></div>
     </div>
   );
 };

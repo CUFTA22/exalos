@@ -4,7 +4,7 @@ import {
   LeafOne16Filled,
   Stop16Filled,
 } from '@fluentui/react-icons';
-import { randomNumber } from '@server/utils/functions';
+import { cryptoRandomNumber } from '@server/utils/functions';
 
 export interface BlackjackCard {
   value: number;
@@ -13,10 +13,11 @@ export interface BlackjackCard {
   type: 'num' | 'ace' | 'K' | 'Q' | 'J';
 }
 
-export const generateRandomColor = () => ['red', 'black'][randomNumber(0, 1)] as 'red' | 'black';
+export const generateRandomColor = () =>
+  ['red', 'black'][cryptoRandomNumber(0, 1)] as 'red' | 'black';
 
 export const generateRandomSymbol = () =>
-  [Heart16Filled, LeafOne16Filled, Circle16Filled, Stop16Filled][randomNumber(0, 3)];
+  [Heart16Filled, LeafOne16Filled, Circle16Filled, Stop16Filled][cryptoRandomNumber(0, 3)];
 
 export const blackjackCards: BlackjackCard[] = [
   {

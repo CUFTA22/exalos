@@ -1,11 +1,11 @@
 import AppLayout from '@layout/AppLayout';
-import Page from '@template/Others/Mint/Mint';
+import Page from '@template/Others/Files/Files';
 import PageHead from '@utils/resources/PageHead';
 
 const LinuxMint = () => {
   return (
     <AppLayout>
-      <PageHead title="Exalos | Linux Mint" />
+      <PageHead title="Exalos | Files" />
 
       <Page />
     </AppLayout>

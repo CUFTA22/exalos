@@ -1,4 +1,4 @@
-import styles from './TypesModal.module.scss';
+import classes from './TypesModal.module.scss';
 import Modal from '@lib/Modal/Modal';
 import Input from '@lib/Input/Input';
 import { useState } from 'react';
@@ -24,7 +24,7 @@ const TypesModal: React.FC<Props> = ({ isOpen, toggleModal, plannerData }) => {
   const renderTypes = () => plannerData?.types?.map((type) => <TypeRow key={type._id} {...type} />);
 
   return (
-    <Modal content_className={styles.modal_types} isOpen={isOpen} onRequestClose={toggleModal}>
+    <Modal content_className={classes.modal_types} isOpen={isOpen} onRequestClose={toggleModal}>
       <Input
         value={state.name}
         onChange={setName}
@@ -53,7 +53,7 @@ const TypesModal: React.FC<Props> = ({ isOpen, toggleModal, plannerData }) => {
           <Add24Regular primaryFill="hsl(240, 28%, 64%)" onClick={!isLoading && handleAddType} />,
         ]}
       />
-      <div className={styles.types_wrapper}>{renderTypes()}</div>
+      <div className={classes.types_wrapper}>{renderTypes()}</div>
     </Modal>
   );
 };

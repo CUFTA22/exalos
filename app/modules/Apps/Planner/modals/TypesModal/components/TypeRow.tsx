@@ -8,7 +8,7 @@ import usePlanner from '@module/Apps/Planner/usePlanner';
 import { Planner_Type } from '@ts/planner.types';
 import useDeleteType from 'app/api/planner/type/delete';
 import { useState } from 'react';
-import styles from '../TypesModal.module.scss';
+import classes from '../TypesModal.module.scss';
 
 const TypeRow: React.FC<Planner_Type> = ({ color, name, _id }) => {
   const { updateTypesData } = usePlanner();
@@ -30,7 +30,7 @@ const TypeRow: React.FC<Planner_Type> = ({ color, name, _id }) => {
   useNonInitialEffect(() => setState({ color, name, _id }), [name]);
 
   return (
-    <Card className={styles.type_row}>
+    <Card className={classes.type_row}>
       <Input
         defaultValue={state.name}
         onChange={changeName}
@@ -50,7 +50,7 @@ const TypeRow: React.FC<Planner_Type> = ({ color, name, _id }) => {
         isDebounce
       />
 
-      <div className={styles.type_actions}>
+      <div className={classes.type_actions}>
         <ColorPicker
           isOpen={openPicker}
           color={state.color}

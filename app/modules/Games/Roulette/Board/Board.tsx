@@ -1,4 +1,4 @@
-import styles from './Board.module.scss';
+import classes from './Board.module.scss';
 import clsx from 'clsx';
 
 import Card from '@lib/Card/Card';
@@ -21,7 +21,7 @@ const Board: React.FC<RouletteProps> = ({ type }) => {
     useRoulette();
 
   return (
-    <Card className={styles.roulette_board}>
+    <Card className={classes.roulette_board}>
       <Carousel type={type} />
 
       <Input
@@ -33,12 +33,12 @@ const Board: React.FC<RouletteProps> = ({ type }) => {
         disabled
       />
 
-      <div className={styles.bet_change}>
+      <div className={classes.bet_change}>
         {betChangeOpts(coins).map((opt) => (
           <div
             key={opt.label}
             onClick={() => !isLoading && setBetAmount(opt.value)}
-            className={styles.bet_change_opt}
+            className={classes.bet_change_opt}
           >
             {opt.label}
           </div>
@@ -46,7 +46,7 @@ const Board: React.FC<RouletteProps> = ({ type }) => {
       </div>
 
       <Button
-        className={styles.spin_cta}
+        className={classes.spin_cta}
         size="large"
         width={220}
         text="SPIN"
@@ -55,13 +55,13 @@ const Board: React.FC<RouletteProps> = ({ type }) => {
         isLoading={isLoading}
       />
 
-      <div className={styles.bet_options}>
+      <div className={classes.bet_options}>
         {betOptionsOpts.map((opt) => (
           <Button
             key={opt.type}
             onClick={() => !isLoading && setBetColor(opt.type)}
-            className={clsx(styles.bet_options_cta, {
-              [styles.is_active]: betColor === type2Color[opt.type],
+            className={clsx(classes.bet_options_cta, {
+              [classes.is_active]: betColor === type2Color[opt.type],
             })}
             type={opt.type}
             text={opt.text}

@@ -4,16 +4,16 @@ import Input from '@lib/Input/Input';
 import Typography from '@lib/Typography/Typography';
 import { useState } from 'react';
 import useRoulette from '../useRoulette';
-import styles from './Chat.module.scss';
+import classes from './Chat.module.scss';
 
 const Chat = () => {
   const [message, setMessage] = useState<string>('');
   const { chat, sendMessage } = useRoulette();
 
   return (
-    <Card className={styles.roulette_chat}>
+    <Card className={classes.roulette_chat}>
       {chat.map((msg) => (
-        <Card className={styles.chat_msg}>
+        <Card className={classes.chat_msg}>
           <Typography text={msg} color="secondary" />
         </Card>
       ))}

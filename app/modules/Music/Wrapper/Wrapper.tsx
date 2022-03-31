@@ -8,7 +8,7 @@ import { useState } from 'react';
 import Controls from '../Controls/Controls';
 import Library from '../Library/Library';
 import { initialState, State } from './types';
-import styles from './Wrapper.module.scss';
+import classes from './Wrapper.module.scss';
 import clsx from 'clsx';
 import Typography from '@lib/Typography/Typography';
 import Visualizer from '../Visualizer/Visualizer';
@@ -24,9 +24,9 @@ const Wrapper = () => {
   const [tab, setTab] = useState<'music' | 'library'>('library');
 
   return (
-    <div className={clsx(styles.music_wrapper, styles[`tab_${tab}`])}>
-      <Card className={styles.main_library}>
-        <div className={styles.top}>
+    <div className={clsx(classes.music_wrapper, classes[`tab_${tab}`])}>
+      <Card className={classes.main_library}>
+        <div className={classes.top}>
           <div style={{ width: '24px' }}></div>
           <Typography text="Library" fSize={18} />
           <ChevronRight24Filled onClick={() => setTab('music')} />
@@ -35,10 +35,10 @@ const Wrapper = () => {
         <Library setTab={setTab} wrapperState={state} setWrapperState={setState} />
       </Card>
 
-      <div className={styles.divider}></div>
+      <div className={classes.divider}></div>
 
-      <Card className={styles.main_player}>
-        <div className={styles.top}>
+      <Card className={classes.main_player}>
+        <div className={classes.top}>
           <ChevronLeft24Filled onClick={() => setTab('library')} />
           <Typography
             maxLines={1}
@@ -49,8 +49,8 @@ const Wrapper = () => {
           <div style={{ width: '24px' }}></div>
         </div>
 
-        <div className={styles.animation}>
-          <div className={styles.note}>
+        <div className={classes.animation}>
+          <div className={classes.note}>
             <MusicNote224Filled />
           </div>
           <Visualizer wrapperState={state} />

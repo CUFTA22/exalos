@@ -1,6 +1,6 @@
 import React from 'react';
 import { signIn, useSession } from 'next-auth/react';
-import styles from './SideBar.module.scss';
+import classes from './SideBar.module.scss';
 import Logo from '@assets/logos/exalos.svg';
 import { protectedRoutes, sideBarItems } from 'app/utils/resources/sideBarData';
 import SideBarItem from '@element/SideBarItem/SideBarItem';
@@ -18,20 +18,20 @@ const SideBar: React.FC = () => {
     : sideBarItems.filter((item) => !protectedRoutes.includes(item.route));
 
   return (
-    <div className={styles.sidebar}>
+    <div className={classes.sidebar}>
       <Link href="/">
-        <div className={styles.sidebar_top}>
+        <div className={classes.sidebar_top}>
           <Logo />
         </div>
       </Link>
 
-      <div className={styles.sidebar_mid}>
+      <div className={classes.sidebar_mid}>
         {validRoutes.map((item) => (
           <SideBarItem key={item.route} {...item} />
         ))}
       </div>
 
-      <div className={styles.sidebar_bottom}>
+      <div className={classes.sidebar_bottom}>
         {status === 'loading' ? (
           <Spinner />
         ) : session ? (

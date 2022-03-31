@@ -1,4 +1,4 @@
-import styles from './Board.module.scss';
+import classes from './Board.module.scss';
 import Card from '@lib/Card/Card';
 import Input from '@lib/Input/Input';
 import {
@@ -28,12 +28,12 @@ const Board = () => {
   } = useBlackjack();
 
   return (
-    <Card className={styles.blackjack_board}>
-      <div className={styles.hands}>
+    <Card className={classes.blackjack_board}>
+      <div className={classes.hands}>
         <Hand title="House hand" cards={handHouse} />
         <Hand title="Your hand" cards={handPlayer} />
       </div>
-      <div className={styles.controls}>
+      <div className={classes.controls}>
         <Input
           value={betAmount}
           icons_front={[<TicketHorizontal24Filled primaryFill="hsl(128, 88%, 77%)" />]}
@@ -43,25 +43,25 @@ const Board = () => {
           disabled
         />
 
-        <div className={styles.bet_change}>
+        <div className={classes.bet_change}>
           {betChangeOpts(coins).map((opt) => (
             <div
               key={opt.label}
               onClick={() => !isLoading && setBetAmount(opt.value)}
-              className={styles.bet_change_opt}
+              className={classes.bet_change_opt}
             >
               {opt.label}
             </div>
           ))}
         </div>
 
-        <div className={clsx(styles.action_buttons, { [styles.gap]: isLoading })}>
+        <div className={clsx(classes.action_buttons, { [classes.gap]: isLoading })}>
           {isLoading ? (
             <>
               {betActionsOpts(handleHit, handleStand, handleSurrender, handleDoubleDown).map(
                 (btn) => (
                   <Button
-                    className={styles.cta}
+                    className={classes.cta}
                     size="large"
                     width={180}
                     text={btn.text}
@@ -76,7 +76,7 @@ const Board = () => {
             </>
           ) : (
             <Button
-              className={styles.cta}
+              className={classes.cta}
               size="large"
               width={220}
               text="Deal"

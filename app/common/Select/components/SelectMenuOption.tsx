@@ -6,7 +6,7 @@ import { SelectOption } from '../types';
 interface Props {
   label: string;
   value: string;
-  styles: any;
+  classes: any;
   selectedOption: SelectOption | null;
   handleChange: (option: SelectOption) => void;
   icon_option?: (option: SelectOption, selected: boolean) => React.ReactElement<FluentIconsProps>;
@@ -16,7 +16,7 @@ const SelectMenuOption: React.FC<Props> = ({
   label,
   selectedOption,
   value,
-  styles,
+  classes,
   handleChange,
   icon_option,
 }) => {
@@ -27,9 +27,11 @@ const SelectMenuOption: React.FC<Props> = ({
   return (
     <div
       onClick={() => handleChange({ label, value })}
-      className={clsx(styles.select_menu_option, 'no-clickaway', { [styles.selected]: isSelected })}
+      className={clsx(classes.select_menu_option, 'no-clickaway', {
+        [classes.selected]: isSelected,
+      })}
     >
-      {IconOption && <div className={styles.select_menu_option_svg}>{IconOption}</div>}
+      {IconOption && <div className={classes.select_menu_option_svg}>{IconOption}</div>}
 
       <Typography text={label} fSize={14} color="secondary" />
     </div>

@@ -3,7 +3,7 @@ import Button from '@lib/Button/Button';
 import Card from '@lib/Card/Card';
 import useNotification from '@module/Notifications/useNotification';
 import usePlannerInit from 'app/api/planner/post';
-import styles from '../Calendar.module.scss';
+import classes from '../Calendar.module.scss';
 
 const EmptyState = () => {
   const { isLoading, init } = usePlannerInit();
@@ -15,7 +15,7 @@ const EmptyState = () => {
   };
 
   return (
-    <Card className={styles.calendar}>
+    <Card className={classes.calendar}>
       <Button
         onClick={handleInit}
         isLoading={isLoading}

@@ -1,4 +1,4 @@
-import styles from './OpenRecipe.module.scss';
+import classes from './OpenRecipe.module.scss';
 import Modal from '@lib/Modal/Modal';
 import { ModalProps } from '@ts/modal.types';
 import { IRecipe } from '@utils/resources/recipes';
@@ -10,8 +10,8 @@ interface Props extends ModalProps {
 
 const OpenRecipe: React.FC<Props> = ({ isOpen, toggleModal, recipe }) => {
   return (
-    <Modal content_className={styles.modal_recipe} isOpen={isOpen} onRequestClose={toggleModal}>
-      <div className={styles.top}>
+    <Modal content_className={classes.modal_recipe} isOpen={isOpen} onRequestClose={toggleModal}>
+      <div className={classes.top}>
         <Typography text={recipe?.title} fSize={32} fWeight={600} maxLines={1} />
 
         <Typography
@@ -27,7 +27,7 @@ const OpenRecipe: React.FC<Props> = ({ isOpen, toggleModal, recipe }) => {
         text={recipe?.description}
         fSize={18}
         fWeight={500}
-        className={styles.description}
+        className={classes.description}
         color="secondary"
         maxLines={20}
       />

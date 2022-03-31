@@ -1,4 +1,4 @@
-import styles from './Button.module.scss';
+import classes from './Button.module.scss';
 import clsx from 'clsx';
 import { ButtonProps } from './types';
 
@@ -22,13 +22,13 @@ const Button: React.FC<ButtonProps> = ({
     color,
   };
 
-  const Spinner = <div className={styles.loader}></div>;
+  const Spinner = <div className={classes.loader}></div>;
   const clickFunc = !disabled && !isLoading ? onClick : () => {};
   type = disabled ? 'inactive' : type;
 
   return (
     <div
-      className={clsx(styles.lib_button, className, styles[type], styles[size])}
+      className={clsx(classes.lib_button, className, classes[type], classes[size])}
       onClick={clickFunc}
       style={potentialStyles}
     >

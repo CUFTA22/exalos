@@ -1,5 +1,5 @@
-import styles from './Select.module.scss';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import classes from './Select.module.scss';
+import { useEffect, useRef, useState } from 'react';
 import { animateStyles, SelectOption, SelectProps } from './types';
 import SelectControl from './components/SelectControl';
 import SelectMenu from './components/SelectMenu';
@@ -42,10 +42,10 @@ const CustomSelect: React.FC<SelectProps> = ({
   const css = { width, cursor: disabled ? 'default' : 'pointer' };
 
   return (
-    <div ref={selectRef} style={css} className={clsx(styles.select_wrapper, className)}>
+    <div ref={selectRef} style={css} className={clsx(classes.select_wrapper, className)}>
       <SelectControl
         toggleOpen={toggleOpen}
-        styles={styles}
+        classes={classes}
         menuOpen={menuOpen}
         selectedOption={selectedOption}
         placeholder={placeholder}
@@ -56,7 +56,7 @@ const CustomSelect: React.FC<SelectProps> = ({
       <Animate animationIn="menuIn" animationOut="menuOut" style={animateStyles}>
         {menuOpen && !disabled && (
           <SelectMenu
-            styles={styles}
+            classes={classes}
             options={options}
             handleChange={handleChange}
             selectedOption={selectedOption}
@@ -67,9 +67,9 @@ const CustomSelect: React.FC<SelectProps> = ({
 
       {isUnderline && (
         <>
-          <div className={clsx(styles.focus_border, { [styles.expand]: menuOpen })}></div>
+          <div className={clsx(classes.focus_border, { [classes.expand]: menuOpen })}></div>
           <div
-            className={clsx(styles.focus_border, styles.full, { [styles.disabled]: disabled })}
+            className={clsx(classes.focus_border, classes.full, { [classes.disabled]: disabled })}
           ></div>
         </>
       )}

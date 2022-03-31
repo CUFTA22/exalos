@@ -1,9 +1,9 @@
 import LeftOptions from '@module/Settings/Left/LeftOptions';
-import styles from './Options.module.scss';
+import classes from './Options.module.scss';
 
 const Options = () => {
   return (
-    <div className={styles.page_index}>
+    <div className={classes.page_index}>
       <LeftOptions />
     </div>
   );

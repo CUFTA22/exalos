@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import SimpleFAB from '@lib/SimpleFAB/SimpleFAB';
 import { debounce } from 'app/utils/functions/debounce';
 import clsx from 'clsx';
-import styles from './Input.module.scss';
+import classes from './Input.module.scss';
 import { InputProps } from './types';
 
 const Input: React.FC<InputProps> = React.forwardRef<HTMLInputElement, InputProps>(
@@ -45,13 +45,15 @@ const Input: React.FC<InputProps> = React.forwardRef<HTMLInputElement, InputProp
     };
 
     return (
-      <div className={clsx(styles.lib_input_container, className)} style={css}>
+      <div className={clsx(classes.lib_input_container, className)} style={css}>
         {icons_front?.map(
           (Icon, i) =>
             Icon && (
               <div
                 key={i}
-                className={clsx(styles.svg, { [styles.disabled]: disabled && applyDisabledStyles })}
+                className={clsx(classes.svg, {
+                  [classes.disabled]: disabled && applyDisabledStyles,
+                })}
               >
                 {Icon}
               </div>
@@ -80,10 +82,10 @@ const Input: React.FC<InputProps> = React.forwardRef<HTMLInputElement, InputProp
 
         {isUnderline && (
           <>
-            <div className={styles.focus_border}></div>
+            <div className={classes.focus_border}></div>
             <div
-              className={clsx(styles.focus_border, styles.full, {
-                [styles.disabled]: disabled && applyDisabledStyles,
+              className={clsx(classes.focus_border, classes.full, {
+                [classes.disabled]: disabled && applyDisabledStyles,
               })}
             ></div>
           </>

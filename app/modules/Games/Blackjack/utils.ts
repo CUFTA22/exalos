@@ -1,8 +1,8 @@
-import { randomNumber } from '@server/utils/functions';
+import { cryptoRandomNumber } from '@server/utils/functions';
 import { BlackjackCard, blackjackCards } from '@utils/resources/blackjackCards';
 
 export const generateRandomCard = (currentArr: BlackjackCard[]) => {
-  let newCard = blackjackCards[randomNumber(0, 12)] as BlackjackCard;
+  let newCard = blackjackCards[cryptoRandomNumber(0, 12)] as BlackjackCard;
 
   if (currentArr.find((item) => item.value === newCard.value))
     return generateRandomCard(currentArr);

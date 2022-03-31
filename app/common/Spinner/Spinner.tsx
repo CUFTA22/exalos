@@ -1,12 +1,12 @@
 import clsx from 'clsx';
-import styles from './Spinner.module.scss';
+import classes from './Spinner.module.scss';
 
 const Spinner = () => {
   return (
-    <div className={styles.loader}>
-      <div className={clsx(styles.inner, styles.one)}></div>
-      <div className={clsx(styles.inner, styles.two)}></div>
-      <div className={clsx(styles.inner, styles.three)}></div>
+    <div className={classes.loader}>
+      <div className={clsx(classes.inner, classes.one)}></div>
+      <div className={clsx(classes.inner, classes.two)}></div>
+      <div className={clsx(classes.inner, classes.three)}></div>
     </div>
   );
 };

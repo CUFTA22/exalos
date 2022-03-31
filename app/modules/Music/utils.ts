@@ -1,4 +1,4 @@
-import { randomNumber } from '@server/utils/functions';
+import { cryptoRandomNumber } from '@server/utils/functions';
 import { musicData } from '@utils/resources/musicData';
 
 export const calculateTime = (time: number) => {
@@ -30,7 +30,7 @@ export const getNextSongClick = (
       nextSong = musicData.find((track) => track.id === nextId).file;
     }
   } else {
-    const randId = randomNumber(1, musicData.length);
+    const randId = cryptoRandomNumber(1, musicData.length);
     nextSong = musicData.find((track) => track.id === randId).file;
   }
 

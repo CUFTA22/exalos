@@ -1,6 +1,6 @@
 import { FluentIconsProps } from '@fluentui/react-icons';
 import clsx from 'clsx';
-import styles from './SimpleFAB.module.scss';
+import classes from './SimpleFAB.module.scss';
 import ripple from '@styles/scss/ripple.module.scss';
 
 interface Props {
@@ -22,11 +22,11 @@ const SimpleFAB: React.FC<Props> = ({
     <div
       onClick={onClick}
       className={clsx(
-        styles.lib_simpleFab,
+        classes.lib_simpleFab,
         ripple.ripple,
         className,
-        styles[`lib_simpleFab_${size}`],
-        { [styles.isActive]: isActive },
+        classes[`lib_simpleFab_${size}`],
+        { [classes.isActive]: isActive },
         'no-clickaway'
       )}
     >

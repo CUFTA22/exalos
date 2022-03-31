@@ -1,4 +1,4 @@
-import styles from './ColorPicker.module.scss';
+import classes from './ColorPicker.module.scss';
 import { Props } from './types';
 import { HexColorPicker } from 'react-colorful';
 import { useCallback, useEffect, useRef, useState } from 'react';
@@ -29,9 +29,9 @@ const ColorPicker: React.FC<Props> = ({ color, isOpen, onChange, isDebounce = fa
 
   if (!state.open) return null;
   return (
-    <div ref={popoverRef} className={styles.color_picker_container} style={css}>
+    <div ref={popoverRef} className={classes.color_picker_container} style={css}>
       <HexColorPicker
-        className={styles.color_picker}
+        className={classes.color_picker}
         color={color}
         onChange={(color) => (isDebounce ? debouncedOnChange(color) : handleChange(color))}
       />

@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { createPortal } from 'react-dom';
 import { Props } from './types';
-import styles from './Modal.module.scss';
+import classes from './Modal.module.scss';
 import { useEffect, useState } from 'react';
 import { useNonInitialEffect } from '@hooks/useNonInitialEffect';
 
@@ -28,10 +28,10 @@ const Modal: React.FC<Props> = ({
     <>
       <div
         className={clsx(
-          styles.lib_modal_overlay,
+          classes.lib_modal_overlay,
           {
-            [styles.overlay_anim_in]: isOpen,
-            [styles.overlay_anim_out]: !isOpen,
+            [classes.overlay_anim_in]: isOpen,
+            [classes.overlay_anim_out]: !isOpen,
           },
           overlay_className
         )}
@@ -39,10 +39,10 @@ const Modal: React.FC<Props> = ({
       />
       <div
         className={clsx(
-          styles.lib_modal_content,
+          classes.lib_modal_content,
           {
-            [styles.content_anim_in]: isOpen,
-            [styles.content_anim_out]: !isOpen,
+            [classes.content_anim_in]: isOpen,
+            [classes.content_anim_out]: !isOpen,
           },
           content_className
         )}

@@ -8,7 +8,7 @@ import PageHead from '@utils/resources/PageHead';
 const Docs = () => {
   return (
     <AppLayout>
-      <PageHead />
+      <PageHead title="Exalos | API Docs" />
 
       <Page />
     </AppLayout>

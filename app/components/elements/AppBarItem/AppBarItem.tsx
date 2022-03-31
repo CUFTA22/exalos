@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { useRouter } from 'next/dist/client/router';
 import Link from 'next/link';
 import React from 'react';
-import styles from './AppBarItem.module.scss';
+import classes from './AppBarItem.module.scss';
 import { Props } from './types';
 
 const AppBarItem: React.FC<Props> = ({ Svg, route, text, isNew, hidden }) => {
@@ -17,9 +17,9 @@ const AppBarItem: React.FC<Props> = ({ Svg, route, text, isNew, hidden }) => {
 
   return (
     <Link href={route}>
-      <div className={clsx(styles.appbar_item, { [styles.active]: isActive })}>
+      <div className={clsx(classes.appbar_item, { [classes.active]: isActive })}>
         <Svg />
-        {/* <div className={styles.txt}>{text}</div> */}
+        {/* <div className={classes.txt}>{text}</div> */}
       </div>
     </Link>
   );

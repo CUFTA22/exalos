@@ -1,4 +1,4 @@
-import styles from './Board.module.scss';
+import classes from './Board.module.scss';
 import Card from '@lib/Card/Card';
 import Input from '@lib/Input/Input';
 import { Dismiss24Regular, TicketHorizontal24Filled } from '@fluentui/react-icons';
@@ -11,10 +11,10 @@ const Board = () => {
   const { betAmount, isLoading, setBetAmount, coins, history, startGame } = useSlots();
 
   return (
-    <Card className={styles.blackjack_board}>
-      <div className={styles.main}>Slots</div>
+    <Card className={classes.blackjack_board}>
+      <div className={classes.main}>Slots</div>
 
-      <div className={styles.controls}>
+      <div className={classes.controls}>
         <Input
           value={betAmount}
           icons_front={[<TicketHorizontal24Filled primaryFill="hsl(128, 88%, 77%)" />]}
@@ -24,21 +24,21 @@ const Board = () => {
           disabled
         />
 
-        <div className={styles.bet_change}>
+        <div className={classes.bet_change}>
           {betChangeOpts(coins).map((opt) => (
             <div
               key={opt.label}
               onClick={() => !isLoading && setBetAmount(opt.value)}
-              className={styles.bet_change_opt}
+              className={classes.bet_change_opt}
             >
               {opt.label}
             </div>
           ))}
         </div>
 
-        <div className={clsx(styles.action_buttons, { [styles.gap]: isLoading })}>
+        <div className={clsx(classes.action_buttons, { [classes.gap]: isLoading })}>
           <Button
-            className={styles.cta}
+            className={classes.cta}
             size="large"
             width={180}
             text="Spin"

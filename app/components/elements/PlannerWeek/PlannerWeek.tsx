@@ -1,4 +1,4 @@
-import styles from './PlannerWeek.module.scss';
+import classes from './PlannerWeek.module.scss';
 import { Planner_Week } from '@ts/planner.types';
 import usePlanner from '@module/Apps/Planner/usePlanner';
 import clsx from 'clsx';
@@ -19,7 +19,7 @@ const PlannerWeek: React.FC<Planner_Week> = ({ week_id }) => {
 
   return (
     <div
-      className={clsx(styles.planner_week, { [styles.active]: isSelected })}
+      className={clsx(classes.planner_week, { [classes.active]: isSelected })}
       onClick={() => setSelectedWeek(week_id)}
     >
       <ConfirmationModal
@@ -35,7 +35,7 @@ const PlannerWeek: React.FC<Planner_Week> = ({ week_id }) => {
       <Dismiss12Regular
         onClick={toggleDeleteModal}
         primaryFill="hsl(0, 88%, 77%)"
-        className={styles.remove_week}
+        className={classes.remove_week}
       />
     </div>
   );

@@ -5,7 +5,7 @@ import { SelectOption } from '../types';
 
 interface Props {
   toggleOpen: () => void;
-  styles: any;
+  classes: any;
   menuOpen: boolean;
   selectedOption: SelectOption;
   icon_control: React.ReactElement<FluentIconsProps>;
@@ -15,7 +15,7 @@ interface Props {
 
 const SelectControl: React.FC<Props> = ({
   toggleOpen,
-  styles,
+  classes,
   menuOpen,
   icon_control,
   placeholder,
@@ -24,12 +24,12 @@ const SelectControl: React.FC<Props> = ({
 }) => {
   const IconControl = icon_control;
   return (
-    <div onClick={toggleOpen} className={styles.select_control}>
-      {IconControl && <div className={styles.select_control_svg}>{IconControl}</div>}
+    <div onClick={toggleOpen} className={classes.select_control}>
+      {IconControl && <div className={classes.select_control_svg}>{IconControl}</div>}
 
       <div
-        className={clsx(styles.select_value_display, 'no-clickaway', {
-          [styles.no_option]: !selectedOption?.label,
+        className={clsx(classes.select_value_display, 'no-clickaway', {
+          [classes.no_option]: !selectedOption?.label,
         })}
       >
         {selectedOption?.label || placeholder}

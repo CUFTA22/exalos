@@ -1,5 +1,5 @@
 import { BlackjackCard } from '@utils/resources/blackjackCards';
-import styles from './CardPattern.module.scss';
+import classes from './CardPattern.module.scss';
 import clsx from 'clsx';
 import Logo from '@assets/logos/exalos.svg';
 import Queen from '@assets/icons/card_queen.svg';
@@ -13,23 +13,25 @@ const CardPattern: React.FC<BlackjackCard> = ({ value, type, color, symbol }) =>
 
   const isSquare = symbol === Stop16Filled;
 
+  console.log({ value, type, color, symbol });
+
   return (
-    <div className={styles.card_pattern}>
+    <div className={classes.card_pattern}>
       {type === 'ace' && (
-        <div className={styles.ace_logo}>
+        <div className={classes.ace_logo}>
           <Logo />
         </div>
       )}
 
-      {['J', 'K', 'Q'].includes(type) && <CardPicture className={styles.picture_logo} />}
+      {['J', 'K', 'Q'].includes(type) && <CardPicture className={classes.picture_logo} />}
 
       {type === 'num' && (
         <div
           className={clsx(
-            styles.number_logo,
-            styles[`number_logo_${value}`],
-            styles[`number_logo_${color}`],
-            { [styles.is_square]: isSquare }
+            classes.number_logo,
+            classes[`number_logo_${value}`],
+            classes[`number_logo_${color}`],
+            { [classes.is_square]: isSquare }
           )}
         >
           {Array.apply(null, Array(value)).map((_val, i) => (

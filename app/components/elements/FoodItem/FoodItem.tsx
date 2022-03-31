@@ -1,4 +1,4 @@
-import styles from './FoodItem.module.scss';
+import classes from './FoodItem.module.scss';
 import Card from '@lib/Card/Card';
 import Typography from '@lib/Typography/Typography';
 import { IRecipe } from '@utils/resources/recipes';
@@ -12,7 +12,7 @@ interface Props extends IRecipe {
 const FoodItem: React.FC<Props> = ({ description, page, setSelectedRecipe, starred, title }) => {
   return (
     <Card
-      className={styles.food_item}
+      className={classes.food_item}
       onClick={() => setSelectedRecipe({ description, page, starred, title })}
     >
       <Typography text={title} width="80%" color="secondary" maxLines={1} />

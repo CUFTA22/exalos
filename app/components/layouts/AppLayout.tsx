@@ -1,4 +1,4 @@
-import styles from './Layout.module.scss';
+import classes from './Layout.module.scss';
 import stars from '@styles/scss/parallaxStars.module.scss';
 
 import useScreenSize from '@hooks/useScreenSize';
@@ -34,7 +34,7 @@ const AppLayout: React.FC = ({ children }) => {
 
       <Shikinami disabled={!gif} />
 
-      <div className={isMobile ? styles.mobile : styles.desktop}>
+      <div className={isMobile ? classes.mobile : classes.desktop}>
         {!isMobile && (
           <>
             <div id={stars.stars}></div>
@@ -47,7 +47,7 @@ const AppLayout: React.FC = ({ children }) => {
 
         <div
           id="np-container"
-          className={!isMobile ? styles.desktop_content : styles.mobile_content}
+          className={!isMobile ? classes.desktop_content : classes.mobile_content}
         >
           <NextNProgress />
           {children}

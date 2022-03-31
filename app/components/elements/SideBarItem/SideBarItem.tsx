@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { useRouter } from 'next/dist/client/router';
 import Link from 'next/link';
 import React from 'react';
-import styles from './SideBarItem.module.scss';
+import classes from './SideBarItem.module.scss';
 import { Props } from './types';
 
 const SideBarItem: React.FC<Props> = ({ Svg, route, text, isNew, hidden }) => {
@@ -16,10 +16,10 @@ const SideBarItem: React.FC<Props> = ({ Svg, route, text, isNew, hidden }) => {
 
   return (
     <Link href={route}>
-      <div className={clsx(styles.sidebar_item, { [styles.active]: isActive })}>
+      <div className={clsx(classes.sidebar_item, { [classes.active]: isActive })}>
         <Svg />
-        <div className={styles.txt}>{text}</div>
-        {isNew && <div className={styles.new_chip}></div>}
+        <div className={classes.txt}>{text}</div>
+        {isNew && <div className={classes.new_chip}></div>}
       </div>
     </Link>
   );

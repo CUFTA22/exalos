@@ -1,7 +1,7 @@
 import { Dismiss24Regular } from '@fluentui/react-icons';
 import clsx from 'clsx';
 import React, { useState } from 'react';
-import styles from './notification.module.scss';
+import classes from './notification.module.scss';
 import { handleSVGIcon } from './utils';
 
 export interface Notif {
@@ -19,9 +19,9 @@ const useNotification = () => {
 
   const Notification = (args?: Notif) => {
     return (
-      <div className={clsx(styles.notify, styles[args.type])}>
+      <div className={clsx(classes.notify, classes[args.type])}>
         {handleSVGIcon[args.type]}
-        <div className={styles.notify_msg}>{args.message}</div>
+        <div className={classes.notify_msg}>{args.message}</div>
         <Dismiss24Regular />
       </div>
     );
@@ -29,7 +29,7 @@ const useNotification = () => {
 
   const NotificationContainer: React.FC<{ arr: Notif[] }> = ({ arr }) => {
     return (
-      <div className={styles.notify_container}>
+      <div className={classes.notify_container}>
         {list.map((notif, i) => (
           <Notification key={i} {...notif} />
         ))}

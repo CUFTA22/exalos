@@ -2,7 +2,7 @@ import Button from '@lib/Button/Button';
 import Modal from '@lib/Modal/Modal';
 import Typography from '@lib/Typography/Typography';
 import clsx from 'clsx';
-import styles from './ConfirmationModal.module.scss';
+import classes from './ConfirmationModal.module.scss';
 import { CModalProps } from './types';
 
 const ConfirmationModal: React.FC<CModalProps> = ({
@@ -17,12 +17,12 @@ const ConfirmationModal: React.FC<CModalProps> = ({
   secondBtnTxt = 'Cancel',
 }) => {
   return (
-    <Modal content_className={styles.c_modal} isOpen={isOpen} onRequestClose={toggleOpen}>
+    <Modal content_className={classes.c_modal} isOpen={isOpen} onRequestClose={toggleOpen}>
       <Typography fSize={24} fWeight={500} pad="24px" text={title || 'Are you sure?'} />
       <Typography pad="0 24px" text={subtitle || 'Please confirm this action!'} />
 
       <Button
-        className={styles.cta}
+        className={classes.cta}
         type={type}
         text={firstBtnTxt}
         width={150}
@@ -30,7 +30,7 @@ const ConfirmationModal: React.FC<CModalProps> = ({
         isLoading={isLoading}
       />
       <Button
-        className={clsx(styles.cta, styles.cta_cancel)}
+        className={clsx(classes.cta, classes.cta_cancel)}
         type="inactive"
         text={secondBtnTxt}
         width={150}

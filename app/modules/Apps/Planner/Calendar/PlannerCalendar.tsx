@@ -1,6 +1,6 @@
 import PlannerHourTracker from '@element/PlannerHourTracker/PlannerHourTracker';
 import Card from '@lib/Card/Card';
-import styles from './Calendar.module.scss';
+import classes from './Calendar.module.scss';
 import Calendar from './components/Calendar';
 import Days from './components/Days';
 import EmptyState from './components/EmptyState';
@@ -11,19 +11,19 @@ const CreateCalendar: React.FC<CalendarProps> = ({ plannerData }) => {
   if (!plannerData) return <EmptyState />;
 
   return (
-    <Card className={styles.calendar}>
-      <div className={styles.days_container}>
+    <Card className={classes.calendar}>
+      <div className={classes.days_container}>
         <Days plannerData={plannerData} />
       </div>
 
-      <div className={styles.cells_container}>
-        <div className={styles.content_container}>
+      <div className={classes.cells_container}>
+        <div className={classes.content_container}>
           <Calendar plannerData={plannerData} />
           <PlannerHourTracker />
         </div>
       </div>
-      <div className={styles.weeks_container}>
-        <Weeks plannerData={plannerData} addClassName={styles.add_week} />
+      <div className={classes.weeks_container}>
+        <Weeks plannerData={plannerData} addClassName={classes.add_week} />
       </div>
     </Card>
   );

@@ -1,6 +1,6 @@
 import Card from '../Card/Card';
 import Typography from '@lib/Typography/Typography';
-import styles from './Hand.module.scss';
+import classes from './Hand.module.scss';
 import { Props } from './types';
 import { calculateHandValue } from '../utils';
 import {
@@ -20,12 +20,12 @@ const Hand: React.FC<Props> = ({ cards, title }) => {
   const houseValue = calculateHandValue(handHouse);
 
   return (
-    <div className={styles.hand}>
+    <div className={classes.hand}>
       {cards.length ? (
-        <div className={styles.top}>
+        <div className={classes.top}>
           <Typography text={title} fSize={24} color="secondary" />
           {!isHouse && isLoading && handValue === 21 && (
-            <div className={styles.BJ}>
+            <div className={classes.BJ}>
               <Premium24Regular />
               <span>Blackjack</span>
             </div>
@@ -36,7 +36,7 @@ const Hand: React.FC<Props> = ({ cards, title }) => {
           {!isHouse &&
             !isLoading &&
             (handValue > 21 || (handValue < houseValue && houseValue <= 21)) && (
-              <div className={styles.LOST}>
+              <div className={classes.LOST}>
                 <Dismiss24Regular />
                 <span>Lost</span>
               </div>
@@ -44,13 +44,13 @@ const Hand: React.FC<Props> = ({ cards, title }) => {
           {!isHouse &&
             !isLoading &&
             ((houseValue < handValue && handValue <= 21) || houseValue > 21) && (
-              <div className={styles.WIN}>
+              <div className={classes.WIN}>
                 <Trophy24Regular />
                 <span>Win</span>
               </div>
             )}
           {!isHouse && !isLoading && handValue === houseValue && handValue <= 21 && (
-            <div className={styles.DRAW}>
+            <div className={classes.DRAW}>
               <Block24Regular />
               <span>Draw</span>
             </div>
@@ -58,7 +58,7 @@ const Hand: React.FC<Props> = ({ cards, title }) => {
         </div>
       ) : null}
 
-      <div className={styles.cards}>
+      <div className={classes.cards}>
         {cards.map((c, i) => (
           <Card key={i} {...c} isFlipped={isHouse && i > 0 && isLoading} />
         ))}

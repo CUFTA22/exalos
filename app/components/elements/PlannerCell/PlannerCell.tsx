@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import styles from './PlannerCell.module.scss';
+import classes from './PlannerCell.module.scss';
 import clsx from 'clsx';
 import usePlanner from '@module/Apps/Planner/usePlanner';
 import useCell from './utils/useCell';
@@ -42,11 +42,11 @@ const PlannerCell: React.FC<Planner_Cell> = (props) => {
   return (
     <div
       ref={isSelected ? cellRef : null}
-      className={clsx(styles.planner_cell, styles[`selected_${isSelected}`])}
+      className={clsx(classes.planner_cell, classes[`selected_${isSelected}`])}
       onClick={handleClick}
       style={{ ...typeStyles }}
     >
-      <CellHour cell_id={props.cell_id} className={styles.display_hour} />
+      <CellHour cell_id={props.cell_id} className={classes.display_hour} />
 
       {isSelected ? (
         <Input
@@ -60,10 +60,10 @@ const PlannerCell: React.FC<Planner_Cell> = (props) => {
           isUnderline={false}
         />
       ) : (
-        <div className={styles.display_text}>{inputVal}</div>
+        <div className={classes.display_text}>{inputVal}</div>
       )}
 
-      <CellLabels {...props} className={styles.display_labels} />
+      <CellLabels {...props} className={classes.display_labels} />
     </div>
   );
 };

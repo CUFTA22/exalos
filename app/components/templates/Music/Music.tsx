@@ -1,9 +1,9 @@
 import MusicApp from '@module/Music/Wrapper/Wrapper';
-import styles from './Music.module.scss';
+import classes from './Music.module.scss';
 
 const Music = () => {
   return (
-    <div className={styles.page_music}>
+    <div className={classes.page_music}>
       <MusicApp />
     </div>
   );

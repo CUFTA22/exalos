@@ -1,4 +1,4 @@
-import styles from './Visualizer.module.scss';
+import classes from './Visualizer.module.scss';
 import { useEffect, useRef } from 'react';
 import { State } from '../Wrapper/types';
 import drawVisualizer from './draw';
@@ -65,8 +65,8 @@ const Visualizer: React.FC<Props> = ({ wrapperState }) => {
   }, [wrapperState.isPlaying, audioPlayer?.current?.readyState]);
 
   return (
-    <div className={styles.visualizer}>
-      <canvas ref={canvasRef} className={styles.canvas} height="360" width="360"></canvas>
+    <div className={classes.visualizer}>
+      <canvas ref={canvasRef} className={classes.canvas} height="360" width="360"></canvas>
     </div>
   );
 };
