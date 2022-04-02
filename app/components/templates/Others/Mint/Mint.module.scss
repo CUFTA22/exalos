@@ -35,10 +35,13 @@
     }
 
     pre {
-      padding: 6px 12px;
+      width: 100%;
+      max-width: 800px;
+
+      padding: 12px;
       overflow: auto;
       border-radius: 4px;
-      width: fit-content;
+
       margin-bottom: 36px;
 
       background-color: #222631;

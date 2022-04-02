@@ -1,7 +1,14 @@
 import Card from '@lib/Card/Card';
 import classes from './Mint.module.scss';
 
-import { gitCommands, lwCommands, lwConfig, nodeCommands, vscCommands } from './commands';
+import {
+  dockerCommands,
+  gitCommands,
+  lwCommands,
+  lwConfig,
+  nodeCommands,
+  vscCommands,
+} from './commands';
 import Button from '@lib/Button/Button';
 
 const Mint: React.FC = () => {
@@ -64,6 +71,12 @@ const Mint: React.FC = () => {
 
         <pre>
           <code>sudo apt install -y build-essential</code>
+        </pre>
+
+        <div className={classes.title}># Docker</div>
+
+        <pre>
+          <code>{dockerCommands}</code>
         </pre>
 
         <div className={classes.title}># Slack</div>
