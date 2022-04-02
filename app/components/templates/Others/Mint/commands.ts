@@ -41,17 +41,18 @@ sudo apt-get purge docker docker-ce docker-ce-cli docker-engine docker.io contai
 sudo apt-get update
 sudo apt-get upgrade
 
-sudo apt-install docker.io
+sudo apt install docker.io
 sudo systemctl start docker
 sudo systemctl enable docker
 
 // Should see active (running) in green
 sudo systemctl status docker 
 
-
 // Install docker-compose
 sudo apt install docker-compose
 
+// Check for premission errors
+docker ps
 
 // Fix premission error
 sudo groupadd docker
