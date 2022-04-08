@@ -46,6 +46,11 @@
         cursor: pointer;
       }
 
+      svg {
+        min-width: 24px;
+        min-height: 24px;
+      }
+
       .volume_slider {
         margin-bottom: 60px;
 

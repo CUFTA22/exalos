@@ -16,7 +16,7 @@ const Files: React.FC = () => {
             size="large"
             text="Bookmarks"
             onClick={() => {
-              window.open('/files/bookmarks.html', '_blank');
+              window.open(process.env.NEXT_PUBLIC_STATIC_URL + '/files/bookmarks.html', '_blank');
             }}
           />
 
@@ -26,7 +26,7 @@ const Files: React.FC = () => {
             size="large"
             text="CV"
             onClick={() => {
-              window.open('/files/cv.pdf', '_blank');
+              window.open(process.env.NEXT_PUBLIC_STATIC_URL + '/files/cv.pdf', '_blank');
             }}
           />
         </div>

@@ -31,7 +31,7 @@ const Header: React.FC<Props> = ({ query, setQuery, type, setType }) => {
       <div className={classes.right}>
         <Button
           text="View PDF"
-          onClick={() => window.open('/files/food.pdf')}
+          onClick={() => window.open(process.env.NEXT_PUBLIC_STATIC_URL + '/files/food.pdf')}
           Icon={Document24Regular}
         />
       </div>
