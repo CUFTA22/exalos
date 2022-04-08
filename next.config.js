@@ -29,6 +29,7 @@ module.exports = withPWA({
 
   // Rust compiler for minification.
   swcMinify: true,
+
   // experimental: {
   //   urlImports: ['https://cdn.skypack.dev'],
   // },

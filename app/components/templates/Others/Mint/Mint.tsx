@@ -45,6 +45,12 @@ const Mint: React.FC = () => {
           <code>npm install --global yarn</code>
         </pre>
 
+        <div className={classes.title}># Papirus icons</div>
+
+        <div className={classes.txt}>Software Manager - Papirus-icon-theme</div>
+
+        <div className={classes.txt}>{`Preferences -> Themes -> Select Papirus-dark`}</div>
+
         <div className={classes.title}># Librewolf</div>
 
         <div className={classes.row}>

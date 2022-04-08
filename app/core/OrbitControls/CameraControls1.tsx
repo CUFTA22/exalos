@@ -1,8 +1,16 @@
-import { Canvas, extend, useFrame, useThree } from '@react-three/fiber';
+import { Canvas, extend, ReactThreeFiber, useFrame, useThree } from '@react-three/fiber';
 import { useRef } from 'react';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 extend({ OrbitControls });
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      orbitControls: ReactThreeFiber.Object3DNode<OrbitControls, typeof OrbitControls>;
+    }
+  }
+}
 
 const CameraControls1 = () => {
   // Get a reference to the Three.js Camera, and the canvas html element.
@@ -15,7 +23,7 @@ const CameraControls1 = () => {
   // Ref to the controls, so that we can update them on every frame using useFrame
   const controls = useRef<any>();
   useFrame((state) => controls.current.update());
-  // @ts-ignore
+
   return <orbitControls ref={controls} args={[camera, domElement]} />;
 };
 

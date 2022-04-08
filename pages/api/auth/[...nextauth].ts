@@ -32,7 +32,7 @@ export default NextAuth({
   // You can quickly create a valid secret on the command line via this openssl command.
   //? openssl rand -base64 32
 
-  secret: process.env.JWT_SECRET,
+  secret: process.env.AUTH_SECRET,
 
   // You can define custom pages to override the built-in ones. These will be regular Next.js pages
   // so ensure that they are placed outside of the '/api' folder, e.g. signIn: '/auth/mycustom-signin'

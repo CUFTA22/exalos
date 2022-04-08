@@ -9,6 +9,8 @@ import {
   Premium24Regular,
 } from '@fluentui/react-icons';
 
+import VLIcon from '../../../public/assets/logos/voxel_life.svg';
+
 import { INavItem } from '@ts/nav.types';
 
 export const gameItems: INavItem[] = [
@@ -31,9 +33,15 @@ export const gameItems: INavItem[] = [
     hidden: false,
   },
   {
-    text: 'Slots',
-    Svg: ColumnTriple24Regular,
-    route: '/games/slots',
+    text: 'Voxel Life',
+    Svg: VLIcon,
+    route: '/games/vl',
     hidden: true,
   },
+  // {
+  //   text: 'Slots',
+  //   Svg: ColumnTriple24Regular,
+  //   route: '/games/slots',
+  //   hidden: true,
+  // },
 ];

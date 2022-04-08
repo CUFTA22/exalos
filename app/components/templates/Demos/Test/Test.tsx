@@ -7,7 +7,7 @@ import NPMIcon from '@assets/logos/npm.svg';
 const Test: React.FC = () => {
   return (
     <div className={classes.pageThree_test}>
-      <CustomCanvas>
+      <CustomCanvas axesHelper={true}>
         <TestScene />
       </CustomCanvas>
 

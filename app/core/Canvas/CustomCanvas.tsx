@@ -1,10 +1,17 @@
 import { Canvas } from '@react-three/fiber';
 import CameraControls1 from '../OrbitControls/CameraControls1';
 
-const CustomCanvas: React.FC = ({ children }) => {
+interface Props {
+  axesHelper?: boolean;
+  controls?: boolean;
+}
+
+const CustomCanvas: React.FC<Props> = ({ children, axesHelper = false, controls = true }) => {
   return (
     <Canvas>
-      <CameraControls1 />
+      {controls && <CameraControls1 />}
+
+      {axesHelper && <axesHelper args={[10]} />}
 
       {children}
     </Canvas>
