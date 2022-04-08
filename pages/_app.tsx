@@ -2,13 +2,14 @@ import '@styles/base/_base.scss';
 import '@styles/base/_lib.scss';
 import '@styles/base/_transitions.scss';
 
+// import type { AppProps } from 'next/app';
+// import useLogVisit from '@module/Log/Slack/useLogVisit';
+
 import { SessionProvider } from 'next-auth/react';
-import type { AppProps } from 'next/app';
-import useLogVisit from '@module/Log/Slack/useLogVisit';
 import { GlobalCTXProvider } from 'app/store/global/CTX';
 import { useEffect, useState } from 'react';
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: any) {
   // useLogVisit();
 
   // Fix react 18 hidration error
