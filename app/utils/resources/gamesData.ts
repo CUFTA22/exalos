@@ -2,12 +2,7 @@
 // Games
 // --------------------------------------------------------
 
-import {
-  AppRecent24Regular,
-  ColumnTriple24Regular,
-  MusicNote124Regular,
-  Premium24Regular,
-} from '@fluentui/react-icons';
+import { AppRecent24Regular, Premium24Regular } from '@fluentui/react-icons';
 
 import VLIcon from '../../../public/assets/logos/voxel_life.svg';
 
@@ -38,10 +33,4 @@ export const gameItems: INavItem[] = [
     route: '/games/vl',
     hidden: true,
   },
-  // {
-  //   text: 'Slots',
-  //   Svg: ColumnTriple24Regular,
-  //   route: '/games/slots',
-  //   hidden: true,
-  // },
 ];

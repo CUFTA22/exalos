@@ -7,7 +7,9 @@ import {
   DocumentToolbox24Regular,
   MailInbox24Regular,
 } from '@fluentui/react-icons';
+
 import MintRegular from '@assets/logos/mint.svg';
+import ArchRegular from '@assets/logos/arch.svg';
 
 import { INavItem } from '@ts/nav.types';
 
@@ -24,6 +26,12 @@ export const othersData: INavItem[] = [
     route: '/others/linux-mint',
     hidden: false,
   },
+  // {
+  //   text: 'Arch Config',
+  //   Svg: ArchRegular,
+  //   route: '/others/linux-mint',
+  //   hidden: true,
+  // },
   {
     text: 'Files',
     Svg: MailInbox24Regular,

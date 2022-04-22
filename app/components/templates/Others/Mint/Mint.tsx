@@ -1,6 +1,8 @@
 import Card from '@lib/Card/Card';
 import classes from './Mint.module.scss';
 
+import LWLogo from '@assets/logos/lw.svg';
+
 import {
   dockerCommands,
   gitCommands,
@@ -39,6 +41,18 @@ const Mint: React.FC = () => {
           <code>{nodeCommands}</code>
         </pre>
 
+        <div className={classes.title}># NVM - Node Version Manager</div>
+
+        <div className={classes.row}>
+          <a
+            href="https://letscodepare.com/blog/how-to-install-nvm-node-version-manager-on-linux"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button className={classes.btn} text="Website" />
+          </a>
+        </div>
+
         <div className={classes.title}># Yarn</div>
 
         <pre>
@@ -49,9 +63,15 @@ const Mint: React.FC = () => {
 
         <div className={classes.txt}>Software Manager - Papirus-icon-theme</div>
 
+        <div className={classes.title}># Diodon - clipboard manager</div>
+
+        <div className={classes.txt}>Software Manager - Diodon</div>
+
         <div className={classes.txt}>{`Preferences -> Themes -> Select Papirus-dark`}</div>
 
-        <div className={classes.title}># Librewolf</div>
+        <div className={classes.title}>
+          <LWLogo /> # Librewolf
+        </div>
 
         <div className={classes.row}>
           <a

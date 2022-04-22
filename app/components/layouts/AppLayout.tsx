@@ -23,7 +23,6 @@ const AppLayout: React.FC = ({ children }) => {
 
   return (
     <>
-      {/* <Cursor disabled={!customCursor} /> */}
       <CustomCursor
         component={Logo}
         isDisabled={!customCursor}

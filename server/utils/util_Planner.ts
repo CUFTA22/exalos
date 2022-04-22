@@ -25,6 +25,7 @@ export const getDefaultSettings = (): Planner_Settings => ({
 
 const generateCells = (): Planner_Cell[] => {
   let arr: Planner_Cell[] = [];
+
   Array.apply(null, Array(7 * 24)).map((_x: undefined, i: number) => {
     const cycle = Math.floor(i / 24);
     return arr.push({
@@ -35,6 +36,7 @@ const generateCells = (): Planner_Cell[] => {
       type_id: null,
     });
   });
+
   return arr;
 };
 

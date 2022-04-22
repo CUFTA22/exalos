@@ -18,6 +18,14 @@
       font-weight: 500;
       color: variables.$color-text-primary;
       margin-bottom: 24px;
+
+      @include mixins.flex-row-start;
+
+      svg {
+        width: 48px;
+        height: auto;
+        margin-right: 12px;
+      }
     }
 
     .row {
