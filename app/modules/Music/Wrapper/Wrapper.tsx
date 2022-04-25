@@ -4,7 +4,7 @@ import {
   MusicNote224Filled,
 } from '@fluentui/react-icons';
 import Card from '@lib/Card/Card';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Controls from '../Controls/Controls';
 import Library from '../Library/Library';
 import { initialState, State } from './types';
@@ -13,6 +13,7 @@ import clsx from 'clsx';
 import Typography from '@lib/Typography/Typography';
 import Visualizer from '../Visualizer/Visualizer';
 import { musicData } from '@utils/resources/musicData';
+import useGestures from '@hooks/useGestures';
 
 const Wrapper = () => {
   const [state, setState] = useState<State>(initialState);
@@ -23,8 +24,19 @@ const Wrapper = () => {
   // For mobile navigation
   const [tab, setTab] = useState<'music' | 'library'>('library');
 
+  const musicApp = useRef<HTMLDivElement>(null);
+
+  useGestures(musicApp, {
+    onSwipeLeft: () => {
+      setTab('music');
+    },
+    onSwipeRight: () => {
+      setTab('library');
+    },
+  });
+
   return (
-    <div className={clsx(classes.music_wrapper, classes[`tab_${tab}`])}>
+    <div ref={musicApp} className={clsx(classes.music_wrapper, classes[`tab_${tab}`])}>
       <Card className={classes.main_library}>
         <div className={classes.top}>
           <div style={{ width: '24px' }}></div>
