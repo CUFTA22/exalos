@@ -86,7 +86,7 @@ export default function useGestures(
   ref,
   handlers,
   options = {
-    minDelta: 30,
+    minDelta: 1,
   }
 ) {
   const touchesRef = useRef();
