@@ -30,7 +30,7 @@ const Yt2mp3 = () => {
       <Card className={classes.center}>
         <Typography
           className={classes.title}
-          text="Yt2mp3"
+          text="YouTube -> .mp3"
           color="primary"
           fSize={36}
           fWeight={600}
@@ -48,6 +48,7 @@ const Yt2mp3 = () => {
           text="Download"
           onClick={handleSubmit}
           isLoading={loading}
+          disabled={!song}
         />
       </Card>
     </div>

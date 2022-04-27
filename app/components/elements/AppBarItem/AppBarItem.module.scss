@@ -12,38 +12,32 @@
   overflow: hidden;
   margin-top: 5px;
 
-  transition: animations.$tran-sidebarItem;
+  transition: all 0.2s ease-in-out;
   color: variables.$color-text-secondary;
 
   @include mixins.flex-col-center;
 
-  &:hover {
-    @include mixins.sidebar-item;
-    color: variables.$color-primary;
-    svg {
-      * {
-        fill: variables.$color-primary;
-      }
-    }
-  }
-
-  &.active {
-    @include mixins.sidebar-item;
-    color: variables.$color-primary;
-    svg {
-      * {
-        fill: variables.$color-primary;
-      }
-    }
-  }
-
   svg {
     * {
-      fill: variables.$color-text-secondary;
+      transition: all 0.2s ease-in-out;
+      fill: variables.$color-text-secondary !important;
     }
 
     width: 28px;
     height: 28px;
     margin: 12px 0;
+  }
+
+  &:hover,
+  &.active {
+    color: variables.$color-primary;
+
+    @include mixins.sidebar-item;
+
+    svg {
+      * {
+        fill: variables.$color-primary !important;
+      }
+    }
   }
 }

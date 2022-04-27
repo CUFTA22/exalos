@@ -1,16 +1,13 @@
 import {
   Cube24Regular,
   Diversity24Regular,
-  DocumentToolbox24Regular,
-  FoodPizza24Regular,
   Games24Regular,
-  Globe24Regular,
   Grid24Regular,
   Home24Regular,
   MusicNote124Regular,
   Options24Regular,
-  Symbols24Regular,
 } from '@fluentui/react-icons';
+import YouTubeRegular from '@assets/logos/youtube.svg';
 
 import { INavItem } from '@ts/nav.types';
 
@@ -26,10 +23,10 @@ export const appBarItems: INavItem[] = [
     hidden: false,
   },
   {
-    text: 'Games',
-    Svg: Games24Regular,
-    route: '/games',
-    hidden: true,
+    text: 'Yt2Mp3',
+    Svg: YouTubeRegular,
+    route: '/apps/yt2mp3',
+    hidden: false,
   },
   {
     text: 'Music',
