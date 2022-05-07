@@ -5,7 +5,7 @@ export async function middleware(req: NextRequest, ev: NextFetchEvent) {
   const { nextUrl: { pathname }, ip } = req;
 
   if (process.env.ALLOWED_IP !== ip) {
-    return NextResponse.redirect('/401', 401);
+    return NextResponse.redirect('/401');
   }
 
   if (pathname.includes('dashboard')) {
