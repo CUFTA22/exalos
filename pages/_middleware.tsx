@@ -4,7 +4,9 @@ export async function middleware(req: NextRequest, ev: NextFetchEvent) {
   // prettier-ignore
   const { nextUrl: { pathname }, ip } = req;
 
-  return NextResponse.json(req.ip);
+  if (process.env.ALLOWED_IP !== ip) {
+    return NextResponse.redirect('/401', 401);
+  }
 
   if (pathname.includes('dashboard')) {
     return NextResponse.redirect('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
