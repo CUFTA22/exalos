@@ -2,10 +2,12 @@ import { NextResponse, NextRequest, NextFetchEvent } from 'next/server';
 
 export async function middleware(req: NextRequest, ev: NextFetchEvent) {
   // prettier-ignore
-  const { nextUrl: { pathname }, ip } = req;
+  const { nextUrl, nextUrl: { pathname }, ip } = req;
 
   if (process.env.ALLOWED_IP !== ip) {
-    return NextResponse.redirect('/401');
+    const url = nextUrl.clone();
+    url.pathname = '/401';
+    return NextResponse.rewrite(url);
   }
 
   if (pathname.includes('dashboard')) {
