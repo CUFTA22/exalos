@@ -4,7 +4,7 @@ export async function middleware(req: NextRequest, ev: NextFetchEvent) {
   // prettier-ignore
   const { nextUrl, nextUrl: { pathname }, ip } = req;
 
-  if (process.env.ALLOWED_IP !== ip) {
+  if (process.env.ALLOWED_IP !== ip && process.env.NODE_ENV !== 'development') {
     const url = nextUrl.clone();
     url.pathname = '/401';
     return NextResponse.rewrite(url);

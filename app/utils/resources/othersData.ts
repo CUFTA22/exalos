@@ -9,7 +9,9 @@ import {
 } from '@fluentui/react-icons';
 
 import MintRegular from '@assets/logos/mint.svg';
-import ArchRegular from '@assets/logos/arch.svg';
+// import ArchRegular from '@assets/logos/arch.svg';
+// import KaliRegular from '@assets/logos/kali.svg';
+import WireGuardRegular from '@assets/logos/wireguard.svg';
 
 import { INavItem } from '@ts/nav.types';
 
@@ -32,6 +34,18 @@ export const othersData: INavItem[] = [
   //   route: '/others/linux-mint',
   //   hidden: true,
   // },
+  // {
+  //   text: 'Kali Config',
+  //   Svg: KaliRegular,
+  //   route: '/others/linux-kali',
+  //   hidden: true,
+  // },
+  {
+    text: 'WireGuard',
+    Svg: WireGuardRegular,
+    route: '/others/wireguard',
+    hidden: false,
+  },
   {
     text: 'Files',
     Svg: MailInbox24Regular,
