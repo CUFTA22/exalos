@@ -48,8 +48,12 @@ sudo systemctl enable docker
 // Should see active (running) in green
 sudo systemctl status docker 
 
-// Install docker-compose
-sudo apt install docker-compose
+// Install docker-compose, check for latest version
+// https://github.com/docker/compose/releases
+
+sudo curl -L https://github.com/docker/compose/releases/download/v2.5.1/docker-compose-${'`uname -s`'}-${'`uname -m`'} -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version
 
 // Check for premission errors
 docker ps
