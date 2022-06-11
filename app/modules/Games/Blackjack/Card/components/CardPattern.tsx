@@ -13,8 +13,6 @@ const CardPattern: React.FC<BlackjackCard> = ({ value, type, color, symbol }) =>
 
   const isSquare = symbol === Stop16Filled;
 
-  console.log({ value, type, color, symbol });
-
   return (
     <div className={classes.card_pattern}>
       {type === 'ace' && (

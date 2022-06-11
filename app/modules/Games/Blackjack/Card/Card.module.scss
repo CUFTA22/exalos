@@ -1,4 +1,5 @@
 @use 'variables';
+@use 'transitions';
 
 .card {
   width: 140px;
@@ -16,6 +17,8 @@
   border-radius: 10px;
 
   margin-right: 12px;
+
+  animation: card-in 0.3s ease-in-out normal;
 
   .top_num {
     position: absolute;
